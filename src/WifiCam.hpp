@@ -1,15 +1,24 @@
 #ifndef WIFICAM_HPP
 #define WIFICAM_HPP
 
-#include <esp32cam.h>
-
 #include <WebServer.h>
+#include "camera.hpp"
 
-extern esp32cam::Resolution initialResolution;
+class WifiCam {
+public:
+  WifiCam();
 
-extern WebServer server;
+  void init();
 
-void
-addRequestHandlers();
+  void handleClient();
+
+private:
+  WebServer server;
+  Camera camera;
+
+  void addRequestHandlers();
+
+  void serveJPG();
+};
 
 #endif // WIFICAM_HPP
