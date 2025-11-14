@@ -1,6 +1,6 @@
 #include "WifiCam.hpp"
 #include <WiFi.h>
-#include "config.hpp"
+#include "app_camera_esp.h"
 
 WifiCam::WifiCam()
   : server(80) {}
@@ -22,12 +22,8 @@ WifiCam::init() {
   Serial.println("WiFi connected");
   delay(1000);
 
-  if (!camera.init()) {
-    Serial.println("camera initialize failure");
-    delay(5000);
-    ESP.restart();
-  }
-  Serial.println("camera initialize success");
+  // Camera already initialized by app_camera_init() in main.cpp
+  Serial.println("camera already initialized");
 
   pinMode(LED_GPIO_NUM, OUTPUT);
   analogWrite(LED_GPIO_NUM, 10);  // 3% brightness
@@ -59,7 +55,7 @@ WifiCam::addRequestHandlers() {
 
 void
 WifiCam::serveJPG() {
-  camera_fb_t * fb = camera.capture();
+  camera_fb_t * fb = esp_camera_fb_get();
   if (!fb) {
     Serial.println("capture() failure");
     server.send(500, "text/plain", "still capture error\n");
@@ -71,5 +67,5 @@ WifiCam::serveJPG() {
   server.setContentLength(fb->len);
   server.send(200, "image/jpeg");
   client.write(fb->buf, fb->len);
-  camera.returnFrame(fb);
+  esp_camera_fb_return(fb);
 }

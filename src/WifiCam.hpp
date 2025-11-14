@@ -2,7 +2,7 @@
 #define WIFICAM_HPP
 
 #include <WebServer.h>
-#include "camera.hpp"
+#include <esp_camera.h>
 
 class WifiCam {
 public:
@@ -14,7 +14,6 @@ public:
 
 private:
   WebServer server;
-  Camera camera;
 
   void addRequestHandlers();
 
