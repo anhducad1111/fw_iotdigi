@@ -4,7 +4,7 @@
 #define CLASSFFLOWTAKEIMAGE_H
 
 #include "ClassFlowImage.h"
-#include "ClassControllCamera.h"
+#include "ClassControlCamera.h"
 #include "../../include/defines.h"
 
 #include <string>

@@ -11,7 +11,7 @@ static const char *TAG = "CLASS";
 
 void ClassFlow::SetInitialParameter(void)
 {
-	ListFlowControll = NULL;
+	ListFlowControl = NULL;
 	previousElement = NULL;	
 	disabled = false;
 }
@@ -43,13 +43,13 @@ ClassFlow::ClassFlow(void)
 ClassFlow::ClassFlow(std::vector<ClassFlow*> * lfc)
 {
 	SetInitialParameter();	
-	ListFlowControll = lfc;
+	ListFlowControl = lfc;
 }
 
 ClassFlow::ClassFlow(std::vector<ClassFlow*> * lfc, ClassFlow *_prev)
 {
 	SetInitialParameter();	
-	ListFlowControll = lfc;
+	ListFlowControl = lfc;
 	previousElement = _prev;
 }	
 

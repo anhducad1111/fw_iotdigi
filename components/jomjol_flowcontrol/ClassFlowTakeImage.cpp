@@ -8,7 +8,7 @@
 #include "ClassLogFile.h"
 
 #include "CImageBasis.h"
-#include "ClassControllCamera.h"
+#include "ClassControlCamera.h"
 #include "MainFlowControl.h"
 
 #include "esp_wifi.h"

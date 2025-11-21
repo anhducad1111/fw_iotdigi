@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef CLASSFLOWCONTROLL_H
-#define CLASSFLOWCONTROLL_H
+#ifndef CLASSFLOWCONTROL_H
+#define CLASSFLOWCONTROL_H
 
 #include <string>
 
@@ -10,20 +10,13 @@
 #include "ClassFlowAlignment.h"
 #include "ClassFlowCNNGeneral.h"
 #include "ClassFlowPostProcessing.h"
-#ifdef ENABLE_INFLUXDB
-	#include "ClassFlowInfluxDB.h"
-	#include "ClassFlowInfluxDBv2.h"
-#endif //ENABLE_INFLUXDB
-#ifdef ENABLE_WEBHOOK
-	#include "ClassFlowWebhook.h"
-#endif //ENABLE_WEBHOOK
 #include "ClassFlowCNNGeneral.h"
 
-class ClassFlowControll :
+class ClassFlowControl :
     public ClassFlow
 {
 protected:
-	std::vector<ClassFlow*> FlowControll;
+	std::vector<ClassFlow*> FlowControl;
 	ClassFlowPostProcessing* flowpostprocessing;
 	ClassFlowAlignment* flowalignment;	
 	ClassFlowCNNGeneral* flowanalog;
@@ -82,7 +75,7 @@ public:
 	
 	int CleanTempFolder();
 
-	string name(){return "ClassFlowControll";};
+	string name(){return "ClassFlowControl";};
 };
 
 #endif

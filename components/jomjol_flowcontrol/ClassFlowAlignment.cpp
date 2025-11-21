@@ -23,7 +23,7 @@ void ClassFlowAlignment::SetInitialParameter(void)
     SaveAllFiles = false;
     namerawimage = "/sdcard/img_tmp/raw.jpg";
     FileStoreRefAlignment = "/sdcard/config/align.txt";
-    ListFlowControll = NULL;
+    ListFlowControl = NULL;
     AlignAndCutImage = NULL;
     ImageBasis = NULL;
     ImageTMP = NULL;
@@ -38,11 +38,11 @@ void ClassFlowAlignment::SetInitialParameter(void)
 ClassFlowAlignment::ClassFlowAlignment(std::vector<ClassFlow *> *lfc)
 {
     SetInitialParameter();
-    ListFlowControll = lfc;
+    ListFlowControl = lfc;
 
-    for (int i = 0; i < ListFlowControll->size(); ++i) {
-        if (((*ListFlowControll)[i])->name().compare("ClassFlowTakeImage") == 0) {
-            ImageBasis = ((ClassFlowTakeImage *)(*ListFlowControll)[i])->rawImage;
+    for (int i = 0; i < ListFlowControl->size(); ++i) {
+        if (((*ListFlowControl)[i])->name().compare("ClassFlowTakeImage") == 0) {
+            ImageBasis = ((ClassFlowTakeImage *)(*ListFlowControl)[i])->rawImage;
         }
     }
 

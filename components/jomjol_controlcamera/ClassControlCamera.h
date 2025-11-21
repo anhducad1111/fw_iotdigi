@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef CLASSCONTROLLCAMERA_H
-#define CLASSCONTROLLCAMERA_H
+#ifndef CLASSCONTROLCAMERA_H
+#define CLASSCONTROLCAMERA_H
 
 #include <string>
 #include "freertos/FreeRTOS.h"
@@ -65,9 +65,9 @@ typedef struct
     bool changedCameraSettings;
     bool DemoMode;
     bool SaveAllFiles;
-} camera_controll_config_temp_t;
+} camera_control_config_temp_t;
 
-extern camera_controll_config_temp_t CCstatus;
+extern camera_control_config_temp_t CCstatus;
 
 class CCamera
 {

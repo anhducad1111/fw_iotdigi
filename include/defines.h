@@ -58,7 +58,7 @@
     //#define CONFIG_IDF_TARGET_ARCH_XTENSA     //not needed with platformio/espressif32 @ 5.2.0
 
 
-    //ClassControllCamera
+    //ClassControlCamera
     #define CAM_LIVESTREAM_REFRESHRATE 500      // Camera livestream feature: Waiting time in milliseconds to refresh image
     // #define GRAYSCALE_AS_DEFAULT
 
@@ -76,7 +76,7 @@
     #define __HIDE_PASSWORD
 
 
-    //ClassFlowControll + Main + SoftAP
+    //ClassFlowControl + Main + SoftAP
     #define WLAN_CONFIG_FILE "/sdcard/wlan.ini"
 
 
@@ -114,14 +114,14 @@
     #define LOGFILE_TIME_FORMAT_HOUR_EXTR substr(9, 2)
 
 
-    //ClassFlowControll
+    //ClassFlowControl
     #define READOUT_TYPE_VALUE 0
     #define READOUT_TYPE_PREVALUE 1
     #define READOUT_TYPE_RAWVALUE 2
     #define READOUT_TYPE_ERROR 3
 
 
-    //ClassFlowControll: Serve alg_roi.jpg from memory as JPG
+    //ClassFlowControl: Serve alg_roi.jpg from memory as JPG
     #define ALGROI_LOAD_FROM_MEM_AS_JPG // Load ALG_ROI.JPG as rendered JPG from RAM
 
 
@@ -141,10 +141,6 @@
     //#define STB_IMAGE_WRITE_IMPLEMENTATION
     //#define STB_IMAGE_RESIZE_IMPLEMENTATION
     #define STBI_ONLY_JPEG // (save 2% of Flash, but breaks the alignment mark generation, see https://github.com/jomjol/AI-on-the-edge-device/issues/1721)
-
-
-    //interface_influxdb
-    #define MAX_HTTP_OUTPUT_BUFFER 2048
 
 
 
@@ -224,10 +220,10 @@
     #define CAM_PIN_HREF     GPIO_NUM_23
     #define CAM_PIN_PCLK     GPIO_NUM_22
 
-    //Statusled + ClassControllCamera
+    //Statusled + ClassControlCamera
     #define BLINK_GPIO GPIO_NUM_33              // PIN for red board LED, On the board the LED is on the IO2, but it is used for the SD
 	
-    //ClassControllCamera
+    //ClassControlCamera
     #define FLASH_GPIO GPIO_NUM_12              // PIN for flashlight LED
     #define USE_PWM_LEDFLASH                    // if __LEDGLOBAL is defined, a global variable is used for LED control, otherwise locally and each time a new
 
@@ -250,10 +246,10 @@
     #define CAM_PIN_HREF     GPIO_NUM_26
     #define CAM_PIN_PCLK     GPIO_NUM_21
 
-    //Statusled + ClassControllCamera
+    //Statusled + ClassControlCamera
     #define BLINK_GPIO GPIO_NUM_33              // PIN for red board LED
 	
-    //ClassControllCamera
+    //ClassControlCamera
     #define FLASH_GPIO GPIO_NUM_4               // PIN for flashlight LED
     #define USE_PWM_LEDFLASH                    // if __LEDGLOBAL is defined, a global variable is used for LED control, otherwise locally and each time a new
 
@@ -292,10 +288,10 @@
     #define CAM_PIN_HREF     GPIO_NUM_23
     #define CAM_PIN_PCLK     GPIO_NUM_22
 
-    //Statusled + ClassControllCamera
+    //Statusled + ClassControlCamera
     #define BLINK_GPIO GPIO_NUM_33              // PIN for red board LED
 	
-    //ClassControllCamera
+    //ClassControlCamera
     #define FLASH_GPIO GPIO_NUM_4               // PIN for flashlight LED
     #define USE_PWM_LEDFLASH                    // if __LEDGLOBAL is defined, a global variable is used for LED control, otherwise locally and each time a new
 

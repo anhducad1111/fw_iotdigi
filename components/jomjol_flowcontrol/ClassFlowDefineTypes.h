@@ -67,12 +67,7 @@ struct NumberPost {
     int Nachkomma;              // decimalPlaces; usually defined by the number of analog ROIs; affected by DecimalShift
 
     string DomoticzIdx;         // Domoticz counter Idx
-    
-    string FieldV1;             // influxdbFieldName_v1; Name of the Field in InfluxDBv1
-    string MeasurementV1;       // influxdbMeasurementName_v1; Name of the Measurement in InfluxDBv1
 
-    string FieldV2;             // influxdbFieldName_v2; Name of the Field in InfluxDBv2
-    string MeasurementV2;       // influxdbMeasurementName_v2; Name of the Measurement in InfluxDBv2
 
     bool isExtendedResolution;  // extendResolution; Adds the decimal place of the least significant analog ROI to the value
 

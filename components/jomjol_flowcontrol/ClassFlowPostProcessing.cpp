@@ -315,17 +315,17 @@ ClassFlowPostProcessing::ClassFlowPostProcessing(std::vector<ClassFlow*>* lfc, C
     PreValueUse = false;
     PreValueAgeStartup = 30;
     ErrorMessage = false;
-    ListFlowControll = NULL;
+    ListFlowControl = NULL;
     FilePreValue = FormatFileName("/sdcard/config/prevalue.ini");
-    ListFlowControll = lfc;
+    ListFlowControl = lfc;
     flowTakeImage = NULL;
     UpdatePreValueINI = false;
     flowAnalog = _analog;
     flowDigit = _digit;
 
-    for (int i = 0; i < ListFlowControll->size(); ++i) {
-        if (((*ListFlowControll)[i])->name().compare("ClassFlowTakeImage") == 0) {
-            flowTakeImage = (ClassFlowTakeImage*) (*ListFlowControll)[i];
+    for (int i = 0; i < ListFlowControl->size(); ++i) {
+        if (((*ListFlowControl)[i])->name().compare("ClassFlowTakeImage") == 0) {
+            flowTakeImage = (ClassFlowTakeImage*) (*ListFlowControl)[i];
         }
     }
 }

@@ -8,19 +8,19 @@ UnderTestPost* setUpClassFlowPostprocessing(t_CNNType digType, t_CNNType anaType
     
     ClassFlowCNNGeneral* _analog;
     ClassFlowCNNGeneral* _digit;
-    std::vector<ClassFlow*> FlowControll;
+    std::vector<ClassFlow*> FlowControl;
     ClassFlowTakeImage* flowtakeimage;
 
     // wird im doFlow verwendet
-    flowtakeimage = new ClassFlowTakeImage(&FlowControll);
-    FlowControll.push_back(flowtakeimage);
+    flowtakeimage = new ClassFlowTakeImage(&FlowControl);
+    FlowControl.push_back(flowtakeimage);
 
     // Die Modeltypen werden gesetzt, da keine Modelle verwendet werden.
     _analog = new ClassFlowCNNGeneral(nullptr, anaType);
     
     _digit =  new ClassFlowCNNGeneral(nullptr, digType);
 
-    return new UnderTestPost(&FlowControll, _analog, _digit);
+    return new UnderTestPost(&FlowControl, _analog, _digit);
   
 }
 

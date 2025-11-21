@@ -4,7 +4,7 @@
 #include "string.h"
 
 #include "esp_camera.h"
-#include "ClassControllCamera.h"
+#include "ClassControlCamera.h"
 #include "MainFlowControl.h"
 
 #include "ClassLogFile.h"

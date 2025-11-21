@@ -14,12 +14,12 @@
 //*****************************************************************************
 // Include files with functions to test
 //*****************************************************************************
-#include "components/jomjol-flowcontroll/test_flow_postrocess_helper.cpp"
-#include "components/jomjol-flowcontroll/test_flowpostprocessing.cpp"
-#include "components/jomjol-flowcontroll/test_flow_pp_negative.cpp"
-#include "components/jomjol-flowcontroll/test_PointerEvalAnalogToDigitNew.cpp"
-#include "components/jomjol-flowcontroll/test_getReadoutRawString.cpp"
-#include "components/jomjol-flowcontroll/test_cnnflowcontroll.cpp"
+#include "components/jomjol-flowcontrol/test_flow_postrocess_helper.cpp"
+#include "components/jomjol-flowcontrol/test_flowpostprocessing.cpp"
+#include "components/jomjol-flowcontrol/test_flow_pp_negative.cpp"
+#include "components/jomjol-flowcontrol/test_PointerEvalAnalogToDigitNew.cpp"
+#include "components/jomjol-flowcontrol/test_getReadoutRawString.cpp"
+#include "components/jomjol-flowcontrol/test_cnnflowcontrol.cpp"
 #include "components/openmetrics/test_openmetrics.cpp"
 
 bool Init_NVS_SDCard()

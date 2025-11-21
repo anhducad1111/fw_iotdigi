@@ -8,7 +8,7 @@
 
 #include <esp_http_server.h>
 #include "CImageBasis.h"
-#include "ClassFlowControll.h"
+#include "ClassFlowControl.h"
 #include "openmetrics.h"
 
 typedef struct
@@ -64,7 +64,7 @@ typedef struct
 } camera_flow_config_temp_t;
 
 extern camera_flow_config_temp_t CFstatus;
-extern ClassFlowControll flowctrl;
+extern ClassFlowControl flowctrl;
 
 esp_err_t setCCstatusToCFstatus(void); // CCstatus >>> CFstatus
 esp_err_t setCFstatusToCCstatus(void); // CFstatus >>> CCstatus

@@ -29,7 +29,7 @@ protected:
 	bool GetNextParagraph(FILE* pfile, string& aktparamgraph);
 	bool getNextLine(FILE* pfile, string* rt);
 
-	std::vector<ClassFlow*>* ListFlowControll;
+	std::vector<ClassFlow*>* ListFlowControl;
 	ClassFlow *previousElement;
 
 	virtual void SetInitialParameter(void);

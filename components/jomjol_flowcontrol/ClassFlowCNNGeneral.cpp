@@ -24,7 +24,7 @@ ClassFlowCNNGeneral::ClassFlowCNNGeneral(ClassFlowAlignment *_flowalign, t_CNNTy
     modelxsize = 1;
     modelysize = 1;
     CNNGoodThreshold = 0.0;
-    ListFlowControll = NULL;
+    ListFlowControl = NULL;
     previousElement = NULL;   
     SaveAllFiles = false; 
     disabled = false;

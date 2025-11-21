@@ -15,9 +15,9 @@
 
 #include "esp_camera.h"
 #include "time_sntp.h"
-#include "ClassControllCamera.h"
+#include "ClassControlCamera.h"
 
-#include "ClassFlowControll.h"
+#include "ClassFlowControl.h"
 
 #include "ClassLogFile.h"
 #include "server_GPIO.h"
@@ -34,7 +34,7 @@
 #define portTICK_RATE_MS portTICK_PERIOD_MS
 #endif
 
-ClassFlowControll flowctrl;
+ClassFlowControl flowctrl;
 camera_flow_config_temp_t CFstatus;
 
 TaskHandle_t xHandletask_autodoFlow = NULL;

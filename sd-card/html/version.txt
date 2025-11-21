@@ -1,2 +1,2 @@
-Release: N/A (Commit: N/A)
-N/A
+Development-Branch: develop (Commit: d48584a)
+d48584a
