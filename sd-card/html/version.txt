@@ -1,2 +1,0 @@
-Development-Branch: develop (Commit: d48584a)
-d48584a

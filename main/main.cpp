@@ -76,15 +76,6 @@
     static heap_trace_record_t trace_record[NUM_RECORDS]; // This buffer must be in internal RAM
 #endif
 
-extern const char *GIT_TAG;
-extern const char *GIT_REV;
-extern const char *GIT_BRANCH;
-extern const char *BUILD_TIME;
-
-extern std::string getFwVersion(void);
-extern std::string getHTMLversion(void);
-extern std::string getHTMLcommit(void);
-
 std::vector<std::string> splitString(const std::string& str);
 void migrateConfiguration(void);
 bool setCpuFrequency(void);
@@ -401,24 +392,6 @@ extern "C" void app_main(void)
     if (!SDCardCheckFolderFilePresence()) {
         StatusLED(SDCARD_CHECK, 4, true);
         setSystemStatusFlag(SYSTEM_STATUS_FOLDER_CHECK_BAD); // reduced web interface going to be loaded
-    }
-
-    // Check version information
-    // ********************************************
-    std::string versionFormated = getFwVersion() + ", Date/Time: " + std::string(BUILD_TIME) + \
-        ", Web UI: " + getHTMLversion();
-
-    if (std::string(GIT_TAG) != "") { // We are on a tag, add it as prefix
-        versionFormated = "Tag: '" + std::string(GIT_TAG) + "', " + versionFormated;
-    }
-    LogFile.WriteToFile(ESP_LOG_INFO, TAG, versionFormated);
-
-    if (getHTMLcommit().substr(0, 7) == "?")
-        LogFile.WriteToFile(ESP_LOG_WARN, TAG, std::string("Failed to read file html/version.txt to parse Web UI version"));
- 
-    if (getHTMLcommit().substr(0, 7) != std::string(GIT_REV).substr(0, 7)) { // Compare the first 7 characters of both hashes
-        LogFile.WriteToFile(ESP_LOG_WARN, TAG, "Web UI version (" + getHTMLcommit() + ") does not match firmware version (" + std::string(GIT_REV) + ")");
-        LogFile.WriteToFile(ESP_LOG_WARN, TAG, "Recommendation: Repeat installation using AI-on-the-edge-device__update__*.zip");    
     }
 
     // Check reboot reason

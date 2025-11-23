@@ -10,8 +10,6 @@
 #include "connect_wlan.h"
 #include "read_wlanini.h"
 
-#include "version.h"
-
 #include "esp_wifi.h"
 #include <netdb.h>
 
@@ -58,37 +56,7 @@ esp_err_t info_get_handler(httpd_req_t *req)
 
     httpd_resp_set_hdr(req, "Access-Control-Allow-Origin", "*");
 
-    if (_task.compare("GitBranch") == 0)
-    {
-        httpd_resp_sendstr(req, libfive_git_branch());
-        return ESP_OK;        
-    }
-    else if (_task.compare("GitTag") == 0)
-    {
-        httpd_resp_sendstr(req, libfive_git_version());
-        return ESP_OK;        
-    }
-    else if (_task.compare("GitRevision") == 0)
-    {
-        httpd_resp_sendstr(req, libfive_git_revision());
-        return ESP_OK;        
-    }
-    else if (_task.compare("BuildTime") == 0)
-    {
-        httpd_resp_sendstr(req, build_time());
-        return ESP_OK;        
-    }
-    else if (_task.compare("FirmwareVersion") == 0)
-    {
-        httpd_resp_sendstr(req, getFwVersion().c_str());
-        return ESP_OK;        
-    }
-    else if (_task.compare("HTMLVersion") == 0)
-    {
-        httpd_resp_sendstr(req, getHTMLversion().c_str());
-        return ESP_OK;        
-    }
-    else if (_task.compare("Hostname") == 0)
+    if (_task.compare("Hostname") == 0)
     {
         std::string zw;
         zw = std::string(wlan_config.hostname);
@@ -375,22 +343,10 @@ esp_err_t sysinfo_handler(httpd_req_t *req)
 {
     std::string zw;
     std::string cputemp = std::to_string((int)temperatureRead());
-    std::string gitversion = libfive_git_version();
-    std::string buildtime = build_time();
-    std::string gitbranch = libfive_git_branch();
-    std::string gittag = libfive_git_version();
-    std::string gitrevision = libfive_git_revision();
-    std::string htmlversion = getHTMLversion();
     char freeheapmem[11];
     sprintf(freeheapmem, "%lu", (long) getESPHeapSize());
     
     zw = string("[{") + 
-        "\"firmware\": \"" + gitversion + "\"," +
-        "\"buildtime\": \"" + buildtime + "\"," +
-        "\"gitbranch\": \"" + gitbranch + "\"," +
-        "\"gittag\": \"" + gittag + "\"," +
-        "\"gitrevision\": \"" + gitrevision + "\"," +
-        "\"html\": \"" + htmlversion + "\"," +
         "\"cputemp\": \"" + cputemp + "\"," +
         "\"hostname\": \"" + *getHostname() + "\"," +
         "\"IPv4\": \"" + *getIPAddress() + "\"," +

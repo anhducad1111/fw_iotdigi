@@ -147,11 +147,6 @@ bool SDCardCheckFolderFilePresence()
         bRetval = false;
     }
 
-    /* check if file exists: version.txt */
-    if (stat("/sdcard/html/version.txt", &sb) != 0) {
-        LogFile.WriteToFile(ESP_LOG_ERROR, TAG, "Folder/file check: File /html/version.txt not found");
-        bRetval = false;
-    }
 
     if (bRetval) {
         LogFile.WriteToFile(ESP_LOG_INFO, TAG, "Folder/file presence check successful");
