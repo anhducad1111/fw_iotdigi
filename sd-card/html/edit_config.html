@@ -1146,6 +1146,63 @@
                 <td>$TOOLTIP_PostProcessing_NUMBER.CheckDigitIncreaseConsistency</td>
             </tr>
 
+            <!------------- Webhook ------------------>
+            <tr style="border-bottom: 2px solid lightgray;">
+                <td colspan="3" style="padding-left: 0px; padding-bottom: 3px;">
+                    <h4>
+                        <input type="checkbox" id="Category_Webhook_enabled" value="1"
+                            onclick='UpdateAfterCategoryCheck()' unchecked>
+                        <label for=Category_Webhook_enabled>Webhook</label>
+                    </h4>
+                </td>
+            </tr>
+
+            <tr class="WebhookItem">
+                <td class="indent1">
+                    <input type="checkbox" id="Webhook_Uri_enabled" value="1"
+                        onclick='InvertEnableItem("Webhook", "Uri")' unchecked>
+                    <label for=Webhook_Uri_enabled>
+                        <class id="Webhook_Uri_text" style="color:black;">URI</class>
+                    </label>
+                </td>
+                <td>
+                    <input required type="text" id="Webhook_Uri_value1">
+                </td>
+                <td>$TOOLTIP_Webhook_Uri</td>
+            </tr>
+
+            <tr class="WebhookItem">
+                <td class="indent1">
+                    <input type="checkbox" id="Webhook_ApiKey_enabled" value="1"
+                        onclick='InvertEnableItem("Webhook", "ApiKey")' unchecked>
+                    <label for=Webhook_ApiKey_enabled>
+                        <class id="Webhook_ApiKey_text" style="color:black;">ApiKey</class>
+                    </label>
+                </td>
+                <td>
+                    <input required type="text" id="Webhook_ApiKey_value1">
+                </td>
+                <td>$TOOLTIP_Webhook_ApiKey</td>
+            </tr>
+
+            <tr class="WebhookItem">
+                <td class="indent1">
+                    <input type="checkbox" id="Webhook_UploadImg_enabled" value="1"
+                        onclick='InvertEnableItem("Webhook", "UploadImg")' unchecked>
+                    <label for=Webhook_UploadImg_enabled>
+                        <class id="Webhook_UploadImg_text" style="color:black;">Upload Image</class>
+                    </label>
+                </td>
+                <td>
+                    <select id="Webhook_UploadImg_value1">
+                        <option value="0" selected>NEVER</option>
+                        <option value="1">ALWAYS</option>
+                        <option value="2">ON_ERROR</option>
+                    </select>
+                </td>
+                <td>$TOOLTIP_Webhook_UploadImg</td>
+            </tr>
+
             <!------------- GPIO ------------------>
             <tr style="border-bottom: 2px solid lightgray;">
                 <td colspan="3" style="padding-left: 0px; padding-bottom: 3px;">
@@ -1202,6 +1259,7 @@
                 </td>
                 <td></td>
             </tr>
+
 
 
             <tr class="GPIO_IO0 GPIO_item expert">
@@ -1268,6 +1326,8 @@
                 <td></td>
             </tr>
 
+
+
             <tr class="GPIO_IO1 GPIO_item expert">
                 <td class="indent2">
                     <span class="GPIO_IO1 GPIO_item">GPIO1 Enable REST API</span>
@@ -1331,6 +1391,7 @@
                 </td>
                 <td></td>
             </tr>
+
 
 
             <tr class="GPIO_IO3 GPIO_item expert">
@@ -1406,6 +1467,7 @@
                 </td>
                 <td></td>
             </tr>
+
 
 
             <tr class="GPIO_IO4 GPIO_item expert">
@@ -1893,18 +1955,14 @@
                 _index.remove(0);
             }
 
-
             for (var i = 0; i < NUMBERS.length; ++i) {
                 var option = document.createElement("option");
                 option.text = NUMBERS[i]["name"];
                 option.value = i;
                 _index.add(option);
-
-
             }
 
             _index.selectedIndex = 0;
-
         }
 
         function UpdateInputIndividual(sel) {
@@ -1934,7 +1992,7 @@
             WriteParameter(param, category, "PostProcessing", "IgnoreLeadingNaN", false, NUNBERSAkt);
             // WriteParameter(param, category, "PostProcessing", "IgnoreAllNaN", false, NUNBERSAkt);
             WriteParameter(param, category, "PostProcessing", "AllowNegativeRates", false, NUNBERSAkt);
-            WriteParameter(param, category, "PostProcessing", "CheckDigitIncreaseConsistency", false, NUNBERSAkt);;
+            WriteParameter(param, category, "PostProcessing", "CheckDigitIncreaseConsistency", false, NUNBERSAkt);
         }
 
         function UpdateInput() {
@@ -1946,6 +2004,9 @@
 
             document.getElementById("Category_GPIO_enabled").checked = category["GPIO"]["enabled"];
             setVisible("GPIO_item", category["GPIO"]["enabled"]);
+
+            document.getElementById("Category_Webhook_enabled").checked = category["Webhook"]["enabled"];
+            setVisible("WebhookItem", category["Webhook"]["enabled"]);
 
             WriteParameter(param, category, "TakeImage", "RawImagesLocation", true);
             WriteParameter(param, category, "TakeImage", "RawImagesRetention", true);
@@ -1999,6 +2060,10 @@
             WriteParameter(param, category, "PostProcessing", "PreValueAgeStartup", true);
             WriteParameter(param, category, "PostProcessing", "ErrorMessage", false);
             // WriteParameter(param, category, "PostProcessing", "CheckDigitIncreaseConsistency", false);
+
+            WriteParameter(param, category, "Webhook", "Uri", true);
+            WriteParameter(param, category, "Webhook", "ApiKey", true);
+            WriteParameter(param, category, "Webhook", "UploadImg", false);
 
             WriteParameter(param, category, "GPIO", "IO0", true);
             WriteParameter(param, category, "GPIO", "IO1", true);
@@ -2077,6 +2142,7 @@
         function ReadParameterAll() {
             category["Analog"]["enabled"] = document.getElementById("Category_Analog_enabled").checked;
             category["Digits"]["enabled"] = document.getElementById("Category_Digits_enabled").checked;
+            category["Webhook"]["enabled"] = document.getElementById("Category_Webhook_enabled").checked;
             category["GPIO"]["enabled"] = document.getElementById("Category_GPIO_enabled").checked;
 
             ReadParameter(param, "TakeImage", "RawImagesLocation", true);
@@ -2133,6 +2199,10 @@
             ReadParameter(param, "PostProcessing", "ErrorMessage", false);
             // ReadParameter(param, "PostProcessing", "CheckDigitIncreaseConsistency", false);	
 
+            ReadParameter(param, "Webhook", "Uri", true);
+            ReadParameter(param, "Webhook", "ApiKey", true);
+            ReadParameter(param, "Webhook", "UploadImg", false);
+
             ReadParameter(param, "GPIO", "IO0", true);
             ReadParameter(param, "GPIO", "IO1", true);
             ReadParameter(param, "GPIO", "IO3", true);
@@ -2170,17 +2240,6 @@
             var sel = document.getElementById("Numbers_value1");
             UpdateInputIndividual(sel);
 
-            // FormatDecimalValue(param, "PostProcessing", "MaxRateValue");
-        }
-
-        function UpdateAfterCategoryCheck() {
-            ReadParameterAll();
-            category["Analog"]["enabled"] = document.getElementById("Category_Analog_enabled").checked;
-            category["Digits"]["enabled"] = document.getElementById("Category_Digits_enabled").checked;
-            category["GPIO"]["enabled"] = document.getElementById("Category_GPIO_enabled").checked;
-            UpdateInput();
-            var sel = document.getElementById("Numbers_value1");
-            UpdateInputIndividual(sel);
         }
 
         function UpdateExpertModus() {
@@ -2510,8 +2569,8 @@
             var sel = document.getElementById("Numbers_value1");
             _neu = sel.selectedIndex;
             UpdateInputIndividual(sel);
-
         }
+
 
 
         function getParameterByName(name, url = window.location.href) {

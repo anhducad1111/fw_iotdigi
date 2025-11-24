@@ -52,6 +52,11 @@ std::string ClassFlowControl::doSingleStep(std::string _stepname, std::string _h
         _classname = "ClassFlowCNNGeneral";
     }
 
+    #ifdef ENABLE_WEBHOOK
+        if ((_stepname.compare("[Webhook]") == 0) || (_stepname.compare(";[Webhook]") == 0)) {
+            _classname = "ClassFlowWebhook";
+        }
+    #endif //ENABLE_WEBHOOK
 
     for (int i = 0; i < FlowControl.size(); ++i) {
         if (FlowControl[i]->name().compare(_classname) == 0) {
@@ -83,7 +88,12 @@ std::string ClassFlowControl::TranslateAktstatus(std::string _input)
         return ("Digitization of ROIs");
     }
 
-	
+    #ifdef ENABLE_WEBHOOK
+        if (_input.compare("ClassFlowWebhook") == 0) {
+            return ("Sending Webhook");
+        }
+    #endif //ENABLE_WEBHOOK
+
     if (_input.compare("ClassFlowPostProcessing") == 0) {
         return ("Post-Processing");
     }
@@ -193,11 +203,16 @@ ClassFlow* ClassFlowControl::CreateClassFlow(std::string _type)
         flowanalog = (ClassFlowCNNGeneral*) cfc;
     }
 	
-    if (toUpper(_type).compare(0, 7, "[DIGITS") == 0) {
+    if (toUpper(_type).compare(0, 7, "[DIGITS]") == 0) {
         cfc = new ClassFlowCNNGeneral(flowalignment);
         flowdigit = (ClassFlowCNNGeneral*) cfc;
     }
 
+    #ifdef ENABLE_WEBHOOK
+        if (toUpper(_type).compare("[WEBHOOK]") == 0) {
+            cfc = new ClassFlowWebhook(&FlowControl);
+        }
+    #endif //ENABLE_WEBHOOK
 
     if (toUpper(_type).compare("[POSTPROCESSING]") == 0) {
         cfc = new ClassFlowPostProcessing(&FlowControl, flowanalog, flowdigit); 

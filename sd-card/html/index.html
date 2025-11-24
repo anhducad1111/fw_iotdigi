@@ -2,20 +2,20 @@
 <html lang="en" xml:lang="en">
 
 <head>
-    <link rel="icon" href="favicon.ico?v=$COMMIT_HASH" type="image/x-icon">
-    <link rel="apple-touch-icon" href="Iotdigi.svg?v=$COMMIT_HASH" />
+    <link rel="icon" href="favicon.ico?v=v1" type="image/x-icon">
+    <link rel="apple-touch-icon" href="Iotdigi.svg?v=v1" />
     <title>AI on the edge</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css?v=$COMMIT_HASH" type="text/css">
-    <link href="firework.css?v=$COMMIT_HASH" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=v1" type="text/css">
+    <link href="firework.css?v=v1" rel="stylesheet">
 
-    <script type="text/javascript" src="common.js?v=$COMMIT_HASH"></script>
-    <script type="text/javascript" src="readconfigcommon.js?v=$COMMIT_HASH"></script>
-    <script type="text/javascript" src="readconfigparam.js?v=$COMMIT_HASH"></script>
+    <script type="text/javascript" src="common.js?v=v1"></script>
+    <script type="text/javascript" src="readconfigcommon.js?v=v1"></script>
+    <script type="text/javascript" src="readconfigparam.js?v=v1"></script>
 
-    <script type="text/javascript" src="jquery-3.6.0.min.js?v=$COMMIT_HASH"></script>
-    <script type="text/javascript" src="firework.js?v=$COMMIT_HASH"></script>
+    <script type="text/javascript" src="jquery-3.6.0.min.js?v=v1"></script>
+    <script type="text/javascript" src="firework.js?v=v1"></script>
 
     <script>
         var streamPopup;
@@ -104,7 +104,7 @@
 
         <table style="border: none; width:100%">
             <tr>
-                <td style="padding-right: 10px;"><img style="width:64px; height:64px" src="favicon.ico?v=$COMMIT_HASH">
+                <td style="padding-right: 10px;"><img style="width:64px; height:64px" src="favicon.ico?v=v1">
                 </td>
                 <td>
                     <h1 id="id_title"> Digitizer - AI on the edge</h1>
@@ -116,31 +116,31 @@
 
         <div class="menu" onmouseover="resetMenu()">
             <ul>
-                <li><a href="#" onclick="loadPage('overview.html?v=$COMMIT_HASH');">Overview</a></li>
+                <li><a href="#" onclick="loadPage('overview.html?v=v1');">Overview</a></li>
                 <li><a>Settings <i class="arrow down"></i></a>
                     <ul class="submenu" style="width: 260px">
-                        <li style="width: 260px"><a href="#" onclick="loadPage('prevalue_set.html?v=$COMMIT_HASH');">Set
+                        <li style="width: 260px"><a href="#" onclick="loadPage('prevalue_set.html?v=v1');">Set
                                 "Previous Value"</a></li>
                         <li style="width: 260px"><a>References <i class="arrow right"></i></a>
                             <ul style="width: 350px">
                                 <li style="width: 350px"><a href="#"
-                                        onclick="loadPage('edit_reference.html?v=$COMMIT_HASH');">Reference Image and
+                                        onclick="loadPage('edit_reference.html?v=v1');">Reference Image and
                                         Camera Settings</a></li>
                                 <li style="width: 350px"><a href="#"
-                                        onclick="loadPage('edit_alignment.html?v=$COMMIT_HASH');">Alignment Markers</a>
+                                        onclick="loadPage('edit_alignment.html?v=v1');">Alignment Markers</a>
                                 </li>
                             </ul>
                         </li>
                         <li style="width: 260px"><a>Regions of Interest (ROIs)<i class="arrow right"></i></a>
                             <ul>
-                                <li><a href="#" onclick="loadPage('edit_digits.html?v=$COMMIT_HASH');">Digit ROI</a>
+                                <li><a href="#" onclick="loadPage('edit_digits.html?v=v1');">Digit ROI</a>
                                 </li>
-                                <li><a href="#" onclick="loadPage('edit_analog.html?v=$COMMIT_HASH');">Analog ROI</a>
+                                <li><a href="#" onclick="loadPage('edit_analog.html?v=v1');">Analog ROI</a>
                                 </li>
                             </ul>
                         </li>
                         <li style="width: 260px"><a href="#"
-                                onclick="loadPage('edit_config.html?v=$COMMIT_HASH');">Configuration</a></li>
+                                onclick="loadPage('edit_config.html?v=v1');">Configuration</a></li>
                     </ul>
 
 
@@ -153,23 +153,23 @@
                                 <li><a href="#" onclick="start_livestream(true);">Live Stream (Light on)</a></li>
                             </ul>
                         </li>
-                        <li><a href="#" onclick="loadPage('graph.html?v=$COMMIT_HASH');">Data Graph</a></li>
-                        <li><a href="#" onclick="loadPage('data.html?v=$COMMIT_HASH');">Data Table</a></li>
+                        <li><a href="#" onclick="loadPage('graph.html?v=v1');">Data Graph</a></li>
+                        <li><a href="#" onclick="loadPage('data.html?v=v1');">Data Table</a></li>
                         <li><a href="#" onclick="loadPage(getDomainname() + '/fileserver/log/data/');">Data Files</a>
                         </li>
-                        <li><a href="#" onclick="loadPage('data_export.html?v=$COMMIT_HASH');">Data Export</a></li>
+                        <li><a href="#" onclick="loadPage('data_export.html?v=v1');">Data Export</a></li>
                     </ul>
                 </li>
 
 
                 <li><a>System <i class="arrow down"></i></a>
                     <ul class="submenu">
-                        <li><a href="#" onclick="loadPage('backup.html?v=$COMMIT_HASH');">Backup/Restore</a></li>
-                        <li><a href="#" onclick="loadPage('ota_page.html?v=$COMMIT_HASH');">OTA Update</a></li>
-                        <li><a href="#" onclick="loadPage('log.html?v=$COMMIT_HASH');">Log Viewer</a></li>
+                        <li><a href="#" onclick="loadPage('backup.html?v=v1');">Backup/Restore</a></li>
+                        <li><a href="#" onclick="loadPage('ota_page.html?v=v1');">OTA Update</a></li>
+                        <li><a href="#" onclick="loadPage('log.html?v=v1');">Log Viewer</a></li>
                         <li><a href="#" onclick="loadPage(getDomainname() + '/fileserver/');">File Server</a></li>
-                        <li><a href="#" onclick="loadPage('reboot_page.html?v=$COMMIT_HASH');">Reboot</a></li>
-                        <li><a href="#" onclick="loadPage('info.html?v=$COMMIT_HASH');">Info</a></li>
+                        <li><a href="#" onclick="loadPage('reboot_page.html?v=v1');">Reboot</a></li>
+                        <li><a href="#" onclick="loadPage('info.html?v=v1');">Info</a></li>
                         <li><a href="https://jomjol.github.io/AI-on-the-edge-device-docs/" target="_blank">Help</a></li>
                     </ul>
                 </li>
@@ -190,8 +190,8 @@
             LoadHostname();
             HA_send_discovery_visibility();
 
-            if (getCookie("page") == "" || getCookie("page") == "reboot_page.html?v=$COMMIT_HASH") {
-                document.cookie = "page=overview.html?v=$COMMIT_HASH" + "; path=/";
+            if (getCookie("page") == "" || getCookie("page") == "reboot_page.html?v=v1") {
+                document.cookie = "page=overview.html?v=v1" + "; path=/";
             }
             console.log("Loading page: " + getCookie("page"));
             document.getElementById('maincontent').src = getCookie("page");

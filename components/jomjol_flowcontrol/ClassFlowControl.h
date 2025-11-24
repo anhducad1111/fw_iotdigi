@@ -10,7 +10,11 @@
 #include "ClassFlowAlignment.h"
 #include "ClassFlowCNNGeneral.h"
 #include "ClassFlowPostProcessing.h"
+#ifdef ENABLE_WEBHOOK
+#include "ClassFlowWebhook.h"
+#endif //ENABLE_WEBHOOK
 #include "ClassFlowCNNGeneral.h"
+
 
 class ClassFlowControl :
     public ClassFlow
