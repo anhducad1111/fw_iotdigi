@@ -7,25 +7,25 @@ var NUMBERS = new Array(0);
 var REFERENCES = new Array(0);
 
 function getNUMBERSList() {
-    _domainname = getDomainname(); 
+    _domainname = getDomainname();
     var namenumberslist = "";
 
     var xhttp = new XMLHttpRequest();
-	
-    xhttp.addEventListener('load', function(event) {
+
+    xhttp.addEventListener('load', function (event) {
         if (xhttp.status >= 200 && xhttp.status < 300) {
             namenumberslist = xhttp.responseText;
-        } 
+        }
         else {
             console.warn(request.statusText, request.responseText);
         }
     });
 
     try {
-        url = _domainname + '/editflow?task=namenumbers';     
+        url = _domainname + '/editflow?task=namenumbers';
         xhttp.open("GET", url, false);
         xhttp.send();
-    } catch (error) {}
+    } catch (error) { }
 
     namenumberslist = namenumberslist.split("\t");
 
@@ -33,25 +33,25 @@ function getNUMBERSList() {
 }
 
 function getDATAList() {
-    _domainname = getDomainname(); 
+    _domainname = getDomainname();
     datalist = "";
 
     var xhttp = new XMLHttpRequest();
-	
-    xhttp.addEventListener('load', function(event) {
+
+    xhttp.addEventListener('load', function (event) {
         if (xhttp.status >= 200 && xhttp.status < 300) {
             datalist = xhttp.responseText;
-        } 
+        }
         else {
             console.warn(request.statusText, request.responseText);
         }
     });
 
     try {
-        url = _domainname + '/editflow?task=data';     
+        url = _domainname + '/editflow?task=data';
         xhttp.open("GET", url, false);
         xhttp.send();
-    } catch (error) {}
+    } catch (error) { }
 
     datalist = datalist.split("\t");
     datalist.pop();
@@ -61,15 +61,15 @@ function getDATAList() {
 }
 
 function getTFLITEList() {
-    _domainname = getDomainname(); 
+    _domainname = getDomainname();
     tflitelist = "";
 
     var xhttp = new XMLHttpRequest();
-	
-    xhttp.addEventListener('load', function(event) {
+
+    xhttp.addEventListener('load', function (event) {
         if (xhttp.status >= 200 && xhttp.status < 300) {
             tflitelist = xhttp.responseText;
-        } 
+        }
         else {
             console.warn(request.statusText, request.responseText);
         }
@@ -79,7 +79,7 @@ function getTFLITEList() {
         url = _domainname + '/editflow?task=tflite';
         xhttp.open("GET", url, false);
         xhttp.send();
-    } catch (error) {}
+    } catch (error) { }
 
     tflitelist = tflitelist.split("\t");
     tflitelist.sort();
@@ -92,10 +92,10 @@ function ParseConfig() {
     var aktline = 0;
 
     param = new Object();
-    category = new Object(); 
+    category = new Object();
 
     var catname = "TakeImage";
-    category[catname] = new Object(); 
+    category[catname] = new Object();
     category[catname]["enabled"] = false;
     category[catname]["found"] = false;
     param[catname] = new Object();
@@ -182,25 +182,8 @@ function ParseConfig() {
     // ParamAddValue(param, catname, "IgnoreAllNaN", 1, true, "false");
     ParamAddValue(param, catname, "ErrorMessage");
     ParamAddValue(param, catname, "CheckDigitIncreaseConsistency", 1, true, "false");
-    
-    category[catname] = new Object();
-    category[catname]["enabled"] = false;
-    category[catname]["found"] = false;
-    param[catname] = new Object();
-    ParamAddValue(param, catname, "Uri");
-    ParamAddValue(param, catname, "MainTopic", 1, false);
-    ParamAddValue(param, catname, "ClientID");
-    ParamAddValue(param, catname, "user");
-    ParamAddValue(param, catname, "password");
-    ParamAddValue(param, catname, "RetainMessages");
-    ParamAddValue(param, catname, "DomoticzTopicIn");
-    ParamAddValue(param, catname, "DomoticzIDX", 1, true);
-    ParamAddValue(param, catname, "HomeassistantDiscovery");
-    ParamAddValue(param, catname, "MeterType");
-    ParamAddValue(param, catname, "CACert");
-    ParamAddValue(param, catname, "ClientCert");
-    ParamAddValue(param, catname, "ClientKey");
-    ParamAddValue(param, catname, "ValidateServerCert");
+
+
 
     var catname = "GPIO";
     category[catname] = new Object();
@@ -208,15 +191,15 @@ function ParseConfig() {
     category[catname]["found"] = false;
     param[catname] = new Object();
     ParamAddValue(param, catname, "IO0", 6, false, "", [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
-    ParamAddValue(param, catname, "IO1", 6, false, "",  [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
-    ParamAddValue(param, catname, "IO3", 6, false, "",  [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
-    ParamAddValue(param, catname, "IO4", 6, false, "",  [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
-    ParamAddValue(param, catname, "IO12", 6, false, "",  [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
-    ParamAddValue(param, catname, "IO13", 6, false, "",  [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
+    ParamAddValue(param, catname, "IO1", 6, false, "", [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
+    ParamAddValue(param, catname, "IO3", 6, false, "", [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
+    ParamAddValue(param, catname, "IO4", 6, false, "", [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
+    ParamAddValue(param, catname, "IO12", 6, false, "", [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
+    ParamAddValue(param, catname, "IO13", 6, false, "", [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
     ParamAddValue(param, catname, "LEDType");
     ParamAddValue(param, catname, "LEDNumbers");
     ParamAddValue(param, catname, "LEDColor", 3);
-     // Default Values, um abwärtskompatiblität zu gewährleisten
+    // Default Values, um abwärtskompatiblität zu gewährleisten
     param[catname]["LEDType"]["value1"] = "WS2812";
     param[catname]["LEDNumbers"]["value1"] = "2";
     param[catname]["LEDColor"]["value1"] = "50";
@@ -229,7 +212,7 @@ function ParseConfig() {
     category[catname]["found"] = false;
     param[catname] = new Object();
     //ParamAddValue(param, catname, "AutoStart");
-    ParamAddValue(param, catname, "Interval");     
+    ParamAddValue(param, catname, "Interval");
 
     var catname = "DataLogging";
     category[catname] = new Object();
@@ -237,7 +220,7 @@ function ParseConfig() {
     category[catname]["found"] = false;
     param[catname] = new Object();
     ParamAddValue(param, catname, "DataLogActive");
-    ParamAddValue(param, catname, "DataFilesRetention");     
+    ParamAddValue(param, catname, "DataFilesRetention");
 
     var catname = "Debug";
     category[catname] = new Object();
@@ -252,32 +235,32 @@ function ParseConfig() {
     category[catname]["enabled"] = false;
     category[catname]["found"] = false;
     param[catname] = new Object();
-    ParamAddValue(param, catname, "Tooltip");	
+    ParamAddValue(param, catname, "Tooltip");
     ParamAddValue(param, catname, "TimeZone");
-    ParamAddValue(param, catname, "TimeServer");         
-    ParamAddValue(param, catname, "Hostname");   
-    ParamAddValue(param, catname, "RSSIThreshold");   
+    ParamAddValue(param, catname, "TimeServer");
+    ParamAddValue(param, catname, "Hostname");
+    ParamAddValue(param, catname, "RSSIThreshold");
     ParamAddValue(param, catname, "CPUFrequency");
-    ParamAddValue(param, catname, "SetupMode"); 
-     
-    while (aktline < config_split.length){
+    ParamAddValue(param, catname, "SetupMode");
+
+    while (aktline < config_split.length) {
         for (var cat in category) {
             zw = cat.toUpperCase();
             zw1 = "[" + zw + "]";
             zw2 = ";[" + zw + "]";
-            
+
             if ((config_split[aktline].trim().toUpperCase() == zw1) || (config_split[aktline].trim().toUpperCase() == zw2)) {
                 if (config_split[aktline].trim().toUpperCase() == zw1) {
                     category[cat]["enabled"] = true;
                 }
-                
+
                 category[cat]["found"] = true;
                 category[cat]["line"] = aktline;
                 aktline = ParseConfigParamAll(aktline, cat);
                 continue;
             }
         }
-        
+
         aktline++;
     }
 
@@ -289,7 +272,7 @@ function ParseConfig() {
         param["DataLogging"]["DataLogActive"]["found"] = true;
         param["DataLogging"]["DataLogActive"]["enabled"] = true;
         param["DataLogging"]["DataLogActive"]["value1"] = "true";
-          
+
         param["DataLogging"]["DataFilesRetention"]["found"] = true;
         param["DataLogging"]["DataFilesRetention"]["enabled"] = true;
         param["DataLogging"]["DataFilesRetention"]["value1"] = "3";
@@ -320,10 +303,10 @@ function ParseConfig() {
 }
 
 function ParamAddValue(param, _cat, _param, _anzParam = 1, _isNUMBER = false, _defaultValue = "", _checkRegExList = null) {
-    param[_cat][_param] = new Object(); 
+    param[_cat][_param] = new Object();
     param[_cat][_param]["found"] = false;
     param[_cat][_param]["enabled"] = false;
-    param[_cat][_param]["line"] = -1; 
+    param[_cat][_param]["line"] = -1;
     param[_cat][_param]["anzParam"] = _anzParam;
     param[_cat][_param]["defaultValue"] = _defaultValue;
     param[_cat][_param]["Numbers"] = _isNUMBER;
@@ -338,15 +321,15 @@ function ParseConfigParamAll(_aktline, _catname) {
         let [isCom, input] = isCommented(_input);
         var linesplit = ZerlegeZeile(input);
         ParamExtractValueAll(param, linesplit, _catname, _aktline, isCom);
-        
+
         if (!isCom && (linesplit.length >= 5) && (_catname == 'Digits')) {
             ExtractROIs(input, "digit");
         }
-        
+
         if (!isCom && (linesplit.length >= 5) && (_catname == 'Analog')) {
             ExtractROIs(input, "analog");
         }
-        
+
         if (!isCom && (linesplit.length == 3) && (_catname == 'Alignment')) {
             _newref = new Object();
             _newref["name"] = linesplit[0];
@@ -357,8 +340,8 @@ function ParseConfigParamAll(_aktline, _catname) {
 
         ++_aktline;
     }
-	
-    return _aktline; 
+
+    return _aktline;
 }
 
 function ParamExtractValue(_param, _linesplit, _catname, _paramname, _aktline, _iscom, _anzvalue = 1) {
@@ -367,9 +350,9 @@ function ParamExtractValue(_param, _linesplit, _catname, _paramname, _aktline, _
         _param[_catname][_paramname]["enabled"] = !_iscom;
         _param[_catname][_paramname]["line"] = _aktline;
         _param[_catname][_paramname]["anzpara"] = _anzvalue;
-        
+
         for (var j = 1; j <= _anzvalue; ++j) {
-            _param[_catname][_paramname]["value"+j] = _linesplit[j];
+            _param[_catname][_paramname]["value" + j] = _linesplit[j];
         }
     }
 }
@@ -378,13 +361,13 @@ function ParamExtractValueAll(_param, _linesplit, _catname, _aktline, _iscom) {
     for (var paramname in _param[_catname]) {
         _AktROI = "default";
         _AktPara = _linesplit[0];
-        _pospunkt = _AktPara.indexOf (".");
-        
+        _pospunkt = _AktPara.indexOf(".");
+
         if (_pospunkt > -1) {
             _AktROI = _AktPara.substring(0, _pospunkt);
-            _AktPara = _AktPara.substring(_pospunkt+1);
+            _AktPara = _AktPara.substring(_pospunkt + 1);
         }
-        
+
         if (_AktPara.toUpperCase() == paramname.toUpperCase()) {
             while (_linesplit.length <= _param[_catname][paramname]["anzParam"]) {
                 _linesplit.push("");
@@ -393,26 +376,26 @@ function ParamExtractValueAll(_param, _linesplit, _catname, _aktline, _iscom) {
             _param[_catname][paramname]["found"] = true;
             _param[_catname][paramname]["enabled"] = !_iscom;
             _param[_catname][paramname]["line"] = _aktline;
-            
+
             if (_param[_catname][paramname]["Numbers"] == true) {        // möglicher Multiusage
                 abc = getNUMBERS(_linesplit[0]);
                 abc[_catname][paramname] = new Object;
                 abc[_catname][paramname]["found"] = true;
                 abc[_catname][paramname]["enabled"] = !_iscom;
-     
+
                 for (var j = 1; j <= _param[_catname][paramname]["anzParam"]; ++j) {
-                    abc[_catname][paramname]["value"+j] = _linesplit[j];
+                    abc[_catname][paramname]["value" + j] = _linesplit[j];
                 }
-				
+
                 if (abc["name"] == "default") {
                     for (_num in NUMBERS) {        // wert mit Default belegen
                         if (NUMBERS[_num][_catname][paramname]["found"] == false) {
                             NUMBERS[_num][_catname][paramname]["found"] = true;
                             NUMBERS[_num][_catname][paramname]["enabled"] = !_iscom;
                             NUMBERS[_num][_catname][paramname]["line"] = _aktline;
-                                
+
                             for (var j = 1; j <= _param[_catname][paramname]["anzParam"]; ++j) {
-                                NUMBERS[_num][_catname][paramname]["value"+j] = _linesplit[j];
+                                NUMBERS[_num][_catname][paramname]["value" + j] = _linesplit[j];
                             }
                         }
                     }
@@ -422,21 +405,21 @@ function ParamExtractValueAll(_param, _linesplit, _catname, _aktline, _iscom) {
                 _param[_catname][paramname]["found"] = true;
                 _param[_catname][paramname]["enabled"] = !_iscom;
                 _param[_catname][paramname]["line"] = _aktline;
-                    
+
                 for (var j = 1; j <= _param[_catname][paramname]["anzParam"]; ++j) {
-                    _param[_catname][paramname]["value"+j] = _linesplit[j];
+                    _param[_catname][paramname]["value" + j] = _linesplit[j];
                 }
             }
         }
     }
 }
 
-function getCamConfig() {			
-    ParseConfig();		
+function getCamConfig() {
+    ParseConfig();
 
     param["System"]["Tooltip"]["enabled"] = true;
     param["Alignment"]["InitialRotate"]["enabled"] = true;
-			
+
     param["TakeImage"]["WaitBeforeTakingPicture"]["enabled"] = true;
     param["TakeImage"]["CamGainceiling"]["enabled"] = true;		// Image gain (GAINCEILING_x2, x4, x8, x16, x32, x64 or x128)
     param["TakeImage"]["CamQuality"]["enabled"] = true;    		// 0 - 63
@@ -511,15 +494,15 @@ function getCamConfig() {
     if (!param["TakeImage"]["CamAutoSharpness"]["found"]) {
         param["TakeImage"]["CamAutoSharpness"]["found"] = true;
         param["TakeImage"]["CamAutoSharpness"].value1 = 'false';
-    }			
+    }
     if (!param["TakeImage"]["CamSpecialEffect"]["found"]) {
         param["TakeImage"]["CamSpecialEffect"]["found"] = true;
         param["TakeImage"]["CamSpecialEffect"].value1 = 'no_effect';
-    }		
+    }
     if (!param["TakeImage"]["CamWbMode"]["found"]) {
         param["TakeImage"]["CamWbMode"]["found"] = true;
         param["TakeImage"]["CamWbMode"].value1 = 'auto';
-    }			
+    }
     if (!param["TakeImage"]["CamAwb"]["found"]) {
         param["TakeImage"]["CamAwb"]["found"] = true;
         param["TakeImage"]["CamAwb"].value1 = 'true';
@@ -559,15 +542,15 @@ function getCamConfig() {
     if (!param["TakeImage"]["CamWpc"]["found"]) {
         param["TakeImage"]["CamWpc"]["found"] = true;
         param["TakeImage"]["CamWpc"].value1 = 'true';
-    }		
+    }
     if (!param["TakeImage"]["CamRawGma"]["found"]) {
         param["TakeImage"]["CamRawGma"]["found"] = true;
         param["TakeImage"]["CamRawGma"].value1 = 'true';
-    }		
+    }
     if (!param["TakeImage"]["CamLenc"]["found"]) {
         param["TakeImage"]["CamLenc"]["found"] = true;
         param["TakeImage"]["CamLenc"].value1 = 'true';
-    }			
+    }
     if (!param["TakeImage"]["CamHmirror"]["found"]) {
         param["TakeImage"]["CamHmirror"]["found"] = true;
         param["TakeImage"]["CamHmirror"].value1 = 'false';
@@ -605,7 +588,7 @@ function getCamConfig() {
         param["TakeImage"]["LEDIntensity"].value1 = '50';
     }
 
-    return param;	
+    return param;
 }
 
 function getConfigParameters() {
@@ -624,11 +607,11 @@ function WriteConfigININew() {
 
     for (var cat in param) {
         text = "[" + cat + "]";
-		  
+
         if (!category[cat]["enabled"]) {
             text = ";" + text;
         }
-        
+
         config_split.push(text);
 
         for (var name in param[cat]) {
@@ -636,38 +619,38 @@ function WriteConfigININew() {
                 for (_num in NUMBERS) {
                     text = NUMBERS[_num]["name"] + "." + name;
 
-                    var text = text + " =" 
-                         
+                    var text = text + " ="
+
                     for (var j = 1; j <= param[cat][name]["anzParam"]; ++j) {
-                        if (!(typeof NUMBERS[_num][cat][name]["value"+j] == 'undefined')) {
-                            text = text + " " + NUMBERS[_num][cat][name]["value"+j];
+                        if (!(typeof NUMBERS[_num][cat][name]["value" + j] == 'undefined')) {
+                            text = text + " " + NUMBERS[_num][cat][name]["value" + j];
                         }
                     }
-						 
+
                     if (!NUMBERS[_num][cat][name]["enabled"]) {
                         text = ";" + text;
                     }
-						 
+
                     config_split.push(text);
                 }
             }
             else {
-                var text = name + " =" 
-                    
+                var text = name + " ="
+
                 for (var j = 1; j <= param[cat][name]["anzParam"]; ++j) {
-                    if (!(typeof param[cat][name]["value"+j] == 'undefined')) {
-                        text = text + " " + param[cat][name]["value"+j];
+                    if (!(typeof param[cat][name]["value" + j] == 'undefined')) {
+                        text = text + " " + param[cat][name]["value" + j];
                     }
                 }
-					
+
                 if (!param[cat][name]["enabled"]) {
                     text = ";" + text;
                 }
-					
+
                 config_split.push(text);
             }
         }
-		  
+
         if (cat == "Digits") {
             for (var _roi in NUMBERS) {
                 if (NUMBERS[_roi]["digit"].length > 0) {
@@ -683,7 +666,7 @@ function WriteConfigININew() {
                 }
             }
         }
-		  
+
         if (cat == "Analog") {
             for (var _roi in NUMBERS) {
                 if (NUMBERS[_roi]["analog"].length > 0) {
@@ -699,7 +682,7 @@ function WriteConfigININew() {
                 }
             }
         }
-		  
+
         if (cat == "Alignment") {
             for (var _roi in REFERENCES) {
                 text = REFERENCES[_roi]["name"];
@@ -715,32 +698,31 @@ function WriteConfigININew() {
 
 function isCommented(input) {
     let isComment = false;
-		  
+
     if (input.charAt(0) == ';') {
         isComment = true;
-        input = input.substr(1, input.length-1);
+        input = input.substr(1, input.length - 1);
     }
-		  
-    return [isComment, input];
-}    
 
-function SaveConfigToServer(_domainname){
+    return [isComment, input];
+}
+
+function SaveConfigToServer(_domainname) {
     // leere Zeilen am Ende löschen
     var zw = config_split.length - 1;
-	 
+
     while (config_split[zw] == "") {
         config_split.pop();
     }
 
     var config_gesamt = "";
-	 
-    for (var i = 0; i < config_split.length; ++i)
-    {
+
+    for (var i = 0; i < config_split.length; ++i) {
         config_gesamt = config_gesamt + config_split[i] + "\n";
-    } 
+    }
 
     FileDeleteOnServer("/config/config.ini", _domainname);
-    FileSendContent(config_gesamt, "/config/config.ini", _domainname);          
+    FileSendContent(config_gesamt, "/config/config.ini", _domainname);
 }
 
 function getConfig() {
@@ -751,7 +733,7 @@ function getConfigCategory() {
     return category;
 }
 
-function ExtractROIs(_aktline, _type){
+function ExtractROIs(_aktline, _type) {
     var linesplit = ZerlegeZeile(_aktline);
     abc = getNUMBERS(linesplit[0], _type);
     abc["pos_ref"] = _aktline;
@@ -761,18 +743,18 @@ function ExtractROIs(_aktline, _type){
     abc["dy"] = linesplit[4];
     abc["ar"] = parseFloat(linesplit[3]) / parseFloat(linesplit[4]);
     abc["CCW"] = "false";
-    
+
     if (linesplit.length >= 6) {
         abc["CCW"] = linesplit[5];
-	}
+    }
 }
 
 function getNUMBERS(_name, _type, _create = true) {
-    _pospunkt = _name.indexOf (".");
-    
+    _pospunkt = _name.indexOf(".");
+
     if (_pospunkt > -1) {
         _digit = _name.substring(0, _pospunkt);
-        _roi = _name.substring(_pospunkt+1);
+        _roi = _name.substring(_pospunkt + 1);
     }
     else {
         _digit = "default";
@@ -788,7 +770,7 @@ function getNUMBERS(_name, _type, _create = true) {
     }
 
     if (!_create) {         // nicht gefunden und soll auch nicht erzeugt werden, ggf. geht eine NULL zurück
-          return _ret;
+        return _ret;
     }
 
     if (_ret == -1) {
@@ -799,15 +781,15 @@ function getNUMBERS(_name, _type, _create = true) {
 
         for (_cat in param) {
             for (_param in param[_cat]) {
-                if (param[_cat][_param]["Numbers"] == true){
-                    if (typeof  _ret[_cat] == 'undefined') {
+                if (param[_cat][_param]["Numbers"] == true) {
+                    if (typeof _ret[_cat] == 'undefined') {
                         _ret[_cat] = new Object();
                     }
-					
+
                     _ret[_cat][_param] = new Object();
                     _ret[_cat][_param]["found"] = false;
                     _ret[_cat][_param]["enabled"] = false;
-                    _ret[_cat][_param]["anzParam"] = param[_cat][_param]["anzParam"]; 
+                    _ret[_cat][_param]["anzParam"] = param[_cat][_param]["anzParam"];
                 }
             }
         }
@@ -832,7 +814,7 @@ function CopyReferenceToImgTmp(_domainname) {
         _filenamenach = _filenamevon.replace("/config/", "/img_tmp/");
         FileDeleteOnServer(_filenamenach, _domainname);
         FileCopyOnServer(_filenamevon, _filenamenach, _domainname);
-     
+
         _filenamevon = _filenamevon.replace(".jpg", "_org.jpg");
         _filenamenach = _filenamenach.replace(".jpg", "_org.jpg");
         FileDeleteOnServer(_filenamenach, _domainname);
@@ -840,17 +822,17 @@ function CopyReferenceToImgTmp(_domainname) {
     }
 }
 
-function GetReferencesInfo(){
+function GetReferencesInfo() {
     return REFERENCES;
 }
 
-function UpdateConfigReferences(_domainname){
+function UpdateConfigReferences(_domainname) {
     for (var index = 0; index < 2; ++index) {
         _filenamenach = REFERENCES[index]["name"];
         _filenamevon = _filenamenach.replace("/config/", "/img_tmp/");
         FileDeleteOnServer(_filenamenach, _domainname);
         FileCopyOnServer(_filenamevon, _filenamenach, _domainname);
-     
+
         _filenamenach = _filenamenach.replace(".jpg", "_org.jpg");
         _filenamevon = _filenamevon.replace(".jpg", "_org.jpg");
         FileDeleteOnServer(_filenamenach, _domainname);
@@ -858,10 +840,10 @@ function UpdateConfigReferences(_domainname){
     }
 }
 
-function UpdateConfigReference(_anzneueref, _domainname){
+function UpdateConfigReference(_anzneueref, _domainname) {
     var index = 0;
 
-    if (_anzneueref == 1) {	
+    if (_anzneueref == 1) {
         index = 0;
     }
 
@@ -880,25 +862,25 @@ function UpdateConfigReference(_anzneueref, _domainname){
 
     FileDeleteOnServer(_filenamenach, _domainname);
     FileCopyOnServer(_filenamevon, _filenamenach, _domainname);
-}	
-
-function getNUMBERInfo(){
-     return NUMBERS;
 }
 
-function RenameNUMBER(_alt, _neu){
+function getNUMBERInfo() {
+    return NUMBERS;
+}
+
+function RenameNUMBER(_alt, _neu) {
     if ((_neu.indexOf(".") >= 0) || (_neu.indexOf(",") >= 0) || (_neu.indexOf(" ") >= 0) || (_neu.indexOf("\"") >= 0)) {
         return "Number sequence name must not contain , . \" or a space";
     }
 
     index = -1;
     found = false;
-    
-	for (i = 0; i < NUMBERS.length; ++i) {
+
+    for (i = 0; i < NUMBERS.length; ++i) {
         if (NUMBERS[i]["name"] == _alt) {
             index = i;
         }
-		
+
         if (NUMBERS[i]["name"] == _neu) {
             found = true;
         }
@@ -909,17 +891,17 @@ function RenameNUMBER(_alt, _neu){
     }
 
     NUMBERS[index]["name"] = _neu;
-     
+
     return "";
 }
 
-function DeleteNUMBER(_delete){
+function DeleteNUMBER(_delete) {
     if (NUMBERS.length == 1) {
         return "One number sequence is mandatory. Therefore this cannot be deleted"
     }
-     
+
     index = -1;
-	 
+
     for (i = 0; i < NUMBERS.length; ++i) {
         if (NUMBERS[i]["name"] == _delete) {
             index = i;
@@ -933,9 +915,9 @@ function DeleteNUMBER(_delete){
     return "";
 }
 
-function CreateNUMBER(_numbernew){
+function CreateNUMBER(_numbernew) {
     found = false;
-    
+
     for (i = 0; i < NUMBERS.length; ++i) {
         if (NUMBERS[i]["name"] == _numbernew) {
             found = true;
@@ -957,9 +939,9 @@ function CreateNUMBER(_numbernew){
                 if (typeof (_ret[_cat]) === "undefined") {
                     _ret[_cat] = new Object();
                 }
-					
+
                 _ret[_cat][_param] = new Object();
-					
+
                 if (param[_cat][_param]["defaultValue"] === "") {
                     _ret[_cat][_param]["found"] = false;
                     _ret[_cat][_param]["enabled"] = false;
@@ -970,19 +952,19 @@ function CreateNUMBER(_numbernew){
                     _ret[_cat][_param]["value1"] = param[_cat][_param]["defaultValue"];
 
                 }
-					
-                _ret[_cat][_param]["anzParam"] = param[_cat][_param]["anzParam"]; 
+
+                _ret[_cat][_param]["anzParam"] = param[_cat][_param]["anzParam"];
             }
         }
     }
 
-    NUMBERS.push(_ret);               
+    NUMBERS.push(_ret);
     return "";
 }
 
-function getROIInfo(_typeROI, _number){
+function getROIInfo(_typeROI, _number) {
     index = -1;
-    
+
     for (var i = 0; i < NUMBERS.length; ++i) {
         if (NUMBERS[i]["name"] == _number) {
             index = i;
@@ -997,7 +979,7 @@ function getROIInfo(_typeROI, _number){
     }
 }
 
-function RenameROI(_number, _type, _alt, _neu){
+function RenameROI(_number, _type, _alt, _neu) {
     if ((_neu.includes("=")) || (_neu.includes(".")) || (_neu.includes(":")) || (_neu.includes(",")) || (_neu.includes(";")) || (_neu.includes(" ")) || (_neu.includes("\""))) {
         return "ROI name must not contain . : , ; = \" or space";
     }
@@ -1005,7 +987,7 @@ function RenameROI(_number, _type, _alt, _neu){
     index = -1;
     found = false;
     _indexnumber = -1;
-    
+
     for (j = 0; j < NUMBERS.length; ++j) {
         if (NUMBERS[j]["name"] == _number) {
             _indexnumber = j;
@@ -1020,7 +1002,7 @@ function RenameROI(_number, _type, _alt, _neu){
         if (NUMBERS[_indexnumber][_type][i]["name"] == _alt) {
             index = i;
         }
-		
+
         if (NUMBERS[_indexnumber][_type][i]["name"] == _neu) {
             found = true;
         }
@@ -1031,7 +1013,7 @@ function RenameROI(_number, _type, _alt, _neu){
     }
 
     NUMBERS[_indexnumber][_type][index]["name"] = _neu;
-     
+
     return "";
 }
 
@@ -1039,9 +1021,9 @@ function DeleteNUMBER(_delte) {
     if (NUMBERS.length == 1) {
         return "The last number cannot be deleted"
     }
-	
+
     index = -1;
-    
+
     for (i = 0; i < NUMBERS.length; ++i) {
         if (NUMBERS[i]["name"] == _delte) {
             index = i;
@@ -1055,9 +1037,9 @@ function DeleteNUMBER(_delte) {
     return "";
 }
 
-function CreateROI(_number, _type, _pos, _roinew, _x, _y, _dx, _dy, _CCW){
+function CreateROI(_number, _type, _pos, _roinew, _x, _y, _dx, _dy, _CCW) {
     _indexnumber = -1;
-    
+
     for (j = 0; j < NUMBERS.length; ++j) {
         if (NUMBERS[j]["name"] == _number) {
             _indexnumber = j;
@@ -1069,7 +1051,7 @@ function CreateROI(_number, _type, _pos, _roinew, _x, _y, _dx, _dy, _CCW){
     }
 
     found = false;
-    
+
     for (i = 0; i < NUMBERS[_indexnumber][_type].length; ++i) {
         if (NUMBERS[_indexnumber][_type][i]["name"] == _roinew) {
             found = true;
@@ -1089,7 +1071,7 @@ function CreateROI(_number, _type, _pos, _roinew, _x, _y, _dx, _dy, _CCW){
     _ret["ar"] = _dx / _dy;
     _ret["CCW"] = _CCW;
 
-    NUMBERS[_indexnumber][_type].splice(_pos+1, 0, _ret);
+    NUMBERS[_indexnumber][_type].splice(_pos + 1, 0, _ret);
 
     return "";
 }

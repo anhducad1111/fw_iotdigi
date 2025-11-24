@@ -4,7 +4,7 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
-version.cpp
+.cache
 sdkconfig.esp32cam
 sdkconfig.esp32cam-dev
 sdkconfig.esp32cam-debug
