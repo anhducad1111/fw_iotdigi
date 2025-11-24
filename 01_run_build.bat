@@ -1,4 +1,4 @@
 @echo off
-echo "=== BUILD START ===" > build_log.txt
-pio run -s >> build_log.txt 2>&1
-echo "=== BUILD END ===" >> build_log.txt
+echo "=== BUILD START ===" > 01_build_log.txt
+pio run -s >> 01_build_log.txt 2>&1
+echo "=== BUILD END ===" >> 01_build_log.txt

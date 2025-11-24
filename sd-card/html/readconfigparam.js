@@ -242,7 +242,7 @@ function ParseConfig() {
     category[catname]["enabled"] = false;
     category[catname]["found"] = false;
     param[catname] = new Object();
-    ParamAddValue(param, catname, "Tooltip");
+
     ParamAddValue(param, catname, "TimeZone");
     ParamAddValue(param, catname, "TimeServer");
     ParamAddValue(param, catname, "Hostname");
@@ -424,7 +424,7 @@ function ParamExtractValueAll(_param, _linesplit, _catname, _aktline, _iscom) {
 function getCamConfig() {
     ParseConfig();
 
-    param["System"]["Tooltip"]["enabled"] = true;
+
     param["Alignment"]["InitialRotate"]["enabled"] = true;
 
     param["TakeImage"]["WaitBeforeTakingPicture"]["enabled"] = true;
@@ -454,20 +454,6 @@ function getCamConfig() {
     param["TakeImage"]["CamDcw"]["enabled"] = true;           	// downsize enable (1 or 0)
     param["TakeImage"]["CamDenoise"]["enabled"] = true;       	// The OV2640 does not support it, OV3660 and OV5640 (0 to 8)
     param["TakeImage"]["CamZoom"]["enabled"] = true;
-    param["TakeImage"]["CamZoomOffsetX"]["enabled"] = true;
-    param["TakeImage"]["CamZoomOffsetY"]["enabled"] = true;
-    param["TakeImage"]["CamZoomSize"]["enabled"] = true;
-    param["TakeImage"]["LEDIntensity"]["enabled"] = true;
-
-    if (!param["System"]["Tooltip"]["found"]) {
-        param["System"]["Tooltip"]["found"] = true;
-        param["System"]["Tooltip"].value1 = 'true';
-    }
-
-    if (!param["Alignment"]["InitialRotate"]["found"]) {
-        param["Alignment"]["InitialRotate"]["found"] = true;
-        param["Alignment"]["InitialRotate"].value1 = 'false';
-    }
 
     if (!param["TakeImage"]["WaitBeforeTakingPicture"]["found"]) {
         param["TakeImage"]["WaitBeforeTakingPicture"]["found"] = true;
