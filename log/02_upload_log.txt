@@ -1,0 +1,150 @@
+"=== UPLOAD START - 2025-11-25 11:59 AM: ===" 
+Processing esp32cam (board: esp32cam; framework: espidf; platform: platformio/espressif32 @ 6.9.0)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32cam.html
+PLATFORM: Espressif 32 (6.9.0) > AI Thinker ESP32-CAM
+HARDWARE: ESP32 240MHz, 320KB RAM, 4MB Flash
+DEBUG: Current (cmsis-dap) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES: 
+ - framework-espidf @ 3.50301.0 (5.3.1) 
+ - tool-cmake @ 3.16.4 
+ - tool-esptoolpy @ 1.40501.0 (4.5.1) 
+ - tool-idf @ 1.0.1 
+ - tool-mconf @ 1.4060000.20190628 (406.0.0) 
+ - tool-mkfatfs @ 2.0.1 
+ - tool-mklittlefs @ 1.203.210628 (2.3) 
+ - tool-mkspiffs @ 2.230.0 (2.30) 
+ - tool-ninja @ 1.9.0 
+ - tool-riscv32-esp-elf-gdb @ 11.2.0+20220823 
+ - tool-xtensa-esp-elf-gdb @ 11.2.0+20230208 
+ - toolchain-esp32ulp @ 1.23800.240113 (2.38.0) 
+ - toolchain-xtensa-esp-elf @ 13.2.0+20240530
+Reading CMake configuration...
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+Found 0 compatible libraries
+Scanning dependencies...
+No dependencies
+Building in release mode
+Compiling .pio\build\esp32cam\components\jomjol_webhook\interface_webhook.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_webhook\webhook_binary.cpp.o
+Archiving .pio\build\esp32cam\esp-idf\jomjol_webhook\libjomjol_webhook.a
+Generating project linker script .pio\build\esp32cam\sections.ld
+Linking .pio\build\esp32cam\firmware.elf
+Retrieving maximum program size .pio\build\esp32cam\firmware.elf
+Checking size .pio\build\esp32cam\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+RAM:   [=         ]  14.8% (used 48336 bytes from 327680 bytes)
+Flash: [=======   ]  74.2% (used 1443476 bytes from 1945600 bytes)
+Building .pio\build\esp32cam\firmware.bin
+esptool.py v4.5.1
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Configuring upload protocol...
+AVAILABLE: cmsis-dap, esp-bridge, esp-prog, espota, esptool, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa
+CURRENT: upload_protocol = esptool
+Looking for upload port...
+Auto-detected: COM8
+Uploading .pio\build\esp32cam\firmware.bin
+esptool.py v4.5.1
+Serial port COM8
+Connecting....
+Chip is ESP32-D0WDQ6-V3 (revision v3.1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 2c:bc:bb:84:a4:28
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00006fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Flash will be erased from 0x0000d000 to 0x0000efff...
+Flash will be erased from 0x00010000 to 0x00170fff...
+Compressed 21456 bytes to 13812...
+Writing at 0x00001000... (100 %)
+Wrote 21456 bytes (13812 compressed) at 0x00001000 in 0.6 seconds (effective 282.8 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 128...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (128 compressed) at 0x00008000 in 0.1 seconds (effective 490.5 kbit/s)...
+Hash of data verified.
+Compressed 8192 bytes to 31...
+Writing at 0x0000d000... (100 %)
+Wrote 8192 bytes (31 compressed) at 0x0000d000 in 0.1 seconds (effective 1052.5 kbit/s)...
+Hash of data verified.
+Compressed 1443840 bytes to 947347...
+Writing at 0x00010000... (1 %)
+Writing at 0x0001afd0... (3 %)
+Writing at 0x00025f0e... (5 %)
+Writing at 0x0002cdf5... (6 %)
+Writing at 0x00031ee1... (8 %)
+Writing at 0x0003a45e... (10 %)
+Writing at 0x000456a5... (12 %)
+Writing at 0x0004afe5... (13 %)
+Writing at 0x000506d0... (15 %)
+Writing at 0x00056b1f... (17 %)
+Writing at 0x0005c8ba... (18 %)
+Writing at 0x000620d0... (20 %)
+Writing at 0x00067d17... (22 %)
+Writing at 0x0006cfa8... (24 %)
+Writing at 0x000728c5... (25 %)
+Writing at 0x0007836f... (27 %)
+Writing at 0x0007da68... (29 %)
+Writing at 0x00084037... (31 %)
+Writing at 0x0008a445... (32 %)
+Writing at 0x0009038d... (34 %)
+Writing at 0x000959a5... (36 %)
+Writing at 0x0009b051... (37 %)
+Writing at 0x000a03f5... (39 %)
+Writing at 0x000a5d2c... (41 %)
+Writing at 0x000ab443... (43 %)
+Writing at 0x000b0da6... (44 %)
+Writing at 0x000b68ef... (46 %)
+Writing at 0x000bbab1... (48 %)
+Writing at 0x000c0e11... (50 %)
+Writing at 0x000c6cf7... (51 %)
+Writing at 0x000cc4ca... (53 %)
+Writing at 0x000d1fae... (55 %)
+Writing at 0x000d72c5... (56 %)
+Writing at 0x000dc6ca... (58 %)
+Writing at 0x000e184e... (60 %)
+Writing at 0x000e6cbc... (62 %)
+Writing at 0x000ec0e8... (63 %)
+Writing at 0x000f15b0... (65 %)
+Writing at 0x000f6b76... (67 %)
+Writing at 0x000fc447... (68 %)
+Writing at 0x001030cc... (70 %)
+Writing at 0x0010b1a7... (72 %)
+Writing at 0x0011346a... (74 %)
+Writing at 0x0011d12c... (75 %)
+Writing at 0x00122ffa... (77 %)
+Writing at 0x0012872d... (79 %)
+Writing at 0x0012da0b... (81 %)
+Writing at 0x00132d28... (82 %)
+Writing at 0x00137f6d... (84 %)
+Writing at 0x0013d46e... (86 %)
+Writing at 0x001429f1... (87 %)
+Writing at 0x001480e5... (89 %)
+Writing at 0x0014db53... (91 %)
+Writing at 0x0015384f... (93 %)
+Writing at 0x0015aeb5... (94 %)
+Writing at 0x0016095f... (96 %)
+Writing at 0x001665c1... (98 %)
+Writing at 0x0016bfc8... (100 %)
+Wrote 1443840 bytes (947347 compressed) at 0x00010000 in 21.4 seconds (effective 539.2 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+======================== [SUCCESS] Took 101.15 seconds ========================
+
+Environment    Status    Duration
+-------------  --------  ------------
+esp32cam       SUCCESS   00:01:41.151
+========================= 1 succeeded in 00:01:41.151 =========================
+"=== UPLOAD END - 2025-11-25 11:59 AM: ===" 

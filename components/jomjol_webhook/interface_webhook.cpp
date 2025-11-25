@@ -1,5 +1,6 @@
 #ifdef ENABLE_WEBHOOK
 #include "interface_webhook.h"
+#include "webhook_binary.h"
 
 #include "esp_log.h"
 #include <time.h>
@@ -9,6 +10,7 @@
 #include "../../include/defines.h"
 #include <cJSON.h>
 #include <ClassFlowDefineTypes.h>
+#include <vector>
 
 #define MAX_HTTP_OUTPUT_BUFFER 2048
 
@@ -31,40 +33,69 @@ void WebhookInit(std::string _uri, std::string _apiKey)
 bool WebhookPublish(std::vector<NumberPost*>* numbers)
 {
     bool numbersWithError = false;
-    cJSON *jsonArray = cJSON_CreateArray();
-
+    
+    // Build binary packet
+    std::vector<uint8_t> dataBuffer;
+    
+    // Number of items
+    WebhookBinaryHelper::writeByte(dataBuffer, (*numbers).size());
+    
     for (int i = 0; i < (*numbers).size(); ++i)
     {
-        string timezw = "";
-        char buffer[80];
-        time_t &lastPreValue = (*numbers)[i]->timeStampLastPreValue;
-        struct tm* timeinfo = localtime(&lastPreValue);
+        time_t lastPreValue = (*numbers)[i]->timeStampLastPreValue;
         _lastTimestamp = static_cast<long>(lastPreValue);
-        strftime(buffer, 80, PREVALUE_TIME_FORMAT_OUTPUT, timeinfo);
-        timezw = std::string(buffer);
-
-        cJSON *json = cJSON_CreateObject();
-        cJSON_AddStringToObject(json, "timestamp", timezw.c_str());
-        cJSON_AddStringToObject(json, "timestampLong", std::to_string(_lastTimestamp).c_str());
-        cJSON_AddStringToObject(json, "name", (*numbers)[i]->name.c_str());
-        cJSON_AddStringToObject(json, "rawValue", (*numbers)[i]->ReturnRawValue.c_str());
-        cJSON_AddStringToObject(json, "value", (*numbers)[i]->ReturnValue.c_str());
-        cJSON_AddStringToObject(json, "preValue", (*numbers)[i]->ReturnPreValue.c_str());
-        cJSON_AddStringToObject(json, "rate", (*numbers)[i]->ReturnRateValue.c_str());
-        cJSON_AddStringToObject(json, "changeAbsolute", (*numbers)[i]->ReturnChangeAbsolute.c_str());
-        cJSON_AddStringToObject(json, "error", (*numbers)[i]->ErrorMessageText.c_str());
         
-        cJSON_AddItemToArray(jsonArray, json);
+        // Write each field for this NumberPost
+        // 1. Name
+        WebhookBinaryHelper::writeString(dataBuffer, (*numbers)[i]->name);
+        
+        // 2. Timestamp (8 bytes)
+        WebhookBinaryHelper::writeUint64BE(dataBuffer, (uint64_t)_lastTimestamp);
+        
+        // 3. Raw Value
+        WebhookBinaryHelper::writeString(dataBuffer, (*numbers)[i]->ReturnRawValue);
+        
+        // 4. Value
+        WebhookBinaryHelper::writeString(dataBuffer, (*numbers)[i]->ReturnValue);
+        
+        // 5. Pre Value
+        WebhookBinaryHelper::writeString(dataBuffer, (*numbers)[i]->ReturnPreValue);
+        
+        // 6. Rate
+        WebhookBinaryHelper::writeString(dataBuffer, (*numbers)[i]->ReturnRateValue);
+        
+        // 7. Change Absolute
+        WebhookBinaryHelper::writeString(dataBuffer, (*numbers)[i]->ReturnChangeAbsolute);
+        
+        // 8. Error code (1 byte) - map string to error code
+        ErrorCode errCode = WebhookBinaryHelper::stringToErrorCode((*numbers)[i]->ErrorMessageText);
+        WebhookBinaryHelper::writeByte(dataBuffer, (uint8_t)errCode);
 
         if ((*numbers)[i]->ErrorMessage) {
             numbersWithError = true;
         }
     }
+    
+    // Build complete packet with header and checksum
+    std::vector<uint8_t> packet;
+    
+    // Magic header (4 bytes)
+    WebhookBinaryHelper::writeUint32BE(packet, WEBHOOK_MAGIC_HEADER);
+    
+    // Data length (2 bytes)
+    WebhookBinaryHelper::writeUint16BE(packet, dataBuffer.size());
+    
+    // Data
+    packet.insert(packet.end(), dataBuffer.begin(), dataBuffer.end());
+    
+    // Calculate CRC16 of header + length + data (before adding checksum)
+    uint16_t crc = WebhookBinaryHelper::calculateCRC16(packet.data(), packet.size());
+    
+    // Checksum (2 bytes)
+    WebhookBinaryHelper::writeUint16BE(packet, crc);
 
-    char *jsonString = cJSON_PrintUnformatted(jsonArray);
-
-    LogFile.WriteToFile(ESP_LOG_INFO, TAG, "sending webhook");
-    LogFile.WriteToFile(ESP_LOG_DEBUG, TAG, "sending JSON: " + std::string(jsonString));
+    LogFile.WriteToFile(ESP_LOG_INFO, TAG, "sending webhook binary");
+    LogFile.WriteToFile(ESP_LOG_DEBUG, TAG, "packet size: " + std::to_string(packet.size()) + " bytes");
 
     char response_buffer[MAX_HTTP_OUTPUT_BUFFER] = {0};
     esp_http_client_config_t http_config = {};
@@ -77,10 +108,10 @@ bool WebhookPublish(std::vector<NumberPost*>* numbers)
 
     esp_http_client_handle_t http_client = esp_http_client_init(&http_config);
 
-    esp_http_client_set_header(http_client, "Content-Type", "application/json");
+    esp_http_client_set_header(http_client, "Content-Type", "application/octet-stream");
     esp_http_client_set_header(http_client, "APIKEY", _webhookApiKey.c_str());
 
-    ESP_ERROR_CHECK(esp_http_client_set_post_field(http_client, jsonString, strlen(jsonString)));
+    ESP_ERROR_CHECK(esp_http_client_set_post_field(http_client, (const char *)packet.data(), packet.size()));
 
     esp_err_t err = ESP_ERROR_CHECK_WITHOUT_ABORT(esp_http_client_perform(http_client));
 
@@ -93,8 +124,6 @@ bool WebhookPublish(std::vector<NumberPost*>* numbers)
     } 
 
     esp_http_client_cleanup(http_client);
-    cJSON_Delete(jsonArray);
-    free(jsonString);
     return numbersWithError;    
 }
 
