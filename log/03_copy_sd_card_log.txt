@@ -1,4 +1,4 @@
-"=== COPY SD CARD START - 2025-11-25 03:24 PM: ===" 
+"=== COPY SD CARD START - 2025-11-25 05:23 PM: ===" 
 Deleted file - F:\wlan.ini
 Deleted file - F:\System Volume Information\WPSettings.dat
 Deleted file - F:\System Volume Information\IndexerVolumeGuid
@@ -25,6 +25,7 @@ sd-card\config\ref1_org.jpg
 sd-card\config\reference.jpg
 sd-card\html\.gitignore
 sd-card\html\backup.html
+sd-card\html\bootstrap.bundle.min.js
 sd-card\html\bootstrap.min.css
 sd-card\html\close.png
 sd-card\html\cnn_images.jpg
@@ -82,11 +83,9 @@ sd-card\html\readconfigparam.js
 sd-card\html\reboot_page.html
 sd-card\html\searchicon.png
 sd-card\html\setup.html
-sd-card\html\start_server.bat
-sd-card\html\start_server.js
 sd-card\html\style.css
 sd-card\html\timezones.html
 sd-card\html\wlan_config.html
 sd-card\html\img\ChangeRateThreshold.png
-86 File(s) copied
-"=== COPY SD CARD END - 2025-11-25 03:24 PM: ===" 
+85 File(s) copied
+"=== COPY SD CARD END - 2025-11-25 05:23 PM: ===" 

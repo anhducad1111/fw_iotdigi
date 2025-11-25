@@ -3,60 +3,19 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alignment markers</title>
- 
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
+
+    <link href="firework.css?v=v1" rel="stylesheet">
+
+    <script type="text/javascript" src="common.js?v=v1"></script>
+    <script type="text/javascript" src="jquery-3.6.0.min.js?v=v1"></script>
+    <script type="text/javascript" src="firework.js?v=v1"></script>
+
     <style>
-        h1 {font-size: 2em;}
-        h2 {font-size: 1.5em; margin-block-start: 0.0em; margin-block-end: 0.2em;}
-        h3 {font-size: 1.2em;}
-        p {font-size: 1em;}
-
-        input[type=number] {
-            width: 60px;
-            margin-right: 10px;
-            padding: 3px 5px;
-            display: inline-block;
-            border: 1px solid #ccc;
-            font-size: 16px; 
-        }
-
-        input[type=text] {
-            padding: 3px 5px;
-            display: inline-block;
-            border: 1px solid #ccc;
-            font-size: 16px; 
-        }
-
-        input:out-of-range {
-        background-color: rgba(255, 0, 0, 0.25);
-        border: 1px solid red;
-        }
-
-        select {
-            padding: 3px 5px;
-            display: inline-block;
-            border: 1px solid #ccc;
-            font-size: 16px; 
-            margin-right: 10px;
-            min-width: 100px;
-            vertical-align: middle;
-        }
-
-        .button {
-            padding: 5px 10px;
-            width: 205px;
-            font-size: 16px;
-        }
-
-        th, td {
-            padding: 5px 5px 5px 0px;
-        }
-
-        table {
-            width: 660px;
-            padding: 5px;
-        }
-
         #overlay {
             position: fixed;
             display: none;
@@ -66,120 +25,188 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0,0,0,0.8);
-            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
         }
 
-        #overlaytext{
+        #overlaytext {
             position: absolute;
             top: 50%;
             left: 50%;
-            font-size: 150%;
+            font-size: 1.5rem;
             color: white;
-            transform: translate(-50%,-50%);
-            -ms-transform: translate(-50%,-50%);
-        }
-        
-        #reboot_button {
-            float: none;
-            background-color: #f44336;
-            color: white;
-            padding: 5px;
-            border-radius:
-            5px; font-weight: bold;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
             text-align: center;
-            text-decoration: none;
-            display: inline-block;
+        }
+
+        #reboot_button {
+            cursor: pointer;
+            text-decoration: underline;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #dee2e6;
         }
     </style>
-
-    <link href="firework.css?v=v1" rel="stylesheet">
-
-    <script type="text/javascript" src="common.js?v=v1"></script>
-    <script type="text/javascript" src="jquery-3.6.0.min.js?v=v1"></script>
-    <script type="text/javascript" src="firework.js?v=v1"></script>
-
 </head>
 
-<body style="font-family: arial; padding: 0px 10px;">
+<body>
     <div id="overlay">
         <div id="overlaytext"></div>
     </div>
-	
-    <h2>Alignment Markers</h2>
-    <details id="desc_details" style="font-size:16px">
-        <summary><b>CLICK HERE</b> for usage description. More infos in documentation:   
-            <a href=https://jomjol.github.io/AI-on-the-edge-device-docs/Alignment/ target=_blank>Alignment</a>
-        </summary>
-        <p>
-            Two alignment markers with clear contour and proper contrast are needed to identify unique "fix points" on the image. 
-            The marker area should be not be part of the variable area of ROI evaluation. Please find more information in documenation:
-            <a href=https://jomjol.github.io/AI-on-the-edge-device-docs/Alignment/ target=_blank>Alignment</a>
-        </p>
-        <p>
-            Select an alignment marker area using drag and dop feature by mouse operation or by manually entering the coordinates and sizes in the fields below the image.
-            After you selected a suitable first alignment marker area, push the <b>"Update Marker"</b> button. Switch to second alignment marker with <b>"Marker"</b>
-            and repeat the procedure.
-        </p>
-        <p>
-            After definition of both alignment marker is completed don't forget to save with the <b>"Save New Marker"</b> button!<br>
-            <b>NOTE:</b> There is no need to perform a reboot after every saving or step. It's sufficient to reboot after all configuration steps 
-            (reference image, alignment, ROI configuration) are completed to activate new configuration.
-        </p>
-    </details>
-    <hr />
 
-    <table>
-        <colgroup>
-            <col span="1" style="width: 33.3%;">
-            <col span="1" style="width: 33.3%;">
-            <col span="1" style="width: 33.3%;">
-        </colgroup>
-	
-        <tr>
-            <td>Marker: 
-                <select id="index" name="reference" onchange="ChangeSelection()">
-                    <option value="0" selected>Marker 1</option>
-                    <option value="1" >Marker 2</option>
-                </select>
-            </td>
-            <td colspan="2" style="padding-left: 22px; color: grey;">Filename: <output type="text" name="name" id="name" onchange="namechanged()"></td>
-        </tr>
-	  
-        <tr>
-            <td style="padding-top: 10px">x: <input type="number" name="refx" id="refx" step=1 onchange="valuemanualchanged()"></td>
-            <td style="padding-top: 10px">dx: <input type="number" name="refdx" id="refdx" step=1 onchange="valuemanualchanged()"></td>
-            <td rowspan="2" style="padding-top: 10px;"><button style="color:black;" type="button" class="button" id="updatemarker" onclick="CutOutReference()">Update Marker</button></td>	
-        </tr>
-	  
-        <tr>
-            <td>y: <input type="number" name="refy" id="refy" step=1 onchange="valuemanualchanged()"></td>
-            <td>dy: <input type="number" name="refdy" id="refdy" step=1 onchange="valuemanualchanged()"></td>
-        </tr>
-	  
-        <tr>
-            <td style="vertical-align: bottom;">Selected Image Area:</td>
-            <td style="vertical-align: bottom;">Resulting Marker:</td>
-            <td><button style="color:black;" type="button" class="button" id="enhancecontrast" onclick="EnhanceContrast()">Enhance Image Contrast</button></td>	
-        </tr> 
-	  
-        <tr>
-            <td style="height:70px; vertical-align: top;"><img id="img_ref_org" src = ""></td>    <!--/img_tmp/ref_zw_org.jpg-->
-            <td style="height:70px; vertical-align: top;"><img id="img_ref" src = ""></td>        <!--/img_tmp/ref_zw.jpg-->
-        </tr>
-	  
-        <tr>
-            <td style="vertical-align:bottom;"><b>Reference Image:</b></td>
-            <td></td>
-            <td>
-                <button style="font-weight:bold; color:black;" type="submit" class="button" id="savemarker" onclick="SaveToConfig()">Save New Marker</button>
-            </td>
-        </tr>
-	  
-        <tr>
-            <td colspan="3"><canvas id="canvas" crossorigin></canvas></td>
-        </tr>
-    </table>
+    <div class="container-fluid py-4">
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">Alignment Markers</h4>
+            </div>
+
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <details id="desc_details">
+                        <summary><b>CLICK HERE</b> for usage description. More infos in documentation: <a
+                                href="https://jomjol.github.io/AI-on-the-edge-device-docs/Alignment/" target="_blank"
+                                class="alert-link">Alignment</a></summary>
+                        <p class="mt-2">
+                            Two alignment markers with clear contour and proper contrast are needed to identify unique
+                            "fix points" on the image.
+                            The marker area should be not be part of the variable area of ROI evaluation.
+                        </p>
+                        <p>
+                            Select an alignment marker area using drag and drop feature by mouse operation or by
+                            manually entering the coordinates and sizes in the fields below the image.
+                            After you selected a suitable first alignment marker area, push the <b>"Update Marker"</b>
+                            button. Switch to second alignment marker with <b>"Marker"</b>
+                            and repeat the procedure.
+                        </p>
+                        <p class="mb-0">
+                            After definition of both alignment markers is completed don't forget to save with the
+                            <b>"Save New Marker"</b> button!<br>
+                            <b>NOTE:</b> There is no need to perform a reboot after every saving or step. It's
+                            sufficient to reboot after all configuration steps
+                            (reference image, alignment, ROI configuration) are completed to activate new configuration.
+                        </p>
+                    </details>
+                </div>
+
+                <!-- Controls Area -->
+                <div class="row g-3 mb-4">
+                    <!-- Marker Selection & Filename -->
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">Marker</span>
+                            <select id="index" name="reference" class="form-select" onchange="ChangeSelection()">
+                                <option value="0" selected>Marker 1</option>
+                                <option value="1">Marker 2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">Filename</span>
+                            <input type="text" name="name" id="name" class="form-control" onchange="namechanged()"
+                                readonly>
+                        </div>
+                    </div>
+
+                    <!-- Coordinates X, dx -->
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-text">x</span>
+                            <input type="number" name="refx" id="refx" step="1" class="form-control"
+                                onchange="valuemanualchanged()">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-text">dx</span>
+                            <input type="number" name="refdx" id="refdx" step="1" class="form-control"
+                                onchange="valuemanualchanged()">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary w-100" id="updatemarker"
+                            onclick="CutOutReference()">
+                            <i class="bi bi-arrow-repeat"></i> Update Marker
+                        </button>
+                    </div>
+
+                    <!-- Coordinates Y, dy -->
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-text">y</span>
+                            <input type="number" name="refy" id="refy" step="1" class="form-control"
+                                onchange="valuemanualchanged()">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-text">dy</span>
+                            <input type="number" name="refdy" id="refdy" step="1" class="form-control"
+                                onchange="valuemanualchanged()">
+                        </div>
+                    </div>
+
+                    <!-- Enhance Contrast -->
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-secondary w-100" id="enhancecontrast"
+                            onclick="EnhanceContrast()">
+                            <i class="bi bi-magic"></i> Enhance Image Contrast
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Images Preview -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header text-center small text-muted">Selected Image Area</div>
+                            <div class="card-body text-center d-flex align-items-center justify-content-center"
+                                style="min-height: 100px;">
+                                <img id="img_ref_org" src="" class="img-fluid" style="max-height: 150px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header text-center small text-muted">Resulting Marker</div>
+                            <div class="card-body text-center d-flex align-items-center justify-content-center"
+                                style="min-height: 100px;">
+                                <img id="img_ref" src="" class="img-fluid" style="max-height: 150px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Save Button -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-success w-100 btn-lg" id="savemarker"
+                            onclick="SaveToConfig()">
+                            <i class="bi bi-save"></i> Save New Marker
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Canvas -->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="border rounded p-2 bg-light overflow-auto">
+                            <canvas id="canvas" crossorigin></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="bootstrap.bundle.min.js"></script>
 
     <script type="text/javascript" src="readconfigparam.js?v=v1"></script>
     <script type="text/javascript" src="readconfigcommon.js?v=v1"></script>
@@ -196,9 +223,9 @@
             domainname = getDomainname(),
             neueref1,
             neueref2,
-            cofcat,	
+            cofcat,
             param;
-    
+
         function doReboot() {
             var stringota = domainname + "/reboot";
             window.location = stringota;
@@ -206,10 +233,10 @@
             window.location.assign(stringota);
             window.location.replace(stringota);
         }
-    
-        function ChangeSelection(){
+
+        function ChangeSelection() {
             aktindex = parseInt(document.getElementById("index").value);
-	
+
             if (aktindex == 0 && neueref1 == 1) {
                 UpdateReference();
             }
@@ -232,7 +259,7 @@
             async function task() {
                 while (true) {
                     WriteConfigININew();
-    
+
                     if (neueref1 == 1 && neueref2 == 1) {
                         UpdateConfigReferences(domainname);
                     }
@@ -246,7 +273,7 @@
                     }
 
                     SaveConfigToServer(domainname);
-            
+
                     document.getElementById("updatemarker").disabled = false;
                     // document.getElementById("savemarker").disabled = true;
                     // document.getElementById("enhancecontrast").disabled = true;
@@ -272,9 +299,9 @@
 
             refInfo[aktindex]["name"] = document.getElementById("name").value;
             refInfo[aktindex]["x"] = document.getElementById("refx").value;
-            refInfo[aktindex]["y"] = document.getElementById("refy").value; 
+            refInfo[aktindex]["y"] = document.getElementById("refy").value;
             refInfo[aktindex]["dx"] = document.getElementById("refdx").value;
-            refInfo[aktindex]["dy"] = document.getElementById("refdy").value;       
+            refInfo[aktindex]["dy"] = document.getElementById("refdy").value;
 
             var enhanceCon = true;
             var durchlaufe = 0;
@@ -290,31 +317,31 @@
                         firework.launch('Enhancing Image Contrast aborted, timeout!', 'danger', 5000);
                         return;
                     }
-		
+
                     var ret = MakeRefImageZW(refInfo[aktindex], enhanceCon, domainname);
-			
+
                     if (ret) {
                         UpdateReference();
                         document.getElementById("overlay").style.display = "none";
-				
+
                         if (aktindex == 0) {
                             neueref1 = 1;
                         }
                         else if (aktindex == 1) {
                             neueref2 = 1;
-                        }				
+                        }
                         return;
                     }
                     else {
                         // Get status
                         var xhttp = new XMLHttpRequest();
                         durchlaufe = durchlaufe + 1;
-				
+
                         try {
                             xhttp.open("GET", domainname + "/statusflow", false);
                             xhttp.send();
                         }
-                        catch (error){}
+                        catch (error) { }
 
                         document.getElementById("overlaytext").innerHTML = "Device is busy, waiting until the Digitization Round got completed (this can take several minutes)...<br><br>Current step: " + xhttp.responseText;
                         console.log("Device is busy, waiting 5s then checking again...");
@@ -323,16 +350,16 @@
                 }
             }
 
-            setTimeout(function() { 
+            setTimeout(function () {
                 // Delay so the overlay gets shown
                 task();
             }, 1);
         }
 
-        function UpdateReference(){
+        function UpdateReference() {
             document.getElementById("img_ref").onload = function () {
                 document.getElementById("refdx").value = this.width;
-                document.getElementById("refdy").value = this.height;   
+                document.getElementById("refdy").value = this.height;
                 refInfo[aktindex]["dx"] = this.width;
                 refInfo[aktindex]["dy"] = this.height;
                 rect.w = document.getElementById("refdx").value;
@@ -341,34 +368,34 @@
             }
 
             var _filenameurl = refInfo[aktindex]["name"].replace("/config/", "/img_tmp/");
-            var url = domainname + "/fileserver" + _filenameurl + "?"  + Date.now();
+            var url = domainname + "/fileserver" + _filenameurl + "?" + Date.now();
             document.getElementById("img_ref").src = url;
 
             _filenameurl = _filenameurl.replace(".jpg", "_org.jpg");
-            var url = domainname + "/fileserver" + _filenameurl +  "?" + Date.now();
+            var url = domainname + "/fileserver" + _filenameurl + "?" + Date.now();
             document.getElementById("img_ref_org").src = url;
 
             document.getElementById("name").value = refInfo[aktindex]["name"];
             document.getElementById("refx").value = refInfo[aktindex]["x"];
-            document.getElementById("refy").value = refInfo[aktindex]["y"];  
+            document.getElementById("refy").value = refInfo[aktindex]["y"];
             rect.startX = document.getElementById("refx").value;
-            rect.startY = document.getElementById("refy").value; 
-            draw();      
+            rect.startY = document.getElementById("refy").value;
+            draw();
         }
 
         function loadCanvas(dataURL) {
             var canvas = document.getElementById('canvas');
             var context = canvas.getContext('2d');
-    
-            imageObj.onload = function() {
+
+            imageObj.onload = function () {
                 canvas.width = this.width;
                 canvas.height = this.height;
                 drawImage();
             };
-    
+
             imageObj.src = dataURL;
         }
-    
+
         function getCoords(elem) { // crossbrowser version
             var box = elem.getBoundingClientRect();
             var body = document.body;
@@ -377,22 +404,22 @@
             var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
             var clientTop = docEl.clientTop || body.clientTop || 0;
             var clientLeft = docEl.clientLeft || body.clientLeft || 0;
-            var top  = box.top +  scrollTop - clientTop;
+            var top = box.top + scrollTop - clientTop;
             var left = box.left + scrollLeft - clientLeft;
             return { top: Math.round(top), left: Math.round(left) };
         }
-   
+
         /* hash #description open the details part of the page */
         function openDescription() {
-            if(window.location.hash) {
+            if (window.location.hash) {
                 var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
-                if(hash == 'description') {
+                if (hash == 'description') {
                     document.getElementById("desc_details").open = false;
                 }
             }
         }
 
-        function LoadReference(){
+        function LoadReference() {
             document.getElementById("img_ref").onload = function () {
                 document.getElementById("refdx").value = this.width;
                 document.getElementById("refdy").value = this.height;
@@ -404,11 +431,11 @@
             }
 
             var _filenameurl = refInfo[aktindex]["name"];
-            var url = domainname + "/fileserver" + _filenameurl + "?"  + Date.now();
+            var url = domainname + "/fileserver" + _filenameurl + "?" + Date.now();
             document.getElementById("img_ref").src = url;
-	
+
             _filenameurl = _filenameurl.replace(".jpg", "_org.jpg");
-            var url = domainname + "/fileserver" + _filenameurl +  "?" + Date.now();
+            var url = domainname + "/fileserver" + _filenameurl + "?" + Date.now();
             document.getElementById("img_ref_org").src = url;
 
             document.getElementById("name").value = refInfo[aktindex]["name"];
@@ -417,11 +444,11 @@
             rect.startX = document.getElementById("refx").value;
             rect.startY = document.getElementById("refy").value;
             draw();
-        }	
-	
+        }
+
         function init() {
             openDescription();
-	
+
             document.getElementById("updatemarker").disabled = false;
             // document.getElementById("savemarker").disabled = true;
             // document.getElementById("enhancecontrast").disabled = true;
@@ -441,7 +468,7 @@
             canvas.addEventListener('mousedown', mouseDown, false);
             canvas.addEventListener('mouseup', mouseUp, false);
             canvas.addEventListener('mousemove', mouseMove, false);
-            loadCanvas(domainname + "/fileserver/config/reference.jpg");	
+            loadCanvas(domainname + "/fileserver/config/reference.jpg");
 
             refInfo = GetReferencesInfo();
 
@@ -450,22 +477,22 @@
             draw();
         }
 
-        function drawImage(){
+        function drawImage() {
             var canvas = document.getElementById('canvas');
             var context = canvas.getContext('2d');
 
-            context.clearRect(0,0,imageObj.width,imageObj.height);
+            context.clearRect(0, 0, imageObj.width, imageObj.height);
             context.save();
             context.drawImage(imageObj, 0, 0);
             // context.restore();
-        }  
+        }
 
-        function CutOutReference(){
+        function CutOutReference() {
             document.getElementById("overlay").style.display = "block";
             document.getElementById("overlaytext").innerHTML = "Updating marker...";
 
             refInfo[aktindex]["x"] = document.getElementById("refx").value;
-            refInfo[aktindex]["y"] = document.getElementById("refy").value; 
+            refInfo[aktindex]["y"] = document.getElementById("refy").value;
             refInfo[aktindex]["dx"] = document.getElementById("refdx").value;
             refInfo[aktindex]["dy"] = document.getElementById("refdy").value;
 
@@ -485,37 +512,37 @@
                     }
 
                     var ret = MakeRefImageZW(refInfo[aktindex], enhanceCon, domainname);
-            
+
                     if (ret) {
                         UpdateReference();
-				
+
                         document.getElementById("updatemarker").disabled = false;
                         // document.getElementById("savemarker").disabled = false;
                         // document.getElementById("enhancecontrast").disabled = false;
 
                         EnDisableItem(true, "savemarker", true);
                         EnDisableItem(true, "enhancecontrast", true);
-				
+
                         document.getElementById("overlay").style.display = "none";
-				
+
                         if (aktindex == 0) {
                             neueref1 = 1;
                         }
                         else if (aktindex == 1) {
                             neueref2 = 1;
-                        }					
+                        }
                         return;
                     }
                     else {
                         // Get status
                         var xhttp = new XMLHttpRequest();
                         durchlaufe = durchlaufe + 1;
-				
+
                         try {
                             xhttp.open("GET", domainname + "/statusflow", false);
                             xhttp.send();
                         }
-                        catch (error){}
+                        catch (error) { }
 
                         document.getElementById("overlaytext").innerHTML = "Device is busy, waiting until the Digitization Round got completed (this can take several minutes)...<br><br>Current step: " + xhttp.responseText;
                         console.log("Device is busy, waiting 5s then checking again...");
@@ -524,13 +551,13 @@
                 }
             }
 
-            setTimeout(function() { 
+            setTimeout(function () {
                 // Delay so the overlay gets shown
                 task();
             }, 1);
         }
 
-        function drawGrid(){
+        function drawGrid() {
             var canvas = document.getElementById('canvas');
             var ctx = canvas.getContext('2d');
             var w = canvas.width;
@@ -538,22 +565,22 @@
             ctx.save();
             ctx.strokeStyle = '#00FF00';
 
-            for (i = h/2; i < h; i += 100) {
+            for (i = h / 2; i < h; i += 100) {
                 ctx.moveTo(0, i);
                 ctx.lineTo(w, i);
                 ctx.stroke();
-                ctx.moveTo(0, h-i);
-                ctx.lineTo(w, h-i);
+                ctx.moveTo(0, h - i);
+                ctx.lineTo(w, h - i);
                 ctx.stroke();
             }
-	
-            for (i = w/2; i < w; i += 100) {
+
+            for (i = w / 2; i < w; i += 100) {
                 ctx.moveTo(i, 0);
                 ctx.lineTo(i, h);
                 ctx.stroke();
-                ctx.moveTo(w-i, 0);
-                ctx.lineTo(w-i, h);
-                ctx.stroke();                
+                ctx.moveTo(w - i, 0);
+                ctx.lineTo(w - i, h);
+                ctx.stroke();
             }
             // ctx.restore();
         }
@@ -565,19 +592,19 @@
             var lw = 4
             context.lineWidth = lw;
             context.strokeStyle = "#FF0000";
-            var x0 = parseInt(rect.startX) - parseInt(lw/2);
-            var y0 = parseInt(rect.startY) - parseInt(lw/2);
+            var x0 = parseInt(rect.startX) - parseInt(lw / 2);
+            var y0 = parseInt(rect.startY) - parseInt(lw / 2);
             var dx = parseInt(rect.w) + parseInt(lw);
             var dy = parseInt(rect.h) + parseInt(lw);
-            context.strokeRect(x0, y0, dx, dy);           
+            context.strokeRect(x0, y0, dx, dy);
         }
 
         function mouseDown(e) {
             var zw = getCoords(this)
             rect.startX = e.pageX - zw.left;
             rect.startY = e.pageY - zw.top;
-            document.getElementById("refx").value =  rect.startX;
-            document.getElementById("refy").value =  rect.startY;    
+            document.getElementById("refx").value = rect.startX;
+            document.getElementById("refy").value = rect.startY;
             drag = true;
         }
 
@@ -598,28 +625,28 @@
 
         function mouseUp() {
             drag = false;
-    
+
             if (rect.w < 0) {
                 rect.w = -rect.w
-                rect.startX-=rect.w
+                rect.startX -= rect.w
             }
-    
+
             if (rect.h < 0) {
                 rect.h = -rect.h
-                rect.startY-=rect.h
+                rect.startY -= rect.h
             }
-        
+
             document.getElementById("refdx").value = rect.w;
             document.getElementById("refdy").value = rect.h;
             document.getElementById("refx").value = rect.startX;
-            document.getElementById("refy").value = rect.startY;    
+            document.getElementById("refy").value = rect.startY;
         }
 
         function mouseMove(e) {
             if (drag) {
-                var zw = getCoords(this)        
+                var zw = getCoords(this)
                 rect.w = (e.pageX - zw.left) - rect.startX;
-                rect.h = (e.pageY - zw.top) - rect.startY ;
+                rect.h = (e.pageY - zw.top) - rect.startY;
                 document.getElementById("refdx").value = rect.w;
                 document.getElementById("refdy").value = rect.h;
                 draw();
@@ -632,15 +659,15 @@
                 var zw = getCoords(this);
                 var x = e.pageX - zw.left;
                 var y = e.pageY - zw.top;
-            
+
                 context.lineWidth = 2;
                 context.strokeStyle = "#00FF00";
-                context.beginPath(); 
-                context.moveTo(0,y);
+                context.beginPath();
+                context.moveTo(0, y);
                 context.lineTo(canvas.width, y);
                 context.moveTo(x, 0);
                 context.lineTo(x, canvas.height);
-                context.stroke();            
+                context.stroke();
             }
         }
 
@@ -649,17 +676,18 @@
             refInfo[aktindex]["name"] = _name;
         }
 
-        function valuemanualchanged(){
+        function valuemanualchanged() {
             if (!drag) {
                 rect.w = document.getElementById("refdx").value;
                 rect.h = document.getElementById("refdy").value;
                 rect.startX = document.getElementById("refx").value;
-                rect.startY = document.getElementById("refy").value; 
-                draw();            
+                rect.startY = document.getElementById("refy").value;
+                draw();
             }
         }
-    
+
         init();
     </script>
 </body>
+
 </html>

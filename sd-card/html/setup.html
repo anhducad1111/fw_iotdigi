@@ -1,62 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en"> 
+<html lang="en" xml:lang="en">
 <head>
 <title>AI on the edge</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="bootstrap.min.css" type="text/css">
 
-<style>
-.h_iframe_explain iframe {
-    width:995px;
-    height:155px;
-    padding:5px;
-    padding-top:0px;
-    padding-bottom:0px;
-}
+<!-- Custom Edit Styles -->
+<link rel="stylesheet" href="edit_style.css" type="text/css">
 
-.h_iframe iframe {
-    width:995px;
-    height:800px;
-    padding:5px;
-}
-
-h1 {font-size: 2em; margin-block-end: 0.3em;}
-h2 {font-size: 1.5em;margin-block-start: 0.3em;}
-h3 {font-size: 1.2em;}
-p {font-size: 1em;}
-
-.button {
-	padding: 5px 10px;
-    width: 125px;
-	font-size: 16px;
-}
-
-table {
-    width: 1015px;
-	padding: 0px;
-}
-
-.main {
-    display: flex; 
-    width: 100%; 
-    height: 100%; 
-    flex-direction: column; 
-    overflow: hidden;
-}
-
-body, html {
-    width: 100%; 
-    height: 100%; 
-    min-height: 800px;
-    margin: 0px 0px 0px 2px; 
-    padding: 0; 
-    font-family: arial;
-    width: -moz-fit-content;
-    width: fit-content;
-}
-
-</style>
 <script type="text/javascript">
     function resizeIframe(obj) {
         obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 20 + 'px';
@@ -64,60 +18,69 @@ body, html {
 </script>
 </head>
 
-<body style="font-family: arial">
-
-    <table style="border: none">
-        <tr>
-            <td style="padding-right: 10px;"><img src="favicon.ico?v=v1"></td>
-            <td>
-                <h1> Digitizer - AI on the edge - Initial setup</h1>
+<body>
+    <div class="container-fluid py-3" style="max-width: 1400px; margin: 0 auto;">
+        <div class="row mb-3">
+            <div class="col-auto">
+                <img src="favicon.ico?v=v1" alt="Logo">
+            </div>
+            <div class="col">
+                <h1>Digitizer - AI on the edge - Initial setup</h1>
                 <h2>An ESP32 all inclusive neural network recognition system for meter Digitization</h2>
-            </td>
-        </tr>
-    </table>
+            </div>
+        </div>
 
-    <table>
-        <colgroup>
-            <col span="1" style="width: 45.0%;">
-            <col span="1" style="width: 15.0%;">
-            <col span="1" style="width: 25.0%;">
-        </colgroup>
-        <tr>
-            <td>
-                <button class="button" id="restart" name="restart" onclick="clickStart()">Restart Setup</button>
-                <button class="button" id="previous" name="previous" onclick="clickPrevious()">Previous Step</button>
-                <button class="button" id="next" name="next" onclick="clickNext()">Next Step</button>
-                <button class="button" id="skip" name="skip" onclick="clickAbort()">Abort Setup</button>
-            </td>
-            <td style="padding-left:10px;">Setup Progress:<br><progress id="progressBar" value="0" max="7" style="width:120px;"></progress></td>
-            <td style="padding-left:10px; padding-top: 10px; padding-right: 5px; float:right;">
+        <div class="row mb-3 align-items-center">
+            <div class="col-md-6">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-secondary me-2" id="restart" name="restart" onclick="clickStart()">Restart Setup</button>
+                    <button class="btn btn-secondary me-2" id="previous" name="previous" onclick="clickPrevious()">Previous Step</button>
+                    <button class="btn btn-primary me-2" id="next" name="next" onclick="clickNext()">Next Step</button>
+                    <button class="btn btn-danger" id="skip" name="skip" onclick="clickAbort()">Abort Setup</button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label>Setup Progress:</label>
+                <div class="progress">
+                    <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="7"></div>
+                </div>
+            </div>
+            <div class="col-md-3 text-end">
                 <output id="rssi" name="rssi"></output>
-            </td>
-        </tr>
-    </table>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-8">
+                <div class="h_iframe_explain mb-3" id="h_iframe_explain" style="display: none;">
+                    <iframe name="explaincontent" id="explaincontent" src="" allowfullscreen style="width: 100%; height: 155px; border: none;"></iframe>
+                </div>
 
-    <div class="h_iframe_explain" id="h_iframe_explain">
-        <iframe name="explaincontent" id ="explaincontent" src="" allowfullscreen></iframe>
+                <div class="h_iframe" id="h_iframe">
+                    <iframe name="maincontent" id="maincontent" src="" onload="resizeIframe(this)" allowfullscreen style="width: 100%; height: 800px; border: none;"></iframe>
+                    <iframe name="stream" id="stream" src="" style="display: none;" allowfullscreen style="width: 100%; height: 800px; border: none;"></iframe>
+                </div>
+            </div>
+            <div class="col-4">
+                <div id="reference" style="display: none;">
+                    <!-- Reference image will be loaded here -->
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="h_iframe" id="h_iframe">
-        <iframe name="maincontent" id ="maincontent" src="" onload="resizeIframe(this)" allowfullscreen></iframe>
-        <iframe name="stream" id ="stream" src="" display="none" allowfullscreen></iframe>
-    </div>
-
-
-<script type="text/javascript" src="common.js?v=v1"></script> 
+<script type="text/javascript" src="common.js?v=v1"></script>
 <script type="text/javascript">
     var aktstep = 0;
     var setupCompleted = false;
     document.getElementById('stream').style.display = "none";   // Make sure that stream iframe is always hidden
-    document.getElementById("progressBar").value = 0;
+    document.getElementById("progressBar").style.width = "0%";
+    document.getElementById("progressBar").setAttribute("aria-valuenow", 0);
 
     function clickStart() {
         aktstep = 0;
         setupCompleted = false;
-        document.getElementById('stream').src = "";     
+        document.getElementById('stream').src = "";
         document.getElementById('stream').style.display = "none";   // Make sure that stream iframe is always hidden
         LoadStep();
     }
@@ -125,7 +88,7 @@ body, html {
     function clickAbort() {
         setupCompleted = false;
         aktstep = 7;
-        document.getElementById('stream').src = "";     
+        document.getElementById('stream').src = "";
         document.getElementById('stream').style.display = "none";   // Make sure that stream iframe is always hidden
         LoadStep();
     }
@@ -135,7 +98,7 @@ body, html {
         if (aktstep > 7) {
             aktstep = 7;
         }
-        document.getElementById('stream').src = "";     
+        document.getElementById('stream').src = "";
         document.getElementById('stream').style.display = "none";   // Make sure that stream iframe is always hidden
         LoadStep();
     }
@@ -145,7 +108,7 @@ body, html {
         if (aktstep < 0) {
             aktstep = 0;
         }
-        document.getElementById('stream').src = "";     
+        document.getElementById('stream').src = "";
         document.getElementById('stream').style.display = "none";   // Make sure that stream iframe is always hidden
         LoadStep();
    }
@@ -164,29 +127,35 @@ body, html {
             document.getElementById("next").disabled = false;
             document.getElementById("skip").disabled = false;
 
-            document.getElementById("progressBar").value = 0;
+            document.getElementById("progressBar").style.width = "0%";
+            document.getElementById("progressBar").setAttribute("aria-valuenow", 0);
             setupCompleted = false;
+            document.getElementById('reference').style.display = "none";
+            document.getElementById('reference').innerHTML = '';
             break;
 
         case 1: // Live stream
             document.getElementById('maincontent').style.display = "none";
 
             document.getElementById('h_iframe_explain').style.display = "";
-            document.getElementById('h_iframe_explain').style="height:155px;"
-            document.getElementById('explaincontent').style="height:155px;"
-            document.getElementById('explaincontent').scrolling="yes"
+            document.getElementById('h_iframe_explain').style.height = "155px";
+            document.getElementById('explaincontent').style.height = "155px";
+            document.getElementById('explaincontent').scrolling = "yes";
             document.getElementById('explaincontent').src = 'explain_1.html?v=v1';
-            
+
             document.getElementById("restart").disabled = false;
             document.getElementById("previous").disabled = false;
             document.getElementById("next").disabled = false;
             document.getElementById("skip").disabled = false;
 
-            document.getElementById('h_iframe').style="height:480px;"
-            document.getElementById('stream').style="height:480px;"
+            document.getElementById('h_iframe').style.height = "480px";
+            document.getElementById('stream').style.height = "480px";
 
-            document.getElementById("progressBar").value = 1;
+            document.getElementById("progressBar").style.width = "14%";
+            document.getElementById("progressBar").setAttribute("aria-valuenow", 1);
             setupCompleted = false;
+            document.getElementById('reference').style.display = "none";
+            document.getElementById('reference').innerHTML = '';
 
             setTimeout(function() {
                 document.getElementById('stream').src = getDomainname() + '/stream?flashlight=true';   // needs to be the last statement because it's kind of blocking
@@ -199,9 +168,9 @@ body, html {
             document.getElementById('maincontent').style.display = "";
 
             document.getElementById('h_iframe_explain').style.display = "";
-            document.getElementById('h_iframe_explain').style="height:45px;"
-            document.getElementById('explaincontent').style="height:45px;"
-            document.getElementById('explaincontent').scrolling="no"
+            document.getElementById('h_iframe_explain').style.height = "45px";
+            document.getElementById('explaincontent').style.height = "45px";
+            document.getElementById('explaincontent').scrolling = "no";
             document.getElementById('explaincontent').src = 'explain_2.html?v=v1';
 
             document.getElementById("restart").disabled = false;
@@ -209,17 +178,20 @@ body, html {
             document.getElementById("next").disabled = false;
             document.getElementById("skip").disabled = false;
 
-            document.getElementById("progressBar").value = 2;
+            document.getElementById("progressBar").style.width = "29%";
+            document.getElementById("progressBar").setAttribute("aria-valuenow", 2);
             setupCompleted = false;
+            document.getElementById('reference').style.display = "";
+            document.getElementById('reference').innerHTML = '<img src="config/ref0.jpg" style="width:100%; height:auto;" alt="Reference Image">';
             break;
 
         case 3: // Alignment marker
             document.getElementById('maincontent').src = 'edit_alignment.html?v=v1#description';
 
             document.getElementById('h_iframe_explain').style.display = "";
-            document.getElementById('h_iframe_explain').style="height:45px;"
-            document.getElementById('explaincontent').style="height:45px;"
-            document.getElementById('explaincontent').scrolling="no"
+            document.getElementById('h_iframe_explain').style.height = "45px";
+            document.getElementById('explaincontent').style.height = "45px";
+            document.getElementById('explaincontent').scrolling = "no";
             document.getElementById('explaincontent').src = 'explain_3.html?v=v1';
 
             document.getElementById("restart").disabled = false;
@@ -227,17 +199,20 @@ body, html {
             document.getElementById("next").disabled = false;
             document.getElementById("skip").disabled = false;
 
-            document.getElementById("progressBar").value = 3;
+            document.getElementById("progressBar").style.width = "43%";
+            document.getElementById("progressBar").setAttribute("aria-valuenow", 3);
             setupCompleted = false;
+            document.getElementById('reference').style.display = "";
+            document.getElementById('reference').innerHTML = '<img src="config/ref1.jpg" style="width:100%; height:auto;" alt="Alignment Reference">';
             break;
 
         case 4: // Digit ROIs
             document.getElementById('maincontent').src = 'edit_digits.html?v=v1#description';
 
             document.getElementById('h_iframe_explain').style.display = "";
-            document.getElementById('h_iframe_explain').style="height:45px;"
-            document.getElementById('explaincontent').style="height:45px;"
-            document.getElementById('explaincontent').scrolling="no"
+            document.getElementById('h_iframe_explain').style.height = "45px";
+            document.getElementById('explaincontent').style.height = "45px";
+            document.getElementById('explaincontent').scrolling = "no";
             document.getElementById('explaincontent').src = 'explain_4.html?v=v1';
 
             document.getElementById("restart").disabled = false;
@@ -245,17 +220,20 @@ body, html {
             document.getElementById("next").disabled = false;
             document.getElementById("skip").disabled = false;
 
-            document.getElementById("progressBar").value = 4;
+            document.getElementById("progressBar").style.width = "57%";
+            document.getElementById("progressBar").setAttribute("aria-valuenow", 4);
             setupCompleted = false;
+            document.getElementById('reference').style.display = "";
+            document.getElementById('reference').innerHTML = '<img src="config/reference.jpg" style="width:100%; height:auto;" alt="Digits Reference">';
             break;
 
         case 5: // Analog ROIs
             document.getElementById('maincontent').src = 'edit_analog.html?v=v1#description';
 
             document.getElementById('h_iframe_explain').style.display = "";
-            document.getElementById('h_iframe_explain').style="height:45px;"
-            document.getElementById('explaincontent').style="height:45px;"
-            document.getElementById('explaincontent').scrolling="no"
+            document.getElementById('h_iframe_explain').style.height = "45px";
+            document.getElementById('explaincontent').style.height = "45px";
+            document.getElementById('explaincontent').scrolling = "no";
             document.getElementById('explaincontent').src = 'explain_5.html?v=v1';
 
             document.getElementById("restart").disabled = false;
@@ -263,17 +241,20 @@ body, html {
             document.getElementById("next").disabled = false;
             document.getElementById("skip").disabled = false;
 
-            document.getElementById("progressBar").value = 5;
+            document.getElementById("progressBar").style.width = "71%";
+            document.getElementById("progressBar").setAttribute("aria-valuenow", 5);
             setupCompleted = false;
+            document.getElementById('reference').style.display = "";
+            document.getElementById('reference').innerHTML = '<img src="config/reference.jpg" style="width:100%; height:auto;" alt="Analog Reference">';
             break;
 
         case 6: // Config page
             document.getElementById('maincontent').src = 'edit_config.html?v=v1#description';
 
             document.getElementById('h_iframe_explain').style.display = "";
-            document.getElementById('h_iframe_explain').style="height:100px;"
-            document.getElementById('explaincontent').style="height:100px;"
-            document.getElementById('explaincontent').scrolling="no"
+            document.getElementById('h_iframe_explain').style.height = "100px";
+            document.getElementById('explaincontent').style.height = "100px";
+            document.getElementById('explaincontent').scrolling = "no";
             document.getElementById('explaincontent').src = 'explain_6.html?v=v1';
 
             document.getElementById("restart").disabled = false;
@@ -281,19 +262,22 @@ body, html {
             document.getElementById("next").disabled = false;
             document.getElementById("skip").disabled = false;
 
-            document.getElementById("progressBar").value = 6;
+            document.getElementById("progressBar").style.width = "86%";
+            document.getElementById("progressBar").setAttribute("aria-valuenow", 6);
             setupCompleted = true;
-            break; 
+            document.getElementById('reference').style.display = "none";
+            document.getElementById('reference').innerHTML = '';
+            break;
 
         case 7: // Setup completed / aborted
-            document.getElementById('h_iframe').style="height:660px;"
-            document.getElementById('maincontent').style="height:660px;"
+            document.getElementById('h_iframe').style.height = "660px";
+            document.getElementById('maincontent').style.height = "660px";
             if (setupCompleted) {
                 document.getElementById('maincontent').src = 'edit_explain_7.html?v=v1';
             }
             else {
                 document.getElementById('maincontent').src = 'edit_explain_7_abort.html?v=v1';
-                document.getElementById("previous").disabled = true; 
+                document.getElementById("previous").disabled = true;
             }
 
             document.getElementById('h_iframe_explain').style.display = "none";
@@ -302,18 +286,21 @@ body, html {
             document.getElementById("restart").disabled = false;
             document.getElementById("next").disabled = true;
 
-            document.getElementById("progressBar").value = 7;
+            document.getElementById("progressBar").style.width = "100%";
+            document.getElementById("progressBar").setAttribute("aria-valuenow", 7);
+            document.getElementById('reference').style.display = "none";
+            document.getElementById('reference').innerHTML = '';
             break;
         }
    }
 
    function loadRSSI() {
-		url = getDomainname() + '/rssi';     
+		url = getDomainname() + '/rssi';
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var _rsp = xhttp.responseText;
-				
+
 				if (_rsp >= -55) {
 					document.getElementById('rssi').value = ("WIFI Signal: Excellent (" + _rsp + "dBm)");
 				}
@@ -332,7 +319,7 @@ body, html {
 			}
 		}
 		xhttp.open("GET", url, true);
-		xhttp.send();		
+		xhttp.send();
 	}
 
 
@@ -340,5 +327,7 @@ body, html {
 
 </script>
 
+<!-- Bootstrap Bundle JS -->
+<script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>

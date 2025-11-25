@@ -1,140 +1,140 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en"> 
+<html lang="en" xml:lang="en">
+
 <head>
-<title>Overview</title>
-<meta charset="UTF-8" />
+	<title>Overview</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-.tg  {
-	border-collapse:collapse;
-	border-spacing:0;
-	width:100%;
-	min-width:600px;
-	height:100%;
-	color:darkslategray;
-	}
-	
-.tg th{
-	min-width:325px;
-	width:325px;
-	height:20px;
-	font-size:18px;
-	text-align:left;
-	font-weight:bold;
-	padding:5px 10px 5px 10px;
-	overflow:hidden;
-	word-break:normal;
-	background-color:lightgrey;
-	}
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="bootstrap.min.css" type="text/css">
 
-.tg td{
-	font-size:15px;
-	padding:5px 10px 5px 10px;
-	overflow:hidden;
-	word-break:normal;
-	}
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			background-color: #f8f9fa;
+		}
 
-.tg .tg-1{
-	font-size:15px;
-	vertical-align: top;
-	font-family:Arial, Helvetica, sans-serif !important;
-	}
+		.overview-table {
+			width: 100%;
+			min-width: 600px;
+		}
 
-.tg .tg-2{
-	height:52px;
-	font-size:15px;
-	padding:3px 0px 3px 10px;
-	vertical-align:middle;
-	font-family:Arial, Helvetica, sans-serif !important;
-	}
+		.section-header {
+			background-color: #e9ecef;
+			font-weight: bold;
+			font-size: 18px;
+		}
 
-.tg .tg-3{
-	height:45px;
-	font-size:15px;
-	padding:3px 10px 3px 10px;
-	vertical-align:middle;
-	font-family:Arial, Helvetica, sans-serif !important;
-	}
+		.value-cell {
+			font-size: 15px;
+			vertical-align: middle;
+		}
 
-.tg .tg-4{
-	height:fit-content;
-	font-size:15px;
-	padding:5px 10px 5px 10px;
-	vertical-align:text-top;
-	font-family:Arial, Helvetica, sans-serif !important;
-	}
-</style>
+		.image-cell {
+			vertical-align: top;
+		}
+
+		.roi-image {
+			padding-left: 5px;
+			padding-top: 0px;
+			max-width: 100%;
+			width: 100%;
+			height: auto;
+		}
+	</style>
 
 </head>
 
-<body style="font-family: arial">
-
-	<table class="tg">
-		<tr>
-			<th class="th">Value</th>
-			<td class="tg-1" rowspan="13">
-				<img style="padding-left: 5px; padding-top: 0px; max-width:100%; width:100%; height:auto;" id="img" src="">
-			</td>
-		</tr>	 
-		<tr>	
-			<td class="tg-2">
-				<div id="value"></div>
-			</td>	
-		</tr>
-		<tr>
-			<th class="th">Previous Value</th>
-		</tr>	
-		<tr>	
-			<td class="tg-2">
-				<div id="prevalue"></div>
-			</td>	
-		</tr>
-		<tr>
-			<th class="th">Raw Value</th>
-		</tr>	
-		<tr>	
-			<td class="tg-2">
-				<div id="raw"></div>
-			</td>	
-		</tr>
-		<tr>
-			<th class="th">Value Status</th>
-		</tr>	
-		<tr>	
-			<td class="tg-2">
-				<div id="error"></div>
-			</td>	
-		</tr>
-		<tr>
-			<th class="th">Process State</th>
-		</tr>	
-		<tr>	
-			<td class="tg-3">
-				<div id="statusflow" ></div>
-			</td>
-		</tr>  
-		<tr>
-			<th class="th">System Info</th>
-		</tr>	
-		<tr>	
-			<td class="tg-4">
-				<div id="sntp_date" ></div>
-				<div id="timestamp" ></div>	
-				<div id="cputemp" ></div>	
-				<div id="rssi" ></div>
-				<div>
-					<span id="uptime" ></span>
-					<span id="round" ></span>
+<body>
+	<div class="container-fluid p-3">
+		<div class="row g-3">
+			<!-- Left Column - Values -->
+			<div class="col-lg-6">
+				<!-- Value Card -->
+				<div class="card mb-3 shadow-sm">
+					<div class="card-header section-header">
+						Value
+					</div>
+					<div class="card-body value-cell">
+						<div id="value"></div>
+					</div>
 				</div>
-			</td>
-		</tr>
-	</table>
+
+				<!-- Previous Value Card -->
+				<div class="card mb-3 shadow-sm">
+					<div class="card-header section-header">
+						Previous Value
+					</div>
+					<div class="card-body value-cell">
+						<div id="prevalue"></div>
+					</div>
+				</div>
+
+				<!-- Raw Value Card -->
+				<div class="card mb-3 shadow-sm">
+					<div class="card-header section-header">
+						Raw Value
+					</div>
+					<div class="card-body value-cell">
+						<div id="raw"></div>
+					</div>
+				</div>
+
+				<!-- Value Status Card -->
+				<div class="card mb-3 shadow-sm">
+					<div class="card-header section-header">
+						Value Status
+					</div>
+					<div class="card-body value-cell">
+						<div id="error"></div>
+					</div>
+				</div>
+
+				<!-- Process State Card -->
+				<div class="card mb-3 shadow-sm">
+					<div class="card-header section-header">
+						Process State
+					</div>
+					<div class="card-body value-cell">
+						<div id="statusflow"></div>
+					</div>
+				</div>
+
+				<!-- System Info Card -->
+				<div class="card mb-3 shadow-sm">
+					<div class="card-header section-header">
+						System Info
+					</div>
+					<div class="card-body">
+						<div id="sntp_date" class="mb-1"></div>
+						<div id="timestamp" class="mb-1"></div>
+						<div id="cputemp" class="mb-1"></div>
+						<div id="rssi" class="mb-1"></div>
+						<div>
+							<span id="uptime"></span>
+							<span id="round"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Right Column - Image -->
+			<div class="col-lg-6">
+				<div class="card shadow-sm">
+					<div class="card-body p-2">
+						<img class="roi-image" id="img" src="" alt="ROI Image">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<script type="text/javascript" src="jquery-3.6.0.min.js?v=v1"></script>
-	<script type="text/javascript" src="common.js?v=v1"></script> 
+	<script type="text/javascript" src="common.js?v=v1"></script>
 	<script type="text/javascript" src="readconfigcommon.js?v=v1"></script>
 	<script type="text/javascript" src="readconfigparam.js?v=v1"></script>
-	
+
 	<script type="text/javascript">
 		function addZero(i) {
 			if (i < 10) {
@@ -143,12 +143,12 @@
 			return i;
 		}
 
-		$(document).ready(function() {
+		$(document).ready(function () {
 			LoadData();
 			LoadROIImage();
 		});
 
-		function LoadData(){
+		function LoadData() {
 			loadValue("value", "value", "border-collapse: collapse; width: 100%");
 			loadValue("raw", "raw", "border-collapse: collapse; width: 100%");
 			loadValue("prevalue", "prevalue", "border-collapse: collapse; width: 100%");
@@ -161,7 +161,7 @@
 			loadRoundCounter();
 		}
 
-		function LoadROIImage(){
+		function LoadROIImage() {
 			var d = new Date();
 			var timestamp = d.getTime();
 			var h = addZero(d.getHours());
@@ -172,7 +172,7 @@
 		}
 
 		function Refresh() {
-			setTimeout (function() {
+			setTimeout(function () {
 				LoadData();
 				LoadROIImage();
 				Refresh();
@@ -180,40 +180,40 @@
 		}
 
 		function loadStatus() {
-			url = domainname + '/statusflow';     
+			url = domainname + '/statusflow';
 			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
+			xhttp.onreadystatechange = function () {
 				if (this.readyState == 4 && this.status == 200) {
 					var _rsp = xhttp.responseText;
 					$('#statusflow').html(_rsp);
 				}
 			}
-			
+
 			xhttp.open("GET", url, true);
 			xhttp.send();
 		}
 
 		function loadCPUTemp() {
-			url = domainname + '/cpu_temperature';     
+			url = domainname + '/cpu_temperature';
 			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
+			xhttp.onreadystatechange = function () {
 				if (this.readyState == 4 && this.status == 200) {
 					var _rsp = xhttp.responseText;
-					$('#cputemp').html("CPU Temperature: " +_rsp + "°C");
+					$('#cputemp').html("CPU Temperature: " + _rsp + "°C");
 				}
 			}
-			
+
 			xhttp.open("GET", url, true);
 			xhttp.send();
 		}
 
 		function loadRSSI() {
-			url = domainname + '/rssi';     
+			url = domainname + '/rssi';
 			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
+			xhttp.onreadystatechange = function () {
 				if (this.readyState == 4 && this.status == 200) {
 					var _rsp = xhttp.responseText;
-				
+
 					if (_rsp >= -55) {
 						$('#rssi').html("WIFI Signal: Excellent (" + _rsp + "dBm)");
 					}
@@ -231,9 +231,9 @@
 					}
 				}
 			}
-			
+
 			xhttp.open("GET", url, true);
-			xhttp.send();		
+			xhttp.send();
 		}
 
 		function loadSntpDate() {
@@ -251,51 +251,51 @@
 		}
 
 		function loadUptime() {
-			url = domainname + '/uptime';     
+			url = domainname + '/uptime';
 			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
+			xhttp.onreadystatechange = function () {
 				if (this.readyState == 4 && this.status == 200) {
 					var _rsp = xhttp.responseText;
 					$('#uptime').html("Uptime: " + _rsp);
 				}
 			}
-			
+
 			xhttp.open("GET", url, true);
 			xhttp.send();
 		}
 
 		function loadRoundCounter() {
-			url = domainname + '/info?type=Round';     
+			url = domainname + '/info?type=Round';
 			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
+			xhttp.onreadystatechange = function () {
 				if (this.readyState == 4 && this.status == 200) {
 					var _rsp = xhttp.responseText;
 					$('#round').html("(Round: " + _rsp + ")");
 				}
 			}
-			
+
 			xhttp.open("GET", url, true);
 			xhttp.send();
 		}
 
 		function loadValue(_type, _div, _style) {
-			url = domainname + '/value?all=true&type=' + _type;     
+			url = domainname + '/value?all=true&type=' + _type;
 			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
+			xhttp.onreadystatechange = function () {
 				if (this.readyState == 4 && this.status == 200) {
 					var _rsp = xhttp.responseText;
 					var _split = _rsp.split("\r");
-					
+
 					if (typeof _style == undefined) {
-						out = "<table>";
+						out = "<table class='table table-sm table-bordered mb-0'>";
 					}
 					else {
-						out = "<table style=\"" + _style + "\">";
+						out = "<table class='table table-sm table-bordered mb-0' style=\"" + _style + "\">";
 					}
 
 					if (_split.length == 1) {
 						var _zer = ZerlegeZeile(_split[0], "\t")
-					
+
 						if (_zer.length > 1) {
 							out = _zer[1];
 						}
@@ -306,24 +306,24 @@
 					else {
 						for (var j = 0; j < _split.length; ++j) {
 							var _zer = ZerlegeZeile(_split[j], "\t")
-						
+
 							if (_zer.length == 1) {
-								out = out + "<tr><td style=\"width: 22%; padding: 3px 5px; text-align: left; vertical-align:middle; border: 1px solid lightgrey\">" + 
-								_zer[0] + "</td><td style=\"padding: 3px 5px; text-align: left; vertical-align:middle; border: 1px solid lightgrey\"> </td></tr>"; 
+								out = out + "<tr><td style=\"width: 22%; padding: 3px 5px; text-align: left; vertical-align:middle;\">" +
+									_zer[0] + "</td><td style=\"padding: 3px 5px; text-align: left; vertical-align:middle;\"> </td></tr>";
 							}
 							else {
-								out = out + "<tr><td style=\"width: 22%; padding: 3px 5px; text-align: left; vertical-align:middle; border: 1px solid lightgrey\">" + 
-								_zer[0] + "</td><td style=\"padding: 3px 5px; text-align: left; vertical-align:middle; border: 1px solid lightgrey\" >" + _zer[1] + "</td></tr>";
+								out = out + "<tr><td style=\"width: 22%; padding: 3px 5px; text-align: left; vertical-align:middle;\">" +
+									_zer[0] + "</td><td style=\"padding: 3px 5px; text-align: left; vertical-align:middle;\" >" + _zer[1] + "</td></tr>";
 							}
 						}
 						out = out + "</table>"
 					}
-				document.getElementById(_div).innerHTML = out;
+					document.getElementById(_div).innerHTML = out;
 				}
 			};
-			
+
 			xhttp.open("GET", url, true);
-			xhttp.send();		
+			xhttp.send();
 		}
 
 		/* 
@@ -331,7 +331,7 @@
 			loadConfig(domainname); 
 			ParseConfig();
 			param = getConfigParameters();
-			
+		    
 			if(param["TakeImage"]["CamFrameSize"].value == "QVGA") {
 				document.getElementById("img").style.maxWidth = "320px";
 			}
@@ -340,7 +340,7 @@
 			}
 		}
 		*/
-		function init(){
+		function init() {
 			domainname = getDomainname();
 			// setImageMaxWidth(); // CamFrameSize was replaced by zoom - CamFrameSize is no longer needed/used for zoom 
 			Refresh();
@@ -349,5 +349,9 @@
 		init();
 
 	</script>
+
+	<!-- Bootstrap Bundle JS -->
+	<script src="bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

@@ -3,24 +3,19 @@
 <head>
 <title>Reboot</title>
 <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-h1 {font-size: 2em;}
-h2 {font-size: 1.5em;}
-h3 {font-size: 1.2em;}
-p {font-size: 1em;}
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
+    
+    <!-- Custom Edit Styles -->
+    <link rel="stylesheet" href="edit_style.css" type="text/css">
 
-.button {
-	padding: 5px 10px;
-    width: 205px;
-	font-size: 16px;	
-}
-</style>
-
-<script type="text/javascript" src="common.js?v=v1"></script> 
+    <script type="text/javascript" src="common.js?v=v1"></script> 
 </head>
 
-<body style="font-family: arial; padding: 0px 10px;">
+<body>
+    <div class="container-fluid py-3">
 	
 <h3>Do you really want to reboot now?</h3>
 
@@ -42,5 +37,9 @@ function doReboot() {
 }
 </script>
 
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,101 +1,113 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en"> 
-    <head>
-        <title>Data Viewer</title>
-        <meta charset="UTF-8" />
+<html lang="en" xml:lang="en">
 
-        <style>
-            h1 {font-size: 2em;}
-            h2 {font-size: 1.5em; margin-block-start: 0.0em; margin-block-end: 0.2em;}
-            h3 {font-size: 1.2em;}
-            p {font-size: 1em;}
+<head>
+    <title>Data Viewer</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            html,
-            body {
-                height: 100%;
-                margin: 1px;
-                font-family: Arial, Helvetica, sans-serif;
-            }
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
 
-            .box {
-                display: flex;
-                flex-flow: column;
-                height: 99.75%;
-            }
+    <script type="text/javascript" src="common.js?v=v1"></script>
+</head>
 
-            .box .row.header {
-                flex: 0 1 auto;
-            }
+<body>
+    <div class="container-fluid py-4">
+        <!-- Header -->
+        <div class="mb-4">
+            <h2 class="mb-1">Data Viewer</h2>
+            <h5 class="text-muted">Today's latest data</h5>
+        </div>
 
-            .box .row.content {
-                flex: 1 1 auto;
-            }
-
-            .box .row.footer {
-                flex: 0 1 auto;
-            }
-
-            #data {
-                font-family: 'Courier New', Courier, monospace;
-                font-size: small;
-            }
-
-            .button {
-                padding: 5px 10px;
-                width: 160px;
-                font-size: 16px;
-            }
-        </style>
-        <script type="text/javascript" src="common.js?v=v1"></script> 
-    </head>
-    <body>
-            <h2>Data Viewer</h2>
-            <h4>Today's latest data</h4>
-        <div class="box">
-            <div class="row header">
-                <button class="button" onClick="reload();">Refresh</button>
-                <button class="button" onClick="window.open(getDomainname() + '/datafileact');">Show Full File</button>
-                <button class="button" onClick="window.location.href = getDomainname() + '/fileserver/log/data/'">Show Data Files</button>
-                <button class="button" onClick="window.location.href = 'graph.html?v=v1'">Show Graph</button>
+        <!-- Main Card -->
+        <div class="card shadow-sm">
+            <!-- Action Buttons Header -->
+            <div class="card-header bg-light">
+                <div class="btn-group flex-wrap" role="group" aria-label="Data actions">
+                    <button class="btn btn-primary" onClick="reload();">
+                        <i class="bi bi-arrow-clockwise"></i> Refresh
+                    </button>
+                    <button class="btn btn-outline-primary" onClick="window.open(getDomainname() + '/datafileact');">
+                        <i class="bi bi-file-text"></i> Show Full File
+                    </button>
+                    <button class="btn btn-outline-primary"
+                        onClick="window.location.href = getDomainname() + '/fileserver/log/data/'">
+                        <i class="bi bi-folder"></i> Show Data Files
+                    </button>
+                    <button class="btn btn-outline-primary" onClick="window.location.href = 'graph.html?v=v1'">
+                        <i class="bi bi-graph-up"></i> Show Graph
+                    </button>
+                </div>
             </div>
-            <div class="row content" id="data"><br><br><br><b>Loading data file, please wait...</b></div>
-            <div class="row footer">
-                <button class="button" onClick="reload();">Refresh</button>
-                <button class="button" onClick="window.open(getDomainname() + '/datafileact');">Show Full File</button>
-                <button class="button" onClick="window.location.href = getDomainname() + '/fileserver/log/data/'">Show Data Files</button>
-                <button class="button" onClick="window.location.href = 'graph.html?v=v1'">Show Graph</button>
-            </div>
-          </div>
-    </body>
 
-    <script>  
+            <!-- Data Content -->
+            <div class="card-body">
+                <div id="data" class="font-monospace small"
+                    style="white-space: pre-wrap; max-height: 600px; overflow-y: auto;">
+                    <div class="text-center py-5">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-3"><strong>Loading data file, please wait...</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons Footer -->
+            <div class="card-footer bg-light">
+                <div class="btn-group flex-wrap" role="group" aria-label="Data actions">
+                    <button class="btn btn-primary" onClick="reload();">
+                        <i class="bi bi-arrow-clockwise"></i> Refresh
+                    </button>
+                    <button class="btn btn-outline-primary" onClick="window.open(getDomainname() + '/datafileact');">
+                        <i class="bi bi-file-text"></i> Show Full File
+                    </button>
+                    <button class="btn btn-outline-primary"
+                        onClick="window.location.href = getDomainname() + '/fileserver/log/data/'">
+                        <i class="bi bi-folder"></i> Show Data Files
+                    </button>
+                    <button class="btn btn-outline-primary" onClick="window.location.href = 'graph.html?v=v1'">
+                        <i class="bi bi-graph-up"></i> Show Graph
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="bootstrap.bundle.min.js"></script>
+
+    <script>
         function reload() {
-            document.getElementById('data').innerHTML += "<br><b>Reloading...<b><br><br>";
-            window.scrollBy(0,document.body.scrollHeight);
+            document.getElementById('data').innerHTML += '<div class="alert alert-info mt-2"><strong>Reloading...</strong></div>';
+            window.scrollBy(0, document.body.scrollHeight);
             funcRequest(getDomainname() + '/data');
-        } 
+        }
 
-        async function funcRequest(url){
+        async function funcRequest(url) {
             await fetch(url)
-            .then((res) => {
-                if (!res.ok) {
-                    document.getElementById("data").innerHTML = "HTTP error " + res.status;
-                }
+                .then((res) => {
+                    if (!res.ok) {
+                        document.getElementById("data").innerHTML = '<div class="alert alert-danger"><strong>Error:</strong> HTTP error ' + res.status + '</div>';
+                    }
 
-                return res.text();
-            })
-            .then((data) => {
-                document.getElementById('data').innerHTML = "<br>" + data.split("\n").join("\n<br>") + "&nbsp;";
+                    return res.text();
+                })
+                .then((data) => {
+                    document.getElementById('data').innerHTML = "<br>" + data.split("\n").join("\n<br>") + "&nbsp;";
 
-                window.scrollBy(0,document.body.scrollHeight);
+                    window.scrollBy(0, document.body.scrollHeight);
 
-            })
-            .catch((err) => {
-                document.getElementById("data").innerHTML = err;
-            });
+                })
+                .catch((err) => {
+                    document.getElementById("data").innerHTML = '<div class="alert alert-danger"><strong>Error:</strong> ' + err + '</div>';
+                });
         }
 
         funcRequest(getDomainname() + '/data');
 
     </script>
+</body>
+
 </html>

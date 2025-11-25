@@ -7,6 +7,10 @@
     <title>AI on the edge</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
+
     <link rel="stylesheet" href="style.css?v=v1" type="text/css">
     <link href="firework.css?v=v1" rel="stylesheet">
 
@@ -70,180 +74,242 @@
             return "";
         }        
     </script>
+
     <style>
-        /* Add these styles to your existing CSS file or in a <style> tag in the head */
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: #d8d8d8;
-            margin-top: 20px;
+        /* Custom styles for nested dropdowns */
+        .dropdown-submenu {
+            position: relative;
         }
 
-        .footer-section {
-            display: flex;
-            align-items: center;
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
         }
 
-        .footer-section img {
-            width: 24px;
-            height: 24px;
-            margin-left: 10px;
-        }
-
-        .donation-cards img {
-            height: 20px;
-            margin-right: 5px;
+        .dropdown-menu {
+            max-height: 500px;
+            overflow-y: auto;
         }
     </style>
 </head>
 
 <body>
-    <div class="main">
+    <div class="container-fluid py-3">
 
-        <table style="border: none; width:100%">
-            <tr>
-                <td style="padding-right: 10px;"><img style="width:64px; height:64px" src="favicon.ico?v=v1">
-                </td>
-                <td>
-                    <h1 id="id_title"> Digitizer - AI on the edge</h1>
-                    <h2>An ESP32 all inclusive neural network recognition system for meter Digitization</h2>
-                </td>
-            </tr>
-        </table>
-
-
-        <div class="menu" onmouseover="resetMenu()">
-            <ul>
-                <li><a href="#" onclick="loadPage('overview.html?v=v1');">Overview</a></li>
-                <li><a>Settings <i class="arrow down"></i></a>
-                    <ul class="submenu" style="width: 260px">
-                        <li style="width: 260px"><a href="#" onclick="loadPage('prevalue_set.html?v=v1');">Set
-                                "Previous Value"</a></li>
-                        <li style="width: 260px"><a>References <i class="arrow right"></i></a>
-                            <ul style="width: 350px">
-                                <li style="width: 350px"><a href="#"
-                                        onclick="loadPage('edit_reference.html?v=v1');">Reference Image and
-                                        Camera Settings</a></li>
-                                <li style="width: 350px"><a href="#"
-                                        onclick="loadPage('edit_alignment.html?v=v1');">Alignment Markers</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li style="width: 260px"><a>Regions of Interest (ROIs)<i class="arrow right"></i></a>
-                            <ul>
-                                <li><a href="#" onclick="loadPage('edit_digits.html?v=v1');">Digit ROI</a>
-                                </li>
-                                <li><a href="#" onclick="loadPage('edit_analog.html?v=v1');">Analog ROI</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li style="width: 260px"><a href="#"
-                                onclick="loadPage('edit_config.html?v=v1');">Configuration</a></li>
-                    </ul>
-
-
-                <li><a>Data<i class="arrow down"></i></a>
-                    <ul class="submenu">
-                        <li><a href="#" onclick="loadPage(getDomainname() + '/value?full');">Recognition</a></li>
-                        <li><a>Livestream <i class="arrow right"></i></a>
-                            <ul>
-                                <li><a href="#" onclick="start_livestream(false);">Live Stream (Light off)</a></li>
-                                <li><a href="#" onclick="start_livestream(true);">Live Stream (Light on)</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#" onclick="loadPage('graph.html?v=v1');">Data Graph</a></li>
-                        <li><a href="#" onclick="loadPage('data.html?v=v1');">Data Table</a></li>
-                        <li><a href="#" onclick="loadPage(getDomainname() + '/fileserver/log/data/');">Data Files</a>
-                        </li>
-                        <li><a href="#" onclick="loadPage('data_export.html?v=v1');">Data Export</a></li>
-                    </ul>
-                </li>
-
-
-                <li><a>System <i class="arrow down"></i></a>
-                    <ul class="submenu">
-                        <li><a href="#" onclick="loadPage('backup.html?v=v1');">Backup/Restore</a></li>
-                        <li><a href="#" onclick="loadPage('ota_page.html?v=v1');">OTA Update</a></li>
-                        <li><a href="#" onclick="loadPage('log.html?v=v1');">Log Viewer</a></li>
-                        <li><a href="#" onclick="loadPage(getDomainname() + '/fileserver/');">File Server</a></li>
-                        <li><a href="#" onclick="loadPage('reboot_page.html?v=v1');">Reboot</a></li>
-                        <li><a href="#" onclick="loadPage('info.html?v=v1');">Info</a></li>
-                        <li><a href="https://jomjol.github.io/AI-on-the-edge-device-docs/" target="_blank">Help</a></li>
-                    </ul>
-                </li>
-                <li id="ManualControl" style="display:none;"><a>Manual Control <i class="arrow down"></i></a>
-                    <!-- Workaround: Hide menu if no entry is available -->
-                    <ul class="submenu" style="width: 300px">
-                        <li><a href="#" onclick="flow_start()">Start Round</a></li>
-                        <li id="HASendDiscovery" style="width: 300px" style="display:none;"><a href="#"
-                                onclick="HA_send_discovery()">Resend Homeassistant Discovery</a></li>
-                    </ul>
-                </li>
-            </ul>
+        <!-- Header Card -->
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <img style="width:64px; height:64px" src="favicon.ico?v=v1" class="me-3">
+                    <div>
+                        <h1 id="id_title" class="mb-1">Digitizer - AI on the edge</h1>
+                        <h5 class="text-muted mb-0">An ESP32 all inclusive neural network recognition system for meter
+                            Digitization</h5>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <iframe title="maincontent" name="maincontent" class="iframe" id="maincontent"></iframe>
+        <!-- Navigation Menu -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 shadow-sm" onmouseover="resetMenu()">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <!-- Overview -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadPage('overview.html?v=v1');">Overview</a>
+                        </li>
 
-        <script type="text/javascript">
-            LoadHostname();
-            HA_send_discovery_visibility();
+                        <!-- Settings Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button"
+                                data-bs-toggle="dropdown">
+                                Settings
+                            </a>
+                            <ul class="dropdown-menu submenu">
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('prevalue_set.html?v=v1');">Set
+                                        "Previous Value"</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">References</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="loadPage('edit_reference.html?v=v1');">Reference Image and
+                                                Camera Settings</a></li>
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="loadPage('edit_alignment.html?v=v1');">Alignment Markers</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Regions of Interest (ROIs)</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="loadPage('edit_digits.html?v=v1');">Digit ROI</a></li>
+                                        <li><a class="dropdown-item" href="#"
+                                                onclick="loadPage('edit_analog.html?v=v1');">Analog ROI</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="loadPage('edit_config.html?v=v1');">Configuration</a></li>
+                            </ul>
+                        </li>
 
-            if (getCookie("page") == "" || getCookie("page") == "reboot_page.html?v=v1") {
-                document.cookie = "page=overview.html?v=v1" + "; path=/";
-            }
-            console.log("Loading page: " + getCookie("page"));
-            document.getElementById('maincontent').src = getCookie("page");
+                        <!-- Data Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dataDropdown" role="button"
+                                data-bs-toggle="dropdown">
+                                Data
+                            </a>
+                            <ul class="dropdown-menu submenu">
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="loadPage(getDomainname() + '/value?full');">Recognition</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Livestream</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#" onclick="start_livestream(false);">Live
+                                                Stream (Light off)</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="start_livestream(true);">Live
+                                                Stream (Light on)</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('graph.html?v=v1');">Data
+                                        Graph</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('data.html?v=v1');">Data
+                                        Table</a></li>
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="loadPage(getDomainname() + '/fileserver/log/data/');">Data Files</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('data_export.html?v=v1');">Data
+                                        Export</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- System Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="systemDropdown" role="button"
+                                data-bs-toggle="dropdown">
+                                System
+                            </a>
+                            <ul class="dropdown-menu submenu">
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="loadPage('backup.html?v=v1');">Backup/Restore</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('ota_page.html?v=v1');">OTA
+                                        Update</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('log.html?v=v1');">Log
+                                        Viewer</a></li>
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="loadPage(getDomainname() + '/fileserver/');">File Server</a></li>
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="loadPage('reboot_page.html?v=v1');">Reboot</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('info.html?v=v1');">Info</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://jomjol.github.io/AI-on-the-edge-device-docs/"
+                                        target="_blank">Help</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Manual Control Dropdown -->
+                        <li class="nav-item dropdown" id="ManualControl" style="display:none;">
+                            <a class="nav-link dropdown-toggle" href="#" id="manualControlDropdown" role="button"
+                                data-bs-toggle="dropdown">
+                                Manual Control
+                            </a>
+                            <ul class="dropdown-menu submenu">
+                                <li><a class="dropdown-item" href="#" onclick="flow_start()">Start Round</a></li>
+                                <li id="HASendDiscovery" style="display:none;"><a class="dropdown-item" href="#"
+                                        onclick="HA_send_discovery()">Resend Homeassistant Discovery</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content iframe -->
+        <div class="card shadow-sm">
+            <div class="card-body p-0">
+                <iframe title="maincontent" name="maincontent" class="w-100 border-0" style="min-height: 600px;"
+                    id="maincontent"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        LoadHostname();
+        HA_send_discovery_visibility();
+
+        if (getCookie("page") == "" || getCookie("page") == "reboot_page.html?v=v1") {
+            document.cookie = "page=overview.html?v=v1" + "; path=/";
+        }
+        console.log("Loading page: " + getCookie("page"));
+        document.getElementById('maincontent').src = getCookie("page");
 
 
-            function flow_start() {
-                var url = getDomainname() + '/flow_start';
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        firework.launch(xhttp.responseText, 'success', 5000);
-                        /*if (xhttp.responseText.substring(0,3) == "001") {
-                            firework.launch('Flow start triggered', 'success', 5000);
-                            window.location.reload();
-                        }
-                        else if (xhttp.responseText.substring(0,3) == "002") {
-                            firework.launch('Flow start scheduled. Start after round is completed', 'success', 5000);
-                        }
-                        else if (xhttp.responseText.substring(0,3) == "099") {
-                            firework.launch('Flow start triggered, but start not possible (no flow task available)', 'danger', 5000);
-                        }*/
+        function flow_start() {
+            var url = getDomainname() + '/flow_start';
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    firework.launch(xhttp.responseText, 'success', 5000);
+                    /*if (xhttp.responseText.substring(0,3) == "001") {
+                        firework.launch('Flow start triggered', 'success', 5000);
+                        window.location.reload();
                     }
+                    else if (xhttp.responseText.substring(0,3) == "002") {
+                        firework.launch('Flow start scheduled. Start after round is completed', 'success', 5000);
+                    }
+                    else if (xhttp.responseText.substring(0,3) == "099") {
+                        firework.launch('Flow start triggered, but start not possible (no flow task available)', 'danger', 5000);
+                    }*/
                 }
-                xhttp.open("GET", url, true);
-                xhttp.send();
+            }
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+
+
+        function HA_send_discovery_visibility() {
+            loadConfig(domainname);
+            ParseConfig();
+            category = getConfigCategory();
+            param = getConfigParameters();
+
+        }
+
+
+        function start_livestream(streamFlashlight) {
+            if (streamPopup) {
+                streamPopup.close();
             }
 
-
-            function HA_send_discovery_visibility() {
-                loadConfig(domainname);
-                ParseConfig();
-                category = getConfigCategory();
-                param = getConfigParameters();
-
+            if (streamFlashlight) {
+                streamPopup = window.open(getDomainname() + '/stream?flashlight=true', 'LivestreamWithlight', streamWindowFeatures);
+            }
+            else {
+                streamPopup = window.open(getDomainname() + '/stream', 'Livestream', streamWindowFeatures);
             }
 
+            streamPopup.focus();
+        }
 
-            function start_livestream(streamFlashlight) {
-                if (streamPopup) {
-                    streamPopup.close();
+        // Enable nested dropdowns
+        document.querySelectorAll('.dropdown-submenu > a').forEach(function (element) {
+            element.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var submenu = this.nextElementSibling;
+                if (submenu) {
+                    submenu.classList.toggle('show');
                 }
-
-                if (streamFlashlight) {
-                    streamPopup = window.open(getDomainname() + '/stream?flashlight=true', 'LivestreamWithlight', streamWindowFeatures);
-                }
-                else {
-                    streamPopup = window.open(getDomainname() + '/stream', 'Livestream', streamWindowFeatures);
-                }
-
-                streamPopup.focus();
-            }
-        </script>
+            });
+        });
+    </script>
 
 </body>
 

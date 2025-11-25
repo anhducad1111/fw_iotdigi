@@ -2,473 +2,368 @@
 <html lang="en" xml:lang="en">
 
 <head>
-	<title>Info</title>
-	<meta charset="UTF-8" />
+    <title>Info</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<style>
-		h1 {
-			font-size: 2em;
-		}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
 
-		h2 {
-			font-size: 1.5em;
-		}
+    <!-- Custom Edit Styles -->
+    <link rel="stylesheet" href="edit_style.css" type="text/css">
 
-		h3 {
-			font-size: 1.2em;
-		}
-
-		p {
-			font-size: 1em;
-		}
-
-		th,
-		td {
-			padding: 5px 5px 5px 5px;
-			border-width: 1px;
-			border-style: solid;
-			border-color: rgb(240, 240, 240);
-		}
-
-		output {
-			padding-left: 5px;
-		}
-
-		table {
-			width: 660px;
-			padding: 5px;
-			border-collapse: collapse;
-		}
-	</style>
-
-	<script type="text/javascript" src="common.js?v=v1"></script>
+    <script type="text/javascript" src="common.js?v=v1"></script>
 </head>
 
-<body style="font-family: arial; padding: 0px 10px;">
-	<table>
-		<colgroup>
-			<col span="1" style="width: 35%;">
-			<col span="1" style="width: 65%;">
-		</colgroup>
-		<tr>
-			<h3>Runtime Information</h3>
-		</tr>
-		<tr>
-			<td>Start time:</td>
-			<td><output id="starttime"></output></td>
-		</tr>
-		<tr>
-			<td>Uptime:</td>
-			<td><output id="uptime"></output></td>
-		</tr>
-	</table>
+<body>
+    <div class="container-fluid py-3">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">Runtime Information</h3>
+                    </div>
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-sm-3">Start time:</dt>
+                            <dd class="col-sm-9"><output id="starttime"></output></dd>
+                            <dt class="col-sm-3">Uptime:</dt>
+                            <dd class="col-sm-9"><output id="uptime"></output></dd>
+                        </dl>
+                    </div>
+                </div>
 
-	<table>
-		<colgroup>
-			<col span="1" style="width: 35%;">
-			<col span="1" style="width: 65%;">
-		</colgroup>
-		<tr>
-			<h3>Build Info</h3>
-		</tr>
-	</table>
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">Build Info</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Build Info content can be added here if needed -->
+                    </div>
+                </div>
 
-	<table>
-		<colgroup>
-			<col span="1" style="width: 35%;">
-			<col span="1" style="width: 65%;">
-		</colgroup>
-		<tr>
-			<h3>Device Info</h3>
-		</tr>
-		<tr>
-			<td>Chip Cores:</td>
-			<td>
-				<output id="chip-cores"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>Chip Revision:</td>
-			<td>
-				<output id="chip-revision"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>Chip Features:</td>
-			<td>
-				<output id="chip-features"></output>
-			</td>
-		</tr>
-	</table>
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">Device Info</h3>
+                    </div>
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-sm-3">Chip Cores:</dt>
+                            <dd class="col-sm-9"><output id="chip-cores"></output></dd>
+                            <dt class="col-sm-3">Chip Revision:</dt>
+                            <dd class="col-sm-9"><output id="chip-revision"></output></dd>
+                            <dt class="col-sm-3">Chip Features:</dt>
+                            <dd class="col-sm-9"><output id="chip-features"></output></dd>
+                        </dl>
+                    </div>
+                </div>
 
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">Host Info</h3>
+                    </div>
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-sm-3">Hostname:</dt>
+                            <dd class="col-sm-9"><output id="hostname"></output></dd>
+                            <dt class="col-sm-3">IP Address:</dt>
+                            <dd class="col-sm-9"><output id="IP-address"></output></dd>
+                            <dt class="col-sm-3">WLAN SSID:</dt>
+                            <dd class="col-sm-9"><output id="wlan-ssid"></output></dd>
+                        </dl>
+                    </div>
+                </div>
 
-	<table>
-		<colgroup>
-			<col span="1" style="width: 35%;">
-			<col span="1" style="width: 65%;">
-		</colgroup>
-		<tr>
-			<h3>Host Info</h3>
-		</tr>
-		<tr>
-			<td>Hostname:</td>
-			<td>
-				<output id="hostname"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>IP Address:</td>
-			<td>
-				<output id="IP-address"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>WLAN SSID:</td>
-			<td>
-				<output id="wlan-ssid"></output>
-			</td>
-		</tr>
-	</table>
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">SD Card Info</h3>
+                    </div>
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-sm-3">SD card manufacturer:</dt>
+                            <dd class="col-sm-9"><output id="SDCardManufacturer"></output></dd>
+                            <dt class="col-sm-3">SD card name:</dt>
+                            <dd class="col-sm-9"><output id="SDCardName"></output></dd>
+                            <dt class="col-sm-3">SD card size:</dt>
+                            <dd class="col-sm-9"><output id="SDCardCapacity"></output></dd>
+                            <dt class="col-sm-3">SD card sector size:</dt>
+                            <dd class="col-sm-9"><output id="SDCardSectorSize"></output></dd>
+                            <dt class="col-sm-3">Partition size:</dt>
+                            <dd class="col-sm-9"><output id="SDCardPartitionSize"></output></dd>
+                            <dt class="col-sm-3">Partition free space:</dt>
+                            <dd class="col-sm-9"><output id="SDCardFreePartitionSpace"></output></dd>
+                            <dt class="col-sm-3">Partition allocation size:</dt>
+                            <dd class="col-sm-9"><output id="SDCardPartitionAllocationSize"></output></dd>
+                        </dl>
+                    </div>
+                </div>
 
-	<table>
-		<colgroup>
-			<col span="1" style="width: 35%;">
-			<col span="1" style="width: 65%;">
-		</colgroup>
-		<tr>
-			<h3>SD Card Info</h3>
-		</tr>
-		<tr>
-			<td>SD card manufacturer:</td>
-			<td>
-				<output id="SDCardManufacturer"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>SD card name:</td>
-			<td>
-				<output id="SDCardName"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>SD card size:</td>
-			<td>
-				<output id="SDCardCapacity"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>SD card sector size:</td>
-			<td>
-				<output id="SDCardSectorSize"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>Partition size:</td>
-			<td>
-				<output id="SDCardPartitionSize"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>Partition free space:</td>
-			<td>
-				<output id="SDCardFreePartitionSpace"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>Partition allocation size:</td>
-			<td>
-				<output id="SDCardPartitionAllocationSize"></output>
-			</td>
-		</tr>
-	</table>
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">Memory Info</h3>
+                    </div>
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-sm-3">Total Free (Int + Ext):</dt>
+                            <dd class="col-sm-9"><output id="RAMTotalFree"></output></dd>
+                            <dt class="col-sm-3">Ext. RAM - Free:</dt>
+                            <dd class="col-sm-9"><output id="ExtRAMFree"></output></dd>
+                            <dt class="col-sm-3">Ext. RAM - Largest Free Block:</dt>
+                            <dd class="col-sm-9"><output id="ExtRAMLargestFree"></output></dd>
+                            <dt class="col-sm-3">Ext. RAM - Min Free:</dt>
+                            <dd class="col-sm-9"><output id="ExtRAMMinFree"></output></dd>
+                            <dt class="col-sm-3">Int. RAM - Free:</dt>
+                            <dd class="col-sm-9"><output id="IntRAMFree"></output></dd>
+                            <dt class="col-sm-3">Int. RAM - Largest Free Block:</dt>
+                            <dd class="col-sm-9"><output id="IntRAMLargestFree"></output></dd>
+                            <dt class="col-sm-3">Int. RAM - Min Free:</dt>
+                            <dd class="col-sm-9"><output id="IntRAMMinFree"></output></dd>
+                        </dl>
+                    </div>
+                </div>
 
-	<table>
-		<colgroup>
-			<col span="1" style="width: 35%;">
-			<col span="1" style="width: 65%;">
-		</colgroup>
-		<tr>
-			<h3>Memory Info</h3>
-		</tr>
-		<tr>
-			<td>Total Free (Int + Ext):</td>
-			<td>
-				<output id="RAMTotalFree"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>Ext. RAM - Free:</td>
-			<td>
-				<output id="ExtRAMFree"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>Ext. RAM - Largest Free Block:</td>
-			<td>
-				<output id="ExtRAMLargestFree"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>Ext. RAM - Min Free:</td>
-			<td>
-				<output id="ExtRAMMinFree"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>Int. RAM - Free:</td>
-			<td>
-				<output id="IntRAMFree"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>Int. RAM - Largest Free Block:</td>
-			<td>
-				<output id="IntRAMLargestFree"></output>
-			</td>
-		</tr>
-		<tr>
-			<td>Int. RAM - Min Free:</td>
-			<td>
-				<output id="IntRAMMinFree"></output>
-			</td>
-		</tr>
-	</table>
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Copyright</h3>
+                        <p>Copyright &copy; 2020 - 2024 by <a href="https://github.com/jomjol/AI-on-the-edge-device" target="_blank">Jomjol</a> and others.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-	<h3>Copyright</h3>
-	Copyright &copy; 2020 - 2024 by <a href="https://github.com/jomjol/AI-on-the-edge-device" target=_blank>Jomjol</a>
-	and others.
-
+    <!-- Bootstrap Bundle JS -->
+    <script src="bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
 
 <script type="text/javascript">
 
-	function loadLastRestart() {
-		url = getDomainname() + '/starttime';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				//Input format: 19700101-010019
-				var timestamp = xhttp.response.substr(6, 2) + "." +
-					xhttp.response.substr(4, 2) + "." +
-					xhttp.response.substr(0, 4) + " " +
-					xhttp.response.substr(9, 2) + ":" +
-					xhttp.response.substr(11, 2) + ":" +
-					xhttp.response.substr(13, 2);
-				document.getElementById("starttime").value = timestamp;
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadLastRestart() {
+        url = getDomainname() + '/starttime';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                //Input format: 19700101-010019
+                var timestamp = xhttp.response.substr(6, 2) + "." +
+                    xhttp.response.substr(4, 2) + "." +
+                    xhttp.response.substr(0, 4) + " " +
+                    xhttp.response.substr(9, 2) + ":" +
+                    xhttp.response.substr(11, 2) + ":" +
+                    xhttp.response.substr(13, 2);
+                document.getElementById("starttime").value = timestamp;
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadUptime() {
-		url = getDomainname() + '/uptime';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("uptime").value = xhttp.response;
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadUptime() {
+        url = getDomainname() + '/uptime';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("uptime").value = xhttp.response;
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadHostname() {
-		url = getDomainname() + '/info?type=Hostname';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("hostname").value = xhttp.response;
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadHostname() {
+        url = getDomainname() + '/info?type=Hostname';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("hostname").value = xhttp.response;
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadIPAddress() {
-		url = getDomainname() + '/info?type=IP';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("IP-address").value = xhttp.response;
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadIPAddress() {
+        url = getDomainname() + '/info?type=IP';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("IP-address").value = xhttp.response;
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadWLANSSID() {
-		url = getDomainname() + '/info?type=SSID';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("wlan-ssid").value = xhttp.response;
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadWLANSSID() {
+        url = getDomainname() + '/info?type=SSID';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("wlan-ssid").value = xhttp.response;
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadSDCardManufacturer() {
-		url = getDomainname() + '/info?type=SDCardManufacturer';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("SDCardManufacturer").value = xhttp.response;
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadSDCardManufacturer() {
+        url = getDomainname() + '/info?type=SDCardManufacturer';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("SDCardManufacturer").value = xhttp.response;
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadSDCardName() {
-		url = getDomainname() + '/info?type=SDCardName';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("SDCardName").value = xhttp.response;
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadSDCardName() {
+        url = getDomainname() + '/info?type=SDCardName';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("SDCardName").value = xhttp.response;
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadSDCardCapacity() {
-		url = getDomainname() + '/info?type=SDCardCapacity';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("SDCardCapacity").value = xhttp.response + " MB";
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadSDCardCapacity() {
+        url = getDomainname() + '/info?type=SDCardCapacity';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("SDCardCapacity").value = xhttp.response + " MB";
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadSDCardSectorSize() {
-		url = getDomainname() + '/info?type=SDCardSectorSize';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("SDCardSectorSize").value = xhttp.response + " byte";
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadSDCardSectorSize() {
+        url = getDomainname() + '/info?type=SDCardSectorSize';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("SDCardSectorSize").value = xhttp.response + " byte";
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadSDCardPartitionSize() {
-		url = getDomainname() + '/info?type=SDCardPartitionSize';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("SDCardPartitionSize").value = xhttp.response + " MB";
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadSDCardPartitionSize() {
+        url = getDomainname() + '/info?type=SDCardPartitionSize';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("SDCardPartitionSize").value = xhttp.response + " MB";
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadSDCardFreePartitionSpace() {
-		url = getDomainname() + '/info?type=SDCardFreePartitionSpace';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("SDCardFreePartitionSpace").value = xhttp.response + " MB";
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadSDCardFreePartitionSpace() {
+        url = getDomainname() + '/info?type=SDCardFreePartitionSpace';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("SDCardFreePartitionSpace").value = xhttp.response + " MB";
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadSDCardPartitionAllocationSize() {
-		url = getDomainname() + '/info?type=SDCardPartitionAllocationSize';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("SDCardPartitionAllocationSize").value = xhttp.response + " byte";
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadSDCardPartitionAllocationSize() {
+        url = getDomainname() + '/info?type=SDCardPartitionAllocationSize';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("SDCardPartitionAllocationSize").value = xhttp.response + " byte";
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadMemoryInfo() {
-		url = getDomainname() + '/heap';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				data = xhttp.response.split("|");
-				document.getElementById("RAMTotalFree").value = data[0].split("l: ")[1] + " byte";
-				document.getElementById("IntRAMFree").value = data[4].split(":")[1] + " byte";
-				document.getElementById("IntRAMLargestFree").value = data[5].split(":")[1] + " byte";
-				document.getElementById("IntRAMMinFree").value = data[6].split(":")[1] + " byte";
-				document.getElementById("ExtRAMFree").value = data[1].split(":")[1] + " byte";
-				document.getElementById("ExtRAMLargestFree").value = data[2].split(":")[1] + " byte";
-				document.getElementById("ExtRAMMinFree").value = data[3].split(":")[1] + " byte";
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadMemoryInfo() {
+        url = getDomainname() + '/heap';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                data = xhttp.response.split("|");
+                document.getElementById("RAMTotalFree").value = data[0].split("l: ")[1] + " byte";
+                document.getElementById("IntRAMFree").value = data[4].split(":")[1] + " byte";
+                document.getElementById("IntRAMLargestFree").value = data[5].split(":")[1] + " byte";
+                document.getElementById("IntRAMMinFree").value = data[6].split(":")[1] + " byte";
+                document.getElementById("ExtRAMFree").value = data[1].split(":")[1] + " byte";
+                document.getElementById("ExtRAMLargestFree").value = data[2].split(":")[1] + " byte";
+                document.getElementById("ExtRAMMinFree").value = data[3].split(":")[1] + " byte";
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadChipCores() {
-		url = getDomainname() + '/info?type=ChipCores';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("chip-cores").value = xhttp.response;
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadChipCores() {
+        url = getDomainname() + '/info?type=ChipCores';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("chip-cores").value = xhttp.response;
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadChipRevision() {
-		url = getDomainname() + '/info?type=ChipRevision';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("chip-revision").value = xhttp.response;
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadChipRevision() {
+        url = getDomainname() + '/info?type=ChipRevision';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("chip-revision").value = xhttp.response;
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function loadChipFeatures() {
-		url = getDomainname() + '/info?type=ChipFeatures';
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function () {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("chip-features").value = xhttp.response;
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	}
+    function loadChipFeatures() {
+        url = getDomainname() + '/info?type=ChipFeatures';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("chip-features").value = xhttp.response;
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
 
-	function init() {
-		loadMemoryInfo();
-		loadLastRestart();
-		loadUptime();
-		loadHostname();
-		loadIPAddress();
-		loadWLANSSID();
-		loadSDCardManufacturer();
-		loadSDCardName();
-		loadSDCardCapacity();
-		loadSDCardSectorSize();
-		loadSDCardPartitionSize();
-		loadSDCardFreePartitionSpace();
-		loadSDCardPartitionAllocationSize();
-		loadChipCores();
-		loadChipRevision();
-		loadChipFeatures();
-	}
+    function init() {
+        loadMemoryInfo();
+        loadLastRestart();
+        loadUptime();
+        loadHostname();
+        loadIPAddress();
+        loadWLANSSID();
+        loadSDCardManufacturer();
+        loadSDCardName();
+        loadSDCardCapacity();
+        loadSDCardSectorSize();
+        loadSDCardPartitionSize();
+        loadSDCardFreePartitionSpace();
+        loadSDCardPartitionAllocationSize();
+        loadChipCores();
+        loadChipRevision();
+        loadChipFeatures();
+    }
 
-	init();
+    init();
 </script>

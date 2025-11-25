@@ -1,115 +1,229 @@
-<html lang="en" xml:lang="en"> 
-    <head> 
-        <link href="firework.css?v=v1" rel="stylesheet">
-        <script type="text/javascript" src="jquery-3.6.0.min.js?v=v1"></script>  
-        <script type="text/javascript" src="firework.js?v=v1"></script>
-        <script type="text/javascript" src="/common.js?v=v1"> 
-    </head>
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+    <title>WLAN Configuration</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
+
+    <!-- Custom Edit Styles -->
+    <link rel="stylesheet" href="edit_style.css" type="text/css">
+    <link href="firework.css?v=v1" rel="stylesheet">
+    <script type="text/javascript" src="jquery-3.6.0.min.js?v=v1"></script>
+    <script type="text/javascript" src="firework.js?v=v1"></script>
+    <script type="text/javascript" src="common.js?v=v1"></script>
+</head>
 <body>
-    <table>
-<tr><td>WLAN-SSID</td><td><input type="text" name="ssid" id="ssid"></td><td>SSID of the WLAN</td></tr>
-<tr><td>WLAN-Password</td><td><input type="text" name="password" id="password"></td><td>ATTENTION: the password will not be encrypted during the sending.</td>
-</tr><tr><td> Hostname</td><td><input type="text" name="hostname" id="hostname"></td><td></td>
-</tr><tr><td>Fixed IP</td><td><input type="text" name="ip" id="ip"></td><td>Leave emtpy if set by router</td></tr>
-<tr><td>gateway</td><td><input type="text" name="gateway" id="gateway"></td><td>Leave emtpy if set by router</td></tr>
-<tr><td>netmask</td><td><input type="text" name="netmask" id="netmask"></td><td>Leave emtpy if set by router</td>
-</tr><tr><td>DNS</td><td><input type="text" name="dns" id="dns"></td><td>Leave emtpy if set by router</td></tr>
-<tr><td>RSSI Threshold</td><td><input type="number" name="name" id="threshold" min="-100"  max="0" step="1" value = "0"></td><td>WLAN Mesh Parameter: Threshold for RSSI value to check for start switching access point in a mesh system.Possible values: -100 to 0, 0 = disabled - Value will be transfered to wlan.ini at next startup)</td></tr>
-</table>
-<button class="button" type="button" onclick="wr();">Write wlan.ini</button>
-<input id="newfile" type="file">
-<button class="button" style="width:300px" id="doUpdate" type="button" onclick="upload()">Upload Files</button>
+    <div class="container-fluid py-3">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title mb-0">WLAN Configuration</h2>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3 row">
+                        <label for="ssid" class="col-sm-3 col-form-label">WLAN-SSID</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="ssid" id="ssid">
+                        </div>
+                        <div class="col-sm-3">
+                            <small class="form-text text-muted">SSID of the WLAN</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="password" class="col-sm-3 col-form-label">WLAN-Password</label>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" name="password" id="password">
+                        </div>
+                        <div class="col-sm-3">
+                            <small class="form-text text-muted">ATTENTION: the password will not be encrypted during the sending.</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="hostname" class="col-sm-3 col-form-label">Hostname</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="hostname" id="hostname">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="ip" class="col-sm-3 col-form-label">Fixed IP</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="ip" id="ip">
+                        </div>
+                        <div class="col-sm-3">
+                            <small class="form-text text-muted">Leave empty if set by router</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="gateway" class="col-sm-3 col-form-label">Gateway</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="gateway" id="gateway">
+                        </div>
+                        <div class="col-sm-3">
+                            <small class="form-text text-muted">Leave empty if set by router</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="netmask" class="col-sm-3 col-form-label">Netmask</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="netmask" id="netmask">
+                        </div>
+                        <div class="col-sm-3">
+                            <small class="form-text text-muted">Leave empty if set by router</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="dns" class="col-sm-3 col-form-label">DNS</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="dns" id="dns">
+                        </div>
+                        <div class="col-sm-3">
+                            <small class="form-text text-muted">Leave empty if set by router</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="threshold" class="col-sm-3 col-form-label">RSSI Threshold</label>
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control" name="threshold" id="threshold" min="-100" max="0" step="1" value="0">
+                        </div>
+                        <div class="col-sm-3">
+                            <small class="form-text text-muted">WLAN Mesh Parameter: Threshold for RSSI value to check for start switching access point in a mesh system. Possible values: -100 to 0, 0 = disabled - Value will be transferred to wlan.ini at next startup</small>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary" type="button" onclick="wr();">Write wlan.ini</button>
+                    </div>
+                </form>
 
+                <hr>
 
-<script language="JavaScript">function wr(){
-        api = "/config?"+"ssid"+document.getElementById("ssid").value+"&pwd="+document.getElementById("password").value;+"&hn="+document.getElementById("hostname").value;+"&ip="+document.getElementById("ip").value;+"&gw="+document.getElementById("gateway").value;+"&nm="+document.getElementById("netmask").value;+"&dns="+document.getElementById("dns").value;+"&rssi="+document.getElementById("threshold").value;
-        fetch(api);}
+                <div class="mb-3">
+                    <label for="newfile" class="form-label">Upload Files</label>
+                    <input id="newfile" type="file" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success" style="width:300px" id="doUpdate" type="button" onclick="upload()">Upload Files</button>
+                </div>
+                <div id="progress"></div>
+                <div id="status"></div>
+            </div>
+        </div>
+    </div>
 
+    <script language="JavaScript">
+        var domainname = getDomainname();
+        var action_runtime = 0;
+        var progressTimerHandle;
 
-//    var xhttp = new XMLHttpRequest();
-//    xhttp.onreadystatechange = function() {if (xhttp.readyState == 4) {if (xhttp.status == 200) {document.reload();}}};
-if (!file.name.includes("remote-setup")){
-    if (!confirm("The zip file name should contain \"...remote-setup...\". Are you sure you have downloaded the correct file?"))
-        return;
-}
-
-    function upload() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-        if (xhttp.readyState == 4) {stopProgressTimer();if (xhttp.status == 200) {extract();} }};
-        var filePath = document.getElementById("newfile").value.split(/[\\\/]/).pop();
-        var file = document.getElementById("newfile").files[0];
-        if (!file.name.includes("remote-setup"))
-        {
-            if (!confirm("The zip file name should contain \"...remote-setup...\". Are you sure you have downloaded the correct file?"))
-                return;
+        function wr() {
+            var api = "/config?ssid=" + document.getElementById("ssid").value +
+                      "&pwd=" + document.getElementById("password").value +
+                      "&hn=" + document.getElementById("hostname").value +
+                      "&ip=" + document.getElementById("ip").value +
+                      "&gw=" + document.getElementById("gateway").value +
+                      "&nm=" + document.getElementById("netmask").value +
+                      "&dns=" + document.getElementById("dns").value +
+                      "&rssi=" + document.getElementById("threshold").value;
+            fetch(api);
         }
 
-        var upload_path = "/upload/firmware/" + filePath; xhttp.open("POST", upload_path, true); xhttp.send(file);}
-    
-    
-    function extract() {
-        document.getElementById("status").innerText = "Status: Processing on device (takes up to 3 minutes)...";
-    
-        var xhttp = new XMLHttpRequest();
-        /* first delete the old firmware */	
-        xhttp.onreadystatechange = function() {
-            if (xhttp.readyState == 4) {
-                stopProgressTimer();
-                if (xhttp.status == 200) {
-                    document.getElementById("status").innerText = "Status: Update completed!";
-                    document.getElementById("doUpdate").disabled = true;
-                    document.getElementById("newfile").disabled = false;
-                    document.cookie = "page=overview.html?v=v1" + "; path=/"; // Make sure after the reboot we go to the overview page
-    
-                    if (xhttp.responseText.startsWith("reboot"))
-                    {
-                        doRebootAfterUpdate();
-                    }
-                    else
-                    {
-                        firework.launch('Processing done! (' + xhttp.responseText + ')', 'success', 5000);
-                    }
-                } else if (xhttp.status == 0) {
-                    firework.launch('Server closed the connection abruptly!', 'danger', 30000);
-                    UpdatePage();
-                } else {
-                    firework.launch('An error occured: ' + xhttp.responseText, 'danger', 30000);
-                    UpdatePage();
+        function upload() {
+            var fileInput = document.getElementById("newfile");
+            var file = fileInput.files[0];
+            if (!file) {
+                firework.launch('No file selected!', 'danger', 30000);
+                return;
+            }
+            if (!file.name.includes("remote-setup")) {
+                if (!confirm("The zip file name should contain \"...remote-setup...\". Are you sure you have downloaded the correct file?")) {
+                    return;
                 }
             }
-        };
-    
-        startProgressTimer("Extraction");
-    
-    
-        var nameneu = document.getElementById("newfile").value;
-        filePath = nameneu.split(/[\\\/]/).pop();
-        var _toDo = domainname + "/ota?task=update&file=" + filePath;
-        xhttp.open("GET", _toDo, true);
-        xhttp.send();
-    }
-    
-    
-    function startProgressTimer(step) {     
-        console.log(step + "...");
-        document.getElementById('progress').innerHTML = "(0s)";
-        action_runtime = 0;    
-        progressTimerHandle = setInterval(function() {
-            action_runtime += 1;
-            console.log("Progress: " + action_runtime + "s");  
-            document.getElementById('progress').innerHTML = "(" + action_runtime + "s)";
-        }, 1000);
-    }
-    
-    
-    function stopProgressTimer() {            
-        clearInterval(progressTimerHandle);
-        document.getElementById('progress').innerHTML = "";
-    }
-    
 
-    
+            var filePath = fileInput.value.split(/[\\\/]/).pop();
+            var formdata = new FormData();
+            formdata.append("file", file);
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4) {
+                    stopProgressTimer();
+                    if (xhttp.status == 200) {
+                        extract();
+                    } else if (xhttp.status == 0) {
+                        firework.launch('Server closed the connection abruptly!', 'danger', 30000);
+                    } else {
+                        firework.launch('An error occured: ' + xhttp.responseText, 'danger', 30000);
+                    }
+                }
+            };
+
+            var upload_path = "/upload/firmware/" + filePath;
+            xhttp.open("POST", upload_path, true);
+            xhttp.send(formdata);
+        }
+
+        function extract() {
+            document.getElementById("status").innerText = "Status: Processing on device (takes up to 3 minutes)...";
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4) {
+                    stopProgressTimer();
+                    if (xhttp.status == 200) {
+                        document.getElementById("status").innerText = "Status: Update completed!";
+                        document.getElementById("doUpdate").disabled = true;
+                        document.getElementById("newfile").disabled = false;
+                        document.cookie = "page=overview.html?v=v1" + "; path=/"; // Make sure after the reboot we go to the overview page
+
+                        if (xhttp.responseText.startsWith("reboot")) {
+                            doRebootAfterUpdate();
+                        } else {
+                            firework.launch('Processing done! (' + xhttp.responseText + ')', 'success', 5000);
+                        }
+                    } else if (xhttp.status == 0) {
+                        firework.launch('Server closed the connection abruptly!', 'danger', 30000);
+                    } else {
+                        firework.launch('An error occured: ' + xhttp.responseText, 'danger', 30000);
+                    }
+                }
+            };
+
+            startProgressTimer("Extraction");
+
+            var nameneu = document.getElementById("newfile").value;
+            filePath = nameneu.split(/[\\\/]/).pop();
+            var _toDo = domainname + "/ota?task=update&file=" + filePath;
+            xhttp.open("GET", _toDo, true);
+            xhttp.send();
+        }
+
+        function startProgressTimer(step) {
+            console.log(step + "...");
+            document.getElementById('progress').innerHTML = "(0s)";
+            action_runtime = 0;
+            progressTimerHandle = setInterval(function() {
+                action_runtime += 1;
+                console.log("Progress: " + action_runtime + "s");
+                document.getElementById('progress').innerHTML = "(" + action_runtime + "s)";
+            }, 1000);
+        }
+
+        function stopProgressTimer() {
+            clearInterval(progressTimerHandle);
+            document.getElementById('progress').innerHTML = "";
+        }
+
+        function doRebootAfterUpdate() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", domainname + "/reboot", true);
+            xhttp.send();
+        }
     </script>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>
