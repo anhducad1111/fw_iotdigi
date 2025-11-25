@@ -192,27 +192,6 @@ function ParseConfig() {
     ParamAddValue(param, catname, "ApiKey");
     ParamAddValue(param, catname, "UploadImg");
 
-    var catname = "GPIO";
-    category[catname] = new Object();
-    category[catname]["enabled"] = false;
-    category[catname]["found"] = false;
-    param[catname] = new Object();
-    ParamAddValue(param, catname, "IO0", 6, false, "", [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
-    ParamAddValue(param, catname, "IO1", 6, false, "", [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
-    ParamAddValue(param, catname, "IO3", 6, false, "", [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
-    ParamAddValue(param, catname, "IO4", 6, false, "", [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
-    ParamAddValue(param, catname, "IO12", 6, false, "", [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
-    ParamAddValue(param, catname, "IO13", 6, false, "", [null, null, /^[0-9]*$/, null, null, /^[a-zA-Z0-9_-]*$/]);
-    ParamAddValue(param, catname, "LEDType");
-    ParamAddValue(param, catname, "LEDNumbers");
-    ParamAddValue(param, catname, "LEDColor", 3);
-    // Default Values, um abwärtskompatiblität zu gewährleisten
-    param[catname]["LEDType"]["value1"] = "WS2812";
-    param[catname]["LEDNumbers"]["value1"] = "2";
-    param[catname]["LEDColor"]["value1"] = "50";
-    param[catname]["LEDColor"]["value2"] = "50";
-    param[catname]["LEDColor"]["value3"] = "50";
-
     var catname = "AutoTimer";
     category[catname] = new Object();
     category[catname]["enabled"] = false;

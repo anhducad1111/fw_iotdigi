@@ -51,7 +51,7 @@
         </div>
 
         <div class="row">
-            <div class="col-8">
+            <div class="col-12">
                 <div class="h_iframe_explain mb-3" id="h_iframe_explain" style="display: none;">
                     <iframe name="explaincontent" id="explaincontent" src="" allowfullscreen style="width: 100%; height: 155px; border: none;"></iframe>
                 </div>
@@ -59,11 +59,6 @@
                 <div class="h_iframe" id="h_iframe">
                     <iframe name="maincontent" id="maincontent" src="" onload="resizeIframe(this)" allowfullscreen style="width: 100%; height: 800px; border: none;"></iframe>
                     <iframe name="stream" id="stream" src="" style="display: none;" allowfullscreen style="width: 100%; height: 800px; border: none;"></iframe>
-                </div>
-            </div>
-            <div class="col-4">
-                <div id="reference" style="display: none;">
-                    <!-- Reference image will be loaded here -->
                 </div>
             </div>
         </div>
@@ -130,8 +125,6 @@
             document.getElementById("progressBar").style.width = "0%";
             document.getElementById("progressBar").setAttribute("aria-valuenow", 0);
             setupCompleted = false;
-            document.getElementById('reference').style.display = "none";
-            document.getElementById('reference').innerHTML = '';
             break;
 
         case 1: // Live stream
@@ -154,9 +147,6 @@
             document.getElementById("progressBar").style.width = "14%";
             document.getElementById("progressBar").setAttribute("aria-valuenow", 1);
             setupCompleted = false;
-            document.getElementById('reference').style.display = "none";
-            document.getElementById('reference').innerHTML = '';
-
             setTimeout(function() {
                 document.getElementById('stream').src = getDomainname() + '/stream?flashlight=true';   // needs to be the last statement because it's kind of blocking
                 document.getElementById('stream').style.display = "";
@@ -181,8 +171,6 @@
             document.getElementById("progressBar").style.width = "29%";
             document.getElementById("progressBar").setAttribute("aria-valuenow", 2);
             setupCompleted = false;
-            document.getElementById('reference').style.display = "";
-            document.getElementById('reference').innerHTML = '<img src="config/ref0.jpg" style="width:100%; height:auto;" alt="Reference Image">';
             break;
 
         case 3: // Alignment marker
@@ -202,8 +190,6 @@
             document.getElementById("progressBar").style.width = "43%";
             document.getElementById("progressBar").setAttribute("aria-valuenow", 3);
             setupCompleted = false;
-            document.getElementById('reference').style.display = "";
-            document.getElementById('reference').innerHTML = '<img src="config/ref1.jpg" style="width:100%; height:auto;" alt="Alignment Reference">';
             break;
 
         case 4: // Digit ROIs
@@ -223,8 +209,6 @@
             document.getElementById("progressBar").style.width = "57%";
             document.getElementById("progressBar").setAttribute("aria-valuenow", 4);
             setupCompleted = false;
-            document.getElementById('reference').style.display = "";
-            document.getElementById('reference').innerHTML = '<img src="config/reference.jpg" style="width:100%; height:auto;" alt="Digits Reference">';
             break;
 
         case 5: // Analog ROIs
@@ -244,8 +228,6 @@
             document.getElementById("progressBar").style.width = "71%";
             document.getElementById("progressBar").setAttribute("aria-valuenow", 5);
             setupCompleted = false;
-            document.getElementById('reference').style.display = "";
-            document.getElementById('reference').innerHTML = '<img src="config/reference.jpg" style="width:100%; height:auto;" alt="Analog Reference">';
             break;
 
         case 6: // Config page
@@ -265,8 +247,6 @@
             document.getElementById("progressBar").style.width = "86%";
             document.getElementById("progressBar").setAttribute("aria-valuenow", 6);
             setupCompleted = true;
-            document.getElementById('reference').style.display = "none";
-            document.getElementById('reference').innerHTML = '';
             break;
 
         case 7: // Setup completed / aborted
@@ -288,8 +268,6 @@
 
             document.getElementById("progressBar").style.width = "100%";
             document.getElementById("progressBar").setAttribute("aria-valuenow", 7);
-            document.getElementById('reference').style.display = "none";
-            document.getElementById('reference').innerHTML = '';
             break;
         }
    }
