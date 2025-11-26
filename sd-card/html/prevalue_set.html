@@ -3,12 +3,65 @@
 <head>
     <title>Set PreValue</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    </head>
+    <style>
+    h1 {font-size: 2em;}
+    h2 {font-size: 1.5em; margin-block-start: 0.0em; margin-block-end: 0.2em;}
+    h3 {font-size: 1.2em;}
+    p {font-size: 1em;}
 
-<body>
-    <div class="container-fluid py-3">
+    div {
+        padding: 3px 5px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        height: 20px;
+        width: 120px;
+        vertical-align: middle;
+    }
+
+    input[type=number] {
+        width: 120px;
+        margin-right: 10px;
+        padding: 3px 5px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        font-size: 16px; 
+    }
+
+    .invalid-input {
+		background-color: #FFAA00;
+	}
+
+    th, td {
+    padding: 5px 5px 5px 0px;
+    }
+
+    select {
+        padding: 3px 5px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        font-size: 16px; 
+        margin-right: 10px;
+        min-width: 100px;
+        vertical-align: middle;
+    }
+
+    .button {
+        padding: 5px 10px;
+        width: 205px;
+        font-size: 16px;	
+    }
+
+    table {
+        width: 660px;
+        padding: 5px;
+    }
+    </style>
+
+</head>
+
+<body style="font-family: arial; padding: 0px 10px;">
     <h2>Set "Previous Value"</h2>
     <details id="desc_details">
         <summary><b>CLICK HERE</b> for usage description. More infos in documentation: 
@@ -76,19 +129,10 @@
         </tr>	 
     </table>
 
-    </div>
-
-    <!-- Bootstrap Bundle JS -->
-    <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
-    
-    <!-- Custom Edit Styles -->
-    <link rel="stylesheet" href="edit_style.css" type="text/css">
-    <link href="firework.css?v=v1" rel="stylesheet">
+<link href="firework.css?v=v1" rel="stylesheet">
 <script type="text/javascript" src="jquery-3.6.0.min.js?v=v1"></script>  
 <script type="text/javascript" src="firework.js?v=v1"></script>
 

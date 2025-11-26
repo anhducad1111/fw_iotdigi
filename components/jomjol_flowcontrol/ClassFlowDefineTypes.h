@@ -67,8 +67,7 @@ struct NumberPost {
     int Nachkomma;              // decimalPlaces; usually defined by the number of analog ROIs; affected by DecimalShift
 
     string DomoticzIdx;         // Domoticz counter Idx
-
-
+    
     bool isExtendedResolution;  // extendResolution; Adds the decimal place of the least significant analog ROI to the value
 
     general *digit_roi;         // digitRoi; set of digit ROIs for the sequence

@@ -3,16 +3,45 @@
     <head>
         <title>Log Viewer</title>
         
-        <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
-    
-    <!-- Custom Edit Styles -->
-    <link rel="stylesheet" href="edit_style.css" type="text/css">
+        <style>
+            html,
+            body {
+                height: 100%;
+                margin: 1px;
+            }
 
-    <script type="text/javascript" src="common.js?v=v1"></script> 
+            .box {
+                display: flex;
+                flex-flow: column;
+                height: 99.75%;
+            }
+
+            .box .row.header {
+                flex: 0 1 auto;
+            }
+
+            .box .row.content {
+                flex: 1 1 auto;
+            }
+
+            .box .row.footer {
+                flex: 0 1 auto;
+            }
+
+            #log {
+                font-family: 'Courier New', Courier, monospace;
+                font-size: small;
+            }
+
+            .button {
+                padding: 5px 10px;
+                width: 190px;
+                font-size: 16px;
+            }
+        </style>
+        <script type="text/javascript" src="common.js?v=v1"></script> 
     </head>
     <body>
-    <div class="container-fluid py-3">
         <div class="box">
             <div class="row header">
                 <button class="button" onClick="reload();">Reload</button>
@@ -26,11 +55,7 @@
                 <button class="button" onClick="window.location.href = getDomainname() + '/fileserver/log/message/'">Show Older Log Files</button>
             </div>
           </div>
-        </div>
-
-    <!-- Bootstrap Bundle JS -->
-    <script src="bootstrap.bundle.min.js"></script>
-</body>
+    </body>
 
     <script>  
         function reload() {

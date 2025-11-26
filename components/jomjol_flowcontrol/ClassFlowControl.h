@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef CLASSFLOWCONTROL_H
-#define CLASSFLOWCONTROL_H
+#ifndef CLASSFlowControl_H
+#define CLASSFlowControl_H
 
 #include <string>
 
@@ -11,10 +11,9 @@
 #include "ClassFlowCNNGeneral.h"
 #include "ClassFlowPostProcessing.h"
 #ifdef ENABLE_WEBHOOK
-#include "ClassFlowWebhook.h"
+	#include "ClassFlowWebhook.h"
 #endif //ENABLE_WEBHOOK
 #include "ClassFlowCNNGeneral.h"
-
 
 class ClassFlowControl :
     public ClassFlow

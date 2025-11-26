@@ -1,4 +1,4 @@
-"=== UPLOAD START - 2025-11-25 11:59 AM: ===" 
+"=== UPLOAD START - 2025-11-26 02:54 PM: ===" 
 Processing esp32cam (board: esp32cam; framework: espidf; platform: platformio/espressif32 @ 6.9.0)
 --------------------------------------------------------------------------------
 Verbose mode can be enabled via `-v, --verbose` option
@@ -21,22 +21,1759 @@ PACKAGES:
  - toolchain-esp32ulp @ 1.23800.240113 (2.38.0) 
  - toolchain-xtensa-esp-elf @ 13.2.0+20240530
 Reading CMake configuration...
+Generating assembly for certificate bundle...
 LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
 LDF Modes: Finder ~ chain, Compatibility ~ soft
 Found 0 compatible libraries
 Scanning dependencies...
 No dependencies
 Building in release mode
+Compiling .pio\build\esp32cam\main\main.cpp.o
+Compiling .pio\build\esp32cam\main\server_main.cpp.o
+Compiling .pio\build\esp32cam\main\softAP.cpp.o
+Generating LD script .pio\build\esp32cam\esp-idf\esp_system\ld\memory.ld.in
+Generating LD script .pio\build\esp32cam\esp-idf\esp_system\ld\sections.ld.in
+Compiling .pio\build\esp32cam\app_trace\app_trace.c.o
+Compiling .pio\build\esp32cam\app_trace\app_trace_util.c.o
+Compiling .pio\build\esp32cam\app_trace\host_file_io.c.o
+Generating LD script .pio\build\esp32cam\memory.ld
+Compiling .pio\build\esp32cam\app_trace\port\port_uart.c.o
+Compiling .pio\build\esp32cam\app_update\esp_ota_ops.c.o
+Compiling .pio\build\esp32cam\app_update\esp_ota_app_desc.c.o
+Compiling .pio\build\esp32cam\bootloader_support\src\bootloader_common.c.o
+Compiling .pio\build\esp32cam\bootloader_support\src\bootloader_common_loader.c.o
+Archiving .pio\build\esp32cam\esp-idf\app_trace\libapp_trace.a
+Compiling .pio\build\esp32cam\bootloader_support\src\bootloader_clock_init.c.o
+Compiling .pio\build\esp32cam\bootloader_support\src\bootloader_mem.c.o
+Compiling .pio\build\esp32cam\bootloader_support\src\bootloader_random.c.o
+Archiving .pio\build\esp32cam\esp-idf\app_update\libapp_update.a
+Compiling .pio\build\esp32cam\bootloader_support\src\bootloader_efuse.c.o
+Compiling .pio\build\esp32cam\bootloader_support\src\flash_encrypt.c.o
+Compiling .pio\build\esp32cam\bootloader_support\src\secure_boot.c.o
+Compiling .pio\build\esp32cam\bootloader_support\src\bootloader_random_esp32.c.o
+Compiling .pio\build\esp32cam\bootloader_support\bootloader_flash\src\bootloader_flash.c.o
+Compiling .pio\build\esp32cam\bootloader_support\bootloader_flash\src\flash_qio_mode.c.o
+In file included from components/jomjol_controlGPIO/RmtDriver.h:57,
+                 from components/jomjol_controlGPIO/SmartLeds.h:70,
+                 from components/jomjol_controlGPIO/server_GPIO.h:12,
+                 from main/server_main.h:13,
+                 from main/server_main.cpp:1:
+components/jomjol_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
+   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
+      |  ^~~~~~~
+Compiling .pio\build\esp32cam\bootloader_support\bootloader_flash\src\bootloader_flash_config_esp32.c.o
+Compiling .pio\build\esp32cam\bootloader_support\src\bootloader_utility.c.o
+Compiling .pio\build\esp32cam\bootloader_support\src\flash_partitions.c.o
+In file included from components/jomjol_controlGPIO/RmtDriver.h:57,
+                 from components/jomjol_controlGPIO/SmartLeds.h:70,
+                 from components/jomjol_controlGPIO/server_GPIO.h:12,
+                 from main/server_main.h:13,
+                 from main/main.cpp:28:
+components/jomjol_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
+   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
+      |  ^~~~~~~
+Compiling .pio\build\esp32cam\bootloader_support\src\esp_image_format.c.o
+Compiling .pio\build\esp32cam\bootloader_support\src\idf\bootloader_sha.c.o
+Compiling .pio\build\esp32cam\bootloader_support\src\esp32\secure_boot_secure_features.c.o
+Compiling .pio\build\esp32cam\cmock\CMock\src\cmock.c.o
+Compiling .pio\build\esp32cam\console\commands.c.o
+Compiling .pio\build\esp32cam\console\esp_console_common.c.o
+Compiling .pio\build\esp32cam\console\split_argv.c.o
+Archiving .pio\build\esp32cam\esp-idf\cmock\libcmock.a
+Archiving .pio\build\esp32cam\esp-idf\bootloader_support\libbootloader_support.a
+Compiling .pio\build\esp32cam\console\linenoise\linenoise.c.o
+Compiling .pio\build\esp32cam\console\esp_console_repl_chip.c.o
+Compiling .pio\build\esp32cam\console\argtable3\arg_cmd.c.o
+Compiling .pio\build\esp32cam\console\argtable3\arg_date.c.o
+Compiling .pio\build\esp32cam\console\argtable3\arg_dbl.c.o
+Compiling .pio\build\esp32cam\console\argtable3\arg_dstr.c.o
+Compiling .pio\build\esp32cam\console\argtable3\arg_end.c.o
+Compiling .pio\build\esp32cam\console\argtable3\arg_file.c.o
+Compiling .pio\build\esp32cam\console\argtable3\arg_hashtable.c.o
+Compiling .pio\build\esp32cam\console\argtable3\arg_int.c.o
+Compiling .pio\build\esp32cam\console\argtable3\arg_lit.c.o
+Compiling .pio\build\esp32cam\console\argtable3\arg_rem.c.o
+Compiling .pio\build\esp32cam\console\argtable3\arg_rex.c.o
+main/main.cpp: In function 'bool Init_NVS_SDCard()':
+main/main.cpp:167:5: warning: missing initializer for member 'esp_vfs_fat_mount_config_t::use_one_fat' [-Wmissing-field-initializers]
+  167 |     };
+      |     ^
+Compiling .pio\build\esp32cam\console\argtable3\arg_str.c.o
+Compiling .pio\build\esp32cam\console\argtable3\arg_utils.c.o
+Compiling .pio\build\esp32cam\console\argtable3\argtable3.c.o
+Compiling .pio\build\esp32cam\cxx\cxx_exception_stubs.cpp.o
+Compiling .pio\build\esp32cam\cxx\cxx_guards.cpp.o
+Compiling .pio\build\esp32cam\cxx\cxx_init.cpp.o
+Compiling .pio\build\esp32cam\driver\deprecated\adc_legacy.c.o
+Compiling .pio\build\esp32cam\driver\deprecated\adc_dma_legacy.c.o
+Compiling .pio\build\esp32cam\driver\deprecated\dac_common_legacy.c.o
+Compiling .pio\build\esp32cam\driver\deprecated\esp32\dac_legacy.c.o
+Compiling .pio\build\esp32cam\driver\deprecated\timer_legacy.c.o
+Archiving .pio\build\esp32cam\esp-idf\console\libconsole.a
+Compiling .pio\build\esp32cam\driver\i2c\i2c.c.o
+Compiling .pio\build\esp32cam\driver\deprecated\i2s_legacy.c.o
+Archiving .pio\build\esp32cam\esp-idf\cxx\libcxx.a
+Compiling .pio\build\esp32cam\driver\deprecated\mcpwm_legacy.c.o
+Compiling .pio\build\esp32cam\driver\deprecated\pcnt_legacy.c.o
+Compiling .pio\build\esp32cam\driver\deprecated\rmt_legacy.c.o
+Compiling .pio\build\esp32cam\driver\deprecated\sigma_delta_legacy.c.o
+Compiling .pio\build\esp32cam\driver\touch_sensor\touch_sensor_common.c.o
+Compiling .pio\build\esp32cam\driver\touch_sensor\esp32\touch_sensor.c.o
+Compiling .pio\build\esp32cam\driver\twai\twai.c.o
+Compiling .pio\build\esp32cam\driver\deprecated\adc_i2s_deprecated.c.o
+Compiling .pio\build\esp32cam\efuse\esp32\esp_efuse_table.c.o
+Compiling .pio\build\esp32cam\efuse\esp32\esp_efuse_fields.c.o
+Compiling .pio\build\esp32cam\efuse\esp32\esp_efuse_utility.c.o
+Compiling .pio\build\esp32cam\efuse\src\esp_efuse_api.c.o
+Compiling .pio\build\esp32cam\efuse\src\esp_efuse_fields.c.o
+Compiling .pio\build\esp32cam\efuse\src\esp_efuse_utility.c.o
+Compiling .pio\build\esp32cam\efuse\src\efuse_controller\keys\without_key_purposes\three_key_blocks\esp_efuse_api_key.c.o
+Compiling .pio\build\esp32cam\efuse\src\esp_efuse_startup.c.o
+Compiling .pio\build\esp32cam\components\esp-nn\src\activation_functions\esp_nn_relu_ansi.c.o
+Archiving .pio\build\esp32cam\esp-idf\driver\libdriver.a
+Compiling .pio\build\esp32cam\components\esp-nn\src\basic_math\esp_nn_add_ansi.c.o
+Compiling .pio\build\esp32cam\components\esp-nn\src\basic_math\esp_nn_mul_ansi.c.o
+Compiling .pio\build\esp32cam\components\esp-nn\src\convolution\esp_nn_conv_ansi.c.o
+Compiling .pio\build\esp32cam\components\esp-nn\src\convolution\esp_nn_conv_opt.c.o
+Compiling .pio\build\esp32cam\components\esp-nn\src\convolution\esp_nn_depthwise_conv_ansi.c.o
+Compiling .pio\build\esp32cam\components\esp-nn\src\convolution\esp_nn_depthwise_conv_opt.c.o
+Compiling .pio\build\esp32cam\components\esp-nn\src\fully_connected\esp_nn_fully_connected_ansi.c.o
+Archiving .pio\build\esp32cam\esp-idf\efuse\libefuse.a
+Compiling .pio\build\esp32cam\components\esp-nn\src\softmax\esp_nn_softmax_ansi.c.o
+Compiling .pio\build\esp32cam\components\esp-nn\src\softmax\esp_nn_softmax_opt.c.o
+Compiling .pio\build\esp32cam\components\esp-nn\src\pooling\esp_nn_avg_pool_ansi.c.o
+Compiling .pio\build\esp32cam\components\esp-nn\src\pooling\esp_nn_max_pool_ansi.c.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\debug_log.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\flatbuffer_utils.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\memory_helpers.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\micro_allocation_info.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\micro_allocator.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\micro_context.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\micro_interpreter_context.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\micro_interpreter_graph.cc.o
+Archiving .pio\build\esp32cam\esp-idf\esp-nn\libesp-nn.a
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\micro_interpreter.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\micro_log.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\micro_op_resolver.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\micro_profiler.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\micro_resource_variable.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\micro_time.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\micro_utils.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\recording_micro_allocator.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\system_setup.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\activations.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\activations_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\add_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\add_n.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\arg_min_max.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\assign_variable.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\batch_matmul.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\batch_to_space_nd.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\broadcast_args.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\broadcast_to.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\call_once.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\cast.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\ceil.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\circular_buffer.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\circular_buffer_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\comparisons.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\concatenation.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\conv_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\cumsum.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\depth_to_space.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\depthwise_conv_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\dequantize.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\dequantize_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\detection_postprocess.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\div.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\elementwise.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\elu.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\embedding_lookup.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\ethosu.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\exp.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\expand_dims.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\fill.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\floor.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\floor_div.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\floor_mod.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\fully_connected_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\gather.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\gather_nd.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\hard_swish.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\hard_swish_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\if.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\kernel_runner.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\kernel_util.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\l2_pool_2d.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\l2norm.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\leaky_relu.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\leaky_relu_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\log_softmax.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\logical.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\logical_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\logistic.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\logistic_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\lstm_eval.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\lstm_eval_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\maximum_minimum.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\micro_tensor_utils.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\mirror_pad.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\mul_common.cc.o
+In file included from components/esp-tflite-micro/tensorflow/lite/micro/kernels/lstm_eval.cc:25:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:150:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  150 |       [](const ArithmeticParams& params, const uint8_t input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:126:56: note: shadowed declaration is here
+  126 | inline void BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:209:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  209 |       [](const ArithmeticParams& params, const T input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:171:44: note: shadowed declaration is here
+  171 | BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                    ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:249:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  249 |       [](const ArithmeticParams& params, const std::complex<float> input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:221:56: note: shadowed declaration is here
+  221 | inline void BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from components/esp-tflite-micro/tensorflow/lite/micro/kernels/mul_common.cc:19:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:150:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  150 |       [](const ArithmeticParams& params, const uint8_t input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:126:56: note: shadowed declaration is here
+  126 | inline void BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:209:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  209 |       [](const ArithmeticParams& params, const T input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:171:44: note: shadowed declaration is here
+  171 | BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                    ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:249:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  249 |       [](const ArithmeticParams& params, const std::complex<float> input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:221:56: note: shadowed declaration is here
+  221 | inline void BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\neg.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\pack.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\pad.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\pooling_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\prelu.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\prelu_common.cc.o
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In instantiation of 'typename std::enable_if<((! tflite::is_small_integer<T>::value) || enable_for_short_integers), void>::type tflite::reference_ops::BroadcastMul6DSlow(const tflite::ArithmeticParams&, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, T*) [with T = long int; bool enable_for_short_integers = false; typename std::enable_if<((! tflite::is_small_integer<T>::value) || enable_for_short_integers), void>::type = void]':
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:260:28:   required from 'void tflite::reference_ops::BroadcastMul4DSlow(const tflite::ArithmeticParams&, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, T*) [with T = long int]'
+components/esp-tflite-micro/tensorflow/lite/micro/kernels/mul_common.cc:141:40:   required from here
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:209:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  209 |       [](const ArithmeticParams& params, const T input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:171:44: note: shadowed declaration is here
+  171 | BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                    ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In instantiation of 'typename std::enable_if<((! tflite::is_small_integer<T>::value) || enable_for_short_integers), void>::type tflite::reference_ops::BroadcastMul6DSlow(const tflite::ArithmeticParams&, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, T*) [with T = float; bool enable_for_short_integers = false; typename std::enable_if<((! tflite::is_small_integer<T>::value) || enable_for_short_integers), void>::type = void]':
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:260:28:   required from 'void tflite::reference_ops::BroadcastMul4DSlow(const tflite::ArithmeticParams&, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, T*) [with T = float]'
+components/esp-tflite-micro/tensorflow/lite/micro/kernels/mul_common.cc:196:38:   required from here
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:209:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  209 |       [](const ArithmeticParams& params, const T input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:171:44: note: shadowed declaration is here
+  171 | BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                    ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\quantize.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\quantize_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\read_variable.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\reduce.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\reduce_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\reshape.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\reshape_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\resize_bilinear.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\resize_nearest_neighbor.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\round.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\select.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\shape.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\slice.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\softmax_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\space_to_batch_nd.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\space_to_depth.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\split.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\split_v.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\squared_difference.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\squeeze.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\strided_slice.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\strided_slice_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\sub.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\sub_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\svdf.cc.o
+In file included from components/esp-tflite-micro/tensorflow/lite/micro/kernels/sub.cc:24:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:264:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  264 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:256:47: note: shadowed declaration is here
+  256 | void BroadcastSubSlow(const ArithmeticParams& params,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:284:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  284 |          const ArithmeticParams& params) {
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:272:59: note: shadowed declaration is here
+  272 | inline void BroadcastSub16POTSlow(const ArithmeticParams& params,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:308:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  308 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:298:52: note: shadowed declaration is here
+  298 | void BroadcastQuantSubSlow(const ArithmeticParams& params,
+      |                            ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:420:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  420 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:413:34: note: shadowed declaration is here
+  413 | void Sub(const ArithmeticParams& params, const RuntimeShape& input1_shape,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from components/esp-tflite-micro/tensorflow/lite/micro/kernels/sub_common.cc:22:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:264:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  264 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:256:47: note: shadowed declaration is here
+  256 | void BroadcastSubSlow(const ArithmeticParams& params,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:284:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  284 |          const ArithmeticParams& params) {
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:272:59: note: shadowed declaration is here
+  272 | inline void BroadcastSub16POTSlow(const ArithmeticParams& params,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:308:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  308 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:298:52: note: shadowed declaration is here
+  298 | void BroadcastQuantSubSlow(const ArithmeticParams& params,
+      |                            ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:420:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  420 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:413:34: note: shadowed declaration is here
+  413 | void Sub(const ArithmeticParams& params, const RuntimeShape& input1_shape,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\svdf_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\tanh.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\transpose.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\transpose_conv.cc.o
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In instantiation of 'void tflite::reference_ops::BroadcastSubSlow(const tflite::ArithmeticParams&, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, T*) [with T = float]':
+components/esp-tflite-micro/tensorflow/lite/micro/kernels/sub.cc:48:44:   required from here
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:264:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  264 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:256:47: note: shadowed declaration is here
+  256 | void BroadcastSubSlow(const ArithmeticParams& params,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In instantiation of 'void tflite::reference_ops::BroadcastQuantSubSlow(const tflite::ArithmeticParams&, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, T*) [with T = signed char]':
+components/esp-tflite-micro/tensorflow/lite/micro/kernels/sub.cc:91:53:   required from here
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:308:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  308 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:298:52: note: shadowed declaration is here
+  298 | void BroadcastQuantSubSlow(const ArithmeticParams& params,
+      |                            ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h: In instantiation of 'void tflite::reference_ops::BroadcastQuantSubSlow(const tflite::ArithmeticParams&, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, const T*, const tflite::RuntimeShape&, T*) [with T = short int]':
+components/esp-tflite-micro/tensorflow/lite/micro/kernels/sub.cc:111:53:   required from here
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:308:62: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  308 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/sub.h:298:52: note: shadowed declaration is here
+  298 | void BroadcastQuantSubSlow(const ArithmeticParams& params,
+      |                            ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\unidirectional_sequence_lstm.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\unpack.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\var_handle.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\while.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\zeros_like.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\tflite_bridge\flatbuffer_conversions_bridge.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\tflite_bridge\micro_error_reporter.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\esp_nn\add.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\esp_nn\conv.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\esp_nn\depthwise_conv.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\esp_nn\fully_connected.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\esp_nn\mul.cc.o
+In file included from components/esp-tflite-micro/tensorflow/lite/micro/kernels/esp_nn/mul.cc:21:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:150:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  150 |       [](const ArithmeticParams& params, const uint8_t input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:126:56: note: shadowed declaration is here
+  126 | inline void BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:209:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  209 |       [](const ArithmeticParams& params, const T input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:171:44: note: shadowed declaration is here
+  171 | BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                    ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h: In lambda function:
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:249:34: warning: declaration of 'const tflite::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  249 |       [](const ArithmeticParams& params, const std::complex<float> input1_val,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+components/esp-tflite-micro/tensorflow/lite/kernels/internal/reference/mul.h:221:56: note: shadowed declaration is here
+  221 | inline void BroadcastMul6DSlow(const ArithmeticParams& params,
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\esp_nn\pooling.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\kernels\esp_nn\softmax.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\delay.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\energy.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\fft_auto_scale_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\fft_auto_scale_kernel.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\filter_bank.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\filter_bank_log.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\filter_bank_spectral_subtraction.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\filter_bank_square_root.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\filter_bank_square_root_common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\framer.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\irfft.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\overlap_add.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\pcan.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\rfft.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\stacker.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\micro\kernels\window.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\circular_buffer.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\energy.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\fft_auto_scale.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\filter_bank.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\filter_bank_log.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\filter_bank_spectral_subtraction.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\filter_bank_square_root.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\irfft_float.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\irfft_int16.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\irfft_int32.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\log.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\max_abs.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\msb_32.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\msb_64.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\overlap_add.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\pcan_argc_fixed.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\rfft_float.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\rfft_int16.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\rfft_int32.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\square_root_32.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\square_root_64.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\window.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\kiss_fft_wrappers\kiss_fft_float.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\kiss_fft_wrappers\kiss_fft_int16.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\signal\src\kiss_fft_wrappers\kiss_fft_int32.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\kernels\kernel_util.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\memory_planner\greedy_memory_planner.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\memory_planner\linear_memory_planner.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\arena_allocator\non_persistent_arena_buffer_allocator.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\arena_allocator\persistent_arena_buffer_allocator.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\arena_allocator\recording_single_arena_buffer_allocator.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\micro\arena_allocator\single_arena_buffer_allocator.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\core\c\common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\core\api\error_reporter.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\core\api\flatbuffer_conversions.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\core\api\tensor_utils.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\kernels\internal\common.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\kernels\internal\quantization_util.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\kernels\internal\portable_tensor_utils.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\kernels\internal\tensor_utils.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\kernels\internal\tensor_ctypes.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\kernels\internal\reference\portable_tensor_utils.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\lite\kernels\internal\reference\comparisons.cc.o
+Compiling .pio\build\esp32cam\components\esp-tflite-micro\tensorflow\compiler\mlir\lite\schema\schema_utils.cc.o
+Compiling .pio\build\esp32cam\esp-tls\esp_tls.c.o
+Compiling .pio\build\esp32cam\esp-tls\esp-tls-crypto\esp_tls_crypto.c.o
+Compiling .pio\build\esp32cam\esp-tls\esp_tls_error_capture.c.o
+Compiling .pio\build\esp32cam\esp-tls\esp_tls_platform_port.c.o
+Compiling .pio\build\esp32cam\esp-tls\esp_tls_mbedtls.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\conversions\yuv.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\conversions\to_jpg.cpp.o
+Compiling .pio\build\esp32cam\components\esp32-camera\conversions\to_bmp.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\conversions\jpge.cpp.o
+Compiling .pio\build\esp32cam\components\esp32-camera\conversions\esp_jpg_decode.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\driver\esp_camera.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\driver\cam_hal.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp-tls\libesp-tls.a
+Compiling .pio\build\esp32cam\components\esp32-camera\driver\sccb.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\driver\sensor.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\ov2640.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\ov3660.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\ov5640.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\ov7725.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\ov7670.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\nt99141.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\gc0308.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\gc2145.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\gc032a.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\bf3005.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\bf20a6.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\sc101iot.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\sc030iot.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\sensors\sc031gs.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\target\xclk.c.o
+Compiling .pio\build\esp32cam\components\esp32-camera\target\esp32\ll_cam.c.o
+Compiling .pio\build\esp32cam\esp_adc\adc_oneshot.c.o
+Compiling .pio\build\esp32cam\esp_adc\adc_common.c.o
+Compiling .pio\build\esp32cam\esp_adc\adc_cali.c.o
+Compiling .pio\build\esp32cam\esp_adc\adc_cali_curve_fitting.c.o
+Compiling .pio\build\esp32cam\esp_adc\deprecated\esp_adc_cal_common_legacy.c.o
+Compiling .pio\build\esp32cam\esp_adc\adc_continuous.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp32-camera\libesp32-camera.a
+Compiling .pio\build\esp32cam\esp_adc\esp32\adc_dma.c.o
+Compiling .pio\build\esp32cam\esp_adc\esp32\adc_cali_line_fitting.c.o
+Compiling .pio\build\esp32cam\esp_adc\deprecated\esp32\esp_adc_cal_legacy.c.o
+Compiling .pio\build\esp32cam\esp_app_format\esp_app_desc.c.o
+Compiling .pio\build\esp32cam\esp_bootloader_format\esp_bootloader_desc.c.o
+Compiling .pio\build\esp32cam\esp_coex\esp32\esp_coex_adapter.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_bootloader_format\libesp_bootloader_format.a
+Archiving .pio\build\esp32cam\esp-idf\esp_app_format\libesp_app_format.a
+Compiling .pio\build\esp32cam\esp_common\src\esp_err_to_name.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_coex\libesp_coex.a
+Archiving .pio\build\esp32cam\esp-idf\esp_adc\libesp_adc.a
+Compiling .pio\build\esp32cam\esp_driver_cam\esp_cam_ctlr.c.o
+Compiling .pio\build\esp32cam\esp_driver_cam\dvp_share_ctrl.c.o
+Compiling .pio\build\esp32cam\esp_driver_dac\dac_oneshot.c.o
+Compiling .pio\build\esp32cam\esp_driver_dac\dac_cosine.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp-tflite-micro\libesp-tflite-micro.a
+Compiling .pio\build\esp32cam\esp_driver_dac\dac_continuous.c.o
+Compiling .pio\build\esp32cam\esp_driver_dac\dac_common.c.o
+Compiling .pio\build\esp32cam\esp_driver_dac\esp32\dac_dma.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_cam\libesp_driver_cam.a
+Compiling .pio\build\esp32cam\esp_driver_gpio\src\gpio.c.o
+Compiling .pio\build\esp32cam\esp_driver_gpio\src\gpio_glitch_filter_ops.c.o
+Compiling .pio\build\esp32cam\esp_driver_gpio\src\rtc_io.c.o
+Compiling .pio\build\esp32cam\esp_driver_gptimer\src\gptimer.c.o
+Compiling .pio\build\esp32cam\esp_driver_gptimer\src\gptimer_priv.c.o
+Compiling .pio\build\esp32cam\esp_driver_i2c\i2c_master.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_dac\libesp_driver_dac.a
+Archiving .pio\build\esp32cam\esp-idf\esp_common\libesp_common.a
+Compiling .pio\build\esp32cam\esp_driver_i2c\i2c_common.c.o
+Compiling .pio\build\esp32cam\esp_driver_i2c\i2c_slave.c.o
+Compiling .pio\build\esp32cam\esp_driver_i2s\i2s_common.c.o
+Compiling .pio\build\esp32cam\esp_driver_i2s\i2s_platform.c.o
+Compiling .pio\build\esp32cam\esp_driver_i2s\i2s_std.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_gpio\libesp_driver_gpio.a
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_gptimer\libesp_driver_gptimer.a
+Compiling .pio\build\esp32cam\esp_driver_i2s\i2s_pdm.c.o
+Compiling .pio\build\esp32cam\esp_driver_ledc\src\ledc.c.o
+Compiling .pio\build\esp32cam\esp_driver_mcpwm\src\mcpwm_cap.c.o
+Compiling .pio\build\esp32cam\esp_driver_mcpwm\src\mcpwm_cmpr.c.o
+Compiling .pio\build\esp32cam\esp_driver_mcpwm\src\mcpwm_com.c.o
+Compiling .pio\build\esp32cam\esp_driver_mcpwm\src\mcpwm_fault.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_i2c\libesp_driver_i2c.a
+Compiling .pio\build\esp32cam\esp_driver_mcpwm\src\mcpwm_gen.c.o
+Compiling .pio\build\esp32cam\esp_driver_mcpwm\src\mcpwm_oper.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_i2s\libesp_driver_i2s.a
+Compiling .pio\build\esp32cam\esp_driver_mcpwm\src\mcpwm_sync.c.o
+Compiling .pio\build\esp32cam\esp_driver_mcpwm\src\mcpwm_timer.c.o
+Compiling .pio\build\esp32cam\esp_driver_pcnt\src\pulse_cnt.c.o
+Compiling .pio\build\esp32cam\esp_driver_rmt\src\rmt_common.c.o
+Compiling .pio\build\esp32cam\esp_driver_rmt\src\rmt_encoder.c.o
+Compiling .pio\build\esp32cam\esp_driver_rmt\src\rmt_rx.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_ledc\libesp_driver_ledc.a
+Compiling .pio\build\esp32cam\esp_driver_rmt\src\rmt_tx.c.o
+Compiling .pio\build\esp32cam\esp_driver_sdio\src\sdio_slave.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_mcpwm\libesp_driver_mcpwm.a
+Compiling .pio\build\esp32cam\esp_driver_sdm\src\sdm.c.o
+Compiling .pio\build\esp32cam\esp_driver_sdmmc\src\sdmmc_transaction.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_pcnt\libesp_driver_pcnt.a
+Compiling .pio\build\esp32cam\esp_driver_sdmmc\src\sdmmc_host.c.o
+Compiling .pio\build\esp32cam\esp_driver_sdspi\src\sdspi_crc.c.o
+Compiling .pio\build\esp32cam\esp_driver_sdspi\src\sdspi_host.c.o
+Compiling .pio\build\esp32cam\esp_driver_sdspi\src\sdspi_transaction.c.o
+Compiling .pio\build\esp32cam\esp_driver_spi\src\gpspi\spi_common.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_rmt\libesp_driver_rmt.a
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_sdm\libesp_driver_sdm.a
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_sdio\libesp_driver_sdio.a
+Compiling .pio\build\esp32cam\esp_driver_spi\src\gpspi\spi_master.c.o
+Compiling .pio\build\esp32cam\esp_driver_spi\src\gpspi\spi_slave.c.o
+Compiling .pio\build\esp32cam\esp_driver_spi\src\gpspi\spi_dma.c.o
+Compiling .pio\build\esp32cam\esp_driver_uart\src\uart.c.o
+Compiling .pio\build\esp32cam\esp_driver_uart\src\uart_vfs.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_sdmmc\libesp_driver_sdmmc.a
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_sdspi\libesp_driver_sdspi.a
+Compiling .pio\build\esp32cam\esp_eth\src\esp_eth.c.o
+Compiling .pio\build\esp32cam\esp_eth\src\phy\esp_eth_phy_802_3.c.o
+Compiling .pio\build\esp32cam\esp_eth\src\esp_eth_netif_glue.c.o
+Compiling .pio\build\esp32cam\esp_eth\src\mac\esp_eth_mac_esp.c.o
+Compiling .pio\build\esp32cam\esp_eth\src\mac\esp_eth_mac_esp_dma.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_spi\libesp_driver_spi.a
+Compiling .pio\build\esp32cam\esp_eth\src\mac\esp_eth_mac_esp_gpio.c.o
+Compiling .pio\build\esp32cam\esp_eth\src\phy\esp_eth_phy_dp83848.c.o
+Compiling .pio\build\esp32cam\esp_eth\src\phy\esp_eth_phy_ip101.c.o
+Compiling .pio\build\esp32cam\esp_eth\src\phy\esp_eth_phy_ksz80xx.c.o
+Compiling .pio\build\esp32cam\esp_eth\src\phy\esp_eth_phy_lan87xx.c.o
+Compiling .pio\build\esp32cam\esp_eth\src\phy\esp_eth_phy_rtl8201.c.o
+Compiling .pio\build\esp32cam\esp_event\default_event_loop.c.o
+Compiling .pio\build\esp32cam\esp_event\esp_event.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_driver_uart\libesp_driver_uart.a
+Compiling .pio\build\esp32cam\esp_event\esp_event_private.c.o
+Compiling .pio\build\esp32cam\esp_gdbstub\src\gdbstub.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_eth\libesp_eth.a
+Compiling .pio\build\esp32cam\esp_gdbstub\src\gdbstub_transport.c.o
+Compiling .pio\build\esp32cam\esp_gdbstub\src\packet.c.o
+Compiling .pio\build\esp32cam\esp_gdbstub\src\port\xtensa\gdbstub_xtensa.c.o
+Compiling .pio\build\esp32cam\esp_gdbstub\src\port\xtensa\gdbstub-entry.S.o
+Compiling .pio\build\esp32cam\esp_gdbstub\src\port\xtensa\xt_debugexception.S.o
+Compiling .pio\build\esp32cam\esp_hid\src\esp_hidd.c.o
+Compiling .pio\build\esp32cam\esp_hid\src\esp_hidh.c.o
+Compiling .pio\build\esp32cam\esp_hid\src\esp_hid_common.c.o
+Compiling .pio\build\esp32cam\esp_http_client\esp_http_client.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_gdbstub\libesp_gdbstub.a
+Archiving .pio\build\esp32cam\esp-idf\esp_event\libesp_event.a
+Compiling .pio\build\esp32cam\esp_http_client\lib\http_auth.c.o
+Compiling .pio\build\esp32cam\esp_http_client\lib\http_header.c.o
+Compiling .pio\build\esp32cam\esp_http_client\lib\http_utils.c.o
+Compiling .pio\build\esp32cam\esp_http_server\src\httpd_main.c.o
+Compiling .pio\build\esp32cam\esp_http_server\src\httpd_parse.c.o
+Compiling .pio\build\esp32cam\esp_http_server\src\httpd_sess.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_hid\libesp_hid.a
+Compiling .pio\build\esp32cam\esp_http_server\src\httpd_txrx.c.o
+Compiling .pio\build\esp32cam\esp_http_server\src\httpd_uri.c.o
+Compiling .pio\build\esp32cam\esp_http_server\src\httpd_ws.c.o
+Compiling .pio\build\esp32cam\esp_http_server\src\util\ctrl_sock.c.o
+Compiling .pio\build\esp32cam\esp_https_ota\src\esp_https_ota.c.o
+Compiling .pio\build\esp32cam\esp_https_server\src\https_server.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_http_server\libesp_http_server.a
+Archiving .pio\build\esp32cam\esp-idf\esp_http_client\libesp_http_client.a
+Compiling .pio\build\esp32cam\esp_hw_support\cpu.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp32\esp_cpu_intr.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\esp_memory_utils.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp32\cpu_region_protect.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\esp_clk.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\clk_ctrl_os.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\hw_random.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\intr_alloc.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\mac_addr.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\periph_ctrl.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_https_ota\libesp_https_ota.a
+Compiling .pio\build\esp32cam\esp_hw_support\revision.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_https_server\libesp_https_server.a
+Compiling .pio\build\esp32cam\esp_hw_support\rtc_module.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\sleep_modem.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\sleep_modes.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\sleep_console.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\sleep_gpio.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\sleep_event.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\regi2c_ctrl.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\esp_gpio_reserve.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\sar_periph_ctrl_common.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp32\io_mux.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp32\esp_clk_tree.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp_clk_tree_common.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\dma\esp_dma_utils.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\spi_share_hw_ctrl.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\spi_bus_lock.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\adc_share_hw_ctrl.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\rtc_wdt.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\mspi_timing_tuning.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\sleep_wake_stub.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\esp_clock_output.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp32\rtc_clk.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp32\rtc_clk_init.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp32\rtc_init.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp32\rtc_sleep.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp32\rtc_time.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp32\chip_info.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp32\cache_sram_mmu.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp32\esp_crypto_lock.c.o
+Compiling .pio\build\esp32cam\esp_hw_support\port\esp32\sar_periph_ctrl.c.o
+Compiling .pio\build\esp32cam\esp_lcd\src\esp_lcd_common.c.o
+Compiling .pio\build\esp32cam\esp_lcd\src\esp_lcd_panel_io.c.o
+Compiling .pio\build\esp32cam\esp_lcd\src\esp_lcd_panel_nt35510.c.o
+Compiling .pio\build\esp32cam\esp_lcd\src\esp_lcd_panel_ssd1306.c.o
+Compiling .pio\build\esp32cam\esp_lcd\src\esp_lcd_panel_st7789.c.o
+Compiling .pio\build\esp32cam\esp_lcd\src\esp_lcd_panel_ops.c.o
+Compiling .pio\build\esp32cam\esp_lcd\i2c\esp_lcd_panel_io_i2c_v1.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_hw_support\libesp_hw_support.a
+Compiling .pio\build\esp32cam\esp_lcd\i2c\esp_lcd_panel_io_i2c_v2.c.o
+Compiling .pio\build\esp32cam\esp_lcd\spi\esp_lcd_panel_io_spi.c.o
+Compiling .pio\build\esp32cam\esp_lcd\i80\esp_lcd_panel_io_i2s.c.o
+Compiling .pio\build\esp32cam\esp_local_ctrl\src\esp_local_ctrl.c.o
+Compiling .pio\build\esp32cam\esp_local_ctrl\src\esp_local_ctrl_handler.c.o
+Compiling .pio\build\esp32cam\esp_local_ctrl\proto-c\esp_local_ctrl.pb-c.c.o
+Compiling .pio\build\esp32cam\esp_local_ctrl\src\esp_local_ctrl_transport_httpd.c.o
+Compiling .pio\build\esp32cam\esp_mm\esp_mmu_map.c.o
+Compiling .pio\build\esp32cam\esp_mm\port\esp32\ext_mem_layout.c.o
+Compiling .pio\build\esp32cam\esp_mm\esp_cache.c.o
+Compiling .pio\build\esp32cam\esp_mm\cache_esp32.c.o
+Compiling .pio\build\esp32cam\esp_mm\heap_align_hw.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_lcd\libesp_lcd.a
+Compiling .pio\build\esp32cam\esp_netif\esp_netif_handlers.c.o
+Compiling .pio\build\esp32cam\esp_netif\esp_netif_objects.c.o
+Compiling .pio\build\esp32cam\esp_netif\esp_netif_defaults.c.o
+Compiling .pio\build\esp32cam\esp_netif\lwip\esp_netif_lwip.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_mm\libesp_mm.a
+Archiving .pio\build\esp32cam\esp-idf\esp_local_ctrl\libesp_local_ctrl.a
+Compiling .pio\build\esp32cam\esp_netif\lwip\esp_netif_sntp.c.o
+Compiling .pio\build\esp32cam\esp_netif\lwip\esp_netif_lwip_defaults.c.o
+Compiling .pio\build\esp32cam\esp_netif\lwip\netif\wlanif.c.o
+Compiling .pio\build\esp32cam\esp_netif\lwip\netif\ethernetif.c.o
+Compiling .pio\build\esp32cam\esp_netif\lwip\netif\esp_pbuf_ref.c.o
+Compiling .pio\build\esp32cam\esp_partition\partition.c.o
+Compiling .pio\build\esp32cam\esp_partition\partition_target.c.o
+Compiling .pio\build\esp32cam\esp_phy\src\phy_override.c.o
+Compiling .pio\build\esp32cam\esp_phy\src\lib_printf.c.o
+Compiling .pio\build\esp32cam\esp_phy\src\phy_common.c.o
+Compiling .pio\build\esp32cam\esp_phy\src\phy_init.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_partition\libesp_partition.a
+Compiling .pio\build\esp32cam\esp_phy\esp32\phy_init_data.c.o
+Compiling .pio\build\esp32cam\esp_phy\src\btbb_init.c.o
+Compiling .pio\build\esp32cam\esp_pm\pm_locks.c.o
+Compiling .pio\build\esp32cam\esp_pm\pm_trace.c.o
+Compiling .pio\build\esp32cam\esp_pm\pm_impl.c.o
+Compiling .pio\build\esp32cam\esp_psram\esp_psram.c.o
+Compiling .pio\build\esp32cam\esp_psram\esp32\esp_psram_extram_cache.c.o
+Compiling .pio\build\esp32cam\esp_psram\esp32\esp_himem.c.o
+Compiling .pio\build\esp32cam\esp_psram\esp32\esp_psram_impl_quad.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_netif\libesp_netif.a
+Compiling .pio\build\esp32cam\esp_ringbuf\ringbuf.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_phy\libesp_phy.a
+Compiling .pio\build\esp32cam\esp_rom\patches\esp_rom_crc.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_pm\libesp_pm.a
+Compiling .pio\build\esp32cam\esp_rom\patches\esp_rom_sys.c.o
+Compiling .pio\build\esp32cam\esp_rom\patches\esp_rom_uart.c.o
+Compiling .pio\build\esp32cam\esp_rom\patches\esp_rom_spiflash.c.o
+Compiling .pio\build\esp32cam\esp_rom\patches\esp_rom_efuse.c.o
+Compiling .pio\build\esp32cam\esp_rom\patches\esp_rom_longjmp.S.o
+Compiling .pio\build\esp32cam\esp_system\esp_err.c.o
+Compiling .pio\build\esp32cam\esp_system\crosscore_int.c.o
+Compiling .pio\build\esp32cam\esp_system\esp_ipc.c.o
+Compiling .pio\build\esp32cam\esp_system\freertos_hooks.c.o
+Compiling .pio\build\esp32cam\esp_system\int_wdt.c.o
+Compiling .pio\build\esp32cam\esp_system\panic.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_ringbuf\libesp_ringbuf.a
+Archiving .pio\build\esp32cam\esp-idf\esp_rom\libesp_rom.a
+Compiling .pio\build\esp32cam\esp_system\esp_system.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_psram\libesp_psram.a
+Compiling .pio\build\esp32cam\esp_system\startup.c.o
+Compiling .pio\build\esp32cam\esp_system\startup_funcs.c.o
+Compiling .pio\build\esp32cam\esp_system\system_time.c.o
+Compiling .pio\build\esp32cam\esp_system\stack_check.c.o
+Compiling .pio\build\esp32cam\esp_system\ubsan.c.o
+Compiling .pio\build\esp32cam\esp_system\xt_wdt.c.o
+Compiling .pio\build\esp32cam\esp_system\task_wdt\task_wdt.c.o
+Compiling .pio\build\esp32cam\esp_system\task_wdt\task_wdt_impl_timergroup.c.o
+Compiling .pio\build\esp32cam\esp_system\port\cpu_start.c.o
+Compiling .pio\build\esp32cam\esp_system\port\panic_handler.c.o
+Compiling .pio\build\esp32cam\esp_system\port\esp_system_chip.c.o
+Compiling .pio\build\esp32cam\esp_system\port\image_process.c.o
+Compiling .pio\build\esp32cam\esp_system\port\brownout.c.o
+Compiling .pio\build\esp32cam\esp_system\port\esp_ipc_isr.c.o
+Compiling .pio\build\esp32cam\esp_system\port\arch\xtensa\esp_ipc_isr_port.c.o
+Compiling .pio\build\esp32cam\esp_system\port\arch\xtensa\esp_ipc_isr_handler.S.o
+Compiling .pio\build\esp32cam\esp_system\port\arch\xtensa\esp_ipc_isr_routines.S.o
+Compiling .pio\build\esp32cam\esp_system\port\arch\xtensa\panic_arch.c.o
+Compiling .pio\build\esp32cam\esp_system\port\arch\xtensa\panic_handler_asm.S.o
+Compiling .pio\build\esp32cam\esp_system\port\arch\xtensa\expression_with_stack.c.o
+Compiling .pio\build\esp32cam\esp_system\port\arch\xtensa\expression_with_stack_asm.S.o
+Compiling .pio\build\esp32cam\esp_system\port\arch\xtensa\debug_helpers.c.o
+Compiling .pio\build\esp32cam\esp_system\port\arch\xtensa\debug_helpers_asm.S.o
+Compiling .pio\build\esp32cam\esp_system\port\arch\xtensa\debug_stubs.c.o
+Compiling .pio\build\esp32cam\esp_system\port\arch\xtensa\trax.c.o
+Compiling .pio\build\esp32cam\esp_system\port\soc\esp32\highint_hdl.S.o
+Compiling .pio\build\esp32cam\esp_system\port\soc\esp32\clk.c.o
+Compiling .pio\build\esp32cam\esp_system\port\soc\esp32\reset_reason.c.o
+Compiling .pio\build\esp32cam\esp_system\port\soc\esp32\system_internal.c.o
+Compiling .pio\build\esp32cam\esp_system\port\soc\esp32\cache_err_int.c.o
+Compiling .pio\build\esp32cam\esp_timer\src\esp_timer.c.o
+Compiling .pio\build\esp32cam\esp_timer\src\esp_timer_init.c.o
+Compiling .pio\build\esp32cam\esp_timer\src\ets_timer_legacy.c.o
+Compiling .pio\build\esp32cam\esp_timer\src\system_time.c.o
+Compiling .pio\build\esp32cam\esp_timer\src\esp_timer_impl_common.c.o
+Compiling .pio\build\esp32cam\esp_timer\src\esp_timer_impl_lac.c.o
+Compiling .pio\build\esp32cam\esp_vfs_console\vfs_console.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_system\libesp_system.a
+Compiling .pio\build\esp32cam\esp_wifi\src\lib_printf.c.o
+Compiling .pio\build\esp32cam\esp_wifi\src\mesh_event.c.o
+Compiling .pio\build\esp32cam\esp_wifi\src\smartconfig.c.o
+Compiling .pio\build\esp32cam\esp_wifi\src\wifi_init.c.o
+Compiling .pio\build\esp32cam\esp_wifi\src\wifi_default.c.o
+Compiling .pio\build\esp32cam\esp_wifi\src\wifi_netif.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_timer\libesp_timer.a
+Compiling .pio\build\esp32cam\esp_wifi\src\wifi_default_ap.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_vfs_console\libesp_vfs_console.a
+Compiling .pio\build\esp32cam\esp_wifi\esp32\esp_adapter.c.o
+Compiling .pio\build\esp32cam\esp_wifi\src\smartconfig_ack.c.o
+Compiling .pio\build\esp32cam\espcoredump\src\core_dump_init.c.o
+Compiling .pio\build\esp32cam\espcoredump\src\core_dump_common.c.o
+Compiling .pio\build\esp32cam\espcoredump\src\core_dump_flash.c.o
+Compiling .pio\build\esp32cam\espcoredump\src\core_dump_uart.c.o
+Compiling .pio\build\esp32cam\espcoredump\src\core_dump_elf.c.o
+Compiling .pio\build\esp32cam\espcoredump\src\core_dump_binary.c.o
+Compiling .pio\build\esp32cam\espcoredump\src\core_dump_sha.c.o
+Compiling .pio\build\esp32cam\espcoredump\src\core_dump_crc.c.o
+Compiling .pio\build\esp32cam\espcoredump\src\port\xtensa\core_dump_port.c.o
+Archiving .pio\build\esp32cam\esp-idf\esp_wifi\libesp_wifi.a
+Compiling .pio\build\esp32cam\fatfs\diskio\diskio.c.o
+Compiling .pio\build\esp32cam\fatfs\diskio\diskio_rawflash.c.o
+Compiling .pio\build\esp32cam\fatfs\diskio\diskio_wl.c.o
+Compiling .pio\build\esp32cam\fatfs\src\ff.c.o
+Compiling .pio\build\esp32cam\fatfs\src\ffunicode.c.o
+Compiling .pio\build\esp32cam\fatfs\port\freertos\ffsystem.c.o
+Compiling .pio\build\esp32cam\fatfs\diskio\diskio_sdmmc.c.o
+Archiving .pio\build\esp32cam\esp-idf\espcoredump\libespcoredump.a
+Compiling .pio\build\esp32cam\fatfs\vfs\vfs_fat.c.o
+Compiling .pio\build\esp32cam\fatfs\vfs\vfs_fat_sdmmc.c.o
+Compiling .pio\build\esp32cam\fatfs\vfs\vfs_fat_spiflash.c.o
+Compiling .pio\build\esp32cam\freertos\heap_idf.c.o
+Compiling .pio\build\esp32cam\freertos\app_startup.c.o
+Compiling .pio\build\esp32cam\freertos\port_common.c.o
+Compiling .pio\build\esp32cam\freertos\port_systick.c.o
+Compiling .pio\build\esp32cam\freertos\FreeRTOS-Kernel\list.c.o
+Compiling .pio\build\esp32cam\freertos\FreeRTOS-Kernel\queue.c.o
+Compiling .pio\build\esp32cam\freertos\FreeRTOS-Kernel\tasks.c.o
+Compiling .pio\build\esp32cam\freertos\FreeRTOS-Kernel\timers.c.o
+Compiling .pio\build\esp32cam\freertos\FreeRTOS-Kernel\event_groups.c.o
+Compiling .pio\build\esp32cam\freertos\FreeRTOS-Kernel\stream_buffer.c.o
+Compiling .pio\build\esp32cam\freertos\FreeRTOS-Kernel\portable\xtensa\port.c.o
+Compiling .pio\build\esp32cam\freertos\FreeRTOS-Kernel\portable\xtensa\portasm.S.o
+Compiling .pio\build\esp32cam\freertos\FreeRTOS-Kernel\portable\xtensa\xtensa_init.c.o
+Compiling .pio\build\esp32cam\freertos\FreeRTOS-Kernel\portable\xtensa\xtensa_overlay_os_hook.c.o
+Compiling .pio\build\esp32cam\freertos\esp_additions\freertos_compatibility.c.o
+Compiling .pio\build\esp32cam\freertos\esp_additions\idf_additions.c.o
+Compiling .pio\build\esp32cam\hal\hal_utils.c.o
+Archiving .pio\build\esp32cam\esp-idf\fatfs\libfatfs.a
+Compiling .pio\build\esp32cam\hal\mpu_hal.c.o
+Compiling .pio\build\esp32cam\hal\efuse_hal.c.o
+Compiling .pio\build\esp32cam\hal\esp32\efuse_hal.c.o
+Compiling .pio\build\esp32cam\hal\wdt_hal_iram.c.o
+Compiling .pio\build\esp32cam\hal\mmu_hal.c.o
+Compiling .pio\build\esp32cam\hal\esp32\cache_hal_esp32.c.o
+Compiling .pio\build\esp32cam\hal\color_hal.c.o
+Compiling .pio\build\esp32cam\hal\spi_flash_hal.c.o
+Compiling .pio\build\esp32cam\hal\spi_flash_hal_iram.c.o
+Compiling .pio\build\esp32cam\hal\spi_flash_encrypt_hal_iram.c.o
+Compiling .pio\build\esp32cam\hal\esp32\clk_tree_hal.c.o
+Archiving .pio\build\esp32cam\esp-idf\freertos\libfreertos.a
+Compiling .pio\build\esp32cam\hal\uart_hal.c.o
+Compiling .pio\build\esp32cam\hal\uart_hal_iram.c.o
+Compiling .pio\build\esp32cam\hal\gpio_hal.c.o
+Compiling .pio\build\esp32cam\hal\rtc_io_hal.c.o
+Compiling .pio\build\esp32cam\hal\timer_hal.c.o
+Compiling .pio\build\esp32cam\hal\ledc_hal.c.o
+Compiling .pio\build\esp32cam\hal\ledc_hal_iram.c.o
+Compiling .pio\build\esp32cam\hal\i2c_hal.c.o
+Compiling .pio\build\esp32cam\hal\i2c_hal_iram.c.o
+Compiling .pio\build\esp32cam\hal\rmt_hal.c.o
+Compiling .pio\build\esp32cam\hal\pcnt_hal.c.o
+Compiling .pio\build\esp32cam\hal\mcpwm_hal.c.o
+Compiling .pio\build\esp32cam\hal\twai_hal.c.o
+Compiling .pio\build\esp32cam\hal\twai_hal_iram.c.o
+Compiling .pio\build\esp32cam\hal\i2s_hal.c.o
+Compiling .pio\build\esp32cam\hal\sdm_hal.c.o
+Compiling .pio\build\esp32cam\hal\sdmmc_hal.c.o
+Compiling .pio\build\esp32cam\hal\emac_hal.c.o
+Compiling .pio\build\esp32cam\hal\adc_hal_common.c.o
+Compiling .pio\build\esp32cam\hal\adc_oneshot_hal.c.o
+Compiling .pio\build\esp32cam\hal\adc_hal.c.o
+Compiling .pio\build\esp32cam\hal\mpi_hal.c.o
+Compiling .pio\build\esp32cam\hal\sha_hal.c.o
+Compiling .pio\build\esp32cam\hal\aes_hal.c.o
+Compiling .pio\build\esp32cam\hal\brownout_hal.c.o
+Compiling .pio\build\esp32cam\hal\spi_hal.c.o
+Compiling .pio\build\esp32cam\hal\spi_hal_iram.c.o
+Compiling .pio\build\esp32cam\hal\spi_slave_hal.c.o
+Compiling .pio\build\esp32cam\hal\spi_slave_hal_iram.c.o
+Compiling .pio\build\esp32cam\hal\sdio_slave_hal.c.o
+Compiling .pio\build\esp32cam\hal\esp32\touch_sensor_hal.c.o
+Compiling .pio\build\esp32cam\hal\touch_sensor_hal.c.o
+Compiling .pio\build\esp32cam\hal\esp32\gpio_hal_workaround.c.o
+Compiling .pio\build\esp32cam\heap\heap_caps_base.c.o
+Compiling .pio\build\esp32cam\heap\heap_caps.c.o
+Compiling .pio\build\esp32cam\heap\heap_caps_init.c.o
+Compiling .pio\build\esp32cam\heap\multi_heap.c.o
+Compiling .pio\build\esp32cam\heap\tlsf\tlsf.c.o
+Compiling .pio\build\esp32cam\heap\port\memory_layout_utils.c.o
+Compiling .pio\build\esp32cam\heap\port\esp32\memory_layout.c.o
+Compiling .pio\build\esp32cam\http_parser\http_parser.c.o
+Archiving .pio\build\esp32cam\esp-idf\hal\libhal.a
+Compiling .pio\build\esp32cam\components\jomjol_configfile\configFile.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_controlGPIO\Color.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_controlGPIO\RmtDriver4.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_controlGPIO\RmtDriver5.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_controlGPIO\SmartLeds.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_controlGPIO\server_GPIO.cpp.o
+Archiving .pio\build\esp32cam\esp-idf\heap\libheap.a
+In file included from components/jomjol_controlGPIO/RmtDriver.h:57,
+                 from components/jomjol_controlGPIO/RmtDriver4.h:29,
+                 from components/jomjol_controlGPIO/RmtDriver4.cpp:27:
+components/jomjol_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
+   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
+      |  ^~~~~~~
+In file included from components/jomjol_controlGPIO/RmtDriver5.cpp:27:
+components/jomjol_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
+   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
+      |  ^~~~~~~
+Compiling .pio\build\esp32cam\components\jomjol_controlcamera\ClassControlCamera.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_controlcamera\ov2640_contrast_brightness.cpp.o
+Archiving .pio\build\esp32cam\esp-idf\http_parser\libhttp_parser.a
+Compiling .pio\build\esp32cam\components\jomjol_controlcamera\ov2640_sharpness.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_controlcamera\ov2640_specialEffect.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_controlcamera\server_camera.cpp.o
+In file included from components/jomjol_controlGPIO/RmtDriver.h:57,
+                 from components/jomjol_controlGPIO/SmartLeds.h:70,
+                 from components/jomjol_controlGPIO/SmartLeds.cpp:27:
+components/jomjol_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
+   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
+      |  ^~~~~~~
+In file included from components/jomjol_controlGPIO/RmtDriver.h:57,
+                 from components/jomjol_controlGPIO/SmartLeds.h:70,
+                 from components/jomjol_controlGPIO/server_GPIO.h:12,
+                 from components/jomjol_controlGPIO/server_GPIO.cpp:17:
+components/jomjol_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
+   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
+      |  ^~~~~~~
+Compiling .pio\build\esp32cam\components\jomjol_fileserver_ota\md5.cpp.o
+Archiving .pio\build\esp32cam\esp-idf\jomjol_configfile\libjomjol_configfile.a
+Compiling .pio\build\esp32cam\components\jomjol_fileserver_ota\miniz\examples\example1.c.o
+Compiling .pio\build\esp32cam\components\jomjol_fileserver_ota\miniz\examples\example2.c.o
+components/jomjol_controlGPIO/RmtDriver5.cpp: In member function 'esp_err_t detail::RmtDriver::registerIsr(bool)':
+components/jomjol_controlGPIO/RmtDriver5.cpp:156:5: warning: missing initializer for member 'rmt_tx_channel_config_t::intr_priority' [-Wmissing-field-initializers]
+  156 |     };
+      |     ^
+Compiling .pio\build\esp32cam\components\jomjol_fileserver_ota\miniz\examples\example3.c.o
+In file included from components/jomjol_controlGPIO/RmtDriver.h:57,
+                 from components/jomjol_controlGPIO/SmartLeds.h:70,
+                 from components/jomjol_controlGPIO/server_GPIO.h:12,
+                 from components/jomjol_controlcamera/ClassControlCamera.cpp:14:
+components/jomjol_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
+   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
+      |  ^~~~~~~
+Compiling .pio\build\esp32cam\components\jomjol_fileserver_ota\miniz\examples\example4.c.o
+Compiling .pio\build\esp32cam\components\jomjol_fileserver_ota\miniz\examples\example5.c.o
+Compiling .pio\build\esp32cam\components\jomjol_fileserver_ota\miniz\examples\example6.c.o
+Compiling .pio\build\esp32cam\components\jomjol_fileserver_ota\miniz\miniz.c.o
+components/jomjol_controlGPIO/server_GPIO.cpp: In member function 'void GpioPin::init()':
+components/jomjol_controlGPIO/server_GPIO.cpp:98:66: warning: comparison between 'enum gpio_int_type_t' and 'enum gpio_pin_mode_t' [-Wenum-compare]
+   98 |     if ((_interruptType != GPIO_INTR_DISABLE) && (_interruptType != GPIO_PIN_MODE_EXTERNAL_FLASH_WS281X)) {
+      |                                                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+components/jomjol_fileserver_ota/miniz/miniz.c: In function 'mz_compress2':
+components/jomjol_fileserver_ota/miniz/miniz.c:326:46: warning: comparison is always false due to limited range of data type [-Wtype-limits]
+  326 |     if ((mz_uint64)(source_len | *pDest_len) > 0xFFFFFFFFU)
+      |                                              ^
+components/jomjol_fileserver_ota/miniz/miniz.c: In function 'mz_uncompress2':
+components/jomjol_fileserver_ota/miniz/miniz.c:569:48: warning: comparison is always false due to limited range of data type [-Wtype-limits]
+  569 |     if ((mz_uint64)(*pSource_len | *pDest_len) > 0xFFFFFFFFU)
+      |                                                ^
+components/jomjol_fileserver_ota/miniz/miniz.c: At top level:
+components/jomjol_fileserver_ota/miniz/miniz.c:3185:9: note: '#pragma message: Using fopen, ftello, fseeko, stat() etc. path for file I/O - this path may not support large files.'
+ 3185 | #pragma message("Using fopen, ftello, fseeko, stat() etc. path for file I/O - this path may not support large files.")
+      |         ^~~~~~~
+Compiling .pio\build\esp32cam\components\jomjol_fileserver_ota\server_file.cpp.o
+components/jomjol_fileserver_ota/miniz/miniz.c: In function 'mz_zip_writer_add_mem_ex_v2':
+Compiling .pio\build\esp32cam\components\jomjol_fileserver_ota\server_help.cpp.o
+components/jomjol_fileserver_ota/miniz/miniz.c:6250:34: warning: comparison is always false due to limited range of data type [-Wtype-limits]
+ 6250 |         if (((mz_uint64)buf_size > 0xFFFFFFFF) || (uncomp_size > 0xFFFFFFFF))
+      |                                  ^
+Compiling .pio\build\esp32cam\components\jomjol_fileserver_ota\server_ota.cpp.o
+components/jomjol_controlcamera/ClassControlCamera.cpp:105:1: warning: missing initializer for member 'camera_config_t::sccb_i2c_port' [-Wmissing-field-initializers]
+  105 | };
+      | ^
+Compiling .pio\build\esp32cam\components\jomjol_flowcontrol\ClassFlow.cpp.o
+Archiving .pio\build\esp32cam\esp-idf\jomjol_controlGPIO\libjomjol_controlGPIO.a
+Compiling .pio\build\esp32cam\components\jomjol_flowcontrol\ClassFlowAlignment.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_flowcontrol\ClassFlowCNNGeneral.cpp.o
+Archiving .pio\build\esp32cam\esp-idf\jomjol_controlcamera\libjomjol_controlcamera.a
+In file included from components/jomjol_controlGPIO/RmtDriver.h:57,
+                 from components/jomjol_controlGPIO/SmartLeds.h:70,
+                 from components/jomjol_controlGPIO/server_GPIO.h:12,
+                 from components/jomjol_fileserver_ota/server_file.cpp:40:
+components/jomjol_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
+   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
+      |  ^~~~~~~
+Compiling .pio\build\esp32cam\components\jomjol_flowcontrol\ClassFlowControl.cpp.o
+In file included from components/jomjol_controlGPIO/RmtDriver.h:57,
+                 from components/jomjol_controlGPIO/SmartLeds.h:70,
+                 from components/jomjol_controlGPIO/server_GPIO.h:12,
+                 from components/jomjol_fileserver_ota/server_ota.cpp:33:
+components/jomjol_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
+   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
+      |  ^~~~~~~
+Compiling .pio\build\esp32cam\components\jomjol_flowcontrol\ClassFlowImage.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_flowcontrol\ClassFlowPostProcessing.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_flowcontrol\ClassFlowTakeImage.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_flowcontrol\ClassFlowWebhook.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_flowcontrol\MainFlowControl.cpp.o
+Archiving .pio\build\esp32cam\esp-idf\jomjol_fileserver_ota\libjomjol_fileserver_ota.a
+Compiling .pio\build\esp32cam\components\jomjol_helper\Helper.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_helper\esp_sys.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_helper\himem_memory_check.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_helper\perfmon.c.o
+Compiling .pio\build\esp32cam\components\jomjol_helper\psram.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_helper\sdcard_check.cpp.o
+In file included from components/jomjol_controlGPIO/RmtDriver.h:57,
+                 from components/jomjol_controlGPIO/SmartLeds.h:70,
+                 from components/jomjol_controlGPIO/server_GPIO.h:12,
+                 from components/jomjol_flowcontrol/MainFlowControl.cpp:23:
+components/jomjol_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
+   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
+      |  ^~~~~~~
+Compiling .pio\build\esp32cam\components\jomjol_helper\sdcard_init.c.o
+Compiling .pio\build\esp32cam\components\jomjol_helper\statusled.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_image_proc\CAlignAndCutImage.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_image_proc\CFindTemplate.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_image_proc\CImageBasis.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_image_proc\CRotateImage.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_image_proc\make_stb.cpp.o
+Archiving .pio\build\esp32cam\esp-idf\jomjol_helper\libjomjol_helper.a
+In file included from components/esp-tflite-micro/tensorflow/lite/micro/micro_mutable_op_resolver.h:22,
+                 from components/jomjol_tfliteclass/CTfLiteClass.h:6,
+                 from components/jomjol_flowcontrol/ClassFlowCNNGeneral.cpp:8:
+components/esp-tflite-micro/tensorflow/lite/core/api/flatbuffer_conversions.h: In member function 'T* tflite::BuiltinDataAllocator::AllocatePOD()':
+components/esp-tflite-micro/tensorflow/lite/core/api/flatbuffer_conversions.h:46:24: warning: 'template<class _Tp> struct std::is_pod' is deprecated: use 'is_standard_layout && is_trivial' instead [-Wdeprecated-declarations]
+   46 |     static_assert(std::is_pod<T>::value, "Builtin data structure must be POD.");
+      |                        ^~~~~~
+In file included from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/bits/move.h:37,
+                 from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/bits/exception_ptr.h:41,
+                 from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/exception:164,
+                 from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/ios:41,
+                 from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/istream:40,
+                 from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/fstream:40,
+                 from components/jomjol_flowcontrol/ClassFlow.h:6,
+                 from components/jomjol_flowcontrol/ClassFlowImage.h:6,
+                 from components/jomjol_flowcontrol/ClassFlowDefineTypes.h:6,
+                 from components/jomjol_flowcontrol/ClassFlowCNNGeneral.h:6,
+                 from components/jomjol_flowcontrol/ClassFlowCNNGeneral.cpp:1:
+C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/type_traits:819:5: note: declared here
+  819 |     is_pod
+      |     ^~~~~~
+Compiling .pio\build\esp32cam\components\jomjol_logfile\ClassLogFile.cpp.o
+In file included from components/jomjol_image_proc/make_stb.cpp:25:
+components/jomjol_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_bmp_to_func(void (*)(void*, void*, int), void*, int, int, int, const void*)':
+components/jomjol_image_proc/../stb/stb_image_write.h:514:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
+  514 |    stbi__write_context s = { 0 };
+      |                                ^
+components/jomjol_image_proc/../stb/stb_image_write.h:514:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h:514:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_bmp(const char*, int, int, int, const void*)':
+components/jomjol_image_proc/../stb/stb_image_write.h:522:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
+  522 |    stbi__write_context s = { 0 };
+      |                                ^
+components/jomjol_image_proc/../stb/stb_image_write.h:522:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h:522:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_tga_to_func(void (*)(void*, void*, int), void*, int, int, int, const void*)':
+components/jomjol_image_proc/../stb/stb_image_write.h:613:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
+  613 |    stbi__write_context s = { 0 };
+      |                                ^
+components/jomjol_image_proc/../stb/stb_image_write.h:613:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h:613:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_tga(const char*, int, int, int, const void*)':
+components/jomjol_image_proc/../stb/stb_image_write.h:621:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
+  621 |    stbi__write_context s = { 0 };
+      |                                ^
+components/jomjol_image_proc/../stb/stb_image_write.h:621:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h:621:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_hdr_to_func(void (*)(void*, void*, int), void*, int, int, int, const float*)':
+components/jomjol_image_proc/../stb/stb_image_write.h:789:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
+  789 |    stbi__write_context s = { 0 };
+      |                                ^
+components/jomjol_image_proc/../stb/stb_image_write.h:789:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h:789:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_hdr(const char*, int, int, int, const float*)':
+components/jomjol_image_proc/../stb/stb_image_write.h:796:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
+  796 |    stbi__write_context s = { 0 };
+      |                                ^
+components/jomjol_image_proc/../stb/stb_image_write.h:796:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h:796:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_jpg_to_func(void (*)(void*, void*, int), void*, int, int, int, const void*, int)':
+components/jomjol_image_proc/../stb/stb_image_write.h:1609:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
+ 1609 |    stbi__write_context s = { 0 };
+      |                                ^
+components/jomjol_image_proc/../stb/stb_image_write.h:1609:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h:1609:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_jpg(const char*, int, int, int, const void*, int)':
+components/jomjol_image_proc/../stb/stb_image_write.h:1618:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
+ 1618 |    stbi__write_context s = { 0 };
+      |                                ^
+components/jomjol_image_proc/../stb/stb_image_write.h:1618:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
+components/jomjol_image_proc/../stb/stb_image_write.h:1618:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
+Compiling .pio\build\esp32cam\components\jomjol_tfliteclass\CTfLiteClass.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_time_sntp\time_sntp.cpp.o
 Compiling .pio\build\esp32cam\components\jomjol_webhook\interface_webhook.cpp.o
 Compiling .pio\build\esp32cam\components\jomjol_webhook\webhook_binary.cpp.o
+Archiving .pio\build\esp32cam\esp-idf\jomjol_logfile\libjomjol_logfile.a
+Compiling .pio\build\esp32cam\components\jomjol_wlan\basic_auth.cpp.o
+Compiling .pio\build\esp32cam\components\jomjol_wlan\connect_wlan.cpp.o
+components\jomjol_time_sntp\time_sntp.cpp: In function 'std::string getServerName()':
+components\jomjol_time_sntp\time_sntp.cpp:188:27: warning: 'const char* sntp_getservername(u8_t)' is deprecated: use esp_sntp_getservername() instead [-Wdeprecated-declarations]
+  188 |     if (sntp_getservername(0)){
+      |         ~~~~~~~~~~~~~~~~~~^~~
+In file included from components\jomjol_time_sntp\time_sntp.h:17,
+                 from components\jomjol_time_sntp\time_sntp.cpp:1:
+C:\Users\enabl\.platformio\packages\framework-espidf\components\lwip\include\apps/esp_sntp.h:275:13: note: declared here
+  275 | const char *sntp_getservername(u8_t idx)
+      |             ^~~~~~~~~~~~~~~~~~
+components\jomjol_time_sntp\time_sntp.cpp:189:60: warning: 'const char* sntp_getservername(u8_t)' is deprecated: use esp_sntp_getservername() instead [-Wdeprecated-declarations]
+  189 |         snprintf(buf, sizeof(buf), "%s", sntp_getservername(0));
+      |                                          ~~~~~~~~~~~~~~~~~~^~~
+C:\Users\enabl\.platformio\packages\framework-espidf\components\lwip\include\apps/esp_sntp.h:275:13: note: declared here
+  275 | const char *sntp_getservername(u8_t idx)
+      |             ^~~~~~~~~~~~~~~~~~
+components\jomjol_time_sntp\time_sntp.cpp:193:45: warning: 'const ip_addr_t* sntp_getserver(u8_t)' is deprecated: use esp_sntp_getserver() instead [-Wdeprecated-declarations]
+  193 |         ip_addr_t const *ip = sntp_getserver(0);
+      |                               ~~~~~~~~~~~~~~^~~
+C:\Users\enabl\.platformio\packages\framework-espidf\components\lwip\include\apps/esp_sntp.h:281:18: note: declared here
+  281 | const ip_addr_t* sntp_getserver(u8_t idx)
+      |                  ^~~~~~~~~~~~~~
+Compiling .pio\build\esp32cam\components\jomjol_wlan\read_wlanini.cpp.o
+Archiving .pio\build\esp32cam\esp-idf\jomjol_time_sntp\libjomjol_time_sntp.a
+Compiling .pio\build\esp32cam\json\cJSON\cJSON.c.o
+Archiving .pio\build\esp32cam\esp-idf\jomjol_image_proc\libjomjol_image_proc.a
+Archiving .pio\build\esp32cam\esp-idf\jomjol_flowcontrol\libjomjol_flowcontrol.a
+Compiling .pio\build\esp32cam\json\cJSON\cJSON_Utils.c.o
+Compiling .pio\build\esp32cam\log\log.c.o
+Compiling .pio\build\esp32cam\log\log_buffers.c.o
+Compiling .pio\build\esp32cam\log\log_freertos.c.o
+Compiling .pio\build\esp32cam\lwip\apps\sntp\sntp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\api\api_lib.c.o
+Archiving .pio\build\esp32cam\esp-idf\log\liblog.a
+Archiving .pio\build\esp32cam\esp-idf\json\libjson.a
+Compiling .pio\build\esp32cam\lwip\lwip\src\api\api_msg.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\api\err.c.o
 Archiving .pio\build\esp32cam\esp-idf\jomjol_webhook\libjomjol_webhook.a
+Compiling .pio\build\esp32cam\lwip\lwip\src\api\if_api.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\api\netbuf.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\api\netdb.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\api\netifapi.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\api\sockets.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\api\tcpip.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\apps\sntp\sntp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\apps\netbiosns\netbiosns.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\def.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\dns.c.o
+Archiving .pio\build\esp32cam\esp-idf\jomjol_wlan\libjomjol_wlan.a
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\inet_chksum.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\init.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ip.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\mem.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\memp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\netif.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\pbuf.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\raw.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\stats.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\sys.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\tcp.c.o
+In file included from components/esp-tflite-micro/tensorflow/lite/micro/micro_mutable_op_resolver.h:22,
+                 from components/jomjol_tfliteclass/CTfLiteClass.h:6,
+                 from components/jomjol_tfliteclass/CTfLiteClass.cpp:1:
+components/esp-tflite-micro/tensorflow/lite/core/api/flatbuffer_conversions.h: In member function 'T* tflite::BuiltinDataAllocator::AllocatePOD()':
+components/esp-tflite-micro/tensorflow/lite/core/api/flatbuffer_conversions.h:46:24: warning: 'template<class _Tp> struct std::is_pod' is deprecated: use 'is_standard_layout && is_trivial' instead [-Wdeprecated-declarations]
+   46 |     static_assert(std::is_pod<T>::value, "Builtin data structure must be POD.");
+      |                        ^~~~~~
+In file included from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/bits/stl_pair.h:60,
+                 from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/utility:69,
+                 from components/esp-tflite-micro/tensorflow/lite/core/c/common.h:1465,
+                 from components/esp-tflite-micro/tensorflow/lite/c/common.h:31,
+                 from components/esp-tflite-micro/tensorflow/lite/micro/micro_mutable_op_resolver.h:21:
+C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/type_traits:819:5: note: declared here
+  819 |     is_pod
+      |     ^~~~~~
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\tcp_in.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\tcp_out.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\timeouts.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\udp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv4\autoip.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv4\dhcp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv4\etharp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv4\icmp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv4\igmp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv4\ip4.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv4\ip4_napt.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv4\ip4_addr.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv4\ip4_frag.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv6\dhcp6.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv6\ethip6.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv6\icmp6.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv6\inet6.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv6\ip6.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv6\ip6_addr.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv6\ip6_frag.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv6\mld6.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\core\ipv6\nd6.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ethernet.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\bridgeif.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\bridgeif_fdb.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\slipif.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\auth.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\ccp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\chap-md5.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\chap-new.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\chap_ms.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\demand.c.o
+Archiving .pio\build\esp32cam\esp-idf\jomjol_tfliteclass\libjomjol_tfliteclass.a
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\eap.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\ecp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\eui64.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\fsm.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\ipcp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\ipv6cp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\lcp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\magic.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\mppe.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\multilink.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\ppp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\pppapi.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\pppcrypt.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\pppoe.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\pppol2tp.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\pppos.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\upap.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\utils.c.o
+Compiling .pio\build\esp32cam\lwip\lwip\src\netif\ppp\vj.c.o
+Compiling .pio\build\esp32cam\lwip\port\hooks\tcp_isn_default.c.o
+Compiling .pio\build\esp32cam\lwip\port\hooks\lwip_default_hooks.c.o
+Compiling .pio\build\esp32cam\lwip\port\debug\lwip_debug.c.o
+Compiling .pio\build\esp32cam\lwip\port\sockets_ext.c.o
+Compiling .pio\build\esp32cam\lwip\port\freertos\sys_arch.c.o
+Compiling .pio\build\esp32cam\lwip\port\esp32xx\vfs_lwip.c.o
+Compiling .pio\build\esp32cam\lwip\apps\ping\esp_ping.c.o
+Compiling .pio\build\esp32cam\lwip\apps\ping\ping.c.o
+Compiling .pio\build\esp32cam\lwip\apps\ping\ping_sock.c.o
+Compiling .pio\build\esp32cam\lwip\apps\dhcpserver\dhcpserver.c.o
+Compiling .pio\build\esp32cam\mbedtls\esp_crt_bundle\esp_crt_bundle.c.o
+Compiling .pio\build\esp32cam\.pio\build\esp32cam\x509_crt_bundle.S.o
+Compiling .pio\build\esp32cam\components\esp-protocols\components\mdns\mdns.c.o
+Compiling .pio\build\esp32cam\components\esp-protocols\components\mdns\mdns_networking_lwip.c.o
+Compiling .pio\build\esp32cam\components\esp-protocols\components\mdns\mdns_console.c.o
+Compiling .pio\build\esp32cam\mqtt\esp-mqtt\mqtt_client.c.o
+Archiving .pio\build\esp32cam\esp-idf\lwip\liblwip.a
+Archiving .pio\build\esp32cam\esp-idf\mbedtls\libmbedtls.a
+Compiling .pio\build\esp32cam\mqtt\esp-mqtt\lib\mqtt_msg.c.o
+Compiling .pio\build\esp32cam\mqtt\esp-mqtt\lib\mqtt_outbox.c.o
+Compiling .pio\build\esp32cam\mqtt\esp-mqtt\lib\platform_esp32_idf.c.o
+Compiling .pio\build\esp32cam\newlib\abort.c.o
+Compiling .pio\build\esp32cam\newlib\assert.c.o
+Compiling .pio\build\esp32cam\newlib\heap.c.o
+Compiling .pio\build\esp32cam\newlib\locks.c.o
+Compiling .pio\build\esp32cam\newlib\poll.c.o
+Compiling .pio\build\esp32cam\newlib\pthread.c.o
+Compiling .pio\build\esp32cam\newlib\random.c.o
+Compiling .pio\build\esp32cam\newlib\getentropy.c.o
+Compiling .pio\build\esp32cam\newlib\reent_init.c.o
+Compiling .pio\build\esp32cam\newlib\newlib_init.c.o
+Compiling .pio\build\esp32cam\newlib\syscalls.c.o
+Compiling .pio\build\esp32cam\newlib\termios.c.o
+Compiling .pio\build\esp32cam\newlib\stdatomic.c.o
+Compiling .pio\build\esp32cam\newlib\time.c.o
+Compiling .pio\build\esp32cam\newlib\sysconf.c.o
+Archiving .pio\build\esp32cam\esp-idf\mqtt\libmqtt.a
+Compiling .pio\build\esp32cam\newlib\realpath.c.o
+Compiling .pio\build\esp32cam\newlib\scandir.c.o
+Compiling .pio\build\esp32cam\newlib\port\xtensa\stdatomic_s32c1i.c.o
+Compiling .pio\build\esp32cam\newlib\port\esp_time_impl.c.o
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_api.cpp.o
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_cxx_api.cpp.o
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_item_hash_list.cpp.o
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_page.cpp.o
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_pagemanager.cpp.o
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_storage.cpp.o
+Archiving .pio\build\esp32cam\esp-idf\newlib\libnewlib.a
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_handle_simple.cpp.o
+Archiving .pio\build\esp32cam\esp-idf\mdns\libmdns.a
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_handle_locked.cpp.o
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_partition.cpp.o
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_partition_lookup.cpp.o
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_partition_manager.cpp.o
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_types.cpp.o
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_platform.cpp.o
+Compiling .pio\build\esp32cam\nvs_flash\src\nvs_encrypted_partition.cpp.o
+Compiling .pio\build\esp32cam\nvs_sec_provider\nvs_sec_provider.c.o
+Compiling .pio\build\esp32cam\components\openmetrics\openmetrics.cpp.o
+Compiling .pio\build\esp32cam\perfmon\xtensa_perfmon_access.c.o
+Archiving .pio\build\esp32cam\esp-idf\nvs_sec_provider\libnvs_sec_provider.a
+Compiling .pio\build\esp32cam\perfmon\xtensa_perfmon_apis.c.o
+Compiling .pio\build\esp32cam\perfmon\xtensa_perfmon_masks.c.o
+Compiling .pio\build\esp32cam\protobuf-c\protobuf-c\protobuf-c\protobuf-c.c.o
+Compiling .pio\build\esp32cam\stdin_out.c.o
+Archiving .pio\build\esp32cam\esp-idf\perfmon\libperfmon.a
+Compiling .pio\build\esp32cam\addr_from_stdin.c.o
+Compiling .pio\build\esp32cam\connect.c.o
+Compiling .pio\build\esp32cam\wifi_connect.c.o
+Compiling .pio\build\esp32cam\protocol_examples_utils.c.o
+Compiling .pio\build\esp32cam\console_cmd.c.o
+Compiling .pio\build\esp32cam\protocomm\src\common\protocomm.c.o
+Archiving .pio\build\esp32cam\esp-idf\protobuf-c\libprotobuf-c.a
+Archiving .pio\build\esp32cam\esp-idf\nvs_flash\libnvs_flash.a
+Compiling .pio\build\esp32cam\protocomm\proto-c\constants.pb-c.c.o
+Compiling .pio\build\esp32cam\protocomm\proto-c\sec0.pb-c.c.o
+Compiling .pio\build\esp32cam\protocomm\proto-c\sec1.pb-c.c.o
+Compiling .pio\build\esp32cam\protocomm\proto-c\sec2.pb-c.c.o
+Compiling .pio\build\esp32cam\protocomm\proto-c\session.pb-c.c.o
+Archiving .pio\build\esp32cam\esp-idf\protocol_examples_common\libprotocol_examples_common.a
+Compiling .pio\build\esp32cam\protocomm\src\transports\protocomm_console.c.o
+Compiling .pio\build\esp32cam\protocomm\src\transports\protocomm_httpd.c.o
+Compiling .pio\build\esp32cam\protocomm\src\security\security0.c.o
+Compiling .pio\build\esp32cam\protocomm\src\security\security1.c.o
+Compiling .pio\build\esp32cam\protocomm\src\security\security2.c.o
+Compiling .pio\build\esp32cam\protocomm\src\crypto\srp6a\esp_srp.c.o
+Compiling .pio\build\esp32cam\protocomm\src\crypto\srp6a\esp_srp_mpi.c.o
+Compiling .pio\build\esp32cam\pthread\pthread.c.o
+Compiling .pio\build\esp32cam\pthread\pthread_cond_var.c.o
+Compiling .pio\build\esp32cam\pthread\pthread_local_storage.c.o
+Compiling .pio\build\esp32cam\pthread\pthread_rwlock.c.o
+Compiling .pio\build\esp32cam\pthread\pthread_semaphore.c.o
+Archiving .pio\build\esp32cam\esp-idf\openmetrics\libopenmetrics.a
+Compiling .pio\build\esp32cam\sdmmc\sdmmc_cmd.c.o
+Archiving .pio\build\esp32cam\esp-idf\protocomm\libprotocomm.a
+Compiling .pio\build\esp32cam\sdmmc\sdmmc_common.c.o
+Compiling .pio\build\esp32cam\sdmmc\sdmmc_init.c.o
+Compiling .pio\build\esp32cam\sdmmc\sdmmc_io.c.o
+Compiling .pio\build\esp32cam\sdmmc\sdmmc_mmc.c.o
+Compiling .pio\build\esp32cam\sdmmc\sdmmc_sd.c.o
+Compiling .pio\build\esp32cam\sdmmc\sd_pwr_ctrl\sd_pwr_ctrl.c.o
+Archiving .pio\build\esp32cam\esp-idf\pthread\libpthread.a
+Compiling .pio\build\esp32cam\soc\lldesc.c.o
+Compiling .pio\build\esp32cam\soc\dport_access_common.c.o
+Compiling .pio\build\esp32cam\soc\esp32\interrupts.c.o
+Compiling .pio\build\esp32cam\soc\esp32\gpio_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\uart_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\dport_access.c.o
+Compiling .pio\build\esp32cam\soc\esp32\adc_periph.c.o
+Archiving .pio\build\esp32cam\esp-idf\sdmmc\libsdmmc.a
+Compiling .pio\build\esp32cam\soc\esp32\emac_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\spi_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\ledc_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\pcnt_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\rmt_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\sdm_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\i2s_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\i2c_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\timer_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\lcd_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\mcpwm_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\mpi_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\sdmmc_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\touch_sensor_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\twai_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\dac_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\rtc_io_periph.c.o
+Compiling .pio\build\esp32cam\soc\esp32\sdio_slave_periph.c.o
+Compiling .pio\build\esp32cam\spi_flash\flash_brownout_hook.c.o
+Compiling .pio\build\esp32cam\spi_flash\spi_flash_chip_drivers.c.o
+Compiling .pio\build\esp32cam\spi_flash\spi_flash_chip_generic.c.o
+Archiving .pio\build\esp32cam\esp-idf\soc\libsoc.a
+Compiling .pio\build\esp32cam\spi_flash\spi_flash_chip_issi.c.o
+Compiling .pio\build\esp32cam\spi_flash\spi_flash_chip_mxic.c.o
+Compiling .pio\build\esp32cam\spi_flash\spi_flash_chip_gd.c.o
+Compiling .pio\build\esp32cam\spi_flash\spi_flash_chip_winbond.c.o
+Compiling .pio\build\esp32cam\spi_flash\spi_flash_chip_boya.c.o
+Compiling .pio\build\esp32cam\spi_flash\spi_flash_chip_mxic_opi.c.o
+Compiling .pio\build\esp32cam\spi_flash\spi_flash_chip_th.c.o
+Compiling .pio\build\esp32cam\spi_flash\memspi_host_driver.c.o
+Compiling .pio\build\esp32cam\spi_flash\cache_utils.c.o
+Compiling .pio\build\esp32cam\spi_flash\flash_mmap.c.o
+Compiling .pio\build\esp32cam\spi_flash\flash_ops.c.o
+Compiling .pio\build\esp32cam\spi_flash\spi_flash_wrap.c.o
+Compiling .pio\build\esp32cam\spi_flash\esp_flash_api.c.o
+Compiling .pio\build\esp32cam\spi_flash\esp_flash_spi_init.c.o
+Compiling .pio\build\esp32cam\spi_flash\spi_flash_os_func_app.c.o
+Compiling .pio\build\esp32cam\spi_flash\spi_flash_os_func_noos.c.o
+Compiling .pio\build\esp32cam\spiffs\spiffs_api.c.o
+Compiling .pio\build\esp32cam\spiffs\spiffs\src\spiffs_cache.c.o
+Compiling .pio\build\esp32cam\spiffs\spiffs\src\spiffs_check.c.o
+Compiling .pio\build\esp32cam\spiffs\spiffs\src\spiffs_gc.c.o
+Compiling .pio\build\esp32cam\spiffs\spiffs\src\spiffs_hydrogen.c.o
+Compiling .pio\build\esp32cam\spiffs\spiffs\src\spiffs_nucleus.c.o
+Compiling .pio\build\esp32cam\spiffs\esp_spiffs.c.o
+Compiling .pio\build\esp32cam\tcp_transport\transport.c.o
+Archiving .pio\build\esp32cam\esp-idf\spi_flash\libspi_flash.a
+Compiling .pio\build\esp32cam\tcp_transport\transport_ssl.c.o
+Compiling .pio\build\esp32cam\tcp_transport\transport_internal.c.o
+Compiling .pio\build\esp32cam\tcp_transport\transport_socks_proxy.c.o
+Compiling .pio\build\esp32cam\tcp_transport\transport_ws.c.o
+Compiling .pio\build\esp32cam\unity\unity\src\unity.c.o
+Compiling .pio\build\esp32cam\unity\unity_compat.c.o
+Compiling .pio\build\esp32cam\unity\unity_runner.c.o
+Compiling .pio\build\esp32cam\unity\unity_utils_freertos.c.o
+Archiving .pio\build\esp32cam\esp-idf\spiffs\libspiffs.a
+Compiling .pio\build\esp32cam\unity\unity_utils_cache.c.o
+Compiling .pio\build\esp32cam\unity\unity_utils_memory.c.o
+Compiling .pio\build\esp32cam\unity\unity_port_esp32.c.o
+Compiling .pio\build\esp32cam\unity\port\esp\unity_utils_memory_esp.c.o
+Compiling .pio\build\esp32cam\vfs\vfs.c.o
+Compiling .pio\build\esp32cam\vfs\vfs_eventfd.c.o
+Archiving .pio\build\esp32cam\esp-idf\tcp_transport\libtcp_transport.a
+Compiling .pio\build\esp32cam\vfs\vfs_semihost.c.o
+Compiling .pio\build\esp32cam\wear_levelling\Partition.cpp.o
+Archiving .pio\build\esp32cam\esp-idf\unity\libunity.a
+Compiling .pio\build\esp32cam\wear_levelling\SPI_Flash.cpp.o
+Compiling .pio\build\esp32cam\wear_levelling\WL_Ext_Perf.cpp.o
+Compiling .pio\build\esp32cam\wear_levelling\WL_Ext_Safe.cpp.o
+Compiling .pio\build\esp32cam\wear_levelling\WL_Flash.cpp.o
+Compiling .pio\build\esp32cam\wear_levelling\crc32.cpp.o
+Compiling .pio\build\esp32cam\wear_levelling\wear_levelling.cpp.o
+Compiling .pio\build\esp32cam\wifi_provisioning\src\wifi_config.c.o
+Compiling .pio\build\esp32cam\wifi_provisioning\src\wifi_scan.c.o
+Compiling .pio\build\esp32cam\wifi_provisioning\src\wifi_ctrl.c.o
+Compiling .pio\build\esp32cam\wifi_provisioning\src\manager.c.o
+Compiling .pio\build\esp32cam\wifi_provisioning\src\handlers.c.o
+Archiving .pio\build\esp32cam\esp-idf\vfs\libvfs.a
+Compiling .pio\build\esp32cam\wifi_provisioning\src\scheme_console.c.o
+Archiving .pio\build\esp32cam\esp-idf\wear_levelling\libwear_levelling.a
+Compiling .pio\build\esp32cam\wifi_provisioning\proto-c\wifi_config.pb-c.c.o
+Compiling .pio\build\esp32cam\wifi_provisioning\proto-c\wifi_scan.pb-c.c.o
+Compiling .pio\build\esp32cam\wifi_provisioning\proto-c\wifi_ctrl.pb-c.c.o
+Compiling .pio\build\esp32cam\wifi_provisioning\proto-c\wifi_constants.pb-c.c.o
+Compiling .pio\build\esp32cam\wifi_provisioning\src\scheme_softap.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\port\os_xtensa.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\port\eloop.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\ap\ap_config.c.o
+Archiving .pio\build\esp32cam\esp-idf\wifi_provisioning\libwifi_provisioning.a
+Compiling .pio\build\esp32cam\wpa_supplicant\src\ap\ieee802_1x.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\ap\wpa_auth.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\ap\wpa_auth_ie.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\ap\pmksa_cache_auth.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\ap\sta_info.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\ap\ieee802_11.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\ap\comeback_token.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\common\sae.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\common\dragonfly.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\common\wpa_common.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\utils\bitfield.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\aes-siv.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\sha256-kdf.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\ccmp.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\aes-gcm.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\crypto_ops.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\dh_group5.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\dh_groups.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\ms_funcs.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\sha1-tlsprf.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\sha256-tlsprf.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\sha384-tlsprf.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\sha256-prf.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\sha1-prf.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\sha384-prf.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\md4-internal.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\sha1-tprf.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_common\eap_wsc_common.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\common\ieee802_11_common.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_peer\chap.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_peer\eap.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_peer\eap_common.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_peer\eap_mschapv2.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_peer\eap_peap.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_peer\eap_peap_common.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_peer\eap_tls.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_peer\eap_tls_common.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_peer\eap_ttls.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_peer\mschapv2.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_peer\eap_fast.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_peer\eap_fast_common.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\eap_peer\eap_fast_pac.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\rsn_supp\pmksa_cache.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\rsn_supp\wpa.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\rsn_supp\wpa_ie.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\utils\base64.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\utils\common.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\utils\ext_password.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\utils\uuid.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\utils\wpabuf.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\utils\wpa_debug.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\utils\json.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\wps\wps.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\wps\wps_attr_build.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\wps\wps_attr_parse.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\wps\wps_attr_process.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\wps\wps_common.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\wps\wps_dev_attr.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\wps\wps_enrollee.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\common\sae_pk.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\esp_eap_client.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\esp_wpa2_api_port.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\esp_wpa_main.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\esp_wpas_glue.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\esp_common.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\esp_wps.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\esp_wpa3.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\esp_owe.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\esp_hostap.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\crypto\tls_mbedtls.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\crypto\fastpbkdf2.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\crypto\crypto_mbedtls.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\crypto\crypto_mbedtls-bignum.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\crypto\crypto_mbedtls-rsa.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\esp_supplicant\src\crypto\crypto_mbedtls-ec.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\rc4.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\des-internal.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\aes-wrap.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\aes-unwrap.c.o
+Compiling .pio\build\esp32cam\wpa_supplicant\src\crypto\aes-ccm.c.o
+Compiling .pio\build\esp32cam\xtensa\eri.c.o
+Compiling .pio\build\esp32cam\xtensa\xt_trax.c.o
+Compiling .pio\build\esp32cam\xtensa\xtensa_context.S.o
+Compiling .pio\build\esp32cam\xtensa\xtensa_intr_asm.S.o
+Compiling .pio\build\esp32cam\xtensa\xtensa_intr.c.o
+Compiling .pio\build\esp32cam\xtensa\xtensa_vectors.S.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\3rdparty\everest\library\everest.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\3rdparty\everest\library\x25519.c.o
+Archiving .pio\build\esp32cam\esp-idf\wpa_supplicant\libwpa_supplicant.a
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\3rdparty\everest\library\Hacl_Curve25519_joined.c.o
+Archiving .pio\build\esp32cam\esp-idf\xtensa\libxtensa.a
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\aes.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\aesni.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\aesce.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\aria.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\asn1parse.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\asn1write.c.o
+Archiving .pio\build\esp32cam\esp-idf\mbedtls\mbedtls\3rdparty\everest\libeverest.a
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\base64.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\bignum.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\bignum_core.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\bignum_mod.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\bignum_mod_raw.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\block_cipher.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\camellia.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ccm.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\chacha20.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\chachapoly.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\cipher.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\cipher_wrap.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\constant_time.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\cmac.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ctr_drbg.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\des.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\dhm.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ecdh.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ecdsa.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ecjpake.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ecp.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ecp_curves.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ecp_curves_new.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\entropy.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\entropy_poll.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\error.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\gcm.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\hkdf.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\hmac_drbg.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\lmots.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\lms.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\md.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\md5.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\memory_buffer_alloc.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\nist_kw.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\oid.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\padlock.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\pem.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\pk.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\pk_ecc.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\pk_wrap.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\pkcs12.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\pkcs5.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\pkparse.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\pkwrite.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\platform.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\platform_util.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\poly1305.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto_aead.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto_cipher.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto_client.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto_driver_wrappers_no_static.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto_ecp.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto_ffdh.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto_hash.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto_mac.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto_pake.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto_rsa.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto_se.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto_slot_management.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_crypto_storage.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_its_file.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\psa_util.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ripemd160.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\rsa.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\rsa_alt_helpers.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\sha1.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\sha256.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\sha512.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\sha3.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\threading.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\timing.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\version.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\version_features.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\esp_hardware.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\esp_mem.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\esp_timing.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\aes\esp_aes_xts.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\aes\esp_aes_common.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\aes\block\esp_aes.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\sha\esp_sha.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\sha\parallel_engine\sha.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\bignum\esp_bignum.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\bignum\bignum_alt.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\sha\parallel_engine\esp_sha1.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\sha\parallel_engine\esp_sha256.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\sha\parallel_engine\esp_sha512.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\aes\esp_aes_gcm.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\md\esp_md.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\debug.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\mps_reader.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\mps_trace.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_cache.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_ciphersuites.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_client.c.o
+Archiving .pio\build\esp32cam\esp-idf\mbedtls\mbedtls\library\libmbedcrypto.a
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_cookie.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_debug_helpers_generated.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_msg.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_ticket.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_tls.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_tls12_client.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_tls12_server.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_tls13_keys.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_tls13_server.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_tls13_client.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\ssl_tls13_generic.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\mbedtls_debug.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\esp_platform_time.c.o
+Compiling .pio\build\esp32cam\mbedtls\port\net_sockets.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\pkcs7.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\x509.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\x509_create.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\x509_crl.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\x509_crt.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\x509_csr.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\x509write.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\x509write_crt.c.o
+Archiving .pio\build\esp32cam\esp-idf\mbedtls\mbedtls\library\libmbedtls.a
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\library\x509write_csr.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\3rdparty\p256-m\p256-m_driver_entrypoints.c.o
+Compiling .pio\build\esp32cam\mbedtls\mbedtls\3rdparty\p256-m\p256-m\p256-m.c.o
+Compiling .pio\build\esp32cam\bootloader\xtensa\eri.c.o
+Compiling .pio\build\esp32cam\bootloader\xtensa\xt_trax.c.o
+Compiling .pio\build\esp32cam\bootloader\main\bootloader_start.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\bootloader_common.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\bootloader_common_loader.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\bootloader_clock_init.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\bootloader_mem.c.o
+Archiving .pio\build\esp32cam\bootloader\esp-idf\xtensa\libxtensa.a
+Archiving .pio\build\esp32cam\esp-idf\mbedtls\mbedtls\3rdparty\p256-m\libp256m.a
+Archiving .pio\build\esp32cam\bootloader\esp-idf\main\libmain.a
+Archiving .pio\build\esp32cam\esp-idf\mbedtls\mbedtls\library\libmbedx509.a
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\bootloader_random.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\bootloader_efuse.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\flash_encrypt.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\secure_boot.c.o
 Generating project linker script .pio\build\esp32cam\sections.ld
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\bootloader_random_esp32.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\bootloader_flash\src\bootloader_flash.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\bootloader_flash\src\flash_qio_mode.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\bootloader_flash\src\bootloader_flash_config_esp32.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\bootloader_utility.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\flash_partitions.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\esp_image_format.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\bootloader_init.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\bootloader_clock_loader.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\bootloader_console.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\bootloader_console_loader.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\esp32\bootloader_sha.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\esp32\bootloader_soc.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\esp32\bootloader_esp32.c.o
+Compiling .pio\build\esp32cam\bootloader\bootloader_support\src\bootloader_panic.c.o
+Compiling .pio\build\esp32cam\bootloader\efuse\esp32\esp_efuse_table.c.o
+Compiling .pio\build\esp32cam\bootloader\efuse\esp32\esp_efuse_fields.c.o
+Compiling .pio\build\esp32cam\bootloader\efuse\esp32\esp_efuse_utility.c.o
+Compiling .pio\build\esp32cam\bootloader\efuse\src\esp_efuse_api.c.o
+Compiling .pio\build\esp32cam\bootloader\efuse\src\esp_efuse_fields.c.o
+Compiling .pio\build\esp32cam\bootloader\efuse\src\esp_efuse_utility.c.o
+Compiling .pio\build\esp32cam\bootloader\efuse\src\efuse_controller\keys\without_key_purposes\three_key_blocks\esp_efuse_api_key.c.o
+Archiving .pio\build\esp32cam\bootloader\esp-idf\bootloader_support\libbootloader_support.a
+Compiling .pio\build\esp32cam\bootloader\esp_bootloader_format\esp_bootloader_desc.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_common\src\esp_err_to_name.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_hw_support\cpu.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_hw_support\port\esp32\esp_cpu_intr.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_hw_support\esp_memory_utils.c.o
+Archiving .pio\build\esp32cam\bootloader\esp-idf\esp_bootloader_format\libesp_bootloader_format.a
+Compiling .pio\build\esp32cam\bootloader\esp_hw_support\port\esp32\cpu_region_protect.c.o
+Archiving .pio\build\esp32cam\bootloader\esp-idf\esp_common\libesp_common.a
+Archiving .pio\build\esp32cam\bootloader\esp-idf\efuse\libefuse.a
+Compiling .pio\build\esp32cam\bootloader\esp_hw_support\port\esp32\rtc_clk.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_hw_support\port\esp32\rtc_clk_init.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_hw_support\port\esp32\rtc_init.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_hw_support\port\esp32\rtc_sleep.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_hw_support\port\esp32\rtc_time.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_hw_support\port\esp32\chip_info.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_rom\patches\esp_rom_crc.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_rom\patches\esp_rom_sys.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_rom\patches\esp_rom_uart.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_rom\patches\esp_rom_spiflash.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_rom\patches\esp_rom_efuse.c.o
+Compiling .pio\build\esp32cam\bootloader\esp_rom\patches\esp_rom_longjmp.S.o
+Compiling .pio\build\esp32cam\bootloader\esp_system\esp_err.c.o
+Archiving .pio\build\esp32cam\bootloader\esp-idf\esp_hw_support\libesp_hw_support.a
+Compiling .pio\build\esp32cam\bootloader\hal\hal_utils.c.o
+Compiling .pio\build\esp32cam\bootloader\hal\mpu_hal.c.o
+Compiling .pio\build\esp32cam\bootloader\hal\efuse_hal.c.o
+Compiling .pio\build\esp32cam\bootloader\hal\esp32\efuse_hal.c.o
+Compiling .pio\build\esp32cam\bootloader\hal\wdt_hal_iram.c.o
+Archiving .pio\build\esp32cam\bootloader\esp-idf\esp_system\libesp_system.a
+Archiving .pio\build\esp32cam\bootloader\esp-idf\esp_rom\libesp_rom.a
+Compiling .pio\build\esp32cam\bootloader\hal\mmu_hal.c.o
+Compiling .pio\build\esp32cam\bootloader\hal\esp32\cache_hal_esp32.c.o
+Compiling .pio\build\esp32cam\bootloader\log\log.c.o
+Compiling .pio\build\esp32cam\bootloader\log\log_buffers.c.o
+Compiling .pio\build\esp32cam\bootloader\log\log_noos.c.o
+Compiling .pio\build\esp32cam\bootloader\components\micro-ecc\uECC_verify_antifault.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\lldesc.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\dport_access_common.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\interrupts.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\gpio_periph.c.o
+Archiving .pio\build\esp32cam\bootloader\esp-idf\hal\libhal.a
+Archiving .pio\build\esp32cam\bootloader\esp-idf\log\liblog.a
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\uart_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\dport_access.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\adc_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\emac_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\spi_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\ledc_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\pcnt_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\rmt_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\sdm_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\i2s_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\i2c_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\timer_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\lcd_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\mcpwm_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\mpi_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\sdmmc_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\touch_sensor_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\twai_periph.c.o
+Archiving .pio\build\esp32cam\bootloader\esp-idf\micro-ecc\libmicro-ecc.a
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\dac_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\rtc_io_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\soc\esp32\sdio_slave_periph.c.o
+Compiling .pio\build\esp32cam\bootloader\spi_flash\spi_flash_wrap.c.o
+Generating partitions .pio\build\esp32cam\partitions.bin
+Generating an empty partition .pio\build\esp32cam\ota_data_initial.bin
+Archiving .pio\build\esp32cam\bootloader\esp-idf\soc\libsoc.a
+Archiving .pio\build\esp32cam\bootloader\esp-idf\spi_flash\libspi_flash.a
+Linking .pio\build\esp32cam\bootloader.elf
+Building .pio\build\esp32cam\bootloader.bin
+esptool.py v4.5.1
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
 Linking .pio\build\esp32cam\firmware.elf
 Retrieving maximum program size .pio\build\esp32cam\firmware.elf
 Checking size .pio\build\esp32cam\firmware.elf
 Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
-RAM:   [=         ]  14.8% (used 48336 bytes from 327680 bytes)
-Flash: [=======   ]  74.2% (used 1443476 bytes from 1945600 bytes)
+RAM:   [=         ]  14.8% (used 48344 bytes from 327680 bytes)
+Flash: [=======   ]  74.0% (used 1440704 bytes from 1945600 bytes)
 Building .pio\build\esp32cam\firmware.bin
 esptool.py v4.5.1
 Creating esp32 image...
@@ -64,87 +1801,87 @@ Configuring flash size...
 Flash will be erased from 0x00001000 to 0x00006fff...
 Flash will be erased from 0x00008000 to 0x00008fff...
 Flash will be erased from 0x0000d000 to 0x0000efff...
-Flash will be erased from 0x00010000 to 0x00170fff...
-Compressed 21456 bytes to 13812...
+Flash will be erased from 0x00010000 to 0x0016ffff...
+Compressed 21456 bytes to 13814...
 Writing at 0x00001000... (100 %)
-Wrote 21456 bytes (13812 compressed) at 0x00001000 in 0.6 seconds (effective 282.8 kbit/s)...
+Wrote 21456 bytes (13814 compressed) at 0x00001000 in 0.6 seconds (effective 275.3 kbit/s)...
 Hash of data verified.
 Compressed 3072 bytes to 128...
 Writing at 0x00008000... (100 %)
-Wrote 3072 bytes (128 compressed) at 0x00008000 in 0.1 seconds (effective 490.5 kbit/s)...
+Wrote 3072 bytes (128 compressed) at 0x00008000 in 0.0 seconds (effective 525.0 kbit/s)...
 Hash of data verified.
 Compressed 8192 bytes to 31...
 Writing at 0x0000d000... (100 %)
-Wrote 8192 bytes (31 compressed) at 0x0000d000 in 0.1 seconds (effective 1052.5 kbit/s)...
+Wrote 8192 bytes (31 compressed) at 0x0000d000 in 0.1 seconds (effective 1069.8 kbit/s)...
 Hash of data verified.
-Compressed 1443840 bytes to 947347...
+Compressed 1441072 bytes to 946252...
 Writing at 0x00010000... (1 %)
-Writing at 0x0001afd0... (3 %)
-Writing at 0x00025f0e... (5 %)
-Writing at 0x0002cdf5... (6 %)
-Writing at 0x00031ee1... (8 %)
-Writing at 0x0003a45e... (10 %)
-Writing at 0x000456a5... (12 %)
-Writing at 0x0004afe5... (13 %)
-Writing at 0x000506d0... (15 %)
-Writing at 0x00056b1f... (17 %)
-Writing at 0x0005c8ba... (18 %)
-Writing at 0x000620d0... (20 %)
-Writing at 0x00067d17... (22 %)
-Writing at 0x0006cfa8... (24 %)
-Writing at 0x000728c5... (25 %)
-Writing at 0x0007836f... (27 %)
-Writing at 0x0007da68... (29 %)
-Writing at 0x00084037... (31 %)
-Writing at 0x0008a445... (32 %)
-Writing at 0x0009038d... (34 %)
-Writing at 0x000959a5... (36 %)
-Writing at 0x0009b051... (37 %)
-Writing at 0x000a03f5... (39 %)
-Writing at 0x000a5d2c... (41 %)
-Writing at 0x000ab443... (43 %)
-Writing at 0x000b0da6... (44 %)
-Writing at 0x000b68ef... (46 %)
-Writing at 0x000bbab1... (48 %)
-Writing at 0x000c0e11... (50 %)
-Writing at 0x000c6cf7... (51 %)
-Writing at 0x000cc4ca... (53 %)
-Writing at 0x000d1fae... (55 %)
-Writing at 0x000d72c5... (56 %)
-Writing at 0x000dc6ca... (58 %)
-Writing at 0x000e184e... (60 %)
-Writing at 0x000e6cbc... (62 %)
-Writing at 0x000ec0e8... (63 %)
-Writing at 0x000f15b0... (65 %)
-Writing at 0x000f6b76... (67 %)
-Writing at 0x000fc447... (68 %)
-Writing at 0x001030cc... (70 %)
-Writing at 0x0010b1a7... (72 %)
-Writing at 0x0011346a... (74 %)
-Writing at 0x0011d12c... (75 %)
-Writing at 0x00122ffa... (77 %)
-Writing at 0x0012872d... (79 %)
-Writing at 0x0012da0b... (81 %)
-Writing at 0x00132d28... (82 %)
-Writing at 0x00137f6d... (84 %)
-Writing at 0x0013d46e... (86 %)
-Writing at 0x001429f1... (87 %)
-Writing at 0x001480e5... (89 %)
-Writing at 0x0014db53... (91 %)
-Writing at 0x0015384f... (93 %)
-Writing at 0x0015aeb5... (94 %)
-Writing at 0x0016095f... (96 %)
-Writing at 0x001665c1... (98 %)
-Writing at 0x0016bfc8... (100 %)
-Wrote 1443840 bytes (947347 compressed) at 0x00010000 in 21.4 seconds (effective 539.2 kbit/s)...
+Writing at 0x0001ae34... (3 %)
+Writing at 0x00025d04... (5 %)
+Writing at 0x0002ccab... (6 %)
+Writing at 0x00031d91... (8 %)
+Writing at 0x0003a2a1... (10 %)
+Writing at 0x000454f8... (12 %)
+Writing at 0x0004ad7c... (13 %)
+Writing at 0x0005048a... (15 %)
+Writing at 0x000568c7... (17 %)
+Writing at 0x0005bd7f... (18 %)
+Writing at 0x00061926... (20 %)
+Writing at 0x0006720f... (22 %)
+Writing at 0x0006c60d... (24 %)
+Writing at 0x00071a37... (25 %)
+Writing at 0x00077508... (27 %)
+Writing at 0x0007cc3d... (29 %)
+Writing at 0x0008267c... (31 %)
+Writing at 0x00088d63... (32 %)
+Writing at 0x0008ef31... (34 %)
+Writing at 0x00094f4f... (36 %)
+Writing at 0x0009a483... (37 %)
+Writing at 0x0009fc27... (39 %)
+Writing at 0x000a4f6a... (41 %)
+Writing at 0x000aa9b7... (43 %)
+Writing at 0x000afff5... (44 %)
+Writing at 0x000b5955... (46 %)
+Writing at 0x000bb4e2... (48 %)
+Writing at 0x000c06c1... (50 %)
+Writing at 0x000c5aa5... (51 %)
+Writing at 0x000cb34c... (53 %)
+Writing at 0x000d11a8... (55 %)
+Writing at 0x000d6b78... (56 %)
+Writing at 0x000dbed2... (58 %)
+Writing at 0x000e12cb... (60 %)
+Writing at 0x000e6414... (62 %)
+Writing at 0x000eb8c2... (63 %)
+Writing at 0x000f0d06... (65 %)
+Writing at 0x000f621a... (67 %)
+Writing at 0x000fb771... (68 %)
+Writing at 0x0010101b... (70 %)
+Writing at 0x0010745d... (72 %)
+Writing at 0x0010fd21... (74 %)
+Writing at 0x00118131... (75 %)
+Writing at 0x00121d21... (77 %)
+Writing at 0x00127cd6... (79 %)
+Writing at 0x0012d517... (81 %)
+Writing at 0x001327a1... (82 %)
+Writing at 0x00137a30... (84 %)
+Writing at 0x0013ce44... (86 %)
+Writing at 0x00142362... (87 %)
+Writing at 0x00147c6b... (89 %)
+Writing at 0x0014d5c6... (91 %)
+Writing at 0x001534b6... (93 %)
+Writing at 0x0015a921... (94 %)
+Writing at 0x0016042c... (96 %)
+Writing at 0x0016626b... (98 %)
+Writing at 0x0016ba9a... (100 %)
+Wrote 1441072 bytes (946252 compressed) at 0x00010000 in 21.3 seconds (effective 542.3 kbit/s)...
 Hash of data verified.
 
 Leaving...
 Hard resetting via RTS pin...
-======================== [SUCCESS] Took 101.15 seconds ========================
+======================== [SUCCESS] Took 437.89 seconds ========================
 
 Environment    Status    Duration
 -------------  --------  ------------
-esp32cam       SUCCESS   00:01:41.151
-========================= 1 succeeded in 00:01:41.151 =========================
-"=== UPLOAD END - 2025-11-25 11:59 AM: ===" 
+esp32cam       SUCCESS   00:07:17.886
+========================= 1 succeeded in 00:07:17.886 =========================
+"=== UPLOAD END - 2025-11-26 02:54 PM: ===" 

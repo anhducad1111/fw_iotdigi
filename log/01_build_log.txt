@@ -1,2 +1,9 @@
-"=== BUILD START - 2025-11-25 11:25 AM: ===" 
-"=== BUILD SUCCESS - 2025-11-25 11:25 AM: ===" 
+"=== BUILD START - 2025-11-26 02:53 PM: ===" 
+*** [.pio\build\esp32cam\components\jomjol_controlcamera\ClassControllCamera.cpp.o] Source `components\jomjol_controlcamera\ClassControllCamera.cpp' not found, needed by target `.pio\build\esp32cam\components\jomjol_controlcamera\ClassControllCamera.cpp.o'.
+========================== [FAILED] Took 6.56 seconds ==========================
+
+Environment    Status    Duration
+-------------  --------  ------------
+esp32cam       FAILED    00:00:06.557
+==================== 1 failed, 0 succeeded in 00:00:06.557 ====================
+"=== BUILD FAILED - 2025-11-26 02:53 PM: ===" 

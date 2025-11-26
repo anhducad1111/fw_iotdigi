@@ -55,7 +55,6 @@ esp_err_t info_get_handler(httpd_req_t *req)
     _task = std::string(_valuechar);
 
     httpd_resp_set_hdr(req, "Access-Control-Allow-Origin", "*");
-
     if (_task.compare("Hostname") == 0)
     {
         std::string zw;

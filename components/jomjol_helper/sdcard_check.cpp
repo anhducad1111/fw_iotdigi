@@ -86,31 +86,6 @@ bool SDCardCheckFolderFilePresence()
         LogFile.WriteToFile(ESP_LOG_ERROR, TAG, "Folder/file check: Folder /html not found");
         bRetval = false;
     }
-
-    /* check if folder exists: firmware */
-    if (stat("/sdcard/firmware", &sb) != 0) {
-        LogFile.WriteToFile(ESP_LOG_ERROR, TAG, "Folder/file check: Folder /firmware not found");
-        bRetval = false;
-    }
-
-    /* check if folder exists: img_tmp */
-    if (stat("/sdcard/img_tmp", &sb) != 0) {
-        LogFile.WriteToFile(ESP_LOG_ERROR, TAG, "Folder/file check: Folder /img_tmp not found");
-        bRetval = false;
-    }
-
-    /* check if folder exists: log */
-    if (stat("/sdcard/log", &sb) != 0) {
-        LogFile.WriteToFile(ESP_LOG_ERROR, TAG, "Folder/file check: Folder /log not found");
-        bRetval = false;
-    }
-
-    /* check if folder exists: demo */
-    if (stat("/sdcard/demo", &sb) != 0) {
-        LogFile.WriteToFile(ESP_LOG_ERROR, TAG, "Folder/file check: Folder /demo not found");
-        bRetval = false;
-    }
-
     /* check if file exists: wlan.ini */
     if (stat("/sdcard/wlan.ini", &sb) != 0) {
         LogFile.WriteToFile(ESP_LOG_ERROR, TAG, "Folder/file check: File /wlan.ini not found");
@@ -129,23 +104,6 @@ bool SDCardCheckFolderFilePresence()
         bRetval = false;
     }
 
-    /* check if file exists: ota.html */
-    if ((stat("/sdcard/html/ota_page.html", &sb) != 0) && (stat("/sdcard/html/ota_page.html.gz", &sb) != 0)) {
-        LogFile.WriteToFile(ESP_LOG_ERROR, TAG, "Folder/file check: File /html/ota.html not found");
-        bRetval = false;
-    }
-
-    /* check if file exists: log.html */
-    if ((stat("/sdcard/html/log.html", &sb) != 0) && (stat("/sdcard/html/log.html.gz", &sb) != 0)) {
-        LogFile.WriteToFile(ESP_LOG_ERROR, TAG, "Folder/file check: File /html/log.html not found");
-        bRetval = false;
-    }
-
-    /* check if file exists: common.js */
-    if ((stat("/sdcard/html/common.js", &sb) != 0) && (stat("/sdcard/html/common.js.gz", &sb) != 0)) {
-        LogFile.WriteToFile(ESP_LOG_ERROR, TAG, "Folder/file check: File /html/common.js not found");
-        bRetval = false;
-    }
 
 
     if (bRetval) {

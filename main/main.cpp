@@ -76,6 +76,7 @@
     static heap_trace_record_t trace_record[NUM_RECORDS]; // This buffer must be in internal RAM
 #endif
 
+
 std::vector<std::string> splitString(const std::string& str);
 void migrateConfiguration(void);
 bool setCpuFrequency(void);

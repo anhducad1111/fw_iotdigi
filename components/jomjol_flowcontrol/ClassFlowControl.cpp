@@ -51,7 +51,8 @@ std::string ClassFlowControl::doSingleStep(std::string _stepname, std::string _h
     if ((_stepname.compare("[Analog]") == 0) || (_stepname.compare(";[Analog]") == 0)) {
         _classname = "ClassFlowCNNGeneral";
     }
-
+	
+	
     #ifdef ENABLE_WEBHOOK
         if ((_stepname.compare("[Webhook]") == 0) || (_stepname.compare(";[Webhook]") == 0)) {
             _classname = "ClassFlowWebhook";
@@ -88,12 +89,13 @@ std::string ClassFlowControl::TranslateAktstatus(std::string _input)
         return ("Digitization of ROIs");
     }
 
+	
     #ifdef ENABLE_WEBHOOK
         if (_input.compare("ClassFlowWebhook") == 0) {
             return ("Sending Webhook");
         }
     #endif //ENABLE_WEBHOOK
-
+	
     if (_input.compare("ClassFlowPostProcessing") == 0) {
         return ("Post-Processing");
     }
@@ -203,11 +205,11 @@ ClassFlow* ClassFlowControl::CreateClassFlow(std::string _type)
         flowanalog = (ClassFlowCNNGeneral*) cfc;
     }
 	
-    if (toUpper(_type).compare(0, 7, "[DIGITS]") == 0) {
+    if (toUpper(_type).compare(0, 7, "[DIGITS") == 0) {
         cfc = new ClassFlowCNNGeneral(flowalignment);
         flowdigit = (ClassFlowCNNGeneral*) cfc;
     }
-
+	
     #ifdef ENABLE_WEBHOOK
         if (toUpper(_type).compare("[WEBHOOK]") == 0) {
             cfc = new ClassFlowWebhook(&FlowControl);
@@ -753,7 +755,7 @@ esp_err_t ClassFlowControl::GetJPGStream(std::string _fn, httpd_req_t *req)
             }
         #else
             if (!flowalignment) {
-                ESP_LOGD(TAG, "ClassFloDControl::GetJPGStream: FlowAlignment is not (yet) initialized. Interrupt serving!");
+                ESP_LOGD(TAG, "ClassFloDControll::GetJPGStream: FlowAlignment is not (yet) initialized. Interrupt serving!");
                 httpd_resp_send(req, NULL, 0);
                 return ESP_FAIL;
             }

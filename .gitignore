@@ -5,6 +5,7 @@
 .vscode/launch.json
 .vscode/ipch
 .cache
+log
 sdkconfig.esp32cam
 sdkconfig.esp32cam-dev
 sdkconfig.esp32cam-debug

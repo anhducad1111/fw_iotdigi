@@ -2,88 +2,91 @@
 <html lang="en" xml:lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Edit Config</title>
+<meta charset="UTF-8" />
+<title>Edit Config</title>
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="bootstrap.min.css" type="text/css">
+<style>
+	h1 {font-size: 2em;}
+	h2 {font-size: 1.5em; margin-block-start: 0.0em; margin-block-end: 0.2em;}
+	h3 {font-size: 1.2em;}
+	p {font-size: 1em;}
 
-	<link href="firework.css?v=v1" rel="stylesheet">
+	.button {
+		padding: 5px 10px;
+		width: 220px;
+		font-size: 16px;	
+	}
 
-	<script type="text/javascript" src="common.js?v=v1"></script>
-	<script type="text/javascript" src="jquery-3.6.0.min.js?v=v1"></script>
-	<script type="text/javascript" src="firework.js?v=v1"></script>
+	textarea {
+		font-size: 15px;
+	}
 
-	<style>
-		#reboot_button {
-			cursor: pointer;
-			text-decoration: underline;
-			color: #fff;
-			font-weight: bold;
-		}
-	</style>
+	#reboot_button {
+		float: none;
+		background-color: #f44336;
+		color: white;
+		padding: 5px;
+		border-radius:
+		5px; font-weight: bold;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+	}
+</style>
+
+<link href="firework.css?v=v1" rel="stylesheet">
+
+<script type="text/javascript" src="common.js?v=v1"></script>
+<script type="text/javascript" src="jquery-3.6.0.min.js?v=v1"></script>
+<script type="text/javascript" src="firework.js?v=v1"></script>
 </head>
 
-<body>
-	<div class="container-fluid py-4">
-		<div class="card shadow-sm">
-			<div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-				<h4 class="mb-0">Configuration - "Config.ini" Editor</h4>
-			</div>
+<body style="font-family: arial; padding: 0px 10px;">
+ 
+	<table style="width:660px">
+		<h2>Configuration - "Config.ini" Editor</h2>
+		<td>
+			<textarea id="inputTextToSave" rows="30" style="width:100%"></textarea>
+		</td>
+	</table>
 
-			<div class="card-body">
-				<div class="mb-3">
-					<textarea class="form-control font-monospace" id="inputTextToSave" rows="25"
-						style="font-size: 0.9rem;"></textarea>
-				</div>
-
-				<div class="d-grid gap-2">
-					<button class="btn btn-success btn-lg" onclick="saveTextAsFile()">
-						<i class="bi bi-save"></i> Save Config
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Bootstrap Bundle JS -->
-	<script src="bootstrap.bundle.min.js"></script>
+	<hr>
+	<button class="button" onclick="saveTextAsFile()">Save Config</button>
 
 	<script type="text/javascript" src="readconfigparam.js?v=v1"></script>
 	<script type="text/javascript" src="readconfigcommon.js?v=v1"></script>
 
 	<script type="text/javascript">
 		var canvas = document.getElementById('canvas'),
-			domainname = getDomainname();
+			domainname = getDomainname(); 
 
 
-		function LoadConfigNeu() {
-			domainname = getDomainname();
-			loadConfig(domainname);
-			document.getElementById("inputTextToSave").value = getConfig();
+	function LoadConfigNeu() {
+		domainname = getDomainname();  
+		loadConfig(domainname); 	
+		document.getElementById("inputTextToSave").value = getConfig();
 		}
 
-		function saveTextAsFile() {
-			FileDeleteOnServer("/config/config.ini", domainname);
-			var textToSave = document.getElementById("inputTextToSave").value;
-			FileSendContent(textToSave, "/config/config.ini", domainname);
+	function saveTextAsFile()
+	{
+		FileDeleteOnServer("/config/config.ini", domainname);
+		var textToSave = document.getElementById("inputTextToSave").value;
+		FileSendContent(textToSave, "/config/config.ini", domainname);
 
-			firework.launch('Configuration saved. It will get applied after the next reboot!<br><br>\n<a id="reboot_button" onclick="doReboot()">reboot now</a>', 'success', 5000);
-		}
+		firework.launch('Configuration saved. It will get applied after the next reboot!<br><br>\n<a id="reboot_button" onclick="doReboot()">reboot now</a>', 'success', 5000);
+	}
 
-		function doReboot() {
-			var stringota = "/reboot";
-			window.location = stringota;
-			window.location.href = stringota;
-			window.location.assign(stringota);
-			window.location.replace(stringota);
-		}
-
-		LoadConfigNeu();
-
+	function doReboot() {
+		var stringota = "/reboot";
+		window.location = stringota;
+		window.location.href = stringota;
+		window.location.assign(stringota);
+		window.location.replace(stringota);
+	}
+	
+	LoadConfigNeu();
+	
 	</script>
-
+ 
 </body>
-
 </html>

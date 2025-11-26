@@ -1,6 +1,5 @@
-"=== COPY SD CARD START - 2025-11-25 07:37 PM: ===" 
+"=== COPY SD CARD START - 2025-11-26 03:03 PM: ===" 
 Deleted file - F:\wlan.ini
-Deleted file - F:\System Volume Information\WPSettings.dat
 sd-card\wlan.ini
 sd-card\config\ana-cont_1300_s2.tflite
 sd-card\config\ana-cont_1400_s2_q.tflite
@@ -86,5 +85,6 @@ sd-card\html\style.css
 sd-card\html\timezones.html
 sd-card\html\wlan_config.html
 sd-card\html\img\ChangeRateThreshold.png
-85 File(s) copied
-"=== COPY SD CARD END - 2025-11-25 07:37 PM: ===" 
+sd-card\html\img\ChangeRateThreshold.png.gz
+86 File(s) copied
+"=== COPY SD CARD END - 2025-11-26 03:03 PM: ===" 

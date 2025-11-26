@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en">
-
 <head>
     <link rel="icon" href="favicon.ico?v=v1" type="image/x-icon">
     <link rel="apple-touch-icon" href="Iotdigi.svg?v=v1" />
     <title>AI on the edge</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
-
-    <link rel="stylesheet" href="style.css?v=v1" type="text/css">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=v1" type="text/css" >
     <link href="firework.css?v=v1" rel="stylesheet">
 
     <script type="text/javascript" src="common.js?v=v1"></script>
@@ -35,14 +31,14 @@
 
             if (streamPopup) {  // Ensure that stream popup is closed because it's blocking web interface
                 streamPopup.close();
-            }
+			}
 
             asyncPageLoad(page);
         }
 
-        async function asyncPageLoad(page) {
+        async function asyncPageLoad(page ) {
             console.log("  loading " + page + " ...");
-            document.cookie = "page=" + page + "; path=/";
+            document.cookie = "page="+page + "; path=/";
             document.getElementById('maincontent').src = page;
 
             [].forEach.call(document.querySelectorAll('.submenu'), function (el) {
@@ -55,41 +51,47 @@
                 el.style.visibility = 'visible';
             });
         }
-
+        
         function getCookie(cname) {
-            let name = cname + "=";
-            let decodedCookie = decodeURIComponent(document.cookie);
-            let ca = decodedCookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
+			let name = cname + "=";
+			let decodedCookie = decodeURIComponent(document.cookie);
+			let ca = decodedCookie.split(';');
+			for(let i = 0; i <ca.length; i++) {
+				let c = ca[i];
+				
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				
+				if (c.indexOf(name) == 0) {
+					return c.substring(name.length, c.length);
+				}
+			}
+        return "";
         }        
     </script>
-
     <style>
-        /* Custom styles for nested dropdowns */
-        .dropdown-submenu {
-            position: relative;
+        /* Add these styles to your existing CSS file or in a <style> tag in the head */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #d8d8d8;
+            margin-top: 20px;
         }
-
-        .dropdown-submenu .dropdown-menu {
-            top: 0;
-            left: 100%;
-            margin-top: -1px;
+        .footer-section {
+            display: flex;
+            align-items: center;
         }
-
-        .dropdown-menu {
-            max-height: 500px;
-            overflow-y: auto;
+        .footer-section img {
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+        }
+        .donation-cards img {
+            height: 20px;
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -127,7 +129,7 @@
                         <!-- Settings Dropdown -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button"
-                                data-bs-toggle="dropdown">
+                                data-bs-toggle="dropdown" data-bs-trigger="hover">
                                 Settings
                             </a>
                             <ul class="dropdown-menu submenu">
@@ -145,7 +147,7 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#">Regions of Interest (ROIs)</a>
+                                    <a class="dropdown-item dropdown-toggle" href="#">ROIs</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#"
                                                 onclick="loadPage('edit_digits.html?v=v1');">Digit ROI</a></li>
@@ -155,67 +157,15 @@
                                 </li>
                                 <li><a class="dropdown-item" href="#"
                                         onclick="loadPage('edit_config.html?v=v1');">Configuration</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- Data Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dataDropdown" role="button"
-                                data-bs-toggle="dropdown">
-                                Data
-                            </a>
-                            <ul class="dropdown-menu submenu">
-                                <li><a class="dropdown-item" href="#"
-                                        onclick="loadPage(getDomainname() + '/value?full');">Recognition</a></li>
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#">Livestream</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#" onclick="start_livestream(false);">Live
-                                                Stream (Light off)</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="start_livestream(true);">Live
-                                                Stream (Light on)</a></li>
-                                    </ul>
-                                </li>
-                                <li><a class="dropdown-item" href="#" onclick="loadPage('graph.html?v=v1');">Data
-                                        Graph</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="loadPage('data.html?v=v1');">Data
-                                        Table</a></li>
-                                <li><a class="dropdown-item" href="#"
-                                        onclick="loadPage(getDomainname() + '/fileserver/log/data/');">Data Files</a>
-                                </li>
-                                <li><a class="dropdown-item" href="#" onclick="loadPage('data_export.html?v=v1');">Data
-                                        Export</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- System Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="systemDropdown" role="button"
-                                data-bs-toggle="dropdown">
-                                System
-                            </a>
-                            <ul class="dropdown-menu submenu">
-                                <li><a class="dropdown-item" href="#"
-                                        onclick="loadPage('backup.html?v=v1');">Backup/Restore</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="loadPage('ota_page.html?v=v1');">OTA
-                                        Update</a></li>
                                 <li><a class="dropdown-item" href="#" onclick="loadPage('log.html?v=v1');">Log
                                         Viewer</a></li>
-                                <li><a class="dropdown-item" href="#"
-                                        onclick="loadPage(getDomainname() + '/fileserver/');">File Server</a></li>
-                                <li><a class="dropdown-item" href="#"
-                                        onclick="loadPage('reboot_page.html?v=v1');">Reboot</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="loadPage('info.html?v=v1');">Info</a>
-                                </li>
-                                <li><a class="dropdown-item" href="https://jomjol.github.io/AI-on-the-edge-device-docs/"
-                                        target="_blank">Help</a></li>
                             </ul>
                         </li>
 
                         <!-- Manual Control Dropdown -->
                         <li class="nav-item dropdown" id="ManualControl" style="display:none;">
                             <a class="nav-link dropdown-toggle" href="#" id="manualControlDropdown" role="button"
-                                data-bs-toggle="dropdown">
+                                data-bs-toggle="dropdown" data-bs-trigger="hover">
                                 Manual Control
                             </a>
                             <ul class="dropdown-menu submenu">
@@ -238,79 +188,86 @@
         </div>
     </div>
 
-    <!-- Bootstrap Bundle JS -->
-    <script src="bootstrap.bundle.min.js"></script>
-
-    <script type="text/javascript">
-        LoadHostname();
-        HA_send_discovery_visibility();
-
-        if (getCookie("page") == "" || getCookie("page") == "reboot_page.html?v=v1") {
-            document.cookie = "page=overview.html?v=v1" + "; path=/";
-        }
-        console.log("Loading page: " + getCookie("page"));
-        document.getElementById('maincontent').src = getCookie("page");
-
-
-        function flow_start() {
-            var url = getDomainname() + '/flow_start';
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    firework.launch(xhttp.responseText, 'success', 5000);
-                    /*if (xhttp.responseText.substring(0,3) == "001") {
-                        firework.launch('Flow start triggered', 'success', 5000);
-                        window.location.reload();
-                    }
-                    else if (xhttp.responseText.substring(0,3) == "002") {
-                        firework.launch('Flow start scheduled. Start after round is completed', 'success', 5000);
-                    }
-                    else if (xhttp.responseText.substring(0,3) == "099") {
-                        firework.launch('Flow start triggered, but start not possible (no flow task available)', 'danger', 5000);
-                    }*/
+<script src="bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+    // Handle nested dropdowns on hover
+    document.addEventListener('DOMContentLoaded', function() {
+        var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu');
+        dropdownSubmenus.forEach(function(submenu) {
+            submenu.addEventListener('mouseenter', function() {
+                var innerMenu = this.querySelector('.dropdown-menu');
+                if (innerMenu) {
+                    innerMenu.style.display = 'block';
                 }
-            }
-            xhttp.open("GET", url, true);
-            xhttp.send();
-        }
-
-
-        function HA_send_discovery_visibility() {
-            loadConfig(domainname);
-            ParseConfig();
-            category = getConfigCategory();
-            param = getConfigParameters();
-
-        }
-
-
-        function start_livestream(streamFlashlight) {
-            if (streamPopup) {
-                streamPopup.close();
-            }
-
-            if (streamFlashlight) {
-                streamPopup = window.open(getDomainname() + '/stream?flashlight=true', 'LivestreamWithlight', streamWindowFeatures);
-            }
-            else {
-                streamPopup = window.open(getDomainname() + '/stream', 'Livestream', streamWindowFeatures);
-            }
-
-            streamPopup.focus();
-        }
-
-        // Enable nested dropdowns
-        document.querySelectorAll('.dropdown-submenu > a').forEach(function (element) {
-            element.addEventListener('click', function (e) {
-                e.stopPropagation();
-                var submenu = this.nextElementSibling;
-                if (submenu) {
-                    submenu.classList.toggle('show');
+            });
+            submenu.addEventListener('mouseleave', function() {
+                var innerMenu = this.querySelector('.dropdown-menu');
+                if (innerMenu) {
+                    innerMenu.style.display = 'none';
                 }
             });
         });
-    </script>
+    });
+
+    LoadHostname();
+    LoadFwVersion();
+    LoadWebUiVersion();
+    HA_send_discovery_visibility();
+
+    if (getCookie("page") == "" || getCookie("page") == "reboot_page.html?v=v1") {
+		document.cookie = "page=overview.html?v=v1" + "; path=/";
+    }
+    console.log("Loading page: " + getCookie("page"));
+    document.getElementById('maincontent').src = getCookie("page");
+
+    
+    function flow_start() {
+    var url = getDomainname() + '/flow_start'; 
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+                firework.launch(xhttp.responseText, 'success', 5000);
+			    /*if (xhttp.responseText.substring(0,3) == "001") {
+					firework.launch('Flow start triggered', 'success', 5000);
+                    window.location.reload();
+				}
+				else if (xhttp.responseText.substring(0,3) == "002") {
+					firework.launch('Flow start scheduled. Start after round is completed', 'success', 5000);
+				}
+				else if (xhttp.responseText.substring(0,3) == "099") {
+					firework.launch('Flow start triggered, but start not possible (no flow task available)', 'danger', 5000);
+                }*/
+			}
+		}
+		xhttp.open("GET", url, true);
+		xhttp.send();
+    }
+    
+
+    function HA_send_discovery_visibility()	{
+		loadConfig(domainname); 
+		ParseConfig();
+		category = getConfigCategory();
+        param = getConfigParameters();
+		
+	}
+
+
+    function start_livestream(streamFlashlight) {
+        if (streamPopup) {
+            streamPopup.close();
+		}
+
+        if (streamFlashlight) {
+            streamPopup = window.open(getDomainname() + '/stream?flashlight=true','LivestreamWithlight',streamWindowFeatures);
+		}
+        else {
+            streamPopup = window.open(getDomainname() + '/stream','Livestream',streamWindowFeatures);
+		}
+
+        streamPopup.focus();
+    }
+</script>
 
 </body>
-
 </html>
