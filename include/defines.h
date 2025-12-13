@@ -20,7 +20,6 @@
     //=> CONFIG_SPIRAM_BANKSWITCH_RESERVE=4
 
 
-    // use himem //https://github.com/jomjol/AI-on-the-edge-device/issues/1842
     #if (CONFIG_SPIRAM_BANKSWITCH_ENABLE)
         #define USE_HIMEM_IF_AVAILABLE 1
     #endif
@@ -140,7 +139,7 @@
     //#define STB_IMAGE_IMPLEMENTATION
     //#define STB_IMAGE_WRITE_IMPLEMENTATION
     //#define STB_IMAGE_RESIZE_IMPLEMENTATION
-    #define STBI_ONLY_JPEG // (save 2% of Flash, but breaks the alignment mark generation, see https://github.com/jomjol/AI-on-the-edge-device/issues/1721)
+    #define STBI_ONLY_JPEG 
 
 
 

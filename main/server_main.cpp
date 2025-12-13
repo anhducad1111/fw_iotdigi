@@ -232,7 +232,6 @@ esp_err_t hello_main_handler(httpd_req_t *req)
                 }
             }
 
-            message += "<br>Please check logs with log viewer and/or <a href=\"https://jomjol.github.io/AI-on-the-edge-device-docs/Error-Codes\" target=_blank>jomjol.github.io/AI-on-the-edge-device-docs/Error-Codes</a> for more information!";
             message += "<br><br><button onclick=\"window.location.href='/reboot';\">Reboot</button>";
             message += "&nbsp;<button onclick=\"window.open('/ota_page.html');\">OTA Update</button>";
             message += "&nbsp;<button onclick=\"window.open('/log.html');\">Log Viewer</button>";

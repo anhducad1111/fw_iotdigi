@@ -134,7 +134,6 @@ bool ClassFlowWebhook::doFlow(string zwtime)
 
     if (flowpostprocessing)
     {
-        printf("vor sende WebHook");
         bool numbersWithError = WebhookPublish(flowpostprocessing->GetNumbers());
 
         #ifdef ALGROI_LOAD_FROM_MEM_AS_JPG

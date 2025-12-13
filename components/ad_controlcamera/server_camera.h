@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef JOMJOL_CONTROLCAMERA_H
-#define JOMJOL_CONTROLCAMERA_H
+#ifndef AD_CONTROLCAMERA_H
+#define AD_CONTROLCAMERA_H
 
 #include <esp_log.h>
 

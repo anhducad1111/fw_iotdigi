@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en">
+
 <head>
     <title>OTA Update</title>
     <meta charset="UTF-8" />
@@ -24,8 +25,6 @@
                 <h2 class="card-title mb-0">OTA Update</h2>
             </div>
             <div class="card-body">
-                <p>Check the <a href="https://github.com/jomjol/AI-on-the-edge-device/releases" target="_blank">Release Page</a> to see if there is an update available.</p>
-                <p>You can also automatically get notified about a release, see <a href="https://jomjol.github.io/AI-on-the-edge-device-docs/New-Releases-Notification" target="_blank">Release Notifications</a>.</p>
             </div>
         </div>
 
@@ -34,12 +33,16 @@
                 <h3 class="card-title mb-0">Update</h3>
             </div>
             <div class="card-body">
-                <p>On the <a href="https://github.com/jomjol/AI-on-the-edge-device/releases" target="_blank">Release Page</a>, pick the <code>AI-on-the-edge-device__update__*.zip</code> file!</p>
+
                 <p>Alternatively the following file types are supported:</p>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><code>*.zip</code> &rarr; Gets unpacked on the SD-Card (most top folder)</li>
-                    <li class="list-group-item"><code>*.bin</code> &rarr; gets installed onto the ESP32s program flash</li>
-                    <li class="list-group-item"><code>*.tfl/tflite</code> &rarr; Gets copied to your <i>SD-Card/config</i></li>
+                    <li class="list-group-item"><code>*.zip</code> &rarr; Gets unpacked on the SD-Card (most top folder)
+                    </li>
+                    <li class="list-group-item"><code>*.bin</code> &rarr; gets installed onto the ESP32s program flash
+                    </li>
+                    <li class="list-group-item"><code>*.tfl/tflite</code> &rarr; Gets copied to your
+                        <i>SD-Card/config</i>
+                    </li>
                 </ul>
 
                 <div class="alert alert-warning mt-3" role="alert">
@@ -48,13 +51,16 @@
 
                 <form id="upload_form" enctype="multipart/form-data" method="post" class="mt-3">
                     <div class="mb-3">
-                        <input type="file" accept=".bin,.zip,.tfl,.tflite" name="file_selector" id="file_selector" onchange="validate_file()" class="form-control">
+                        <input type="file" accept=".bin,.zip,.tfl,.tflite" name="file_selector" id="file_selector"
+                            onchange="validate_file()" class="form-control">
                     </div>
 
-                    <button class="btn btn-primary mb-3" id="start_OTA_button" type="button" onclick="start_OTA()" disabled>Upload And Install</button>
+                    <button class="btn btn-primary mb-3" id="start_OTA_button" type="button" onclick="start_OTA()"
+                        disabled>Upload And Install</button>
 
                     <div class="progress mb-3" style="height: 20px;">
-                        <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;"
+                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
 
                     <h3><span id="status">Status: Idle</span></h3>
@@ -71,7 +77,7 @@
 
         /* Max size of an individual file. Make sure this
         * value is same as that set in server_file.c */
-        var MAX_FILE_SIZE = 8000*1024;
+        var MAX_FILE_SIZE = 8000 * 1024;
         var MAX_FILE_SIZE_STR = "8MB";
 
         function validate_file() {
@@ -99,7 +105,7 @@
             } else if (filename.indexOf(' ') >= 0) {
                 firework.launch('Filename can not have spaces!', 'danger', 30000);
                 return;
-            } else if (filename[filename.length-1] == '/') {
+            } else if (filename[filename.length - 1] == '/') {
                 firework.launch('Filename not specified after path!', 'danger', 30000);
                 return;
             } else if (fileInput[0].size > MAX_FILE_SIZE) {
@@ -112,10 +118,10 @@
              *  - firmware__*.bin
              *  - *.ftl
              *  - *.tflite */
-            if ( /(^AI-on-the-edge-device__update__)[a-zRC0-9()_\-.]*(\.zip$)/i.test(filename) || // OK
-               ( /(^AI-on-the-edge-device__firmware)[a-zRC0-9()_\-.]*(\.bin$)/i.test(filename)) ||
-               ( /[a-zRC0-9()_\-.]*(\.tfl$)/i.test(filename)) ||
-               ( /[a-zRC0-9()_\-.]*(\.tflite$)/i.test(filename))) {
+            if (/(^AI-on-the-edge-device__update__)[a-zRC0-9()_\-.]*(\.zip$)/i.test(filename) || // OK
+                (/(^AI-on-the-edge-device__firmware)[a-zRC0-9()_\-.]*(\.bin$)/i.test(filename)) ||
+                (/[a-zRC0-9()_\-.]*(\.tfl$)/i.test(filename)) ||
+                (/[a-zRC0-9()_\-.]*(\.tflite$)/i.test(filename))) {
                 firework.launch('Great, the filename matches our expectations. You can now press "Upload and install".', 'success', 5000);
             }
             /* Following filenames are acceptiod but not prefered:
@@ -162,7 +168,7 @@
             filePath = file_name.split(/[\\\/]/).pop();
 
             /* first delete the old firmware AND empty the /firmware directory*/
-            xhttp.onreadystatechange = function() {
+            xhttp.onreadystatechange = function () {
                 if (xhttp.readyState == 4) {
                     if (xhttp.status == 200) {
                         /* keine Reaktion, damit sich das Dokument nicht ändert */
@@ -206,7 +212,7 @@
         function extract() {
             var xhttp = new XMLHttpRequest();
             /* first delete the old firmware */
-            xhttp.onreadystatechange = function() {
+            xhttp.onreadystatechange = function () {
                 if (xhttp.readyState == 4) {
                     if (xhttp.status == 200) {
                         document.cookie = "page=overview.html?v=v1" + "; path=/"; // Make sure after the reboot we go to the overview page
@@ -220,7 +226,7 @@
                             doRebootAfterUpdate();
 
                             action_runtime = 0;
-                            updateTimer = setInterval(function() {
+                            updateTimer = setInterval(function () {
                                 action_runtime += 1;
                                 console.log("Waiting: " + action_runtime + "s");
                                 _("progressBar").style.width = Math.round(action_runtime) + "%";
@@ -228,8 +234,8 @@
 
                                 if (action_runtime > 10) { // After 10 seconds, start to check if we are up again
                                     /* Check if the device is up again and forward to index page if so */
-                                    fetch('reboot_page.html?v=v1&' + Math.random(), {mode: 'no-cors'}).then(
-                                        r=>{parent.location.href=('index.html?v=' + Math.random());}
+                                    fetch('reboot_page.html?v=v1&' + Math.random(), { mode: 'no-cors' }).then(
+                                        r => { parent.location.href = ('index.html?v=' + Math.random()); }
                                     )
                                 }
 
@@ -287,7 +293,7 @@
 
         function progressHandler(event) {
             _("loaded_n_total").innerHTML = "Uploaded " + (event.loaded / 1024 / 1024).toFixed(2) +
-                    " MB of " + (event.total / 1024/ 1024).toFixed(2) + " MB";
+                " MB of " + (event.total / 1024 / 1024).toFixed(2) + " MB";
             var percent = (event.loaded / event.total) * 100;
             _("progressBar").style.width = Math.round(percent) + "%";
             _("progressBar").setAttribute("aria-valuenow", Math.round(percent));
@@ -349,4 +355,5 @@
     <!-- Bootstrap Bundle JS -->
     <script src="bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

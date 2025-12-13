@@ -2,6 +2,6 @@ FILE(GLOB_RECURSE app_sources ${CMAKE_CURRENT_SOURCE_DIR}/*.*)
 
 idf_component_register(SRCS ${app_sources}
                     INCLUDE_DIRS "."
-                    REQUIRES jomjol_time_sntp jomjol_helper)
+                    REQUIRES esp_netif esp-tflite-micro ad_logfile ad_configfile)
 
 
