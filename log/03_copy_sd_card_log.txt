@@ -1,4 +1,4 @@
-"=== COPY SD CARD START - 2025-12-13 05:06 PM: ===" 
+"=== COPY SD CARD START - 2025-12-14 01:17 PM: ===" 
 Deleted file - F:\wlan.ini
 Deleted file - F:\System Volume Information\WPSettings.dat
 Deleted file - F:\System Volume Information\IndexerVolumeGuid
@@ -23,7 +23,6 @@ sd-card\config\ref0_org.jpg
 sd-card\config\ref1.jpg
 sd-card\config\ref1_org.jpg
 sd-card\config\reference.jpg
-sd-card\html\.gitignore
 sd-card\html\backup.html
 sd-card\html\bootstrap.bundle.min.js
 sd-card\html\bootstrap.min.css
@@ -42,13 +41,6 @@ sd-card\html\edit_explain_7.html
 sd-card\html\edit_explain_7_abort.html
 sd-card\html\edit_reference.html
 sd-card\html\edit_style.css
-sd-card\html\explain_1.html
-sd-card\html\explain_2.html
-sd-card\html\explain_3.html
-sd-card\html\explain_4.html
-sd-card\html\explain_5.html
-sd-card\html\explain_6.html
-sd-card\html\explain_7.html
 sd-card\html\favicon.ico
 sd-card\html\FileSaver.min.js
 sd-card\html\FileSaver.min.js.map
@@ -88,5 +80,5 @@ sd-card\html\timezones.html
 sd-card\html\wlan_config.html
 sd-card\html\img\ChangeRateThreshold.png
 sd-card\html\img\ChangeRateThreshold.png.gz
-86 File(s) copied
-"=== COPY SD CARD END - 2025-12-13 05:06 PM: ===" 
+78 File(s) copied
+"=== COPY SD CARD END - 2025-12-14 01:17 PM: ===" 
