@@ -54,6 +54,8 @@ CREATE TABLE IF NOT EXISTS monthly_usage (
     tier_2_usage DECIMAL(10, 2) DEFAULT 0 COMMENT '10-20m³ @ 7.052 VND/m³',
     tier_3_usage DECIMAL(10, 2) DEFAULT 0 COMMENT '20-30m³ @ 8.669 VND/m³',
     tier_4_usage DECIMAL(10, 2) DEFAULT 0 COMMENT '>30m³ @ 15.929 VND/m³',
+    payment_status ENUM('unpaid', 'paid') NOT NULL DEFAULT 'unpaid',
+    paid_at TIMESTAMP NULL,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     UNIQUE KEY unique_month_device (year, month, device_id)
 );

@@ -12,8 +12,8 @@ $startDate = new DateTime('2025-11-01 00:00:00');
 $endDate = new DateTime('2025-12-14 13:00:00');
 
 $devices = [
-    '123' => ['current' => 275.60, 'start_initial' => 275.60],
-    '456' => ['current' => 120.50, 'start_initial' => 120.50]
+    '599' => ['current' => 275.60, 'start_initial' => 275.60],
+    '115' => ['current' => 120.50, 'start_initial' => 120.50]
 ];
 
 // Data structures for aggregation

@@ -21,14 +21,14 @@ $users = [
     'user1' => [
         'password' => 'user123',
         'role' => 'user',
-        'api_key' => '123',
-        'full_name' => 'User One (Device 123)'
+        'api_key' => '599',
+        'full_name' => 'User One (Device 599)'
     ],
     'user2' => [
         'password' => 'user234',
         'role' => 'user',
-        'api_key' => '456',
-        'full_name' => 'User Two (Device 456)'
+        'api_key' => '115',
+        'full_name' => 'User Two (Device 115)'
     ]
 ];
 
