@@ -1,16 +1,4 @@
 <?php
-// Script to update default users' passwords with valid BCrypt hashes
-// Run this file once to fix login credentials.
-
-require_once 'database_config.php';
-
-$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-<?php
 // Script to ensure users exist and update their passwords/api_keys
 // Run this file once to setup the demo users.
 

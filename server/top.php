@@ -1,12 +1,9 @@
 <?php
 // Header component - Include this at the top of page body
-// Usage: <?php $page_title = "Page Title"; include 'top.php'; ?>
+
+// Note: Logic sesssion_start() must be done in parent file (index.php)
 
 // Handle Admin Device Selection
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
 if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['admin_set_device'])) {
         $devId = trim($_POST['admin_device_id']);
@@ -15,8 +12,8 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
         } else {
             unset($_SESSION['admin_view_device_id']);
         }
-        // Refresh to apply matches
-        header("Location: " . $_SERVER['PHP_SELF']);
+        // Refresh to apply matches using JS to avoid Header Sent error
+        echo "<script>window.location.href = window.location.href;</script>";
         exit;
     }
 }
@@ -45,7 +42,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
     <div class="sticky top-0 z-10 flex h-16 items-center border-b border-neutral-200/80 bg-background-light/80 px-4 backdrop-blur-sm dark:border-neutral-800/80 dark:bg-background-dark/80">
         <div class="max-w-6xl w-full mx-auto flex items-center gap-4">
             <h1 class="text-lg font-bold text-primary dark:text-neutral-100 flex-1 flex items-center gap-2">
-                <?php echo htmlspecialchars($page_title); ?>
+                <?php echo htmlspecialchars($page_title ?? 'Dashboard'); ?>
                 <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                     <span class="text-xs bg-red-100 text-red-800 px-2 py-0.5 rounded border border-red-200">Admin</span>
                     <?php if(isset($_SESSION['admin_view_device_id'])): ?>
@@ -79,10 +76,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
                     <a href="index.php" class="flex items-center gap-3 px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-700 transition">
                         <span class="material-symbols-outlined text-lg text-primary">dashboard</span>
                         <span class="text-neutral-700 dark:text-neutral-100">Dashboard</span>
-                    </a>
-                    <a href="chart.php" class="flex items-center gap-3 px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-700 transition">
-                        <span class="material-symbols-outlined text-lg text-primary">bar_chart</span>
-                        <span class="text-neutral-700 dark:text-neutral-100">Chart</span>
                     </a>
                     <a href="history.php" class="flex items-center gap-3 px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-700 transition">
                         <span class="material-symbols-outlined text-lg text-primary">history</span>

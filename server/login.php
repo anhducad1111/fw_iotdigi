@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($result->num_rows === 1) {
                 $user = $result->fetch_assoc();
                 // Verify password (using password_verify for BCrypt)
-                // Note: For 'admin' and 'default_user' placeholder hashes were inserted.
+                // Note: For 'admin' and 'user1' placeholder hashes were inserted.
                 // In a real scenario, use password_hash('password', PASSWORD_DEFAULT) to generate hashes.
                 // For this demo, assuming password matches hash logic or fallback for plain text if verify fails (NOT RECOMMENDED for prod but useful for debug if hash mismatch)
                 if (password_verify($password, $user['password'])) {
