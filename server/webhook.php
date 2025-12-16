@@ -18,8 +18,7 @@ if ($conn->connect_error) {
 }
 
 
-$WEBHOOK_MAGIC_HEADER = 0x4A4F4D4A; // "JOMJ"
-$ALLOWED_API_KEYS = ["123", "456", "789"];
+$WEBHOOK_MAGIC_HEADER = 0x44494749; // "DIGI"
 $ERROR_CODES = [
     0 => "no error",
     1 => "Neg. Rate",
@@ -31,11 +30,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // 1. API Key Check
         $api_key = $_SERVER['HTTP_APIKEY'] ?? '';
-        if (!in_array($api_key, $ALLOWED_API_KEYS)) {
+        
+        $stmt = $conn->prepare("SELECT id FROM users WHERE api_key = ?");
+        $stmt->bind_param("s", $api_key);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if ($result->num_rows === 0) {
             http_response_code(403);
             echo json_encode(["status" => "error", "message" => "Invalid API key"]);
             exit;
         }
+        
+        $user_row = $result->fetch_assoc();
+        $device_id = $user_row['id'];
+        $stmt->close();
 
         // 2. Content Type Check
         $content_type = $_SERVER['CONTENT_TYPE'] ?? '';
@@ -64,8 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error_code = intval($item['errorCode']);
             $error_message = $item['error'];
             
-            $stmt = $conn->prepare("INSERT INTO readings (value, timestamp, error_code, error_message) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("diss", $value, $timestamp, $error_code, $error_message);
+            $stmt = $conn->prepare("INSERT INTO readings (device_id, value, timestamp, error_code, error_message) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("idiss", $device_id, $value, $timestamp, $error_code, $error_message);
             
             if (!$stmt->execute()) {
                 throw new Exception("Failed to insert reading: " . $stmt->error);
@@ -73,10 +82,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->close();
             
             // Update daily_usage for this day
-            update_daily_usage($conn, $timestamp);
+            update_daily_usage($conn, $timestamp, $device_id);
             
             // Update monthly_usage for this month
-            update_monthly_usage($conn, $timestamp);
+            update_monthly_usage($conn, $timestamp, $device_id);
         }
 
         // 6. Log
@@ -136,7 +145,8 @@ function parse_binary_packet($data) {
         $item = [];
 
         // Read strings
-        $item['name'] = read_string($data_section, $offset);
+        // NOTE: Name field removed from binary protocol
+        // $item['name'] = read_string($data_section, $offset);
         
         $unpacked = unpack('J', substr($data_section, $offset, 8));
         $item['timestamp'] = $unpacked[1];
@@ -188,11 +198,14 @@ function calculate_crc16($data) {
     return $crc;
 }
 
-function update_daily_usage($conn, $timestamp) {
+function update_daily_usage($conn, $timestamp, $device_id) {
     $date = date('Y-m-d', $timestamp);
     
-    // Get all readings for this day
-    $result = $conn->query("SELECT value FROM readings WHERE DATE(FROM_UNIXTIME(timestamp)) = '$date' ORDER BY timestamp ASC");
+    // Get all readings for this day and this device
+    $stmt = $conn->prepare("SELECT value FROM readings WHERE device_id = ? AND DATE(FROM_UNIXTIME(timestamp)) = ? ORDER BY timestamp ASC");
+    $stmt->bind_param("is", $device_id, $date);
+    $stmt->execute();
+    $result = $stmt->get_result();
     
     if (!$result || $result->num_rows < 1) {
         return;
@@ -210,24 +223,27 @@ function update_daily_usage($conn, $timestamp) {
         $consumption = round($end_value - $start_value, 2);
         
         // Insert or update daily_usage
-        $stmt = $conn->prepare("INSERT INTO daily_usage (date, consumption, start_value, end_value) 
-                                VALUES (?, ?, ?, ?) 
+        $stmt = $conn->prepare("INSERT INTO daily_usage (device_id, date, consumption, start_value, end_value) 
+                                VALUES (?, ?, ?, ?, ?) 
                                 ON DUPLICATE KEY UPDATE 
                                 consumption = VALUES(consumption), 
                                 start_value = VALUES(start_value), 
                                 end_value = VALUES(end_value)");
-        $stmt->bind_param("sddd", $date, $consumption, $start_value, $end_value);
+        $stmt->bind_param("isddd", $device_id, $date, $consumption, $start_value, $end_value);
         $stmt->execute();
         $stmt->close();
     }
 }
 
-function update_monthly_usage($conn, $timestamp) {
+function update_monthly_usage($conn, $timestamp, $device_id) {
     $year = date('Y', $timestamp);
     $month = date('m', $timestamp);
     
-    // Get all readings for this month
-    $result = $conn->query("SELECT value FROM readings WHERE YEAR(FROM_UNIXTIME(timestamp)) = $year AND MONTH(FROM_UNIXTIME(timestamp)) = $month ORDER BY timestamp ASC");
+    // Get all readings for this month and device
+    $stmt = $conn->prepare("SELECT value FROM readings WHERE device_id = ? AND YEAR(FROM_UNIXTIME(timestamp)) = ? AND MONTH(FROM_UNIXTIME(timestamp)) = ? ORDER BY timestamp ASC");
+    $stmt->bind_param("iii", $device_id, $year, $month);
+    $stmt->execute();
+    $result = $stmt->get_result();
     
     if (!$result || $result->num_rows < 1) {
         return;
@@ -271,8 +287,8 @@ function update_monthly_usage($conn, $timestamp) {
         $cost = round($cost, 2);
         
         // Insert or update monthly_usage
-        $stmt = $conn->prepare("INSERT INTO monthly_usage (year, month, consumption, cost, tier_1_usage, tier_2_usage, tier_3_usage, tier_4_usage) 
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?) 
+        $stmt = $conn->prepare("INSERT INTO monthly_usage (device_id, year, month, consumption, cost, tier_1_usage, tier_2_usage, tier_3_usage, tier_4_usage) 
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) 
                                 ON DUPLICATE KEY UPDATE 
                                 consumption = VALUES(consumption), 
                                 cost = VALUES(cost), 
@@ -280,7 +296,7 @@ function update_monthly_usage($conn, $timestamp) {
                                 tier_2_usage = VALUES(tier_2_usage),
                                 tier_3_usage = VALUES(tier_3_usage),
                                 tier_4_usage = VALUES(tier_4_usage)");
-        $stmt->bind_param("iidddddd", $year, $month, $consumption, $cost, $tier1, $tier2, $tier3, $tier4);
+        $stmt->bind_param("iiidddddd", $device_id, $year, $month, $consumption, $cost, $tier1, $tier2, $tier3, $tier4);
         $stmt->execute();
         $stmt->close();
     }

@@ -2,9 +2,10 @@
 /**
  * Generate fake water meter readings for testing
  * Period: 1/11/2025 to 14/12/2025
- * Frequency: 12 times per day (hourly)
- * Daily consumption: ~0.50 m³
+ * Frequency: Hourly
+ * Daily consumption: Variable
  * Growth: Only between 6:00 to 23:59 (no growth 0:00-5:59)
+ * Target Devices: 123, 456
  */
 
 // Set timezone to Vietnam (GMT+7)
@@ -14,13 +15,11 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 $startDate = new DateTime('2025-11-01 00:00:00');
 $endDate = new DateTime('2025-12-14 13:00:00');
 
-// Consumption per reading (either 0.02 or 0.03, alternating)
-// With 12 readings during active hours (6:00-23:59)
-$consumptionPerReading = 0.02; // Can be 0.02 or 0.03
-
-// Starting meter value
-$currentValue = 275.60;
-$startingValue = $currentValue;
+// Devices configuration
+$devices = [
+    '123' => ['current' => 275.60, 'start' => 275.60],
+    '456' => ['current' => 120.50, 'start' => 120.50]
+];
 
 // Array to store all readings
 $readings = [];
@@ -31,20 +30,27 @@ while ($currentTime <= $endDate) {
     $hour = (int)$currentTime->format('H');
     $timestamp = $currentTime->getTimestamp();
     
-    // Only increase meter between 6:00 and 23:59
-    if ($hour >= 6) {
-        $currentValue += $consumptionPerReading;
+    // Process each device
+    foreach ($devices as $deviceId => &$deviceData) {
+        // Only increase meter between 6:00 and 23:59
+        if ($hour >= 6) {
+            // Random consumption: 0.01, 0.02, or 0.03
+            $consumption = rand(1, 3) / 100;
+            $deviceData['current'] += $consumption;
+        }
+        
+        // Ensure value doesn't exceed 2 decimal places
+        $deviceData['current'] = round($deviceData['current'], 2);
+        
+        $readings[] = [
+            'device_id' => $deviceId,
+            'value' => $deviceData['current'],
+            'timestamp' => $timestamp,
+            'error_code' => 0,
+            'error_message' => null
+        ];
     }
-    
-    // Ensure value doesn't exceed 2 decimal places
-    $currentValue = round($currentValue, 2);
-    
-    $readings[] = [
-        'value' => $currentValue,
-        'timestamp' => $timestamp,
-        'error_code' => 0,
-        'error_message' => null
-    ];
+    unset($deviceData); // Break reference
     
     // Move to next hour
     $currentTime->add(new DateInterval('PT1H'));
@@ -52,18 +58,19 @@ while ($currentTime <= $endDate) {
 
 // Generate SQL INSERT statements
 $sql = "-- Generated fake water meter readings\n";
-$sql .= "-- Period: 1/11/2025 to 14/12/2025\n";
+$sql .= "-- Period: " . $startDate->format('d/m/Y') . " to " . $endDate->format('d/m/Y') . "\n";
 $sql .= "-- Readings: " . count($readings) . " total\n";
-$sql .= "-- Starting value: " . $startingValue . " m³\n";
-$sql .= "-- Final value: " . $currentValue . " m³\n";
-$sql .= "-- Total consumption: " . round($currentValue - $startingValue, 2) . " m³\n\n";
+foreach ($devices as $id => $data) {
+    $sql .= "-- Device $id: Start " . $data['start'] . " m³ -> End " . $data['current'] . " m³ (Consumed: " . round($data['current'] - $data['start'], 2) . " m³)\n";
+}
+$sql .= "\n";
 
-$sql .= "INSERT INTO readings (value, timestamp, error_code, error_message) VALUES\n";
+$sql .= "INSERT INTO readings (device_id, value, timestamp, error_code, error_message) VALUES\n";
 
 for ($i = 0; $i < count($readings); $i++) {
     $r = $readings[$i];
     $errorMsg = $r['error_message'] ? "'" . addslashes($r['error_message']) . "'" : "NULL";
-    $sql .= "(" . $r['value'] . ", " . $r['timestamp'] . ", " . $r['error_code'] . ", " . $errorMsg . ")";
+    $sql .= "('" . $r['device_id'] . "', " . $r['value'] . ", " . $r['timestamp'] . ", " . $r['error_code'] . ", " . $errorMsg . ")";
     
     if ($i < count($readings) - 1) {
         $sql .= ",\n";
@@ -72,23 +79,17 @@ for ($i = 0; $i < count($readings); $i++) {
     }
 }
 
-// Output to file
-file_put_contents('/var/www/html/iotdigi/fake_data.sql', $sql);
+// Output to file in current directory for easier access
+$outputFile = __DIR__ . '/fake_data.sql';
+file_put_contents($outputFile, $sql);
 
 echo "✓ Fake data generated successfully!\n";
 echo "Total readings: " . count($readings) . "\n";
-echo "Period: 1/11/2025 to 14/12/2025\n";
-echo "Starting value: " . $startingValue . " m³\n";
-echo "Final value: " . $currentValue . " m³\n";
-echo "Total consumption: " . round($currentValue - $startingValue, 2) . " m³\n";
-echo "File: /var/www/html/iotdigi/fake_data.sql\n";
+echo "Period: " . $startDate->format('d/m/Y') . " to " . $endDate->format('d/m/Y H:i') . "\n";
 
-// Output sample readings
-echo "\nSample readings (first 24):\n";
-for ($i = 0; $i < min(24, count($readings)); $i++) {
-    $r = $readings[$i];
-    $date = new DateTime();
-    $date->setTimestamp($r['timestamp']);
-    echo $date->format('Y-m-d H:i:s') . " => " . $r['value'] . " m³\n";
+foreach ($devices as $id => $data) {
+    echo "Device $id: " . $data['start'] . " -> " . $data['current'] . " m³ (+" . round($data['current'] - $data['start'], 2) . ")\n";
 }
+
+echo "File: " . $outputFile . "\n";
 ?>

@@ -6,22 +6,30 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 $is_api = isset($_GET['type']);
 
 if ($is_api) {
+    require_once 'auth_check.php';
     // API Mode - Return JSON
     header('Content-Type: application/json');
     
     // Database connection
-    $host = 'localhost';
-    $user = 'iotdigi';
-    $pass = 'iotdigi11';
-    $db = 'iotdigi_db';
+    require_once 'db/database_config.php';
+    $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-    $conn = new mysqli($host, $user, $pass, $db);
     if ($conn->connect_error) {
         die(json_encode([
             'status' => 'error',
             'message' => 'Database connection failed: ' . $conn->connect_error
         ]));
     }
+    
+    $targetDeviceId = getTargetDeviceId();
+
+    if (!$targetDeviceId) {
+        echo json_encode(['status' => 'success', 'data' => []]);
+        $conn->close();
+        exit;
+    }
+    
+    $deviceId = $conn->real_escape_string($targetDeviceId);
 
     $response = [
         'status' => 'success',
@@ -43,7 +51,8 @@ if ($is_api) {
                 error_code,
                 error_message
             FROM readings
-            WHERE DATE(CONVERT_TZ(FROM_UNIXTIME(timestamp), '+00:00', '+07:00')) = '$date'
+            WHERE device_id = '$deviceId' 
+              AND DATE(CONVERT_TZ(FROM_UNIXTIME(timestamp), '+00:00', '+07:00')) = '$date'
             ORDER BY timestamp DESC
         ");
         
@@ -74,7 +83,8 @@ if ($is_api) {
                 start_value,
                 end_value
             FROM daily_usage
-            WHERE YEAR(date) = $year AND MONTH(date) = $month
+            WHERE device_id = '$deviceId' 
+              AND YEAR(date) = $year AND MONTH(date) = $month
             ORDER BY date DESC
         ");
         
@@ -103,7 +113,8 @@ if ($is_api) {
                 consumption,
                 cost
             FROM monthly_usage
-            WHERE year = $year
+            WHERE device_id = '$deviceId' 
+              AND year = $year
             ORDER BY month DESC
         ");
         
@@ -130,6 +141,11 @@ if ($is_api) {
 }
 
 // HTML Mode - Return page
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html class="light" lang="en">

@@ -10,7 +10,7 @@
 #include <cstring>
 
 // Magic header for webhook binary format
-#define WEBHOOK_MAGIC_HEADER 0x4A4F4D4A  // "JOMJ"
+#define WEBHOOK_MAGIC_HEADER 0x44494749  // "DIGI"
 
 // Error code mapping
 enum ErrorCode : uint8_t {
@@ -22,7 +22,8 @@ enum ErrorCode : uint8_t {
 
 // Structure for binary packet
 struct WebhookBinaryPacket {
-    uint32_t magic;           // 0x4A4F4D4A
+    uint32_t magic;           // 0x44494749
+
     uint16_t dataLength;      // Length of data section
     uint8_t* data;            // Pointer to data
     uint16_t checksum;        // CRC16

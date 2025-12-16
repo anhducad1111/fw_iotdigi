@@ -1,14 +1,13 @@
 <?php
+require_once 'auth_check.php';
+
 // Set timezone to Vietnam (GMT+7)
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 // Database connection
-$host = 'localhost';
-$user = 'iotdigi';
-$pass = 'iotdigi11';
-$db = 'iotdigi_db';
+require_once 'db/database_config.php';
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-$conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
     header('Content-Type: application/json');
     die(json_encode([
@@ -18,6 +17,22 @@ if ($conn->connect_error) {
 }
 
 header('Content-Type: application/json');
+
+$targetDeviceId = getTargetDeviceId();
+
+if (!$targetDeviceId) {
+    // No device selected (Admin) or Invalid state
+    echo json_encode([
+        'status' => 'success',
+        'data' => [],
+        'message' => 'No device selected'
+    ]);
+    $conn->close();
+    exit;
+}
+
+// Escape device ID for safety
+$deviceId = $conn->real_escape_string($targetDeviceId);
 
 $response = [
     'status' => 'success',
@@ -39,7 +54,8 @@ if ($type === 'day') {
             error_code,
             error_message
         FROM readings
-        WHERE DATE(CONVERT_TZ(FROM_UNIXTIME(timestamp), '+00:00', '+07:00')) = '$date'
+        WHERE device_id = '$deviceId' 
+          AND DATE(CONVERT_TZ(FROM_UNIXTIME(timestamp), '+00:00', '+07:00')) = '$date'
         ORDER BY timestamp DESC
     ");
     
@@ -70,7 +86,8 @@ if ($type === 'day') {
             start_value,
             end_value
         FROM daily_usage
-        WHERE YEAR(date) = $year AND MONTH(date) = $month
+        WHERE device_id = '$deviceId'
+          AND YEAR(date) = $year AND MONTH(date) = $month
         ORDER BY date ASC
     ");
     
@@ -101,7 +118,8 @@ if ($type === 'day') {
             consumption,
             cost
         FROM monthly_usage
-        WHERE year = $year
+        WHERE device_id = '$deviceId'
+          AND year = $year
         ORDER BY month ASC
     ");
     
@@ -124,3 +142,4 @@ if ($type === 'day') {
 
 $conn->close();
 echo json_encode($response);
+?>

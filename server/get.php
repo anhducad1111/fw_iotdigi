@@ -1,16 +1,14 @@
 <?php
+require_once 'auth_check.php';
 header('Content-Type: application/json');
 
 // Set timezone to Vietnam (GMT+7)
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 // Database connection
-$host = 'localhost';
-$user = 'iotdigi';
-$pass = 'iotdigi11';
-$db = 'iotdigi_db';
+require_once 'db/database_config.php';
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-$conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
     die(json_encode([
         'status' => 'error',
@@ -26,8 +24,19 @@ $response = [
     'monthly_usage' => null
 ];
 
+$targetDeviceId = getTargetDeviceId();
+
+if (!$targetDeviceId) {
+    // No device selected or accessible
+    echo json_encode($response);
+    $conn->close();
+    exit;
+}
+
+$deviceId = $conn->real_escape_string($targetDeviceId);
+
 // Get latest reading
-$result = $conn->query("SELECT * FROM readings ORDER BY timestamp DESC LIMIT 1");
+$result = $conn->query("SELECT * FROM readings WHERE device_id = '$deviceId' ORDER BY timestamp DESC LIMIT 1");
 if ($result && $row = $result->fetch_assoc()) {
     $response['webhook_data'] = [
         'name' => 'main',
@@ -42,7 +51,7 @@ if ($result && $row = $result->fetch_assoc()) {
     ];
     
     // Get previous reading to calculate rate
-    $prevResult = $conn->query("SELECT value, timestamp FROM readings WHERE timestamp < " . $row['timestamp'] . " ORDER BY timestamp DESC LIMIT 1");
+    $prevResult = $conn->query("SELECT value, timestamp FROM readings WHERE device_id = '$deviceId' AND timestamp < " . $row['timestamp'] . " ORDER BY timestamp DESC LIMIT 1");
     if ($prevResult && $prevRow = $prevResult->fetch_assoc()) {
         $changeAbsolute = $row['value'] - $prevRow['value'];
         $timeDiffHours = ($row['timestamp'] - $prevRow['timestamp']) / 3600; // Convert seconds to hours
@@ -57,7 +66,7 @@ if ($result && $row = $result->fetch_assoc()) {
 // Get this month's cost
 $currentYear = date('Y');
 $currentMonth = date('m');
-$monthResult = $conn->query("SELECT consumption, cost FROM monthly_usage WHERE year = " . $currentYear . " AND month = " . $currentMonth);
+$monthResult = $conn->query("SELECT consumption, cost FROM monthly_usage WHERE device_id = '$deviceId' AND year = " . $currentYear . " AND month = " . $currentMonth);
 if ($monthResult && $monthRow = $monthResult->fetch_assoc()) {
     $response['monthly_cost'] = [
         'consumption' => $monthRow['consumption'],
@@ -67,13 +76,13 @@ if ($monthResult && $monthRow = $monthResult->fetch_assoc()) {
 
 // Get today's usage
 $today = date('Y-m-d');
-$todayResult = $conn->query("SELECT consumption FROM daily_usage WHERE date = '" . $today . "'");
+$todayResult = $conn->query("SELECT consumption FROM daily_usage WHERE device_id = '$deviceId' AND date = '" . $today . "'");
 if ($todayResult && $todayRow = $todayResult->fetch_assoc()) {
     $response['today_usage'] = $todayRow['consumption'];
 }
 
 // Get this month's total
-if ($monthResult) {
+if ($monthResult && isset($monthRow)) {
     $response['monthly_usage'] = $monthRow['consumption'] ?? 0;
 }
 
