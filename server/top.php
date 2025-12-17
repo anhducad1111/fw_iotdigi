@@ -81,10 +81,15 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
                         <span class="material-symbols-outlined text-lg text-primary">history</span>
                         <span class="text-neutral-700 dark:text-neutral-100">History</span>
                     </a>
+                    <a href="payment.php" class="flex items-center gap-3 px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-700 transition">
+                        <span class="material-symbols-outlined text-lg text-primary">payments</span>
+                        <span class="text-neutral-700 dark:text-neutral-100">Payment</span>
+                    </a>
                     <a href="settings.php" class="flex items-center gap-3 px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-700 transition">
                         <span class="material-symbols-outlined text-lg text-primary">settings</span>
                         <span class="text-neutral-700 dark:text-neutral-100">Settings</span>
                     </a>
+
                     <a href="logout.php" class="flex items-center gap-3 px-4 py-3 hover:bg-red-50 dark:hover:bg-red-900/20 text-red-600 dark:text-red-400 transition last:rounded-b-lg border-t border-neutral-100 dark:border-neutral-700">
                         <span class="material-symbols-outlined text-lg">logout</span>
                         <span>Logout</span>

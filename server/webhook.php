@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         
         $user_row = $result->fetch_assoc();
-        $device_id = $user_row['id'];
+        $device_id = $user_row['api_key']; // Use API Key as Device ID
         $stmt->close();
 
         // 2. Content Type Check
@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error_message = $item['error'];
             
             $stmt = $conn->prepare("INSERT INTO readings (device_id, value, timestamp, error_code, error_message) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("idiss", $device_id, $value, $timestamp, $error_code, $error_message);
+            $stmt->bind_param("sdiss", $device_id, $value, $timestamp, $error_code, $error_message);
             
             if (!$stmt->execute()) {
                 throw new Exception("Failed to insert reading: " . $stmt->error);
@@ -203,7 +203,7 @@ function update_daily_usage($conn, $timestamp, $device_id) {
     
     // Get all readings for this day and this device
     $stmt = $conn->prepare("SELECT value FROM readings WHERE device_id = ? AND DATE(FROM_UNIXTIME(timestamp)) = ? ORDER BY timestamp ASC");
-    $stmt->bind_param("is", $device_id, $date);
+    $stmt->bind_param("ss", $device_id, $date);
     $stmt->execute();
     $result = $stmt->get_result();
     
@@ -229,7 +229,7 @@ function update_daily_usage($conn, $timestamp, $device_id) {
                                 consumption = VALUES(consumption), 
                                 start_value = VALUES(start_value), 
                                 end_value = VALUES(end_value)");
-        $stmt->bind_param("isddd", $device_id, $date, $consumption, $start_value, $end_value);
+        $stmt->bind_param("ssddd", $device_id, $date, $consumption, $start_value, $end_value);
         $stmt->execute();
         $stmt->close();
     }
@@ -241,7 +241,7 @@ function update_monthly_usage($conn, $timestamp, $device_id) {
     
     // Get all readings for this month and device
     $stmt = $conn->prepare("SELECT value FROM readings WHERE device_id = ? AND YEAR(FROM_UNIXTIME(timestamp)) = ? AND MONTH(FROM_UNIXTIME(timestamp)) = ? ORDER BY timestamp ASC");
-    $stmt->bind_param("iii", $device_id, $year, $month);
+    $stmt->bind_param("sii", $device_id, $year, $month);
     $stmt->execute();
     $result = $stmt->get_result();
     
@@ -296,7 +296,7 @@ function update_monthly_usage($conn, $timestamp, $device_id) {
                                 tier_2_usage = VALUES(tier_2_usage),
                                 tier_3_usage = VALUES(tier_3_usage),
                                 tier_4_usage = VALUES(tier_4_usage)");
-        $stmt->bind_param("iiidddddd", $device_id, $year, $month, $consumption, $cost, $tier1, $tier2, $tier3, $tier4);
+        $stmt->bind_param("siidddddd", $device_id, $year, $month, $consumption, $cost, $tier1, $tier2, $tier3, $tier4);
         $stmt->execute();
         $stmt->close();
     }
