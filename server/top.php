@@ -95,3 +95,5 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
     </div>
 
     <main class="flex flex-col gap-4 p-4 max-w-6xl w-full mx-auto flex-1">
+
+<?php include 'chatbot_widget.php'; ?>

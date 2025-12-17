@@ -7,7 +7,7 @@ function updateSensorData() {
                 // Update webhook data from latest reading
                 if (data.webhook_data) {
                     const item = data.webhook_data;
-                    
+
                     // Update all webhook fields with null checks
                     const elements = {
                         'webhook-name': item.name,
@@ -22,13 +22,13 @@ function updateSensorData() {
                         'current-value-display': item.rate + ' m³/h',
                         'total-volume-display': item.value + ' m³'
                     };
-                    
+
                     for (let id in elements) {
                         const el = document.getElementById(id);
                         if (el) el.textContent = elements[id];
                     }
                 }
-                
+
                 // Update monthly cost from database
                 if (data.monthly_cost) {
                     const monthlyCostEl = document.getElementById('monthly-cost-display');
@@ -39,14 +39,14 @@ function updateSensorData() {
                 }
 
                 // Print debug info
-                console.log("Data from database:", data);
+                // console.log("Data from database:", data);
             }
         })
         .catch(console.error);
 }
 
 // Load saved threshold and start updates
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     updateSensorData();
     setInterval(updateSensorData, 5000);
 });
