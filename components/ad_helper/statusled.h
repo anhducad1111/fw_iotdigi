@@ -17,7 +17,8 @@ enum StatusLedSource {
     CAM_INIT = 5,
     PSRAM_INIT = 6,
     TIME_CHECK = 7,
-    AP_OR_OTA = 8
+    AP_OR_OTA = 8,
+    OFFLINE_CHECK = 9
 };
 
 struct StatusLEDData {

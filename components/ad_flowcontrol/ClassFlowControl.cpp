@@ -164,6 +164,7 @@ void ClassFlowControl::SetInitialParameter(void)
     AutoStart = true;
     SetupModeActive = false;
     AutoInterval = 10; // Minutes
+    AutoWait = 5; // Seconds
     flowdigit = NULL;
     flowanalog = NULL;
     flowpostprocessing = NULL;
@@ -177,6 +178,11 @@ bool ClassFlowControl::getIsAutoStart(void)
 {
     //return AutoStart;
     return true; // Flow must always be enabled, else the manual trigger (REST) will not work!
+}
+
+int ClassFlowControl::getAutoWait(void)
+{
+    return AutoWait;
 }
 
 
@@ -499,6 +505,12 @@ bool ClassFlowControl::ReadParameter(FILE* pfile, string& aktparamgraph)
         if ((toUpper(splitted[0]) == "INTERVAL") && (splitted.size() > 1)) {
             if (isStringNumeric(splitted[1])) {
                 AutoInterval = std::stof(splitted[1]);
+            }
+        }
+
+        if ((toUpper(splitted[0]) == "WAIT") && (splitted.size() > 1)) {
+            if (isStringNumeric(splitted[1])) {
+                AutoWait = std::stoi(splitted[1]);
             }
         }
 

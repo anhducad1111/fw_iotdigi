@@ -30,6 +30,7 @@ protected:
 
 	bool AutoStart;
 	float AutoInterval;
+    int AutoWait;
 	void SetInitialParameter(void);	
 	std::string aktstatusWithTime;
 	std::string aktstatus;
@@ -69,6 +70,8 @@ public:
 	std::string* getActStatusWithTime();
 	std::string* getActStatus();
 	void setActStatus(std::string _aktstatus);
+    
+    int getAutoWait();
 
 	std::vector<HTMLInfo*> GetAllDigit();
 	std::vector<HTMLInfo*> GetAllAnalog();	

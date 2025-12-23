@@ -118,6 +118,12 @@ void StatusLED(StatusLedSource _eSource, int _iCode, bool _bInfinite)
 		StatusLEDData.iBlinkTime = 350;
 		StatusLEDData.bInfinite = _bInfinite;
 	}
+	else if (_eSource == OFFLINE_CHECK) {
+		StatusLEDData.iSourceBlinkCnt = OFFLINE_CHECK;
+		StatusLEDData.iCodeBlinkCnt = _iCode;
+		StatusLEDData.iBlinkTime = 1000; // Slow blink for waiting
+		StatusLEDData.bInfinite = _bInfinite;
+	}
 
 	if (xHandle_task_StatusLED && !StatusLEDData.bProcessingRequest) {
 		StatusLEDData.bProcessingRequest = true;

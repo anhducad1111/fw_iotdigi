@@ -1,6 +1,7 @@
 #include "MainFlowControl.h"
 
 #include <string>
+#include "esp_sleep.h"
 #include <vector>
 #include "string.h"
 #include "esp_log.h"
@@ -1705,12 +1706,21 @@ void task_autodoFlow(void *pvParameter)
 
         fr_delta_ms = (esp_timer_get_time() - fr_start) / 1000;
 
-        if (auto_interval > fr_delta_ms)
-        {
-            const TickType_t xDelay = (auto_interval - fr_delta_ms) / portTICK_PERIOD_MS;
-            ESP_LOGD(TAG, "Autoflow: sleep for: %ldms", (long)xDelay);
-            vTaskDelay(xDelay);
+        // Active Wait (Wait before Deep Sleep to allow web access)
+        int64_t wait_ms = flowctrl.getAutoWait() * 1000;
+        
+        if (wait_ms > 0) {
+            StatusLED(OFFLINE_CHECK, 1, true);
+            LogFile.WriteToFile(ESP_LOG_INFO, TAG, "Autoflow: Active Wait for " + std::to_string(wait_ms/1000) + "s...");
+            vTaskDelay(wait_ms / portTICK_PERIOD_MS);
         }
+
+        // Deep Sleep (AutoInterval)
+        int64_t sleep_time_us = (int64_t)auto_interval * 1000; // auto_interval is in ms (minutes * 60 * 1000)
+        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "Autoflow: Entering Deep Sleep for " + std::to_string(sleep_time_us/1000000) + "s");
+        
+        esp_sleep_enable_timer_wakeup(sleep_time_us);
+        esp_deep_sleep_start();
     }
 
     while (1)
