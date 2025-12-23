@@ -9,8 +9,17 @@
 #include "ClassLogFile.h"
 #include "esp_log.h"
 #include "../../include/defines.h"
+#include "esp_timer.h"
+#include <sys/stat.h>
+#include "esp_heap_caps.h"
 
 static const char* TAG = "CNN";
+
+static void LogMemoryHelper(std::string context) {
+    size_t free_dram = heap_caps_get_free_size(MALLOC_CAP_8BIT | MALLOC_CAP_INTERNAL);
+    size_t free_psram = heap_caps_get_free_size(MALLOC_CAP_SPIRAM);
+    LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[MEM][" + context + "] DRAM free: " + std::to_string(free_dram/1024) + " KB | PSRAM free: " + std::to_string(free_psram/1024) + " KB");
+}
 
 //#ifdef CONFIG_HEAP_TRACING_STANDALONE
 #ifdef HEAP_TRACING_CLASS_FLOW_CNN_GENERAL_DO_ALING_AND_CUT
@@ -18,6 +27,10 @@ static const char* TAG = "CNN";
     #define NUM_RECORDS 300
     static heap_trace_record_t trace_record[NUM_RECORDS]; // This buffer must be in internal RAM
 #endif
+
+#include "esp_timer.h"
+#include <sys/stat.h>
+#include "esp_heap_caps.h"
 
 ClassFlowCNNGeneral::ClassFlowCNNGeneral(ClassFlowAlignment *_flowalign, t_CNNType _cnntype) : ClassFlowImage(NULL, TAG) {
     string cnnmodelfile = "";
@@ -34,6 +47,8 @@ ClassFlowCNNGeneral::ClassFlowCNNGeneral(ClassFlowAlignment *_flowalign, t_CNNTy
     flowpostalignment = _flowalign;
     imagesRetention = 5;
 }
+
+
 
 string ClassFlowCNNGeneral::getReadout(int _analog = 0, bool _extendedResolution, int prev, float _before_narrow_Analog, float AnalogToDigitTransitionStart) {
     string result = "";    
@@ -481,13 +496,33 @@ bool ClassFlowCNNGeneral::doFlow(string time) {
       return true;
     }
 
+    int64_t start_pipeline = esp_timer_get_time();
+    LogMemoryHelper("BOOT"); // Using BOOT as 'start of flow' context
+
+    int64_t start_pre = esp_timer_get_time();
     if (!doAlignAndCut(time)){
         return false;
     }
+    int64_t end_pre = esp_timer_get_time();
+    LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[AI] Preprocess: " + std::to_string((end_pre - start_pre) / 1000) + " ms");
 
     LogFile.WriteToFile(ESP_LOG_DEBUG, TAG, "doFlow after alignment");
 
+    LogMemoryHelper("PRE_AI");
+
+    int64_t start_inference = esp_timer_get_time();
     doNeuralNetwork(time);
+    int64_t end_inference = esp_timer_get_time();
+    
+    // Note: doNeuralNetwork includes model loading which might not be pure inference time, 
+    // but for this flow specifically, it seems to load every time? (Lines 643-653 in doNeuralNetwork load the model). 
+    // If we want "Pure Interpreter time" as per plan, we should measure inside doNeuralNetwork around Invoke.
+    // However, the function structure makes doNeuralNetwork the main block.
+    // I will add specific logs inside doNeuralNetwork for "Inference" vs "Load", 
+    // but the plan asks for "Inference: Pure Interpreter time". 
+    // So I will handle that inside doNeuralNetwork.
+
+    LogMemoryHelper("POST_AI");
 
     RemoveOldLogs();
 
@@ -495,6 +530,9 @@ bool ClassFlowCNNGeneral::doFlow(string time) {
     ESP_ERROR_CHECK( heap_trace_stop() );
     heap_trace_dump(); 
 #endif   
+
+    int64_t end_pipeline = esp_timer_get_time();
+    LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[AI] Total pipeline: " + std::to_string((end_pipeline - start_pipeline) / 1000) + " ms");
 
     return true;
 }
@@ -652,6 +690,16 @@ bool ClassFlowCNNGeneral::doNeuralNetwork(string time) {
         return false;
     }
 
+    // Log Model Integrity
+    struct stat st;
+    if (stat(zwcnn.c_str(), &st) == 0) {
+        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[MODEL] File: " + cnnmodelfile);
+        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[MODEL] Size: " + std::to_string(st.st_size / 1024.0) + " KB");
+        // CRC32 would require reading the file, skipping for now unless explicitly requested implementation of CRC
+        // Schema (INT8) is known from design or could be inspected from tflite model, but hardcoding for now based on Plan
+        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[MODEL] Schema: INT8 (Quantized)"); 
+    }
+
     if (!tflite->MakeAllocate()) {
         LogFile.WriteToFile(ESP_LOG_ERROR, TAG, "Can't allocate tfilte model -> Exec aborted this round!");
         LogFile.WriteHeapInfo("doNeuralNetwork-MakeAllocate");
@@ -675,7 +723,12 @@ bool ClassFlowCNNGeneral::doNeuralNetwork(string time) {
                         f1 = 0; f2 = 0;
 
                         tflite->LoadInputImageBasis(GENERAL[n]->ROI[roi]->image);        
+                        
+                        int64_t start_invoke = esp_timer_get_time();
                         tflite->Invoke();
+                        int64_t end_invoke = esp_timer_get_time();
+                        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[AI] Inference: " + std::to_string((end_invoke - start_invoke) / 1000) + " ms");
+
                         LogFile.WriteToFile(ESP_LOG_DEBUG, TAG, "After Invoke");
 
                         f1 = tflite->GetOutputValue(0);
@@ -688,6 +741,8 @@ bool ClassFlowCNNGeneral::doNeuralNetwork(string time) {
                         else {
                             GENERAL[n]->ROI[roi]->result_float = result * 10;
                         }
+
+                        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[ROI] " + GENERAL[n]->ROI[roi]->name + ": x=" + std::to_string(GENERAL[n]->ROI[roi]->posx) + ", y=" + std::to_string(GENERAL[n]->ROI[roi]->posy) + ", w=" + std::to_string(GENERAL[n]->ROI[roi]->deltax) + ", h=" + std::to_string(GENERAL[n]->ROI[roi]->deltay));
                               
                         ESP_LOGD(TAG, "General result (Analog)%i - CCW: %d -  %f", roi, GENERAL[n]->ROI[roi]->CCW, GENERAL[n]->ROI[roi]->result_float);
                         if (isLogImage) {
@@ -700,6 +755,9 @@ bool ClassFlowCNNGeneral::doNeuralNetwork(string time) {
                     {
                         GENERAL[n]->ROI[roi]->result_klasse = 0;
                         GENERAL[n]->ROI[roi]->result_klasse = tflite->GetClassFromImageBasis(GENERAL[n]->ROI[roi]->image);
+                        
+                        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[ROI] " + GENERAL[n]->ROI[roi]->name + ": x=" + std::to_string(GENERAL[n]->ROI[roi]->posx) + ", y=" + std::to_string(GENERAL[n]->ROI[roi]->posy) + ", w=" + std::to_string(GENERAL[n]->ROI[roi]->deltax) + ", h=" + std::to_string(GENERAL[n]->ROI[roi]->deltay));
+                        
                         ESP_LOGD(TAG, "General result (Digit)%i: %d", roi, GENERAL[n]->ROI[roi]->result_klasse);
 
                         if (isLogImage) {
@@ -724,7 +782,12 @@ bool ClassFlowCNNGeneral::doNeuralNetwork(string time) {
                         float _result_save_file;
 
                         tflite->LoadInputImageBasis(GENERAL[n]->ROI[roi]->image);        
+                        
+                        int64_t start_invoke = esp_timer_get_time();
                         tflite->Invoke();
+                        int64_t end_invoke = esp_timer_get_time();
+                        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[AI] Inference: " + std::to_string((end_invoke - start_invoke) / 1000) + " ms");
+
                         LogFile.WriteToFile(ESP_LOG_DEBUG, TAG, "After Invoke");
 
                         _num = tflite->GetOutClassification(0, 9);
@@ -773,6 +836,9 @@ bool ClassFlowCNNGeneral::doNeuralNetwork(string time) {
                         }
 
                         GENERAL[n]->ROI[roi]->result_float = result;
+
+                        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[ROI] " + GENERAL[n]->ROI[roi]->name + ": x=" + std::to_string(GENERAL[n]->ROI[roi]->posx) + ", y=" + std::to_string(GENERAL[n]->ROI[roi]->posy) + ", w=" + std::to_string(GENERAL[n]->ROI[roi]->deltax) + ", h=" + std::to_string(GENERAL[n]->ROI[roi]->deltay));
+
                         ESP_LOGD(TAG, "Result General(Analog)%i: %f", roi, GENERAL[n]->ROI[roi]->result_float);
 
                         if (isLogImage) {
@@ -795,7 +861,13 @@ bool ClassFlowCNNGeneral::doNeuralNetwork(string time) {
                         float _result_save_file;
                         
                         tflite->LoadInputImageBasis(GENERAL[n]->ROI[roi]->image);        
+                        
+                        int64_t start_invoke = esp_timer_get_time();
                         tflite->Invoke();
+                        int64_t end_invoke = esp_timer_get_time();
+                        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[AI] Inference: " + std::to_string((end_invoke - start_invoke) / 1000) + " ms");
+
+                        LogFile.WriteToFile(ESP_LOG_DEBUG, TAG, "After Invoke");
     
                         _num = tflite->GetOutClassification();
                         

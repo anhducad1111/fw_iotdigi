@@ -23,10 +23,18 @@
 
 static const char *TAG = "TAKEIMAGE";
 
+#include "esp_timer.h"
+
 esp_err_t ClassFlowTakeImage::camera_capture(void)
 {
     string nm = namerawimage;
+    
+    int64_t start = esp_timer_get_time();
     Camera.CaptureToFile(nm);
+    int64_t end = esp_timer_get_time();
+    
+    LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[CAM] Capture: " + std::to_string((end - start) / 1000) + " ms");
+
     time(&TimeImageTaken);
     localtime(&TimeImageTaken);
 
@@ -563,7 +571,12 @@ bool ClassFlowTakeImage::doFlow(string zwtime)
         CFstatus.changedCameraSettings = false;
     }
 
+    LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[CAM] Init: Res: " + std::to_string(CCstatus.ImageFrameSize) + " | Zoom: " + (CCstatus.ImageZoomEnabled ? "On" : "Off"));
+
+    int64_t start_cap = esp_timer_get_time();
     takePictureWithFlash(flash_duration);
+    int64_t end_cap = esp_timer_get_time();
+    LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[CAM] Capture: " + std::to_string((end_cap - start_cap) / 1000) + " ms");
 
 #ifdef WIFITURNOFF
     esp_wifi_start();

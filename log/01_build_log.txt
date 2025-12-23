@@ -1,115 +1,4 @@
-"=== BUILD START - 2025-12-16 09:32 AM: ===" 
-In file included from components/ad_controlGPIO/RmtDriver.h:57,
-                 from components/ad_controlGPIO/SmartLeds.h:70,
-                 from components/ad_controlGPIO/server_GPIO.h:12,
-                 from components/ad_controlcamera/ClassControlCamera.cpp:14:
-components/ad_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
-   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
-      |  ^~~~~~~
-In file included from components/ad_controlGPIO/RmtDriver.h:57,
-                 from components/ad_controlGPIO/SmartLeds.h:70,
-                 from components/ad_controlGPIO/server_GPIO.h:12,
-                 from main/server_main.h:13,
-                 from main/server_main.cpp:1:
-components/ad_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
-   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
-      |  ^~~~~~~
-In file included from components/ad_controlGPIO/RmtDriver.h:57,
-                 from components/ad_controlGPIO/SmartLeds.h:70,
-                 from components/ad_controlGPIO/server_GPIO.h:12,
-                 from components/ad_fileserver_ota/server_file.cpp:40:
-components/ad_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
-   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
-      |  ^~~~~~~
-In file included from components/ad_controlGPIO/RmtDriver.h:57,
-                 from components/ad_controlGPIO/SmartLeds.h:70,
-                 from components/ad_controlGPIO/server_GPIO.h:12,
-                 from components/ad_controlGPIO/server_GPIO.cpp:17:
-components/ad_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
-   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
-      |  ^~~~~~~
-In file included from components/ad_controlGPIO/RmtDriver.h:57,
-                 from components/ad_controlGPIO/SmartLeds.h:70,
-                 from components/ad_controlGPIO/server_GPIO.h:12,
-                 from main/server_main.h:13,
-                 from main/main.cpp:28:
-components/ad_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
-   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
-      |  ^~~~~~~
-components/ad_controlcamera/ClassControlCamera.cpp:105:1: warning: missing initializer for member 'camera_config_t::sccb_i2c_port' [-Wmissing-field-initializers]
-  105 | };
-      | ^
-components/ad_controlGPIO/server_GPIO.cpp: In member function 'void GpioPin::init()':
-components/ad_controlGPIO/server_GPIO.cpp:98:66: warning: comparison between 'enum gpio_int_type_t' and 'enum gpio_pin_mode_t' [-Wenum-compare]
-   98 |     if ((_interruptType != GPIO_INTR_DISABLE) && (_interruptType != GPIO_PIN_MODE_EXTERNAL_FLASH_WS281X)) {
-      |                                                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-main/main.cpp: In function 'bool Init_NVS_SDCard()':
-main/main.cpp:167:5: warning: missing initializer for member 'esp_vfs_fat_mount_config_t::use_one_fat' [-Wmissing-field-initializers]
-  167 |     };
-      |     ^
-In file included from components/ad_controlGPIO/RmtDriver.h:57,
-                 from components/ad_controlGPIO/SmartLeds.h:70,
-                 from components/ad_controlGPIO/server_GPIO.h:12,
-                 from components/ad_fileserver_ota/server_ota.cpp:33:
-components/ad_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
-   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
-      |  ^~~~~~~
-In file included from components/ad_controlGPIO/RmtDriver.h:57,
-                 from components/ad_controlGPIO/SmartLeds.h:70,
-                 from components/ad_controlGPIO/server_GPIO.h:12,
-                 from components/ad_flowcontrol/MainFlowControl.cpp:23:
-components/ad_controlGPIO/RmtDriver5.h:40:2: warning: #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." "without it, the IDF driver is not able to supply data fast enough." [-Wcpp]
-   40 | #warning "Please enable CONFIG_RMT_ISR_IRAM_SAFE IDF option." \
-      |  ^~~~~~~
-In file included from components/ad_image_proc/make_stb.cpp:25:
-components/ad_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_bmp_to_func(void (*)(void*, void*, int), void*, int, int, int, const void*)':
-components/ad_image_proc/../stb/stb_image_write.h:514:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
-  514 |    stbi__write_context s = { 0 };
-      |                                ^
-components/ad_image_proc/../stb/stb_image_write.h:514:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h:514:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_bmp(const char*, int, int, int, const void*)':
-components/ad_image_proc/../stb/stb_image_write.h:522:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
-  522 |    stbi__write_context s = { 0 };
-      |                                ^
-components/ad_image_proc/../stb/stb_image_write.h:522:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h:522:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_tga_to_func(void (*)(void*, void*, int), void*, int, int, int, const void*)':
-components/ad_image_proc/../stb/stb_image_write.h:613:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
-  613 |    stbi__write_context s = { 0 };
-      |                                ^
-components/ad_image_proc/../stb/stb_image_write.h:613:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h:613:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_tga(const char*, int, int, int, const void*)':
-components/ad_image_proc/../stb/stb_image_write.h:621:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
-  621 |    stbi__write_context s = { 0 };
-      |                                ^
-components/ad_image_proc/../stb/stb_image_write.h:621:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h:621:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_hdr_to_func(void (*)(void*, void*, int), void*, int, int, int, const float*)':
-components/ad_image_proc/../stb/stb_image_write.h:789:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
-  789 |    stbi__write_context s = { 0 };
-      |                                ^
-components/ad_image_proc/../stb/stb_image_write.h:789:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h:789:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_hdr(const char*, int, int, int, const float*)':
-components/ad_image_proc/../stb/stb_image_write.h:796:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
-  796 |    stbi__write_context s = { 0 };
-      |                                ^
-components/ad_image_proc/../stb/stb_image_write.h:796:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h:796:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_jpg_to_func(void (*)(void*, void*, int), void*, int, int, int, const void*, int)':
-components/ad_image_proc/../stb/stb_image_write.h:1609:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
- 1609 |    stbi__write_context s = { 0 };
-      |                                ^
-components/ad_image_proc/../stb/stb_image_write.h:1609:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h:1609:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h: In function 'int stbi_write_jpg(const char*, int, int, int, const void*, int)':
-components/ad_image_proc/../stb/stb_image_write.h:1618:32: warning: missing initializer for member 'stbi__write_context::context' [-Wmissing-field-initializers]
- 1618 |    stbi__write_context s = { 0 };
-      |                                ^
-components/ad_image_proc/../stb/stb_image_write.h:1618:32: warning: missing initializer for member 'stbi__write_context::buffer' [-Wmissing-field-initializers]
-components/ad_image_proc/../stb/stb_image_write.h:1618:32: warning: missing initializer for member 'stbi__write_context::buf_used' [-Wmissing-field-initializers]
+"=== BUILD START - 2025-12-17 09:12 PM: ===" 
 In file included from components/esp-tflite-micro/tensorflow/lite/micro/micro_mutable_op_resolver.h:22,
                  from components/ad_tfliteclass/CTfLiteClass.h:6,
                  from components/ad_flowcontrol/ClassFlowCNNGeneral.cpp:8:
@@ -117,58 +6,18 @@ components/esp-tflite-micro/tensorflow/lite/core/api/flatbuffer_conversions.h: I
 components/esp-tflite-micro/tensorflow/lite/core/api/flatbuffer_conversions.h:46:24: warning: 'template<class _Tp> struct std::is_pod' is deprecated: use 'is_standard_layout && is_trivial' instead [-Wdeprecated-declarations]
    46 |     static_assert(std::is_pod<T>::value, "Builtin data structure must be POD.");
       |                        ^~~~~~
-In file included from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/bits/move.h:37,
-                 from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/bits/exception_ptr.h:41,
-                 from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/exception:164,
-                 from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/ios:41,
-                 from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/istream:40,
-                 from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/fstream:40,
+In file included from C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/bits/move.h:37,
+                 from C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/bits/exception_ptr.h:41,
+                 from C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/exception:164,
+                 from C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/ios:41,
+                 from C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/istream:40,
+                 from C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/fstream:40,
                  from components/ad_flowcontrol/ClassFlow.h:6,
                  from components/ad_flowcontrol/ClassFlowImage.h:6,
                  from components/ad_flowcontrol/ClassFlowDefineTypes.h:6,
                  from components/ad_flowcontrol/ClassFlowCNNGeneral.h:6,
                  from components/ad_flowcontrol/ClassFlowCNNGeneral.cpp:1:
-C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/type_traits:819:5: note: declared here
+C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/type_traits:819:5: note: declared here
   819 |     is_pod
       |     ^~~~~~
-components\ad_time_sntp\time_sntp.cpp: In function 'std::string getServerName()':
-components\ad_time_sntp\time_sntp.cpp:188:27: warning: 'const char* sntp_getservername(u8_t)' is deprecated: use esp_sntp_getservername() instead [-Wdeprecated-declarations]
-  188 |     if (sntp_getservername(0)){
-      |         ~~~~~~~~~~~~~~~~~~^~~
-In file included from components\ad_time_sntp\time_sntp.h:17,
-                 from components\ad_time_sntp\time_sntp.cpp:1:
-C:\Users\enabl\.platformio\packages\framework-espidf\components\lwip\include\apps/esp_sntp.h:275:13: note: declared here
-  275 | const char *sntp_getservername(u8_t idx)
-      |             ^~~~~~~~~~~~~~~~~~
-components\ad_time_sntp\time_sntp.cpp:189:60: warning: 'const char* sntp_getservername(u8_t)' is deprecated: use esp_sntp_getservername() instead [-Wdeprecated-declarations]
-  189 |         snprintf(buf, sizeof(buf), "%s", sntp_getservername(0));
-      |                                          ~~~~~~~~~~~~~~~~~~^~~
-C:\Users\enabl\.platformio\packages\framework-espidf\components\lwip\include\apps/esp_sntp.h:275:13: note: declared here
-  275 | const char *sntp_getservername(u8_t idx)
-      |             ^~~~~~~~~~~~~~~~~~
-components\ad_time_sntp\time_sntp.cpp:193:45: warning: 'const ip_addr_t* sntp_getserver(u8_t)' is deprecated: use esp_sntp_getserver() instead [-Wdeprecated-declarations]
-  193 |         ip_addr_t const *ip = sntp_getserver(0);
-      |                               ~~~~~~~~~~~~~~^~~
-C:\Users\enabl\.platformio\packages\framework-espidf\components\lwip\include\apps/esp_sntp.h:281:18: note: declared here
-  281 | const ip_addr_t* sntp_getserver(u8_t idx)
-      |                  ^~~~~~~~~~~~~~
-In file included from components/esp-tflite-micro/tensorflow/lite/micro/micro_mutable_op_resolver.h:22,
-                 from components/ad_tfliteclass/CTfLiteClass.h:6,
-                 from components/ad_tfliteclass/CTfLiteClass.cpp:1:
-components/esp-tflite-micro/tensorflow/lite/core/api/flatbuffer_conversions.h: In member function 'T* tflite::BuiltinDataAllocator::AllocatePOD()':
-components/esp-tflite-micro/tensorflow/lite/core/api/flatbuffer_conversions.h:46:24: warning: 'template<class _Tp> struct std::is_pod' is deprecated: use 'is_standard_layout && is_trivial' instead [-Wdeprecated-declarations]
-   46 |     static_assert(std::is_pod<T>::value, "Builtin data structure must be POD.");
-      |                        ^~~~~~
-In file included from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/bits/stl_pair.h:60,
-                 from C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/utility:69,
-                 from components/esp-tflite-micro/tensorflow/lite/core/c/common.h:1465,
-                 from components/esp-tflite-micro/tensorflow/lite/c/common.h:31,
-                 from components/esp-tflite-micro/tensorflow/lite/micro/micro_mutable_op_resolver.h:21:
-C:/Users/enabl/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/include/c++/13.2.0/type_traits:819:5: note: declared here
-  819 |     is_pod
-      |     ^~~~~~
-
-********************************************************************************
-We found 738.18MB of unnecessary PlatformIO system data (temporary files, unnecessary packages, etc.).
-Use `pio system prune --dry-run` to list them or `pio system prune` to save disk space.
-"=== BUILD SUCCESS - 2025-12-16 09:32 AM: ===" 
+"=== BUILD SUCCESS - 2025-12-17 09:12 PM: ===" 

@@ -27,11 +27,20 @@ $ERROR_CODES = [
 ];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Debug logging
+    $log_file = 'webhook_debug.log';
+    $log_data = date('[Y-m-d H:i:s] ') . "Incoming POST request\n";
+    $log_data .= "Headers: " . json_encode(getallheaders()) . "\n";
+    $body = file_get_contents('php://input');
+    $log_data .= "Body Length: " . strlen($body) . " bytes\n";
+    $log_data .= "Body Hex: " . bin2hex(substr($body, 0, 32)) . "...\n";
+    file_put_contents($log_file, $log_data, FILE_APPEND);
+
     try {
         // 1. API Key Check
         $api_key = $_SERVER['HTTP_APIKEY'] ?? '';
         
-        $stmt = $conn->prepare("SELECT id FROM users WHERE api_key = ?");
+        $stmt = $conn->prepare("SELECT id, api_key FROM users WHERE api_key = ?");
         $stmt->bind_param("s", $api_key);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -43,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         
         $user_row = $result->fetch_assoc();
-        $device_id = $user_row['api_key']; // Use API Key as Device ID
+        $device_id = $api_key; // Use the provided API Key as Device ID
         $stmt->close();
 
         // 2. Content Type Check
@@ -66,36 +75,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $parsed = parse_binary_packet($body);
 
         // 5. Save to database
-        if (!empty($parsed['items'])) {
-            $item = $parsed['items'][0];
+        foreach ($parsed['items'] as $item) {
             $value = floatval($item['value']);
             $timestamp = intval($item['timestamp']);
             $error_code = intval($item['errorCode']);
-            $error_message = $item['error'];
+            $error_message = ($error_code === 0) ? null : $item['error'];
             
-            $stmt = $conn->prepare("INSERT INTO readings (device_id, value, timestamp, error_code, error_message) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sdiss", $device_id, $value, $timestamp, $error_code, $error_message);
-            
-            if (!$stmt->execute()) {
-                throw new Exception("Failed to insert reading: " . $stmt->error);
+            if ($error_code === 0) {
+                // No error: save to readings and update usage
+                $stmt = $conn->prepare("INSERT INTO readings (device_id, value, timestamp, error_code, error_message) VALUES (?, ?, ?, ?, ?)");
+                $stmt->bind_param("sdiss", $device_id, $value, $timestamp, $error_code, $error_message);
+                
+                if (!$stmt->execute()) {
+                    throw new Exception("Failed to insert reading: " . $stmt->error);
+                }
+                $stmt->close();
+                
+                // Update daily_usage for this day
+                update_daily_usage($conn, $timestamp, $device_id);
+                
+                // Update monthly_usage for this month
+                update_monthly_usage($conn, $timestamp, $device_id);
+                
+                file_put_contents($log_file, date('[Y-m-d H:i:s] ') . "Action: Saved to readings\n", FILE_APPEND);
+            } else {
+                // Has error: save to alerts table
+                $type = explode(' - ', $item['error'])[0]; // e.g., "Neg. Rate"
+                $stmt = $conn->prepare("INSERT INTO alerts (device_id, type, message, value_at_event, timestamp) VALUES (?, ?, ?, ?, ?)");
+                $stmt->bind_param("sssdi", $device_id, $type, $item['error'], $value, $timestamp);
+                
+                if (!$stmt->execute()) {
+                    throw new Exception("Failed to insert alert: " . $stmt->error);
+                }
+                $stmt->close();
+                
+                file_put_contents($log_file, date('[Y-m-d H:i:s] ') . "Action: Saved to alerts (Error: " . $item['error'] . ")\n", FILE_APPEND);
+                error_log("Alert saved for device $device_id: " . $item['error']);
             }
-            $stmt->close();
-            
-            // Update daily_usage for this day
-            update_daily_usage($conn, $timestamp, $device_id);
-            
-            // Update monthly_usage for this month
-            update_monthly_usage($conn, $timestamp, $device_id);
         }
 
         // 6. Log
         error_log("Webhook received and saved to database: " . json_encode($parsed));
 
         echo json_encode(["status" => "success", "data" => $parsed]);
+        file_put_contents($log_file, date('[Y-m-d H:i:s] ') . "Success: " . json_encode($parsed) . "\n", FILE_APPEND);
 
     } catch (Exception $e) {
         http_response_code(500);
         echo json_encode(["status" => "error", "message" => $e->getMessage()]);
+        file_put_contents($log_file, date('[Y-m-d H:i:s] ') . "Error: " . $e->getMessage() . "\n", FILE_APPEND);
     } finally {
         if (isset($conn)) {
             $conn->close();
@@ -145,8 +173,8 @@ function parse_binary_packet($data) {
         $item = [];
 
         // Read strings
-        // NOTE: Name field removed from binary protocol
-        // $item['name'] = read_string($data_section, $offset);
+        // NOTE: We read the name but don't necessarily use it, to keep offsets correct
+        $item['name'] = read_string($data_section, $offset);
         
         $unpacked = unpack('J', substr($data_section, $offset, 8));
         $item['timestamp'] = $unpacked[1];
@@ -201,8 +229,8 @@ function calculate_crc16($data) {
 function update_daily_usage($conn, $timestamp, $device_id) {
     $date = date('Y-m-d', $timestamp);
     
-    // Get all readings for this day and this device
-    $stmt = $conn->prepare("SELECT value FROM readings WHERE device_id = ? AND DATE(FROM_UNIXTIME(timestamp)) = ? ORDER BY timestamp ASC");
+    // Get all readings for this day and this device (only valid ones)
+    $stmt = $conn->prepare("SELECT value FROM readings WHERE device_id = ? AND DATE(FROM_UNIXTIME(timestamp)) = ? AND error_code = 0 ORDER BY timestamp ASC");
     $stmt->bind_param("ss", $device_id, $date);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -239,8 +267,8 @@ function update_monthly_usage($conn, $timestamp, $device_id) {
     $year = date('Y', $timestamp);
     $month = date('m', $timestamp);
     
-    // Get all readings for this month and device
-    $stmt = $conn->prepare("SELECT value FROM readings WHERE device_id = ? AND YEAR(FROM_UNIXTIME(timestamp)) = ? AND MONTH(FROM_UNIXTIME(timestamp)) = ? ORDER BY timestamp ASC");
+    // Get all readings for this month and device (only valid ones)
+    $stmt = $conn->prepare("SELECT value FROM readings WHERE device_id = ? AND YEAR(FROM_UNIXTIME(timestamp)) = ? AND MONTH(FROM_UNIXTIME(timestamp)) = ? AND error_code = 0 ORDER BY timestamp ASC");
     $stmt->bind_param("sii", $device_id, $year, $month);
     $stmt->execute();
     $result = $stmt->get_result();

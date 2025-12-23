@@ -15,6 +15,8 @@
 #include "ClassLogFile.h"
 
 #include <time.h>
+#include "esp_wifi.h"       // Add this
+#include "esp_timer.h"      // Add this
 
 static const char* TAG = "WEBHOOK";
 
@@ -134,7 +136,18 @@ bool ClassFlowWebhook::doFlow(string zwtime)
 
     if (flowpostprocessing)
     {
-        bool numbersWithError = WebhookPublish(flowpostprocessing->GetNumbers());
+        wifi_ap_record_t ap_info;
+        if (esp_wifi_sta_get_ap_info(&ap_info) == ESP_OK) {
+             LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[NET] WiFi RSSI: " + std::to_string(ap_info.rssi) + " dBm | Channel: " + std::to_string(ap_info.primary));
+        }
+
+        int64_t start_upload = esp_timer_get_time();
+        std::vector<NumberPost*>* numbers = flowpostprocessing->GetNumbers();
+        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "Publishing " + std::to_string(numbers->size()) + " numbers");
+        bool numbersWithError = WebhookPublish(numbers);
+        int64_t end_upload = esp_timer_get_time();
+        
+        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[NET] Upload: " + std::to_string((end_upload - start_upload) / 1000) + " ms");
 
         #ifdef ALGROI_LOAD_FROM_MEM_AS_JPG
             if ((WebhookUploadImg == 1 || (WebhookUploadImg != 0 && numbersWithError)) && flowAlignment && flowAlignment->AlgROI) {

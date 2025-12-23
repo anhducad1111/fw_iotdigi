@@ -830,6 +830,24 @@ bool ClassFlowPostProcessing::doFlow(string zwtime) {
         #ifdef SERIAL_DEBUG
             ESP_LOGD(TAG, "After digit->getReadout: ReturnRaw %s", NUMBERS[j]->ReturnRawValue.c_str());
         #endif
+
+        // Log AI_RAW Sequence
+        std::string seq = "[";
+        if (NUMBERS[j]->digit_roi) {
+             for (int i = 0; i < NUMBERS[j]->digit_roi->ROI.size(); ++i) {
+                seq += std::to_string(NUMBERS[j]->digit_roi->ROI[i]->result_klasse);
+                if (i < NUMBERS[j]->digit_roi->ROI.size() - 1) seq += ", ";
+             }
+        }
+        if (NUMBERS[j]->analog_roi) {
+            if (NUMBERS[j]->digit_roi) seq += ", ";
+            for (int i = 0; i < NUMBERS[j]->analog_roi->ROI.size(); ++i) {
+                seq += std::to_string(NUMBERS[j]->analog_roi->ROI[i]->result_float);
+                if (i < NUMBERS[j]->analog_roi->ROI.size() - 1) seq += ", ";
+            }
+        }
+        seq += "]";
+        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[AI_RAW] Sequence: " + seq);
 	    
         NUMBERS[j]->ReturnRawValue = ShiftDecimal(NUMBERS[j]->ReturnRawValue, NUMBERS[j]->DecimalShift);
 
@@ -925,6 +943,7 @@ bool ClassFlowPostProcessing::doFlow(string zwtime) {
                     NUMBERS[j]->timeStampLastValue = imagetime;
 
                     string _zw = NUMBERS[j]->name + ": Raw: " + NUMBERS[j]->ReturnRawValue + ", Value: " + NUMBERS[j]->ReturnValue + ", Status: " + NUMBERS[j]->ErrorMessageText;
+                    LogFile.WriteToFile(ESP_LOG_ERROR, TAG, "[REJECT] Reason: Negative Rate (New < Pre)");
                     LogFile.WriteToFile(ESP_LOG_ERROR, TAG, _zw);
                     WriteDataLog(j);
                     continue;
@@ -962,6 +981,7 @@ bool ClassFlowPostProcessing::doFlow(string zwtime) {
                     NUMBERS[j]->timeStampLastValue = imagetime;
 
                     string _zw = NUMBERS[j]->name + ": Raw: " + NUMBERS[j]->ReturnRawValue + ", Value: " + NUMBERS[j]->ReturnValue + ", Status: " + NUMBERS[j]->ErrorMessageText;
+                    LogFile.WriteToFile(ESP_LOG_ERROR, TAG, "[REJECT] Reason: Flow Rate Exceeded (" + RundeOutput(_ratedifference, NUMBERS[j]->Nachkomma) + " > " + RundeOutput(NUMBERS[j]->MaxRateValue, NUMBERS[j]->Nachkomma) + ")");
                     LogFile.WriteToFile(ESP_LOG_ERROR, TAG, _zw);
                     WriteDataLog(j);
                     continue;
@@ -985,6 +1005,9 @@ bool ClassFlowPostProcessing::doFlow(string zwtime) {
 
         NUMBERS[j]->ErrorMessageText = "no error";
         UpdatePreValueINI = true;
+
+        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[VALIDATE] PreValue: " + RundeOutput(NUMBERS[j]->PreValue, NUMBERS[j]->Nachkomma) + " | NewValue: " + RundeOutput(NUMBERS[j]->Value, NUMBERS[j]->Nachkomma) + " | dT: " +  std::to_string(LastPreValueTimeDifference*60) + "s");
+        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[VALIDATE] FlowRate: " + NUMBERS[j]->ReturnRateValue + " m3/h");
 
         string _zw = NUMBERS[j]->name + ": Raw: " + NUMBERS[j]->ReturnRawValue + ", Value: " + NUMBERS[j]->ReturnValue + ", Status: " + NUMBERS[j]->ErrorMessageText;
         LogFile.WriteToFile(ESP_LOG_INFO, TAG, _zw);
@@ -1104,6 +1127,8 @@ string ClassFlowPostProcessing::ErsetzteN(string input, double _prevalue) {
         zw =_prevalue / pow(10, pot);
         ziffer = ((int) zw) % 10;
         input[posN] = ziffer + 48;
+        
+        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[LOGIC] NaN Correction: Replaced 'N' at pos " + std::to_string(posN) + " with '" + std::to_string(ziffer) + "' (based on PreValue)");
 
         posN = findDelimiterPos(input, "N");
     }
@@ -1147,12 +1172,14 @@ float ClassFlowPostProcessing::checkDigitConsistency(double input, int _decilams
         if (no_nulldurchgang) {
             if (aktdigit != olddigit) {
                 input = input + ((float) (olddigit - aktdigit)) * pow(10, pot);     // New Digit is replaced by old Digit;
+                LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[LOGIC] Consistency: Replaced digit " + std::to_string(aktdigit) + " with " + std::to_string(olddigit) + " (No Zero Crossing)");
             }
         }
         else {
             // despite zero crossing, digit was not incremented --> add 1
             if (aktdigit == olddigit) {
                 input = input + ((float) (1)) * pow(10, pot);   // add 1 at the point
+                LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[LOGIC] Consistency: Incremented digit " + std::to_string(aktdigit) + " (Zero Crossing detected)");
             }
         }
 			

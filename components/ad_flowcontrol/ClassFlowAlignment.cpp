@@ -234,6 +234,8 @@ bool ClassFlowAlignment::doFlow(string time)
         if (!AlignAndCutImage->Align(&References[0], &References[1])) {
             SaveReferenceAlignmentValues();
         }
+        
+        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "[ALIGN] Ref: " + References[0].image_file + " | Shift: dx=" + std::to_string(References[0].fastalg_x) + ", dy=" + std::to_string(References[0].fastalg_y));
     } // no align
 
 #ifdef ALGROI_LOAD_FROM_MEM_AS_JPG
