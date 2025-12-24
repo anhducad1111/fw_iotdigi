@@ -702,6 +702,8 @@ void ClassFlowPostProcessing::InitNUMBERS() {
         _number->PreValue = 0; // last value read out well
         _number->ReturnPreValue = "";
         _number->ErrorMessageText = ""; // Error message for consistency check
+        _number->timeStampLastValue = 0;
+        _number->timeStampLastPreValue = 0;
 
         _number->Nachkomma = _number->AnzahlAnalog;
 

@@ -1707,17 +1707,17 @@ void task_autodoFlow(void *pvParameter)
         fr_delta_ms = (esp_timer_get_time() - fr_start) / 1000;
 
         // Active Wait (Wait before Deep Sleep to allow web access)
-        int64_t wait_ms = flowctrl.getAutoWait() * 1000;
+        int64_t wait_ms = (int64_t)flowctrl.getAutoWait() * 60 * 1000;
         
         if (wait_ms > 0) {
             StatusLED(OFFLINE_CHECK, 1, true);
-            LogFile.WriteToFile(ESP_LOG_INFO, TAG, "Autoflow: Active Wait for " + std::to_string(wait_ms/1000) + "s...");
+            LogFile.WriteToFile(ESP_LOG_INFO, TAG, "Autoflow: Active Wait for " + std::to_string(wait_ms/60000) + " minute(s) (" + std::to_string(wait_ms/1000) + "s)...");
             vTaskDelay(wait_ms / portTICK_PERIOD_MS);
         }
 
         // Deep Sleep (AutoInterval)
         int64_t sleep_time_us = (int64_t)auto_interval * 1000; // auto_interval is in ms (minutes * 60 * 1000)
-        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "Autoflow: Entering Deep Sleep for " + std::to_string(sleep_time_us/1000000) + "s");
+        LogFile.WriteToFile(ESP_LOG_INFO, TAG, "Autoflow: Entering Deep Sleep for " + std::to_string(sleep_time_us/60000000) + " minute(s) (" + std::to_string(sleep_time_us/1000000) + "s)");
         
         esp_sleep_enable_timer_wakeup(sleep_time_us);
         esp_deep_sleep_start();

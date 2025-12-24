@@ -42,8 +42,8 @@ bool WebhookPublish(std::vector<NumberPost*>* numbers)
     
     for (int i = 0; i < (*numbers).size(); ++i)
     {
-        time_t lastPreValue = (*numbers)[i]->timeStampLastPreValue;
-        _lastTimestamp = static_cast<long>(lastPreValue);
+        time_t lastValueTime = (*numbers)[i]->timeStampLastValue;
+        _lastTimestamp = static_cast<long>(lastValueTime);
         
         // Write each field for this NumberPost
         // 1. Name

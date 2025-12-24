@@ -82,22 +82,24 @@
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="TakeImage_RawImagesLocation_enabled" value="1"
-                                    onclick='InvertEnableItem("TakeImage", "RawImagesLocation")' unchecked>
+                                <input class="form-check-input" type="checkbox" id="TakeImage_RawImagesLocation_enabled"
+                                    value="1" onclick='InvertEnableItem("TakeImage", "RawImagesLocation")' unchecked>
                                 <label class="form-check-label" for="TakeImage_RawImagesLocation_enabled">
                                     <span id="TakeImage_RawImagesLocation_text">Raw Images Location</span>
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="text" name="name" id="TakeImage_RawImagesLocation_value1">
+                            <input class="form-control" required type="text" name="name"
+                                id="TakeImage_RawImagesLocation_value1">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="TakeImage_RawImagesRetention_enabled" value="1"
+                                <input class="form-check-input" type="checkbox"
+                                    id="TakeImage_RawImagesRetention_enabled" value="1"
                                     onclick='InvertEnableItem("TakeImage", "RawImagesRetention")' unchecked>
                                 <label class="form-check-label" for="TakeImage_RawImagesRetention_enabled">
                                     <span id="TakeImage_RawImagesRetention_text">Raw Images Retention</span>
@@ -106,7 +108,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" required type="number" id="TakeImage_RawImagesRetention_value1" min="0" step="1"
+                                <input class="form-control" required type="number"
+                                    id="TakeImage_RawImagesRetention_value1" min="0" step="1"
                                     oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                                 <span class="input-group-text">Days</span>
                             </div>
@@ -119,8 +122,9 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" required type="number" id="TakeImage_WaitBeforeTakingPicture_value1" min="0"
-                                    step="any" onchange="cameraParameterChanged()"
+                                <input class="form-control" required type="number"
+                                    id="TakeImage_WaitBeforeTakingPicture_value1" min="0" step="any"
+                                    onchange="cameraParameterChanged()"
                                     oninput="(!validity.rangeUnderflow||(value=0));">
                                 <span class="input-group-text">Seconds</span>
                             </div>
@@ -132,7 +136,8 @@
                             <span id="TakeImage_CamGainceiling_text">CamGainceiling</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamGainceiling_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamGainceiling_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="x2" selected>x2</option>
                                 <option value="x4">x4</option>
                                 <option value="x8">x8</option>
@@ -149,8 +154,8 @@
                             <span id="TakeImage_CamQuality_text">Image Quality</span>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="TakeImage_CamQuality_value1" min="5" max="63"
-                                onchange="cameraParameterChanged()" oninput="(!validity.rangeUnderflow||(value=5)) && (!validity.rangeOverflow||(value=63)) &&
+                            <input class="form-control" required type="number" id="TakeImage_CamQuality_value1" min="5"
+                                max="63" onchange="cameraParameterChanged()" oninput="(!validity.rangeUnderflow||(value=5)) && (!validity.rangeOverflow||(value=63)) &&
                                 (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -160,8 +165,8 @@
                             <span id="TakeImage_CamBrightness_text">Brightness</span>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="TakeImage_CamBrightness_value1" min="-2" max="2"
-                                onchange="cameraParameterChanged()"
+                            <input class="form-control" required type="number" id="TakeImage_CamBrightness_value1"
+                                min="-2" max="2" onchange="cameraParameterChanged()"
                                 oninput="(!validity.rangeUnderflow||(value=-2)) && (!validity.rangeOverflow||(value=2)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -171,8 +176,8 @@
                             <span id="TakeImage_CamContrast_text">Contrast</span>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="TakeImage_CamContrast_value1" min="-2" max="2"
-                                onchange="cameraParameterChanged()"
+                            <input class="form-control" required type="number" id="TakeImage_CamContrast_value1"
+                                min="-2" max="2" onchange="cameraParameterChanged()"
                                 oninput="(!validity.rangeUnderflow||(value=-2)) && (!validity.rangeOverflow||(value=2)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -182,8 +187,8 @@
                             <span id="TakeImage_CamSaturation_text">Saturation</span>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="TakeImage_CamSaturation_value1" min="-2" max="2"
-                                onchange="cameraParameterChanged()"
+                            <input class="form-control" required type="number" id="TakeImage_CamSaturation_value1"
+                                min="-2" max="2" onchange="cameraParameterChanged()"
                                 oninput="(!validity.rangeUnderflow||(value=-2)) && (!validity.rangeOverflow||(value=2)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -193,7 +198,8 @@
                             <span id="TakeImage_CamAutoSharpness_text">AutoSharpness</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamAutoSharpness_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamAutoSharpness_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -205,8 +211,8 @@
                             <span id="TakeImage_CamSharpness_text">Sharpness</span>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="TakeImage_CamSharpness_value1" min="-3" max="3"
-                                onchange="cameraParameterChanged()"
+                            <input class="form-control" required type="number" id="TakeImage_CamSharpness_value1"
+                                min="-3" max="3" onchange="cameraParameterChanged()"
                                 oninput="(!validity.rangeUnderflow||(value=-3)) && (!validity.rangeOverflow||(value=3)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -216,7 +222,8 @@
                             <span id="TakeImage_CamSpecialEffect_text">SpecialEffect</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamSpecialEffect_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamSpecialEffect_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="no_effect" selected>no effect</option>
                                 <option value="negative">negative</option>
                                 <option value="grayscale">grayscale</option>
@@ -233,7 +240,8 @@
                             <span id="TakeImage_CamWbMode_text">White Balance Mode</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamWbMode_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamWbMode_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="auto" selected>auto</option>
                                 <option value="sunny">sunny</option>
                                 <option value="cloudy">cloudy</option>
@@ -248,7 +256,8 @@
                             <span id="TakeImage_CamAwb_text">White Balance</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamAwb_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamAwb_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -260,7 +269,8 @@
                             <span id="TakeImage_CamAwbGain_text">Auto White Balance</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamAwbGain_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamAwbGain_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -272,7 +282,8 @@
                             <span id="TakeImage_CamAec_text">Auto-Exposure Control</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamAec_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamAec_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -284,7 +295,8 @@
                             <span id="TakeImage_CamAec2_text">Auto-Exposure Control 2</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamAec2_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamAec2_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -296,8 +308,8 @@
                             <span id="TakeImage_CamAeLevel_text">Auto Exposure Level</span>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="TakeImage_CamAeLevel_value1" min="-5" max="5"
-                                onchange="cameraParameterChanged()"
+                            <input class="form-control" required type="number" id="TakeImage_CamAeLevel_value1" min="-5"
+                                max="5" onchange="cameraParameterChanged()"
                                 oninput="(!validity.rangeUnderflow||(value=-5)) && (!validity.rangeOverflow||(value=5)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -307,8 +319,8 @@
                             <span id="TakeImage_CamAecValue_text">Auto Exposure Value</span>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="TakeImage_CamAecValue_value1" min="0" max="1200"
-                                onchange="cameraParameterChanged()"
+                            <input class="form-control" required type="number" id="TakeImage_CamAecValue_value1" min="0"
+                                max="1200" onchange="cameraParameterChanged()"
                                 oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.rangeOverflow||(value=1200)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -318,7 +330,8 @@
                             <span id="TakeImage_CamAgc_text">Auto Gain</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamAgc_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamAgc_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -330,8 +343,8 @@
                             <span id="TakeImage_CamAgcGain_text">Gain Manual Value</span>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="TakeImage_CamAgcGain_value1" min="0" max="30"
-                                onchange="cameraParameterChanged()" oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.rangeOverflow||(value=30)) &&
+                            <input class="form-control" required type="number" id="TakeImage_CamAgcGain_value1" min="0"
+                                max="30" onchange="cameraParameterChanged()" oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.rangeOverflow||(value=30)) &&
                                 (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -341,7 +354,8 @@
                             <span id="TakeImage_CamBpc_text">Black Pixel Correction</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamBpc_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamBpc_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -353,7 +367,8 @@
                             <span id="TakeImage_CamWpc_text">White Pixel Correction</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamWpc_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamWpc_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -365,7 +380,8 @@
                             <span id="TakeImage_CamRawGma_text">CamRawGma</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamRawGma_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamRawGma_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -377,7 +393,8 @@
                             <span id="TakeImage_CamLenc_text">Lens Correction</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamLenc_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamLenc_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -389,7 +406,8 @@
                             <span id="TakeImage_CamHmirror_text">Mirror Image</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamHmirror_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamHmirror_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -401,7 +419,8 @@
                             <span id="TakeImage_CamVflip_text">Flip Image</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamVflip_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamVflip_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -413,7 +432,8 @@
                             <span id="TakeImage_CamDcw_text">Downsize</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamDcw_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamDcw_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -425,8 +445,8 @@
                             <span id="TakeImage_CamDenoise_text">Denoise</span>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="TakeImage_CamDenoise_value1" value="0" min="0" max="8" step="1"
-                                onchange="cameraParameterChanged()"
+                            <input class="form-control" required type="number" id="TakeImage_CamDenoise_value1"
+                                value="0" min="0" max="8" step="1" onchange="cameraParameterChanged()"
                                 oninput="(!validity.rangeOverflow||(value=8)) && (!validity.rangeUnderflow||(value=0)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -436,7 +456,8 @@
                             <span id="TakeImage_CamZoom_text">Zoom</span>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-select" id="TakeImage_CamZoom_value1" onchange="cameraParameterChanged()">
+                            <select class="form-select" id="TakeImage_CamZoom_value1"
+                                onchange="cameraParameterChanged()">
                                 <option value="true">enabled (true)</option>
                                 <option value="false" selected>disabled (false)</option>
                             </select>
@@ -448,8 +469,8 @@
                             <span id="TakeImage_CamZoomSize_text">Zoom Size</span>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="TakeImage_CamZoomSize_value1" value="0" min="0" max="59" step="1"
-                                onchange="cameraParameterChanged()"
+                            <input class="form-control" required type="number" id="TakeImage_CamZoomSize_value1"
+                                value="0" min="0" max="59" step="1" onchange="cameraParameterChanged()"
                                 oninput="(!validity.rangeOverflow||(value=59)) && (!validity.rangeUnderflow||(value=0)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -460,8 +481,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" required type="number" id="TakeImage_CamZoomOffsetX_value1" value="0" min="-960" max="960"
-                                    step="8" onchange="cameraParameterChanged()"
+                                <input class="form-control" required type="number" id="TakeImage_CamZoomOffsetX_value1"
+                                    value="0" min="-960" max="960" step="8" onchange="cameraParameterChanged()"
                                     oninput="(!validity.rangeOverflow||(value=960)) && (!validity.rangeUnderflow||(value=-960)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                                 <span class="input-group-text">Pixel</span>
                             </div>
@@ -474,8 +495,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" required type="number" id="TakeImage_CamZoomOffsetY_value1" value="0" min="-720" max="720"
-                                    step="8" onchange="cameraParameterChanged()"
+                                <input class="form-control" required type="number" id="TakeImage_CamZoomOffsetY_value1"
+                                    value="0" min="-720" max="720" step="8" onchange="cameraParameterChanged()"
                                     oninput="(!validity.rangeOverflow||(value=720)) && (!validity.rangeUnderflow||(value=-720)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                                 <span class="input-group-text">Pixel</span>
                             </div>
@@ -487,8 +508,8 @@
                             <span id="TakeImage_LEDIntensity_text">LED Intensity</span>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="TakeImage_LEDIntensity_value1" min="0" max="100"
-                                onchange="cameraParameterChanged()"
+                            <input class="form-control" required type="number" id="TakeImage_LEDIntensity_value1"
+                                min="0" max="100" onchange="cameraParameterChanged()"
                                 oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.rangeOverflow||(value=100)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -521,8 +542,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" required type="number" name="name" id="Alignment_SearchFieldX_value1" min="1"
-                                    step="1"
+                                <input class="form-control" required type="number" name="name"
+                                    id="Alignment_SearchFieldX_value1" min="1" step="1"
                                     oninput="(!validity.rangeUnderflow||(value=1)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                                 <span class="input-group-text">Pixel</span>
                             </div>
@@ -535,7 +556,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" required type="number" name="name" id="Alignment_SearchFieldY_value1" min="1"
+                                <input class="form-control" required type="number" name="name"
+                                    id="Alignment_SearchFieldY_value1" min="1"
                                     oninput="(!validity.rangeUnderflow||(value=1)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                                 <span class="input-group-text">Pixel</span>
                             </div>
@@ -545,8 +567,8 @@
                     <div class="row mb-3 expert">
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="Alignment_AlignmentAlgo_enabled" value="1"
-                                    onclick='InvertEnableItem("Alignment", "AlignmentAlgo")' unchecked>
+                                <input class="form-check-input" type="checkbox" id="Alignment_AlignmentAlgo_enabled"
+                                    value="1" onclick='InvertEnableItem("Alignment", "AlignmentAlgo")' unchecked>
                                 <label class="form-check-label" for="Alignment_AlignmentAlgo_enabled">
                                     <span id="Alignment_AlignmentAlgo_text">Alignment Algorithm</span>
                                 </label>
@@ -568,8 +590,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" required type="number" name="name" id="Alignment_InitialRotate_value1" min="-180"
-                                    max="+180" step="0.1"
+                                <input class="form-control" required type="number" name="name"
+                                    id="Alignment_InitialRotate_value1" min="-180" max="+180" step="0.1"
                                     oninput="(!validity.rangeOverflow||(value=180)) && (!validity.rangeUnderflow||(value=-180)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                                 <span class="input-group-text">degree</span>
                             </div>
@@ -600,16 +622,16 @@
                     <div class="row mb-3 expert DigitItem">
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="Digits_CNNGoodThreshold_enabled" value="1"
-                                    onclick='InvertEnableItem("Digits", "CNNGoodThreshold")' unchecked>
+                                <input class="form-check-input" type="checkbox" id="Digits_CNNGoodThreshold_enabled"
+                                    value="1" onclick='InvertEnableItem("Digits", "CNNGoodThreshold")' unchecked>
                                 <label class="form-check-label" for="Digits_CNNGoodThreshold_enabled">
                                     <span id="Digits_CNNGoodThreshold_text">CNN Good Threshold</span>
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="Digits_CNNGoodThreshold_value1" min="0" max="1" step="0.1"
-                                oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.rangeOverflow||(value=1)) && 
+                            <input class="form-control" required type="number" id="Digits_CNNGoodThreshold_value1"
+                                min="0" max="1" step="0.1" oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.rangeOverflow||(value=1)) && 
                                 (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -617,23 +639,24 @@
                     <div class="row mb-3 DigitItem">
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="Digits_ROIImagesLocation_enabled" value="1"
-                                    onclick='InvertEnableItem("Digits", "ROIImagesLocation")' unchecked>
+                                <input class="form-check-input" type="checkbox" id="Digits_ROIImagesLocation_enabled"
+                                    value="1" onclick='InvertEnableItem("Digits", "ROIImagesLocation")' unchecked>
                                 <label class="form-check-label" for="Digits_ROIImagesLocation_enabled">
                                     <span id="Digits_ROIImagesLocation_text">ROI Images Location</span>
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="text" name="name" id="Digits_ROIImagesLocation_value1">
+                            <input class="form-control" required type="text" name="name"
+                                id="Digits_ROIImagesLocation_value1">
                         </div>
                     </div>
 
                     <div class="row mb-3 DigitItem">
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="Digits_ROIImagesRetention_enabled" value="1"
-                                    onclick='InvertEnableItem("Digits", "ROIImagesRetention")' unchecked>
+                                <input class="form-check-input" type="checkbox" id="Digits_ROIImagesRetention_enabled"
+                                    value="1" onclick='InvertEnableItem("Digits", "ROIImagesRetention")' unchecked>
                                 <label class="form-check-label" for="Digits_ROIImagesRetention_enabled">
                                     <span id="Digits_ROIImagesRetention_text">ROI Images Retention</span>
                                 </label>
@@ -641,7 +664,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" required type="number" id="Digits_ROIImagesRetention_value1" min="0" step="1"
+                                <input class="form-control" required type="number" id="Digits_ROIImagesRetention_value1"
+                                    min="0" step="1"
                                     oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                                 <span class="input-group-text">Days</span>
                             </div>
@@ -671,23 +695,24 @@
                     <div class="row mb-3 AnalogItem">
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="Analog_ROIImagesLocation_enabled" value="1"
-                                    onclick='InvertEnableItem("Analog", "ROIImagesLocation")' unchecked>
+                                <input class="form-check-input" type="checkbox" id="Analog_ROIImagesLocation_enabled"
+                                    value="1" onclick='InvertEnableItem("Analog", "ROIImagesLocation")' unchecked>
                                 <label class="form-check-label" for="Analog_ROIImagesLocation_enabled">
                                     <span id="Analog_ROIImagesLocation_text">ROI Images Location</span>
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="text" name="name" id="Analog_ROIImagesLocation_value1">
+                            <input class="form-control" required type="text" name="name"
+                                id="Analog_ROIImagesLocation_value1">
                         </div>
                     </div>
 
                     <div class="row mb-3 AnalogItem">
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="Analog_ROIImagesRetention_enabled" value="1"
-                                    onclick='InvertEnableItem("Analog", "ROIImagesRetention")' unchecked>
+                                <input class="form-check-input" type="checkbox" id="Analog_ROIImagesRetention_enabled"
+                                    value="1" onclick='InvertEnableItem("Analog", "ROIImagesRetention")' unchecked>
                                 <label class="form-check-label" for="Analog_ROIImagesRetention_enabled">
                                     <span id="Analog_ROIImagesRetention_text">ROI Images Retention</span>
                                 </label>
@@ -695,7 +720,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" required type="number" id="Analog_ROIImagesRetention_value1" min="0" step="1"
+                                <input class="form-control" required type="number" id="Analog_ROIImagesRetention_value1"
+                                    min="0" step="1"
                                     oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                                 <span class="input-group-text">Days</span>
                             </div>
@@ -727,7 +753,8 @@
                     <div class="row mb-3 expert">
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="PostProcessing_PreValueAgeStartup_enabled" value="1"
+                                <input class="form-check-input" type="checkbox"
+                                    id="PostProcessing_PreValueAgeStartup_enabled" value="1"
                                     onclick='InvertEnableItem("PostProcessing", "PreValueAgeStartup")' unchecked>
                                 <label class="form-check-label" for="PostProcessing_PreValueAgeStartup_enabled">
                                     <span id="PostProcessing_PreValueAgeStartup_text">Maximum Age of Previous
@@ -737,7 +764,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" required type="number" id="PostProcessing_PreValueAgeStartup_value1" min="0"
+                                <input class="form-control" required type="number"
+                                    id="PostProcessing_PreValueAgeStartup_value1" min="0"
                                     oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                                 <span class="input-group-text">Minutes</span>
                             </div>
@@ -781,16 +809,16 @@
                     <div class="row mb-3">
                         <div class="col-md-4 ps-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="PostProcessing_DecimalShift_enabled" value="1"
-                                    onclick='InvertEnableItem("PostProcessing", "DecimalShift")' unchecked>
+                                <input class="form-check-input" type="checkbox" id="PostProcessing_DecimalShift_enabled"
+                                    value="1" onclick='InvertEnableItem("PostProcessing", "DecimalShift")' unchecked>
                                 <label class="form-check-label" for="PostProcessing_DecimalShift_enabled">
                                     <span id="PostProcessing_DecimalShift_text">Decimal Shift</span>
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="PostProcessing_DecimalShift_value1" value="0" step="1" min="-9"
-                                max="9" oninput="(!validity.rangeUnderflow||(value=-9)) && (!validity.rangeOverflow||(value=9)) && 
+                            <input class="form-control" required type="number" id="PostProcessing_DecimalShift_value1"
+                                value="0" step="1" min="-9" max="9" oninput="(!validity.rangeUnderflow||(value=-9)) && (!validity.rangeOverflow||(value=9)) && 
                                 (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -798,17 +826,21 @@
                     <div class="row mb-3">
                         <div class="col-md-4 ps-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="PostProcessing_AnalogToDigitTransitionStart_enabled" value="1"
-                                    onclick='InvertEnableItem("PostProcessing", "AnalogToDigitTransitionStart")' unchecked>
-                                <label class="form-check-label" for="PostProcessing_AnalogToDigitTransitionStart_enabled">
+                                <input class="form-check-input" type="checkbox"
+                                    id="PostProcessing_AnalogToDigitTransitionStart_enabled" value="1"
+                                    onclick='InvertEnableItem("PostProcessing", "AnalogToDigitTransitionStart")'
+                                    unchecked>
+                                <label class="form-check-label"
+                                    for="PostProcessing_AnalogToDigitTransitionStart_enabled">
                                     <span id="PostProcessing_AnalogToDigitTransitionStart_text">Analog to
                                         Digit Transition Start</span>
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="PostProcessing_AnalogToDigitTransitionStart_value1" step="0.1"
-                                min="5.0" max="9.9" value="9.2" oninput="(!validity.rangeUnderflow||(value=5.0)) && (!validity.rangeOverflow||(value=9.9)) && 
+                            <input class="form-control" required type="number"
+                                id="PostProcessing_AnalogToDigitTransitionStart_value1" step="0.1" min="5.0" max="9.9"
+                                value="9.2" oninput="(!validity.rangeUnderflow||(value=5.0)) && (!validity.rangeOverflow||(value=9.9)) && 
                                 (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -816,15 +848,16 @@
                     <div class="row mb-3">
                         <div class="col-md-4 ps-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="PostProcessing_MaxRateValue_enabled" value="1"
-                                    onclick='InvertEnableItem("PostProcessing", "MaxRateValue")' unchecked>
+                                <input class="form-check-input" type="checkbox" id="PostProcessing_MaxRateValue_enabled"
+                                    value="1" onclick='InvertEnableItem("PostProcessing", "MaxRateValue")' unchecked>
                                 <label class="form-check-label" for="PostProcessing_MaxRateValue_enabled">
                                     <span id="PostProcessing_MaxRateValue_text">Maximum Rate Value</span>
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="PostProcessing_MaxRateValue_value1" min="0" step="any"
+                            <input class="form-control" required type="number" id="PostProcessing_MaxRateValue_value1"
+                                min="0" step="any"
                                 oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -832,8 +865,8 @@
                     <div class="row mb-3">
                         <div class="col-md-4 ps-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="PostProcessing_MaxRateType_enabled" value="1"
-                                    onclick='InvertEnableItem("PostProcessing", "MaxRateType")' unchecked>
+                                <input class="form-check-input" type="checkbox" id="PostProcessing_MaxRateType_enabled"
+                                    value="1" onclick='InvertEnableItem("PostProcessing", "MaxRateType")' unchecked>
                                 <label class="form-check-label" for="PostProcessing_MaxRateType_enabled">
                                     <span id="PostProcessing_MaxRateType_text">Maximum Rate Type</span>
                                 </label>
@@ -850,7 +883,8 @@
                     <div class="row mb-3">
                         <div class="col-md-4 ps-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="PostProcessing_ChangeRateThreshold_enabled" value="1"
+                                <input class="form-check-input" type="checkbox"
+                                    id="PostProcessing_ChangeRateThreshold_enabled" value="1"
                                     onclick='InvertEnableItem("PostProcessing", "ChangeRateThreshold")' unchecked>
                                 <label class="form-check-label" for="PostProcessing_ChangeRateThreshold_enabled">
                                     <span id="PostProcessing_ChangeRateThreshold_text">Change Rate Threshold</span>
@@ -858,8 +892,9 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <input class="form-control" required type="number" id="PostProcessing_ChangeRateThreshold_value1" step="1" min="0"
-                                max="9" value="2" oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.rangeOverflow||(value=9)) && 
+                            <input class="form-control" required type="number"
+                                id="PostProcessing_ChangeRateThreshold_value1" step="1" min="0" max="9" value="2"
+                                oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.rangeOverflow||(value=9)) && 
                                 (!validity.stepMismatch||(value=parseInt(this.value)));">
                         </div>
                     </div>
@@ -983,8 +1018,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" required type="number" id="AutoTimer_Interval_value1" min="1" step="any"
-                                    oninput="(!validity.rangeUnderflow||(value=1));">
+                                <input class="form-control" required type="number" id="AutoTimer_Interval_value1"
+                                    min="1" step="any" oninput="(!validity.rangeUnderflow||(value=1));">
                                 <span class="input-group-text">Minutes</span>
                             </div>
                         </div>
@@ -995,9 +1030,10 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" required type="number" id="AutoTimer_Wait_value1" min="0" max="30" step="1"
+                                <input class="form-control" required type="number" id="AutoTimer_Wait_value1" min="0"
+                                    max="30" step="any"
                                     oninput="(!validity.rangeUnderflow||(value=0)) && (!validity.rangeOverflow||(value=30));">
-                                <span class="input-group-text">Seconds</span>
+                                <span class="input-group-text">Minutes</span>
                             </div>
                         </div>
                     </div>
@@ -1782,7 +1818,7 @@
 
                 for (var j = 1; j <= _param[_cat][_name]["anzParam"]; ++j) {
                     let element = document.getElementById(_cat + "_" + _name + "_value" + j);
-                    
+
                     if (!element) {
                         continue;
                     }
@@ -1814,7 +1850,7 @@
 
                 for (var j = 1; j <= _param[_cat][_name]["anzParam"]; ++j) {
                     let element = document.getElementById(_cat + "_" + _name + "_value" + j);
-                    
+
                     if (!element) {
                         continue;
                     }

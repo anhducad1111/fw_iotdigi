@@ -1,23 +1,9 @@
-"=== BUILD START - 2025-12-17 09:12 PM: ===" 
-In file included from components/esp-tflite-micro/tensorflow/lite/micro/micro_mutable_op_resolver.h:22,
-                 from components/ad_tfliteclass/CTfLiteClass.h:6,
-                 from components/ad_flowcontrol/ClassFlowCNNGeneral.cpp:8:
-components/esp-tflite-micro/tensorflow/lite/core/api/flatbuffer_conversions.h: In member function 'T* tflite::BuiltinDataAllocator::AllocatePOD()':
-components/esp-tflite-micro/tensorflow/lite/core/api/flatbuffer_conversions.h:46:24: warning: 'template<class _Tp> struct std::is_pod' is deprecated: use 'is_standard_layout && is_trivial' instead [-Wdeprecated-declarations]
-   46 |     static_assert(std::is_pod<T>::value, "Builtin data structure must be POD.");
-      |                        ^~~~~~
-In file included from C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/bits/move.h:37,
-                 from C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/bits/exception_ptr.h:41,
-                 from C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/exception:164,
-                 from C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/ios:41,
-                 from C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/istream:40,
-                 from C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/fstream:40,
-                 from components/ad_flowcontrol/ClassFlow.h:6,
-                 from components/ad_flowcontrol/ClassFlowImage.h:6,
-                 from components/ad_flowcontrol/ClassFlowDefineTypes.h:6,
-                 from components/ad_flowcontrol/ClassFlowCNNGeneral.h:6,
-                 from components/ad_flowcontrol/ClassFlowCNNGeneral.cpp:1:
-C:/Users/AnhDuc/.platformio/packages/toolchain-xtensa-esp-elf@13.2.0+20240530/xtensa-esp-elf/include/c++/13.2.0/type_traits:819:5: note: declared here
-  819 |     is_pod
-      |     ^~~~~~
-"=== BUILD SUCCESS - 2025-12-17 09:12 PM: ===" 
+"=== BUILD START - 2025-12-23 10:30 PM: ===" 
+components/ad_controlcamera/ClassControlCamera.cpp:105:1: warning: missing initializer for member 'camera_config_t::sccb_i2c_port' [-Wmissing-field-initializers]
+  105 | };
+      | ^
+main/main.cpp: In function 'bool Init_NVS_SDCard()':
+main/main.cpp:167:5: warning: missing initializer for member 'esp_vfs_fat_mount_config_t::use_one_fat' [-Wmissing-field-initializers]
+  167 |     };
+      |     ^
+"=== BUILD SUCCESS - 2025-12-23 10:30 PM: ===" 
