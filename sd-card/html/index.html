@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en">
+
 <head>
     <link rel="icon" href="favicon.ico?v=v1" type="image/x-icon">
     <link rel="apple-touch-icon" href="Iotdigi.svg?v=v1" />
@@ -7,7 +8,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=v1" type="text/css" >
+    <link rel="stylesheet" href="style.css?v=v1" type="text/css">
     <link href="firework.css?v=v1" rel="stylesheet">
 
     <script type="text/javascript" src="common.js?v=v1"></script>
@@ -31,14 +32,14 @@
 
             if (streamPopup) {  // Ensure that stream popup is closed because it's blocking web interface
                 streamPopup.close();
-			}
+            }
 
             asyncPageLoad(page);
         }
 
-        async function asyncPageLoad(page ) {
+        async function asyncPageLoad(page) {
             console.log("  loading " + page + " ...");
-            document.cookie = "page="+page + "; path=/";
+            document.cookie = "page=" + page + "; path=/";
             document.getElementById('maincontent').src = page;
 
             [].forEach.call(document.querySelectorAll('.submenu'), function (el) {
@@ -51,23 +52,23 @@
                 el.style.visibility = 'visible';
             });
         }
-        
+
         function getCookie(cname) {
-			let name = cname + "=";
-			let decodedCookie = decodeURIComponent(document.cookie);
-			let ca = decodedCookie.split(';');
-			for(let i = 0; i <ca.length; i++) {
-				let c = ca[i];
-				
-				while (c.charAt(0) == ' ') {
-					c = c.substring(1);
-				}
-				
-				if (c.indexOf(name) == 0) {
-					return c.substring(name.length, c.length);
-				}
-			}
-        return "";
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
         }        
     </script>
     <style>
@@ -80,15 +81,18 @@
             background-color: #d8d8d8;
             margin-top: 20px;
         }
+
         .footer-section {
             display: flex;
             align-items: center;
         }
+
         .footer-section img {
             width: 24px;
             height: 24px;
             margin-left: 10px;
         }
+
         .donation-cards img {
             height: 20px;
             margin-right: 5px;
@@ -128,8 +132,7 @@
 
                         <!-- Settings Dropdown -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button"
-                                data-bs-toggle="dropdown" data-bs-trigger="hover">
+                            <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button">
                                 Settings
                             </a>
                             <ul class="dropdown-menu submenu">
@@ -164,8 +167,7 @@
 
                         <!-- Manual Control Dropdown -->
                         <li class="nav-item dropdown" id="ManualControl" style="display:none;">
-                            <a class="nav-link dropdown-toggle" href="#" id="manualControlDropdown" role="button"
-                                data-bs-toggle="dropdown" data-bs-trigger="hover">
+                            <a class="nav-link dropdown-toggle" href="#" id="manualControlDropdown" role="button">
                                 Manual Control
                             </a>
                             <ul class="dropdown-menu submenu">
@@ -173,6 +175,11 @@
                                 <li id="HASendDiscovery" style="display:none;"><a class="dropdown-item" href="#"
                                         onclick="HA_send_discovery()">Resend Homeassistant Discovery</a></li>
                             </ul>
+                        </li>
+
+                        <!-- Reset Setup -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="resetSetup()">Reset Setup</a>
                         </li>
                     </ul>
                 </div>
@@ -188,86 +195,180 @@
         </div>
     </div>
 
-<script src="bootstrap.bundle.min.js"></script>
-<script type="text/javascript">
-    // Handle nested dropdowns on hover
-    document.addEventListener('DOMContentLoaded', function() {
-        var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu');
-        dropdownSubmenus.forEach(function(submenu) {
-            submenu.addEventListener('mouseenter', function() {
-                var innerMenu = this.querySelector('.dropdown-menu');
-                if (innerMenu) {
-                    innerMenu.style.display = 'block';
+    <script src="bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        // Handle nested dropdowns on hover and click
+        document.addEventListener('DOMContentLoaded', function () {
+            // Handle main dropdowns - enable click
+            var mainDropdowns = document.querySelectorAll('.navbar-nav > .nav-item.dropdown > .nav-link.dropdown-toggle');
+            mainDropdowns.forEach(function (dropdown) {
+                dropdown.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var parent = this.parentElement;
+                    var menu = parent.querySelector('.dropdown-menu');
+
+                    // Close all other dropdowns
+                    document.querySelectorAll('.navbar-nav > .nav-item.dropdown').forEach(function (item) {
+                        if (item !== parent) {
+                            item.querySelector('.dropdown-menu').style.display = 'none';
+                        }
+                    });
+
+                    // Toggle current dropdown
+                    if (menu.style.display === 'block') {
+                        menu.style.display = 'none';
+                    } else {
+                        menu.style.display = 'block';
+                    }
+                });
+            });
+
+            // Handle nested dropdowns
+            var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu');
+            dropdownSubmenus.forEach(function (submenu) {
+                // Hover support
+                submenu.addEventListener('mouseenter', function () {
+                    var innerMenu = this.querySelector('.dropdown-menu');
+                    if (innerMenu) {
+                        innerMenu.style.display = 'block';
+                    }
+                });
+                submenu.addEventListener('mouseleave', function () {
+                    var innerMenu = this.querySelector('.dropdown-menu');
+                    if (innerMenu) {
+                        innerMenu.style.display = 'none';
+                    }
+                });
+
+                // Click support for nested dropdowns
+                var nestedToggle = submenu.querySelector('.dropdown-toggle');
+                if (nestedToggle) {
+                    nestedToggle.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        var innerMenu = submenu.querySelector('.dropdown-menu');
+                        if (innerMenu) {
+                            if (innerMenu.style.display === 'block') {
+                                innerMenu.style.display = 'none';
+                            } else {
+                                innerMenu.style.display = 'block';
+                            }
+                        }
+                    });
                 }
             });
-            submenu.addEventListener('mouseleave', function() {
-                var innerMenu = this.querySelector('.dropdown-menu');
-                if (innerMenu) {
-                    innerMenu.style.display = 'none';
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.navbar-nav')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(function (menu) {
+                        menu.style.display = 'none';
+                    });
                 }
             });
         });
-    });
 
-    LoadHostname();
-    LoadFwVersion();
-    LoadWebUiVersion();
-    HA_send_discovery_visibility();
+        LoadHostname();
+        LoadFwVersion();
+        LoadWebUiVersion();
+        HA_send_discovery_visibility();
 
-    if (getCookie("page") == "" || getCookie("page") == "reboot_page.html?v=v1") {
-		document.cookie = "page=overview.html?v=v1" + "; path=/";
-    }
-    console.log("Loading page: " + getCookie("page"));
-    document.getElementById('maincontent').src = getCookie("page");
-
-    
-    function flow_start() {
-    var url = getDomainname() + '/flow_start'; 
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-                firework.launch(xhttp.responseText, 'success', 5000);
-			    /*if (xhttp.responseText.substring(0,3) == "001") {
-					firework.launch('Flow start triggered', 'success', 5000);
-                    window.location.reload();
-				}
-				else if (xhttp.responseText.substring(0,3) == "002") {
-					firework.launch('Flow start scheduled. Start after round is completed', 'success', 5000);
-				}
-				else if (xhttp.responseText.substring(0,3) == "099") {
-					firework.launch('Flow start triggered, but start not possible (no flow task available)', 'danger', 5000);
-                }*/
-			}
-		}
-		xhttp.open("GET", url, true);
-		xhttp.send();
-    }
-    
-
-    function HA_send_discovery_visibility()	{
-		loadConfig(domainname); 
-		ParseConfig();
-		category = getConfigCategory();
-        param = getConfigParameters();
-		
-	}
+        if (getCookie("page") == "" || getCookie("page") == "reboot_page.html?v=v1") {
+            document.cookie = "page=overview.html?v=v1" + "; path=/";
+        }
+        console.log("Loading page: " + getCookie("page"));
+        document.getElementById('maincontent').src = getCookie("page");
 
 
-    function start_livestream(streamFlashlight) {
-        if (streamPopup) {
-            streamPopup.close();
-		}
+        function flow_start() {
+            var url = getDomainname() + '/flow_start';
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    firework.launch(xhttp.responseText, 'success', 5000);
+                    /*if (xhttp.responseText.substring(0,3) == "001") {
+                        firework.launch('Flow start triggered', 'success', 5000);
+                        window.location.reload();
+                    }
+                    else if (xhttp.responseText.substring(0,3) == "002") {
+                        firework.launch('Flow start scheduled. Start after round is completed', 'success', 5000);
+                    }
+                    else if (xhttp.responseText.substring(0,3) == "099") {
+                        firework.launch('Flow start triggered, but start not possible (no flow task available)', 'danger', 5000);
+                    }*/
+                }
+            }
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
 
-        if (streamFlashlight) {
-            streamPopup = window.open(getDomainname() + '/stream?flashlight=true','LivestreamWithlight',streamWindowFeatures);
-		}
-        else {
-            streamPopup = window.open(getDomainname() + '/stream','Livestream',streamWindowFeatures);
-		}
 
-        streamPopup.focus();
-    }
-</script>
+        function resetSetup() {
+            if (!confirm("Are you sure you want to reset setup mode?\n\nThis will enable SetupMode and reboot the device.")) {
+                return;
+            }
+
+            var domainname = getDomainname();
+
+            // Load current config
+            if (!loadConfig(domainname)) {
+                firework.launch('Failed to load configuration!', 'danger', 5000);
+                return;
+            }
+
+            // Parse config
+            ParseConfig();
+            var category = getConfigCategory();
+            var param = getConfigParameters();
+
+            // Update SetupMode to true
+            if (param["System"] && param["System"]["SetupMode"]) {
+                param["System"]["SetupMode"]["value1"] = "true";
+                param["System"]["SetupMode"]["enabled"] = true;
+            }
+
+            // Write config back
+            WriteConfigININew();
+            SaveConfigToServer(domainname);
+
+            // Show success message and reboot
+            firework.launch('Setup mode enabled! Device will reboot now...', 'success', 3000);
+
+            setTimeout(function () {
+                var rebootUrl = domainname + "/reboot";
+                window.location = rebootUrl;
+                window.location.href = rebootUrl;
+                window.location.assign(rebootUrl);
+                window.location.replace(rebootUrl);
+            }, 3000);
+        }
+
+
+        function HA_send_discovery_visibility() {
+            loadConfig(domainname);
+            ParseConfig();
+            category = getConfigCategory();
+            param = getConfigParameters();
+
+        }
+
+
+        function start_livestream(streamFlashlight) {
+            if (streamPopup) {
+                streamPopup.close();
+            }
+
+            if (streamFlashlight) {
+                streamPopup = window.open(getDomainname() + '/stream?flashlight=true', 'LivestreamWithlight', streamWindowFeatures);
+            }
+            else {
+                streamPopup = window.open(getDomainname() + '/stream', 'Livestream', streamWindowFeatures);
+            }
+
+            streamPopup.focus();
+        }
+    </script>
 
 </body>
+
 </html>

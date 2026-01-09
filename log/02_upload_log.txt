@@ -1,4 +1,4 @@
-"=== UPLOAD START - 2025-12-23 10:36 PM: ===" 
+"=== UPLOAD START - 2026-01-09 12:44 AM: ===" 
 Processing esp32cam (board: esp32cam; framework: espidf; platform: platformio/espressif32 @ 6.9.0)
 --------------------------------------------------------------------------------
 Verbose mode can be enabled via `-v, --verbose` option
@@ -30,8 +30,8 @@ Building in release mode
 Retrieving maximum program size .pio\build\esp32cam\firmware.elf
 Checking size .pio\build\esp32cam\firmware.elf
 Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
-RAM:   [=         ]  14.8% (used 48464 bytes from 327680 bytes)
-Flash: [=======   ]  74.6% (used 1452096 bytes from 1945600 bytes)
+RAM:   [=         ]  14.8% (used 48472 bytes from 327680 bytes)
+Flash: [=======   ]  74.6% (used 1452092 bytes from 1945600 bytes)
 Configuring upload protocol...
 AVAILABLE: cmsis-dap, esp-bridge, esp-prog, espota, esptool, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa
 CURRENT: upload_protocol = esptool
@@ -55,87 +55,87 @@ Flash will be erased from 0x00001000 to 0x00006fff...
 Flash will be erased from 0x00008000 to 0x00008fff...
 Flash will be erased from 0x0000d000 to 0x0000efff...
 Flash will be erased from 0x00010000 to 0x00172fff...
-Compressed 21456 bytes to 13813...
+Compressed 21456 bytes to 13811...
 Writing at 0x00001000... (100 %)
-Wrote 21456 bytes (13813 compressed) at 0x00001000 in 0.6 seconds (effective 267.0 kbit/s)...
+Wrote 21456 bytes (13811 compressed) at 0x00001000 in 0.6 seconds (effective 267.6 kbit/s)...
 Hash of data verified.
 Compressed 3072 bytes to 128...
 Writing at 0x00008000... (100 %)
-Wrote 3072 bytes (128 compressed) at 0x00008000 in 0.1 seconds (effective 470.8 kbit/s)...
+Wrote 3072 bytes (128 compressed) at 0x00008000 in 0.1 seconds (effective 464.3 kbit/s)...
 Hash of data verified.
 Compressed 8192 bytes to 31...
 Writing at 0x0000d000... (100 %)
-Wrote 8192 bytes (31 compressed) at 0x0000d000 in 0.1 seconds (effective 1044.2 kbit/s)...
+Wrote 8192 bytes (31 compressed) at 0x0000d000 in 0.1 seconds (effective 1102.4 kbit/s)...
 Hash of data verified.
-Compressed 1452592 bytes to 952099...
+Compressed 1452576 bytes to 952346...
 Writing at 0x00010000... (1 %)
-Writing at 0x0001a67c... (3 %)
-Writing at 0x0002602d... (5 %)
-Writing at 0x0002cf6f... (6 %)
-Writing at 0x00032060... (8 %)
-Writing at 0x0003a539... (10 %)
-Writing at 0x000457f8... (11 %)
-Writing at 0x0004b0f1... (13 %)
-Writing at 0x00050914... (15 %)
-Writing at 0x00056d1a... (16 %)
-Writing at 0x0005cc84... (18 %)
-Writing at 0x0006248d... (20 %)
-Writing at 0x00067431... (22 %)
-Writing at 0x0006c799... (23 %)
-Writing at 0x00072306... (25 %)
-Writing at 0x00078403... (27 %)
-Writing at 0x0007ea75... (28 %)
-Writing at 0x00084c32... (30 %)
-Writing at 0x0008a281... (32 %)
-Writing at 0x0008f950... (33 %)
-Writing at 0x000954fd... (35 %)
-Writing at 0x0009ad40... (37 %)
-Writing at 0x000a05a7... (38 %)
-Writing at 0x000a5d90... (40 %)
-Writing at 0x000ab296... (42 %)
-Writing at 0x000b0a56... (44 %)
-Writing at 0x000b61de... (45 %)
-Writing at 0x000bbbf4... (47 %)
-Writing at 0x000c16f1... (49 %)
-Writing at 0x000c68ca... (50 %)
-Writing at 0x000cbcba... (52 %)
-Writing at 0x000d1ba9... (54 %)
-Writing at 0x000d73c5... (55 %)
-Writing at 0x000dcd64... (57 %)
-Writing at 0x000e209d... (59 %)
-Writing at 0x000e74d2... (61 %)
-Writing at 0x000ec641... (62 %)
-Writing at 0x000f1c83... (64 %)
-Writing at 0x000f701e... (66 %)
-Writing at 0x000fc45d... (67 %)
-Writing at 0x00101a6e... (69 %)
-Writing at 0x00107245... (71 %)
-Writing at 0x0010daa7... (72 %)
-Writing at 0x001163ba... (74 %)
-Writing at 0x0011e62b... (76 %)
-Writing at 0x00128017... (77 %)
-Writing at 0x0012ddcc... (79 %)
-Writing at 0x001335c1... (81 %)
-Writing at 0x001388e5... (83 %)
-Writing at 0x0013dccb... (84 %)
-Writing at 0x00142ddf... (86 %)
-Writing at 0x00148755... (88 %)
-Writing at 0x0014e223... (89 %)
-Writing at 0x00153d2e... (91 %)
-Writing at 0x0015b67b... (93 %)
-Writing at 0x00160ed2... (94 %)
-Writing at 0x00166ad4... (96 %)
-Writing at 0x0016c9c4... (98 %)
-Writing at 0x00171d25... (100 %)
-Wrote 1452592 bytes (952099 compressed) at 0x00010000 in 21.4 seconds (effective 542.0 kbit/s)...
+Writing at 0x0001a679... (3 %)
+Writing at 0x00026030... (5 %)
+Writing at 0x0002cf68... (6 %)
+Writing at 0x00032055... (8 %)
+Writing at 0x0003a52b... (10 %)
+Writing at 0x000457d5... (11 %)
+Writing at 0x0004b0df... (13 %)
+Writing at 0x000508e8... (15 %)
+Writing at 0x00056cd3... (16 %)
+Writing at 0x0005c90e... (18 %)
+Writing at 0x0006239f... (20 %)
+Writing at 0x0006732c... (22 %)
+Writing at 0x0006c689... (23 %)
+Writing at 0x000721ba... (25 %)
+Writing at 0x000781aa... (27 %)
+Writing at 0x0007e92e... (28 %)
+Writing at 0x00084a68... (30 %)
+Writing at 0x0008a15f... (32 %)
+Writing at 0x0008f7c5... (33 %)
+Writing at 0x00095393... (35 %)
+Writing at 0x0009abc8... (37 %)
+Writing at 0x000a0410... (38 %)
+Writing at 0x000a5c22... (40 %)
+Writing at 0x000ab143... (42 %)
+Writing at 0x000b090b... (44 %)
+Writing at 0x000b6040... (45 %)
+Writing at 0x000bba4d... (47 %)
+Writing at 0x000c15aa... (49 %)
+Writing at 0x000c675c... (50 %)
+Writing at 0x000cbb36... (52 %)
+Writing at 0x000d1932... (54 %)
+Writing at 0x000d7273... (55 %)
+Writing at 0x000dcc11... (57 %)
+Writing at 0x000e1f5e... (59 %)
+Writing at 0x000e738d... (61 %)
+Writing at 0x000ec4f0... (62 %)
+Writing at 0x000f1abf... (64 %)
+Writing at 0x000f6ec1... (66 %)
+Writing at 0x000fc329... (67 %)
+Writing at 0x00101907... (69 %)
+Writing at 0x001070e9... (71 %)
+Writing at 0x0010d791... (72 %)
+Writing at 0x00115fd5... (74 %)
+Writing at 0x0011e38e... (76 %)
+Writing at 0x00127e4a... (77 %)
+Writing at 0x0012dc93... (79 %)
+Writing at 0x001334a4... (81 %)
+Writing at 0x001387bd... (83 %)
+Writing at 0x0013db5a... (84 %)
+Writing at 0x00142fd2... (86 %)
+Writing at 0x001485cd... (88 %)
+Writing at 0x0014e0c2... (89 %)
+Writing at 0x00153b3f... (91 %)
+Writing at 0x0015b50c... (93 %)
+Writing at 0x00160d26... (94 %)
+Writing at 0x00166981... (96 %)
+Writing at 0x0016c891... (98 %)
+Writing at 0x00171bd9... (100 %)
+Wrote 1452576 bytes (952346 compressed) at 0x00010000 in 21.4 seconds (effective 541.9 kbit/s)...
 Hash of data verified.
 
 Leaving...
 Hard resetting via RTS pin...
-========================= [SUCCESS] Took 33.61 seconds =========================
+========================= [SUCCESS] Took 32.54 seconds =========================
 
 Environment    Status    Duration
 -------------  --------  ------------
-esp32cam       SUCCESS   00:00:33.612
-========================= 1 succeeded in 00:00:33.612 =========================
-"=== UPLOAD END - 2025-12-23 10:36 PM: ===" 
+esp32cam       SUCCESS   00:00:32.538
+========================= 1 succeeded in 00:00:32.538 =========================
+"=== UPLOAD END - 2026-01-09 12:44 AM: ===" 

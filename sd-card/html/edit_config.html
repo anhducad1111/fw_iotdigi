@@ -26,7 +26,7 @@
 
     <details class="mb-4">
         <summary><b>CLICK HERE</b> for usage description. More infos in documentation:
-            <a href="https://jomjol.github.io/AI-on-the-edge-device-docs/Parameters" target="_blank">Parameter</a>
+
         </summary>
         <p>
             This page lists all available configuration parameters of the device.<br>
@@ -1235,6 +1235,7 @@
 
             //WriteParameter(param, category, "AutoTimer", "AutoStart", false);	
             WriteParameter(param, category, "AutoTimer", "Interval", false);
+            WriteParameter(param, category, "AutoTimer", "Wait", false);
 
 
             WriteModelFiles();
@@ -1352,6 +1353,7 @@
 
             //ReadParameter(param, "AutoTimer", "AutoStart", false);
             ReadParameter(param, "AutoTimer", "Interval", false);
+            ReadParameter(param, "AutoTimer", "Wait", false);
 
 
             var sel = document.getElementById("Numbers_value1");

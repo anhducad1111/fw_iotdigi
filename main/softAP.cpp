@@ -98,7 +98,7 @@ void wifi_init_softAP(void)
 
 void SendHTTPResponse(httpd_req_t *req)
 {
-    std::string message = "<h1>AI-on-the-edge - BASIC SETUP</h1><p>This is an access point with a minimal server to setup the minimum required files and information on the device and the SD-card. ";
+    std::string message = "<h1>IoT Digi - BASIC SETUP</h1><p>This is an access point with a minimal server to setup the minimum required files and information on the device and the SD-card. ";
     message += "This mode is always started if one of the following files is missing: /wlan.ini or the /config/config.ini.<p>";
     message += "The setup is done in 3 steps: 1. upload full inital configuration (sd-card content), 2. store WLAN access information, 3. reboot (and connect to WLANs)<p><p>";
     message += "Please follow the below instructions.<p>";

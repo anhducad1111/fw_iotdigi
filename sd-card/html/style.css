@@ -53,6 +53,18 @@ p {
   display: block;
 }
 
+/* Main dropdown menu */
+.navbar-nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+}
+
+.navbar-nav .dropdown-menu.show,
+.navbar-nav .dropdown-menu[style*="display: block"] {
+  display: block !important;
+}
+
 .dropdown-item.dropdown-toggle::after {
   display: inline-block;
   margin-left: 0.255em;

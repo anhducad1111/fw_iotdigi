@@ -1,5 +1,7 @@
-"=== COPY SD CARD START - 2025-12-23 10:38 PM: ===" 
+"=== COPY SD CARD START - 2026-01-05 10:48 PM: ===" 
 Deleted file - F:\wlan.ini
+Deleted file - F:\System Volume Information\WPSettings.dat
+Deleted file - F:\System Volume Information\IndexerVolumeGuid
 sd-card\wlan.ini
 sd-card\config\ana-cont_1300_s2.tflite
 sd-card\config\ana-cont_1400_s2_q.tflite
@@ -21,23 +23,36 @@ sd-card\config\ref0_org.jpg
 sd-card\config\ref1.jpg
 sd-card\config\ref1_org.jpg
 sd-card\config\reference.jpg
+sd-card\html\04_zip.bat
 sd-card\html\backup.html
+sd-card\html\backup.html.gz
 sd-card\html\bootstrap.bundle.min.js
 sd-card\html\bootstrap.min.css
 sd-card\html\close.png
 sd-card\html\cnn_images.jpg
 sd-card\html\common.js
 sd-card\html\data.html
+sd-card\html\data.html.gz
 sd-card\html\data_export.html
+sd-card\html\data_export.html.gz
 sd-card\html\edit_alignment.html
+sd-card\html\edit_alignment.html.gz
 sd-card\html\edit_analog.html
+sd-card\html\edit_analog.html.gz
 sd-card\html\edit_config.html
+sd-card\html\edit_config.html.gz
 sd-card\html\edit_config_raw.html
+sd-card\html\edit_config_raw.html.gz
 sd-card\html\edit_digits.html
+sd-card\html\edit_digits.html.gz
 sd-card\html\edit_explain_0.html
+sd-card\html\edit_explain_0.html.gz
 sd-card\html\edit_explain_7.html
+sd-card\html\edit_explain_7.html.gz
 sd-card\html\edit_explain_7_abort.html
+sd-card\html\edit_explain_7_abort.html.gz
 sd-card\html\edit_reference.html
+sd-card\html\edit_reference.html.gz
 sd-card\html\edit_style.css
 sd-card\html\favicon.ico
 sd-card\html\FileSaver.min.js
@@ -52,31 +67,42 @@ sd-card\html\Flowstate_take_image.jpg
 sd-card\html\flow_overview.jpg
 sd-card\html\github.min.css
 sd-card\html\graph.html
+sd-card\html\graph.html.gz
 sd-card\html\help.png
 sd-card\html\index.html
+sd-card\html\index.html.gz
 sd-card\html\info.html
+sd-card\html\info.html.gz
 sd-card\html\iotdigi.svg
 sd-card\html\ipInput.min.css
 sd-card\html\ipInput.min.js
 sd-card\html\jquery-3.6.0.min.js
 sd-card\html\jszip.min.js
 sd-card\html\log.html
+sd-card\html\log.html.gz
 sd-card\html\md5.min.js
 sd-card\html\mkdocs_theme.css
 sd-card\html\mkdocs_theme_extra.css
 sd-card\html\ota_page.html
+sd-card\html\ota_page.html.gz
 sd-card\html\overview.html
+sd-card\html\overview.html.gz
 sd-card\html\plotly-basic-2.18.2.min.js
 sd-card\html\prevalue_set.html
+sd-card\html\prevalue_set.html.gz
 sd-card\html\readconfigcommon.js
 sd-card\html\readconfigparam.js
 sd-card\html\reboot_page.html
+sd-card\html\reboot_page.html.gz
 sd-card\html\searchicon.png
 sd-card\html\setup.html
+sd-card\html\setup.html.gz
 sd-card\html\style.css
 sd-card\html\timezones.html
+sd-card\html\timezones.html.gz
 sd-card\html\wlan_config.html
+sd-card\html\wlan_config.html.gz
 sd-card\html\img\ChangeRateThreshold.png
 sd-card\html\img\ChangeRateThreshold.png.gz
-78 File(s) copied
-"=== COPY SD CARD END - 2025-12-23 10:38 PM: ===" 
+102 File(s) copied
+"=== COPY SD CARD END - 2026-01-05 10:48 PM: ===" 
